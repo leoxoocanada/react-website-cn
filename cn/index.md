@@ -1,29 +1,17 @@
----
-layout: hero
-title: A JavaScript library for building user interfaces
-id: home
----
+[文档](docs/hello-world.md) | [教程](tutorial/tutorial.md) | [社区](community/support.md) | [博客](_posts/2017/04/07/react-v15.5.0.md) | [React Github](https://facebook.github.io/react/)
 
-<section class="light home-section">
-  <div class="marketing-row">
-    <div class="marketing-col">
-      <h3>Declarative</h3>
-      <p>React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.</p>
-      <p>Declarative views make your code more predictable and easier to debug.</p>
-    </div>
-    <div class="marketing-col">
-      <h3>Component-Based</h3>
-      <p>Build encapsulated components that manage their own state, then compose them to make complex UIs.</p>
-      <p>Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.</p>
-    </div>
-    <div class="marketing-col">
-      <h3>Learn Once, Write Anywhere</h3>
-      <p>We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.</p>
-      <p>React can also render on the server using Node and power mobile apps using <a href="https://facebook.github.io/react-native/">React Native</a>.</p>
-    </div>
-  </div>
-</section>
-<hr class="home-divider" />
+
+# React 一个构建用户交互界面的 JavaScript 库
+
+[开始](docs/hello-world.md) | [获取教程](tutorial/tutorial.md)
+
+
+---- | ----
+Declarative | Component-Based | Learn Once, Write Anywhere
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.Declarative views make your code more predictable and easier to debug.  | Build encapsulated components that manage their own state, then compose them to make complex UIs.Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM. | We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.React can also render on the server using Node and power mobile apps using <a href="https://facebook.github.io/react-native/">React Native</a>.
+
+<hr />
+
 <section class="home-section">
   <div id="examples">
     <div class="example">
