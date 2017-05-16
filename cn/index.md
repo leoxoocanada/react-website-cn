@@ -7,9 +7,8 @@
 
 [开始](docs/hello-world.md) | [获取教程](tutorial/tutorial.md)
 
-| | | |
-| ---- | ---- | ---- |
 | 声明式 | Component-Based | Learn Once, Write Anywhere |
+| ---- | ---- | ---- |
 | React 使得创建可交互用户界面变得轻松。在你的应用中为每个状态设计单个视图，并且当你的数据变化时 React 将高效的更新并渲染合适的组件。声明式视图使你的代码更加可预测且更容易调试。| Build encapsulated components that manage their own state, then compose them to make complex UIs.Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM. | We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.React can also render on the server using Node and power mobile apps using <a href="https://facebook.github.io/react-native/">React Native</a>. |
 
 <hr />
