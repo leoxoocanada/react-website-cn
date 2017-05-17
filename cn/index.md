@@ -15,9 +15,9 @@
 
 ## 单个组件
 
-React 组件执行 `render()` 方法将输入的数据显示出来。这个示例使用一种叫 JSX 的类似于 XML 的语法。输入的数据被通过 `render()`传递到组件后可以用`this.props`读取。
+React 组件实现了一个 `render()` 方法，接收数据参数，返回展示的内容。这个示例中使用一种叫 JSX 的类似于 XML 的语法。传递给组件的数据可以在 `render()`方法中通过`this.props`读取。
 
-**使用 React 时 JSX 是可选的。** 
+**在 React 中 JSX 不是必须的** 
 
 ```
 class HelloMessage extends React.Component {
