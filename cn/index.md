@@ -7,9 +7,9 @@
 
 [开始](docs/hello-world.md) | [获取教程](tutorial/tutorial.md)
 
-| 声明式 | 组件化 | Learn Once, Write Anywhere |
+| 声明式 | 组件化 | 仅需学习一次，编写任何平台 |
 | ---- | ---- | ---- |
-| React 使得创建可交互用户界面变得轻松。在你的应用中为每个状态设计单个视图，并且当你的数据变化时 React 将高效的更新并渲染合适的组件。声明式视图使你的代码更加可预测且更容易调试。| 为管理他们自己的状态构建封装的组件，在 Javascript 中用复杂的可交互组件代替模板，通过你的 App 你可以很容易的传递丰富的数据，且在 DOM 上保持状态。| We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.React can also render on the server using Node and power mobile apps using <a href="https://facebook.github.io/react-native/">React Native</a>. |
+| React 使得创建可交互用户界面变得轻松。在你的应用中为每个状态设计单个视图，并且当你的数据变化时 React 将高效的更新并渲染合适的组件。声明式视图使你的代码更加可预测且更容易调试。| 为管理他们自己的状态构建封装的组件，在 Javascript 中用复杂的可交互组件代替模板，通过你的 App 你可以很容易的传递丰富的数据，且在 DOM 上保持状态。| 我们不假设你有其它的技术栈， 所以在 React 中你可以不需要重构你的现有代码就可以开发出新的产品。React 也能在服务端渲染并且使用 [React Native](https://facebook.github.io/react-native/) 开发移动端 App |
 
 <hr />
 
