@@ -13,11 +13,11 @@
 
 ------
 
-## A Simple Component
+## 单个组件
 
-React components implement a `render()` method that takes input data and returns what to display. This example uses an XML-like syntax called JSX. Input data that is passed into the component can be accessed by `render()` via `this.props`.
+React 组件执行 `render()` 方法将输入的数据显示出来。这个示例使用一种叫 JSX 的类似于 XML 的语法。输入的数据被通过 `render()`传递到组件后可以用`this.props`读取。
 
-** JSX is optional and not required to use React.** Try clicking on "Compiled JS" to see the raw JavaScript code produced by the JSX compiler.
+**使用 React 时 JSX 是可选的。** 
 
 ```
 class HelloMessage extends React.Component {
