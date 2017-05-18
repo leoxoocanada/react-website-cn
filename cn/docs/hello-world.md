@@ -16,7 +16,7 @@ ReactDOM.render(
 ```
 它在页面上输出一个标题"Hello, world!" 。
 
-The next few sections will gradually introduce you to using React. We will examine the building blocks of React apps: elements and components. Once you master them, you can create complex apps from small reusable pieces.
+下一个章节将循序渐进的带你使用 React。我们将检查 React 应用程序构建块: 元素和组件。一旦你掌握了它们，你可以创建复杂的可复用的应用。
 
 ## A Note on JavaScript
 
