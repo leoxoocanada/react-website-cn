@@ -125,11 +125,9 @@ class TodoList extends React.Component {
 ReactDOM.render(<TodoApp />, mountNode);
 ```
 
-## A Component Using External Plugins
+## 使用外部插件的组件
 
-React is flexible and provides hooks that allow you to interface with
-other libraries and frameworks. This example uses **remarkable**, an
-external Markdown library, to convert the textarea's value in real time.
+React 是灵活的，通过提供的钩子允许你将其它库和框架连接起来，这个示例使用一个扩展 Markdown 的库 **remarkable** 来实时的转换输入框的值。
 
 
 ```
