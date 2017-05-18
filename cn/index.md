@@ -69,7 +69,7 @@ ReactDOM.render(<Timer />, mountNode);
 
 ## 应用程序
 
-通过使用 `props` 和 `state`，我们可以组装一个小的 Todo 应用程序。 这个示例使用 `state` 来追踪当前列表中用户输入的文本。 尽管事件处理程序看起来好像是内联的形式，它们将被作为事件委托来收集和执行。
+通过使用 `props` 和 `state`，我们可以创建一个小的 Todo 应用程序。这个示例使用 `state` 来追踪最新的列表项，以及用户最近输入的文字。尽管事件处理器看起来好像是内联的形式，不过这些事件将被收集起来，然后通过事件代理实现。
 
 ```
 class TodoApp extends React.Component {
