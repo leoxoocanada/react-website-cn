@@ -1,8 +1,9 @@
 # Hello World
 
-The easiest way to get started with React is to use [this Hello World example code on CodePen](http://codepen.io/gaearon/pen/ZpvBNJ?editors=0010). You don't need to install anything; you can just open it in another tab and follow along as we go through examples. If you'd rather use a local development environment, check out the [Installation](/react/docs/installation.html) page.
+要开始使用 React 最简单的方式是 [查看在 CodePen 上的 Hello World 示例代码](http://codepen.io/gaearon/pen/ZpvBNJ?editors=0010)。你不需要安装任何软件，你可以只在另外一个 tab 里打开它，并且通过示例跟着我们一起学习，假如你一定要使用本地的开发环境，请跳转到 [安装页面](/cn/docs/installation.md) .
 
-The smallest React example looks like this:
+最简单的 React 例子如下:
+
 
 ```js
 ReactDOM.render(
