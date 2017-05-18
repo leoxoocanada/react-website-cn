@@ -4,3 +4,8 @@
 
     翻译格式尽量按照官方网站排版形式呈现
 
+---
+
+## 资料参考
+
+* http://www.cnblogs.com/fenglovelu/tag/react/
