@@ -13,7 +13,7 @@
 
 ------
 
-## 单个组件
+## 一个简单的组件
 
 React 组件实现了一个 `render()` 方法，接收数据参数，返回展示的内容。这个示例中使用一种叫 JSX 的类似于 XML 的语法。传递给组件的数据可以在 `render()`方法中通过`this.props`读取。
 
@@ -30,12 +30,9 @@ ReactDOM.render(<HelloMessage name="Jane" />, mountNode);
 ```
 
 
-## A Stateful Component
+## 一个有状态的组件
 
-In addition to taking input data (accessed via `this.props`), a
-component can maintain internal state data (accessed via `this.state`).
-When a component's state data changes, the rendered markup will be
-updated by re-invoking `render()`.
+除了获取输入数据 (使用 `this.props`)，组件还可以维持内部状态数据(使用 `this.state`)。如果组件的状态数据有变化，已经渲染好的模型会调用`render()`更新。
 
 ```
 class Timer extends React.Component {
