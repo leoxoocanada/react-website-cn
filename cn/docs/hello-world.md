@@ -1,8 +1,8 @@
 # Hello World
 
-要开始使用 React 最简单的方式是 [查看在 CodePen 上的 Hello World 示例代码](http://codepen.io/gaearon/pen/ZpvBNJ?editors=0010)。你不需要安装任何软件，你可以只在另外一个 tab 里打开它，并且通过示例跟着我们一起学习，假如你一定要使用本地的开发环境，请跳转到 [安装页面](/cn/docs/installation.md) .
+开始使用 React 最简单的方式是使用在 CodePen 上的 [ Hello World 示例](http://codepen.io/gaearon/pen/ZpvBNJ?editors=0010)。无须安装任何环境，只需要在其它标签打开它然后跟着我们的例子去做，如果你更喜欢使用本地开发环境，可以访问 [安装页面](/cn/docs/installation.md) .
 
-最简单的 React 例子如下:
+最小的 React 例子如下:
 
 
 ```js
@@ -11,8 +11,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-
-It renders a header saying "Hello, world!" on the page.
+它在页面上输出一个标题"Hello, world!" 。
 
 The next few sections will gradually introduce you to using React. We will examine the building blocks of React apps: elements and components. Once you master them, you can create complex apps from small reusable pieces.
 
