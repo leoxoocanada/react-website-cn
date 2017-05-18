@@ -13,7 +13,7 @@
 
 ------
 
-## 一个简单的组件
+## 简单的组件
 
 React 组件实现了一个 `render()` 方法，接收数据参数，返回展示的内容。这个示例中使用一种叫 JSX 的类似于 XML 的语法。传递给组件的数据可以在 `render()`方法中通过`this.props`读取。
 
@@ -30,7 +30,7 @@ ReactDOM.render(<HelloMessage name="Jane" />, mountNode);
 ```
 
 
-## 一个有状态的组件
+## 有状态的组件
 
 除了获取输入数据 (通过访问 `this.props`)，组件还可以维护内部状态数据(通过访问 `this.state`)。如果组件的状态数据发生变化，会再次调用`render()`方法，更新展示的内容。
 
@@ -67,13 +67,9 @@ ReactDOM.render(<Timer />, mountNode);
 
 
 
-## An Application
+## 应用程序
 
-Using `props` and `state`, we can put together a small Todo application.
-This example uses `state` to track the current list of items as well as
-the text that the user has entered. Although event handlers appear to be
-rendered inline, they will be collected and implemented using event
-delegation.
+通过使用 `props` 和 `state`，我们可以组装一个小的 Todo 应用程序。 这个示例使用 `state` 来追踪当前列表中用户输入的文本。 尽管事件处理程序看起来好像是内联的形式，它们将被作为事件委托来收集和执行。
 
 ```
 class TodoApp extends React.Component {
