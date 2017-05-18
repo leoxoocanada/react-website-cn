@@ -1,3 +1,6 @@
+[文档](docs/hello-world.md) | [教程](tutorial/tutorial.md) | [社区](community/support.md) | [博客](_posts/2017/04/07/react-v15.5.0.md) | [React Github](https://facebook.github.io/react/)
+
+
 # Hello World
 
 开始使用 React 最简单的方式是使用在 CodePen 上的 [ Hello World 示例](http://codepen.io/gaearon/pen/ZpvBNJ?editors=0010)。无须安装任何环境，只需要在其它标签打开它然后跟着我们的例子去做，如果你更喜欢使用本地开发环境，可以访问 [安装页面](/cn/docs/installation.md) .
