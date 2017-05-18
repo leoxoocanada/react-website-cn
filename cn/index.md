@@ -127,7 +127,7 @@ ReactDOM.render(<TodoApp />, mountNode);
 
 ## 使用外部插件的组件
 
-React 是灵活的，通过提供的钩子允许你将其它库和框架连接起来，这个示例使用一个扩展 Markdown 的库 **remarkable** 来实时的转换输入框的值。
+React 提供灵活的钩子让你集成第三方库或者框架，这个示例使用一个扩展 Markdown 的库 **remarkable** 来实时的转换输入框的内容。
 
 
 ```
