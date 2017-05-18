@@ -32,7 +32,7 @@ ReactDOM.render(<HelloMessage name="Jane" />, mountNode);
 
 ## 一个有状态的组件
 
-除了获取输入数据 (使用 `this.props`)，组件还可以维持内部状态数据(使用 `this.state`)。如果组件的状态数据有变化，已经渲染好的模型会调用`render()`更新。
+除了获取输入数据 (通过访问 `this.props`)，组件还可以维护内部状态数据(通过访问 `this.state`)。如果组件的状态数据发生变化，会再次调用`render()`方法，更新展示的内容。
 
 ```
 class Timer extends React.Component {
