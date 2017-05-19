@@ -29,52 +29,52 @@ React 是一个 JavaScript 库, 所以需要你对 JavaScript 知识有一个基
 <details>
   <summary>文档导航</summary>
 
-#### Quick Start
+#### 快速入门
 
-* [Installation](/cn/docs/installation.md)
+* [安装](/cn/docs/installation.md)
 * [**`Hello World`**](/cn/docs/hello-world.md")
-* [Introducing JSX](/cn/docs/introducing-jsx.md)
-* [Rendering Elements](/cn/docs/rendering-elements.md)
-* [Components and Props](/cn/docs/components-and-props.md)
-* [State and Lifecycle](/cn/docs/state-and-lifecycle.md)
-* [Handling Events](/cn/docs/handling-events.md)
-* [Conditional Rendering](/cn/docs/conditional-rendering.md)
-* [Lists and Keys](/cn/docs/lists-and-keys.md)
-* [Forms](/cn/docs/forms.md)
-* [Lifting State Up](/cn/docs/lifting-state-up.md)
-* [Composition vs Inheritance](/cn/docs/composition-vs-inheritance.md)
-* [Thinking In React](/cn/docs/thinking-in-react.md)
+* [JSX 介绍](/cn/docs/introducing-jsx.md)
+* [渲染元素](/cn/docs/rendering-elements.md)
+* [组件和Props](/cn/docs/components-and-props.md)
+* [State和生命周期](/cn/docs/state-and-lifecycle.md)
+* [事件处理](/cn/docs/handling-events.md)
+* [条件渲染](/cn/docs/conditional-rendering.md)
+* [列表和键](/cn/docs/lists-and-keys.md)
+* [表单](/cn/docs/forms.md)
+* [状态提升](/cn/docs/lifting-state-up.md)
+* [组合 vs 继承](/cn/docs/composition-vs-inheritance.md)
+* [用 React 思考](/cn/docs/thinking-in-react.md)
 
-#### Advanced Guides
+#### 高级教程
 
-* [JSX In Depth](/cn/docs/jsx-in-depth.md)
-* [Typechecking With PropTypes](/cn/docs/typechecking-with-proptypes.md)
-* [Refs and the DOM](/cn/docs/refs-and-the-dom.md)
-* [Uncontrolled Components](/cn/docs/uncontrolled-components.md)
-* [Optimizing Performance](/cn/docs/optimizing-performance.md)
-* [React Without ES6](/cn/docs/react-without-es6.md)
-* [React Without JSX](/cn/docs/react-without-jsx.md)
-* [Reconciliation](/cn/docs/reconciliation.md)
-* [Context](/cn/docs/context.md)
+* [深入JSX](/cn/docs/jsx-in-depth.md)
+* [使用 PropTypes 做类型检查](/cn/docs/typechecking-with-proptypes.md)
+* [Refs 和 DOM](/cn/docs/refs-and-the-dom.md)
+* [不可控组件](/cn/docs/uncontrolled-components.md)
+* [性能优化](/cn/docs/optimizing-performance.md)
+* [不使用 ES6 的 React](/cn/docs/react-without-es6.md)
+* [不使用 JSX 的 React](/cn/docs/react-without-jsx.md)
+* [一致性比较（Reconciliation）](/cn/docs/reconciliation.md)
+* [上下文（Context）](/cn/docs/context.md)
 * [Web Components](/cn/docs/web-components.md)
-* [Higher-Order Components](/cn/docs/higher-order-components.md)
-* [Integrating with Other Libraries](/cn/docs/integrating-with-other-libraries.md)
+* [高阶组件](/cn/docs/higher-order-components.md)
+* [与其它类库集成](/cn/docs/integrating-with-other-libraries.md)
 
-#### Reference
+#### 参考
 
 * [React](/cn/docs/react-api.md)
 * [React.Component](/cn/docs/react-component.md)
 * [ReactDOM](/cn/docs/react-dom.md)
 * [ReactDOMServer](/cn/docs/react-dom-server.md)
-* [DOM Elements](/cn/docs/dom-elements.md)
-* [SyntheticEvent](/cn/docs/events.md)
+* [DOM 元素](/cn/docs/dom-elements.md)
+* [合成事件（SyntheticEvent）](/cn/docs/events.md)
 
-#### Contributing
+#### 贡献
 
-* [How to Contribute](/cn/contributing/how-to-contribute.md)
-* [Codebase Overview](/cn/contributing/codebase-overview.md)
-* [Implementation Notes](/cn/contributing/implementation-notes.md)
-* [Design Principles](/cn/contributing/design-principles.md)
+* [如何贡献](/cn/contributing/how-to-contribute.md)
+* [代码库概述](/cn/contributing/codebase-overview.md)
+* [实现说明](/cn/contributing/implementation-notes.md)
+* [设计原则](/cn/contributing/design-principles.md)
 
 
 </details>
