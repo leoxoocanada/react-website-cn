@@ -26,8 +26,8 @@ React 是一个 JavaScript 库, 所以需要你对 JavaScript 知识有一个基
 
 
 ---
-
-## 导航
+<details>
+  <summary>文档导航</summary>
 
 #### Quick Start
 
@@ -76,3 +76,5 @@ React 是一个 JavaScript 库, 所以需要你对 JavaScript 知识有一个基
 * [Implementation Notes](/cn/contributing/implementation-notes.md)
 * [Design Principles](/cn/contributing/design-principles.md)
 
+
+</details>
