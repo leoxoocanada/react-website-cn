@@ -32,7 +32,7 @@ React 是一个 JavaScript 库, 所以需要你对 JavaScript 知识有一个基
 #### Quick Start
 
 * [Installation](/cn/docs/installation.md)
-* [**Hello World**](/cn/docs/hello-world.md")
+* [`Hello World`](/cn/docs/hello-world.md")
 * [Introducing JSX](/cn/docs/introducing-jsx.md)
 * [Rendering Elements](/cn/docs/rendering-elements.md)
 * [Components and Props](/cn/docs/components-and-props.md)
