@@ -16,12 +16,12 @@ React 能被灵活的运用在各种各样的项目里。你能用它来创建�
 
 如果你更喜欢用你自己的文本编辑器，你也可以 [下载这个HTML文件](https://facebook.github.io/react/downloads/single-file-example.html) 进行编辑，然后在本地文件系统中使用浏览器打开它，它会执行一个缓慢的运行时代码转换，所以不要在生产环境使用它。
 
-如果你要在一个完整的应用中使用它，有2种比较流行的使用 React 的方式: 创建新应用、在现有代码库中使用。
+如果你要在一个完整的应用中使用它，有两种比较流行的使用 React 的方式: 使用Create React App、在现有代码库中使用。
 
 
 ## 创建新应用
 
-[Create React App](http://github.com/facebookincubator/create-react-app) is the best way to start building a new React single page application. It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production.
+[Create React App](http://github.com/facebookincubator/create-react-app) 是最佳的用来创建一个新的 React 单页应用的方式。它为你创建开发环境，这样你就可以使用最新的 JavaScript 特性，提供一种更好的开发体验，并且为你的生产环境优化应用。
 
 ```bash
 npm install -g create-react-app
