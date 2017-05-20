@@ -1,110 +1,14 @@
----
-id: installation
-title: Installation
-permalink: docs/installation.html
-redirect_from:
-  - "download.html"
-  - "downloads.html"
-  - "docs/tooling-integration.html"
-  - "docs/package-management.html"
-  - "docs/language-tooling.html"
-  - "docs/environments.html"
-next: hello-world.html
----
-<style>
-  .tab-hidden {
-    display: none;
-  }
-</style>
+[文档](docs/hello-world.md) | [教程](tutorial/tutorial.md) | [社区](community/support.md) | [博客](_posts/2017/04/07/react-v15.5.0.md) | [React Github](https://facebook.github.io/react/)
+
+# 安装
 
 React is flexible and can be used in a variety of projects. You can create new apps with it, but you can also gradually introduce it into an existing codebase without doing a rewrite.
 
-<div class="toggler">
-  <style>
-    .toggler li {
-       display: inline-block;
-       position: relative;
-       top: 1px;
-       padding: 10px;
-       margin: 0px 2px 0px 2px;
-       border: 1px solid #05A5D1;
-       border-bottom-color: transparent;
-       border-radius: 3px 3px 0px 0px;
-       color: #05A5D1;
-       background-color: transparent;
-       font-size: 0.99em;
-       cursor: pointer;
-    }
-    .toggler li:first-child {
-      margin-left: 0;
-    }
-    .toggler li:last-child {
-      margin-right: 0;
-    }
-    .toggler ul {
-      display: inline-block;
-      list-style-type: none;
-      margin: 0;
-      border-bottom: 1px solid #05A5D1;
-      cursor: default;
-    }
-    @media screen and (max-width: 960px) {
-      .toggler li,
-      .toggler li:first-child,
-      .toggler li:last-child {
-        display: block;
-        border-bottom-color: #05A5D1;
-        border-radius: 3px;
-        margin: 2px 0px 2px 0px;
-      }
-      .toggler ul {
-        border-bottom: 0;
-      }
-    }
-    .display-target-fiddle .toggler .button-fiddle:focus,
-    .display-target-newapp .toggler .button-newapp:focus,
-    .display-target-existingapp .toggler .button-existingapp:focus {
-      background-color: #046E8B;
-      color: white;
-    }
-    .display-target-fiddle .toggler .button-fiddle,
-    .display-target-newapp .toggler .button-newapp,
-    .display-target-existingapp .toggler .button-existingapp {
-      background-color: #05A5D1;
-      color: white;
-    }
-    block {
-      display: none;
-    }
-    .display-target-fiddle .fiddle,
-    .display-target-newapp .newapp,
-    .display-target-existingapp .existingapp {
-      display: block;
-    }
-  </style>
-  <script>
-    document.querySelector('.toggler').parentElement.className += ' display-target-fiddle';
-  </script>
-  <span>Which of these options best describes what you want to do?</span>
-  <br />
-  <br />
-   <ul role="tablist" >
-      <li id="fiddle" class="button-fiddle" aria-selected="false" role="tab" tabindex="0" aria-controls="fiddletab"
-          onclick="display('target', 'fiddle')" onkeyup="keyToggle(event, 'fiddle', 'existingapp', 'newapp')">
-        Try React
-      </li>
-      <li id="newapp" class="button-newapp" aria-selected="false" role="tab" tabindex="-1" aria-controls="newapptab"
-          onclick="display('target', 'newapp')" onkeyup="keyToggle(event, 'newapp', 'fiddle', 'existingapp')">
-        Create a New App
-      </li>
-      <li id="existingapp" class="button-existingapp" aria-selected="false" role="tab" tabindex="-1" aria-controls="existingapptab"
-          onclick="display('target', 'existingapp')" onkeyup="keyToggle(event, 'existingapp', 'newapp', 'fiddle')">
-        Add React to an Existing App
-      </li>
-    </ul>
-</div>
+Which of these options best describes what you want to do?
 
-<block id="fiddletab" role="tabpanel" class="fiddle"  />
+* Try React
+* Create a New App
+* Add React to an Existing App
 
 ## Trying Out React
 
@@ -114,7 +18,6 @@ If you prefer to use your own text editor, you can also <a href="/react/download
 
 If you want to use it for a full application, there are two popular ways to get started with React: using Create React App, or adding it to an existing application.
 
-<block id="newapptab" role="tabpanel" class="newapp" />
 
 ## Creating a New Application
 
@@ -132,7 +35,6 @@ Create React App doesn't handle backend logic or databases; it just creates a fr
 
 When you're ready to deploy to production, running `npm run build` will create an optimized build of your app in the `build` folder. You can learn more about Create React App [from its README](https://github.com/facebookincubator/create-react-app#create-react-app-) and the [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents).
 
-<block id="existingapptab" role="tabpanel" class="existingapp" />
 
 ## Adding React to an Existing Application
 
@@ -233,95 +135,57 @@ To load a specific version of `react` and `react-dom`, replace `15` with the ver
 
 If you use Bower, React is available via the `react` package.
 
-<script>
-/**
- * The code below is based on a snippet from React Native Getting Started page.
- */
 
-// Convert <div>...<span><block /></span>...</div>
-// Into <div>...<block />...</div>
-var blocks = document.getElementsByTagName('block');
-for (var i = 0; i < blocks.length; ++i) {
-  var block = blocks[i];
-  var span = blocks[i].parentNode;
-  var container = span.parentNode;
-  container.insertBefore(block, span);
-  container.removeChild(span);
-}
-// Convert <div>...<block />content<block />...</div>
-// Into <div>...<block>content</block><block />...</div>
-blocks = document.getElementsByTagName('block');
-for (var i = 0; i < blocks.length; ++i) {
-  var block = blocks[i];
-  while (block.nextSibling && block.nextSibling.tagName !== 'BLOCK') {
-    block.appendChild(block.nextSibling);
-  }
-}
+---
+<details>
+  <summary>文档导航</summary>
 
-function setSelected(value){
-  var tabs = document.querySelectorAll('li[role="tab"]');
-  for (var i = 0; i < tabs.length; ++i) {
-    var tab = tabs[i];
-    if (tab.className === 'button-' + value) {
-      tabs[i].setAttribute('aria-selected', 'true');
-      tabs[i].setAttribute('tabindex', '0');
-    } else {
-      tabs[i].setAttribute('aria-selected', 'false');
-      tabs[i].setAttribute('tabindex', '-1');
-    }
-  }
-}
+#### 快速入门
 
-function keyToggle(e, value, prevTab, nextTab){
-  if (e.keyCode === 37) {
-    document.getElementById(prevTab).focus();
-    display('target', prevTab);
-  }
-  if (e.keyCode === 39) {
-    document.getElementById(nextTab).focus();
-    display('target', nextTab);
-  }
-}
+* [安装](/cn/docs/installation.md)
+* [**`Hello World`**](/cn/docs/hello-world.md")
+* [JSX 介绍](/cn/docs/introducing-jsx.md)
+* [渲染元素](/cn/docs/rendering-elements.md)
+* [组件和Props](/cn/docs/components-and-props.md)
+* [State和生命周期](/cn/docs/state-and-lifecycle.md)
+* [事件处理](/cn/docs/handling-events.md)
+* [条件渲染](/cn/docs/conditional-rendering.md)
+* [列表和键](/cn/docs/lists-and-keys.md)
+* [表单](/cn/docs/forms.md)
+* [状态提升](/cn/docs/lifting-state-up.md)
+* [组合 vs 继承](/cn/docs/composition-vs-inheritance.md)
+* [用 React 思考](/cn/docs/thinking-in-react.md)
 
-function display(type, value) {
-  setSelected(value);
-  var container = document.getElementsByTagName('block')[0].parentNode;
-  container.className = 'display-' + type + '-' + value + ' ' +
-    container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
-}
+#### 高级教程
 
-// If we are coming to the page with a hash in it (i.e. from a search, for example), try to get
-// us as close as possible to the correct platform and dev os using the hashtag and block walk up.
-var foundHash = false;
-if (window.location.hash !== '' && window.location.hash !== 'content') { // content is default
-  // Hash links are added a bit later so we wait for them.
-  window.addEventListener('DOMContentLoaded', selectTabForHashLink);
-}
+* [深入JSX](/cn/docs/jsx-in-depth.md)
+* [使用 PropTypes 做类型检查](/cn/docs/typechecking-with-proptypes.md)
+* [Refs 和 DOM](/cn/docs/refs-and-the-dom.md)
+* [不可控组件](/cn/docs/uncontrolled-components.md)
+* [性能优化](/cn/docs/optimizing-performance.md)
+* [不使用 ES6 的 React](/cn/docs/react-without-es6.md)
+* [不使用 JSX 的 React](/cn/docs/react-without-jsx.md)
+* [一致性比较（Reconciliation）](/cn/docs/reconciliation.md)
+* [上下文（Context）](/cn/docs/context.md)
+* [Web Components](/cn/docs/web-components.md)
+* [高阶组件](/cn/docs/higher-order-components.md)
+* [与其它类库集成](/cn/docs/integrating-with-other-libraries.md)
 
-function selectTabForHashLink() {
-  var hashLinks = document.querySelectorAll('a.hash-link');
-  for (var i = 0; i < hashLinks.length && !foundHash; ++i) {
-    if (hashLinks[i].hash === window.location.hash) {
-      var parent = hashLinks[i].parentElement;
-      while (parent) {
-        if (parent.tagName === 'BLOCK') {
-          var target = null;
-          if (parent.className.indexOf('fiddle') > -1) {
-            target = 'fiddle';
-          } else if (parent.className.indexOf('newapp') > -1) {
-            target = 'newapp';
-          } else if (parent.className.indexOf('existingapp') > -1) {
-            target = 'existingapp';
-          } else {
-            break; // assume we don't have anything.
-          }
-          display('target', target);
-          foundHash = true;
-          break;
-        }
-        parent = parent.parentElement;
-      }
-    }
-  }
-}
-</script>
+#### 参考
+
+* [React](/cn/docs/react-api.md)
+* [React.Component](/cn/docs/react-component.md)
+* [ReactDOM](/cn/docs/react-dom.md)
+* [ReactDOMServer](/cn/docs/react-dom-server.md)
+* [DOM 元素](/cn/docs/dom-elements.md)
+* [合成事件（SyntheticEvent）](/cn/docs/events.md)
+
+#### 贡献
+
+* [如何贡献](/cn/contributing/how-to-contribute.md)
+* [代码库概述](/cn/contributing/codebase-overview.md)
+* [实现说明](/cn/contributing/implementation-notes.md)
+* [设计原则](/cn/contributing/design-principles.md)
+
+
+</details>
