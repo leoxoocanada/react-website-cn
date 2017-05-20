@@ -12,9 +12,9 @@ React 能被灵活的运用在各种各样的项目里。你能用它来创建�
 
 ## 试用 React
 
-如果你只想玩一下 React，你应该使用 CodePen。尝试从这里开始 [Hello World 示例代码](http://codepen.io/gaearon/pen/rrpgNB?editors=0010)。你不需要安装任何环境；你可以只修改里面的代码，看它是如何工作的。
+如果你只想玩一下 React，你可以使用 CodePen。尝试从这个 [Hello World 示例代码](http://codepen.io/gaearon/pen/rrpgNB?editors=0010)开始。你不需要安装任何环境；你只需要对代码做修改，并且看看它是否会生效。
 
-If you prefer to use your own text editor, you can also <a href="/react/downloads/single-file-example.html" download="hello.html">download this HTML file</a>, edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so don't use it in production.
+如果你更喜欢用你自己的文本编辑器，你也可以[下载HTML文件](https://facebook.github.io/react/downloads/single-file-example.html)，编辑它，并且在你的浏览器中打开这个本地文件，但是不要在生产环境中使用它。
 
 If you want to use it for a full application, there are two popular ways to get started with React: using Create React App, or adding it to an existing application.
 
