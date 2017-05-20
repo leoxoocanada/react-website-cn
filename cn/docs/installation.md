@@ -2,15 +2,15 @@
 
 # 安装
 
-React is flexible and can be used in a variety of projects. You can create new apps with it, but you can also gradually introduce it into an existing codebase without doing a rewrite.
+React 能被灵活的运用在各种各样的项目里。你能用它来创建新应用，但是你也能循序渐进的将它引入到现有的代码库中，而无须重构。
 
-Which of these options best describes what you want to do?
+下面哪些选项最能描述你想要做什么？ 
 
-* Try React
-* Create a New App
-* Add React to an Existing App
+* 试用 React
+* 创新新的应用
+* 在现有应用中使用 React
 
-## Trying Out React
+## 试用 React
 
 If you're just interested in playing around with React, you can use CodePen. Try starting from [this Hello World example code](http://codepen.io/gaearon/pen/rrpgNB?editors=0010). You don't need to install anything; you can just modify the code and see if it works.
 
@@ -19,7 +19,7 @@ If you prefer to use your own text editor, you can also <a href="/react/download
 If you want to use it for a full application, there are two popular ways to get started with React: using Create React App, or adding it to an existing application.
 
 
-## Creating a New Application
+## 创新新的应用
 
 [Create React App](http://github.com/facebookincubator/create-react-app) is the best way to start building a new React single page application. It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production.
 
@@ -36,7 +36,7 @@ Create React App doesn't handle backend logic or databases; it just creates a fr
 When you're ready to deploy to production, running `npm run build` will create an optimized build of your app in the `build` folder. You can learn more about Create React App [from its README](https://github.com/facebookincubator/create-react-app#create-react-app-) and the [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents).
 
 
-## Adding React to an Existing Application
+## 在现有应用中使用 React
 
 You don't need to rewrite your app to start using React.
 
@@ -142,8 +142,8 @@ If you use Bower, React is available via the `react` package.
 
 #### 快速入门
 
-* [安装](/cn/docs/installation.md)
-* [**`Hello World`**](/cn/docs/hello-world.md")
+* [**`安装`**](/cn/docs/installation.md)
+* [Hello World](/cn/docs/hello-world.md")
 * [JSX 介绍](/cn/docs/introducing-jsx.md)
 * [渲染元素](/cn/docs/rendering-elements.md)
 * [组件和Props](/cn/docs/components-and-props.md)
