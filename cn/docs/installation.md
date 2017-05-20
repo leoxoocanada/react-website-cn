@@ -12,7 +12,7 @@ React 能被灵活的运用在各种各样的项目里。你能用它来创建�
 
 ## 试用 React
 
-If you're just interested in playing around with React, you can use CodePen. Try starting from [this Hello World example code](http://codepen.io/gaearon/pen/rrpgNB?editors=0010). You don't need to install anything; you can just modify the code and see if it works.
+如果你只想玩一下 React，你应该使用 CodePen。尝试从这里开始 [Hello World 示例代码](http://codepen.io/gaearon/pen/rrpgNB?editors=0010)。你不需要安装任何环境；你可以只修改里面的代码，看它是如何工作的。
 
 If you prefer to use your own text editor, you can also <a href="/react/downloads/single-file-example.html" download="hello.html">download this HTML file</a>, edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so don't use it in production.
 
