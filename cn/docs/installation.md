@@ -38,7 +38,7 @@ Create React App 不能处理后端逻辑或数据库；它只是创建一种前
 
 ## 在现有应用中使用 React
 
-You don't need to rewrite your app to start using React.
+开始使用 React 不需要重构你的应用。
 
 We recommend adding React to a small part of your application, such as an individual widget, so you can see if it works well for your use case.
 
