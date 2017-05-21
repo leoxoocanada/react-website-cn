@@ -40,7 +40,7 @@ Create React App 不能处理后端逻辑或数据库；它只是创建一种前
 
 你不必为了开始使用 React 而重写原来的应用。
 
-我们建议添加 React 到你应用中的一小部分, 例如个别小部件，那样的话，如果它运行的非常好你可以看到。
+我们建议你在应用中的一小部分中添加 React , 例如个别小部件，这样你可以看看它是否适用于你的用例。
 
 While React [can be used](/react/docs/react-without-es6.html) without a build pipeline, we recommend setting it up so you can be more productive. A modern build pipeline typically consists of:
 
