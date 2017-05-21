@@ -31,7 +31,7 @@ cd my-app
 npm start
 ```
 
-Create React App 不能处理后端逻辑和数据库；它只是一种前端构建方式，所以你可以使用任何你需要的后端语言。在底层它使用像 Babel 和 webpack 这样的构建工具，但是不需要任何配置就可以工作。
+Create React App 不能处理后端逻辑或数据库；它只是创建一种前端构建管道，所以你可以使用任何你想要的后端语言。在底层它使用像 Babel 和 webpack 这样的构建工具，但是不需要任何配置就可以使用。
 
 When you're ready to deploy to production, running `npm run build` will create an optimized build of your app in the `build` folder. You can learn more about Create React App [from its README](https://github.com/facebookincubator/create-react-app#create-react-app-) and the [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents).
 
