@@ -81,9 +81,9 @@ Yarn 和 npm 都会从 [npm 仓库](http://npmjs.com/) 下载所需要的包。
 
 ### 使用 ES6 和 JSX 的 Hello World
 
-We recommend using a bundler like [webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/) so you can write modular code and bundle it together into small packages to optimize load time.
+我们推荐使用类似 [webpack](https://webpack.js.org/) 或 [Browserify](http://browserify.org/) 这样的打包工具，以便您可以编写模块化代码，并将其它打包在一起成一个小包，以优化加载时间。
 
-The smallest React example looks like this:
+最简化的 React 示例如下：
 
 ```js
 import React from 'react';
@@ -95,11 +95,11 @@ ReactDOM.render(
 );
 ```
 
-This code renders into a DOM element with the id of `root` so you need `<div id="root"></div>` somewhere in your HTML file.
+这段代码会渲染到id为 `root` 的 DOM 节点，所以在你的 HTML 文件的某个地方需要 `<div id="root"></div>` 。
 
-Similarly, you can render a React component inside a DOM element somewhere inside your existing app written with any other JavaScript UI library.
+同样的，你可以在使用其它 Javascript UI 库所写的现有应用中渲染一个 React 组件到 DOM 节点。
 
-[Learn more about integrating React with existing code.](/react/docs/integrating-with-other-libraries.html#integrating-with-other-view-libraries)
+[学习更多关于将 React 整合到现有代码](/cn/docs/integrating-with-other-libraries.html#integrating-with-other-view-libraries)
 
 ### 开发环境 和 生产环境 版本
 
