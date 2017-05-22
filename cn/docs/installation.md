@@ -101,20 +101,20 @@ ReactDOM.render(
 
 [学习更多关于将 React 整合到现有代码](/cn/docs/integrating-with-other-libraries.html#integrating-with-other-view-libraries)
 
-### 开发环境 和 生产环境 版本
+### 开发与生产版本
 
-By default, React includes many helpful warnings. These warnings are very useful in development.
+默认情况下，React 包含许多有用的警告信息。这些警告信息在开发环境中非常有用。
 
-**However, they make the development version of React larger and slower so you should use the production version when you deploy the app.**
+**然而，它会使得开发版本的 React 又大又慢，所以你应当在部署生产环境应用时使用生产版本**
 
-Learn [how to tell if your website is serving the right version of React](/react/docs/optimizing-performance.html#use-the-production-build), and how to configure the production build process most efficiently:
+学习 [如何判断你的网站服务是正确的 React 版本](/cn/docs/optimizing-performance.html#use-the-production-build)，以及如何更有效的配置生产环境构建进程：
 
-* [Creating a Production Build with Create React App](/react/docs/optimizing-performance.html#create-react-app)
-* [Creating a Production Build with Single-File Builds](/react/docs/optimizing-performance.html#single-file-builds)
-* [Creating a Production Build with Brunch](/react/docs/optimizing-performance.html#brunch)
-* [Creating a Production Build with Browserify](/react/docs/optimizing-performance.html#browserify)
-* [Creating a Production Build with Rollup](/react/docs/optimizing-performance.html#rollup)
-* [Creating a Production Build with Webpack](/react/docs/optimizing-performance.html#webpack)
+* [通过 Create React App 创建一个生产环境构建](/cn/docs/optimizing-performance.html#create-react-app)
+* [通过 Single-File Builds 创建一个生产环境构建](/cn/docs/optimizing-performance.html#single-file-builds)
+* [通过 Brunch 创建一个生产环境构建](/cn/docs/optimizing-performance.html#brunch)
+* [通过 Browserify 创建一个生产环境构建](/cn/docs/optimizing-performance.html#browserify)
+* [通过 Rollup 创建一个生产环境构建](/cn/docs/optimizing-performance.html#rollup)
+* [通过 Webpack 创建一个生产环境构建](/cn/docs/optimizing-performance.html#webpack)
 
 ### 使用 CDN
 
