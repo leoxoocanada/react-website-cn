@@ -73,13 +73,13 @@ npm install --save react react-dom
 Yarn 和 npm 都会从 [npm 仓库](http://npmjs.com/) 下载所需要的包。
 
 
-### Enabling ES6 and JSX
+### 启用 ES6 和 JSX
 
 We recommend using React with [Babel](http://babeljs.io/) to let you use ES6 and JSX in your JavaScript code. ES6 is a set of modern JavaScript features that make development easier, and JSX is an extension to the JavaScript language that works nicely with React.
 
 The [Babel setup instructions](https://babeljs.io/docs/setup/) explain how to configure Babel in many different build environments. Make sure you install [`babel-preset-react`](http://babeljs.io/docs/plugins/preset-react/#basic-setup-with-the-cli-) and [`babel-preset-es2015`](http://babeljs.io/docs/plugins/preset-es2015/#basic-setup-with-the-cli-) and enable them in your [`.babelrc` configuration](http://babeljs.io/docs/usage/babelrc/), and you're good to go.
 
-### Hello World with ES6 and JSX
+### 使用 ES6 和 JSX 的 Hello World
 
 We recommend using a bundler like [webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/) so you can write modular code and bundle it together into small packages to optimize load time.
 
@@ -101,7 +101,7 @@ Similarly, you can render a React component inside a DOM element somewhere insid
 
 [Learn more about integrating React with existing code.](/react/docs/integrating-with-other-libraries.html#integrating-with-other-view-libraries)
 
-### Development and Production Versions
+### 开发环境 和 生产环境 版本
 
 By default, React includes many helpful warnings. These warnings are very useful in development.
 
@@ -116,7 +116,7 @@ Learn [how to tell if your website is serving the right version of React](/react
 * [Creating a Production Build with Rollup](/react/docs/optimizing-performance.html#rollup)
 * [Creating a Production Build with Webpack](/react/docs/optimizing-performance.html#webpack)
 
-### Using a CDN
+### 使用 CDN
 
 If you don't want to use npm to manage client packages, the `react` and `react-dom` npm packages also provide single-file distributions in `dist` folders, which are hosted on a CDN:
 
