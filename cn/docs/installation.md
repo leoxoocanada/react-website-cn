@@ -42,17 +42,17 @@ Create React App 不能处理后端逻辑或数据库；它只是创建一种前
 
 我们建议你在应用中的一小部分中添加 React , 例如个别小部件，这样你可以看看它是否适用于你的用例。
 
-虽然 React 在没有构建管道的情况下 [也可以使用](/cn/docs/react-without-es6.html) ，我们还是建议你设置一下，这样效率会更高。一个现代的构建管道通常包括这些：
+虽然 React 在没有构建管道的情况下 [也可以使用](/cn/docs/react-without-es6.md) ，我们还是建议你设置一下，这样效率会更高。一个现代的构建管道通常包括这些：
 
 * 一个**包管理器**, 如 [Yarn](https://yarnpkg.com/) 或 [npm](https://www.npmjs.com/)。 它让你可以利用大量的第三方软件包生态系统，并且容易安装或更新它们。
 * 一个**打包工具**, 如 [webpack](https://webpack.js.org/) 或 [Browserify](http://browserify.org/)。 它让你可以编写模块化代码并且可以将它们打包在一起成为一个小包，以实现加载性能的优化，节省加载时间。
 * 一个**编译器** 如 [Babel](http://babeljs.io/)。 它可以让你在编写现代 JavaScript 代码的同时兼容旧的浏览器里。
 
-### Installing React
+### 安装 React
 
->**Note:**
+>**提示:**
 >
->Once installed, we strongly recommend setting up a [production build process](/react/docs/optimizing-performance.html#use-the-production-build) to ensure you're using the fast version of React in production.
+>一旦安装好，我们强烈建议设置一个 [生产环境构建进程](/cn/docs/optimizing-performance.md#use-the-production-build) 确保你在生产环境中使用最新版本的 React 。
 
 We recommend using [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/) for managing front-end dependencies. If you're new to package managers, the [Yarn documentation](https://yarnpkg.com/en/docs/getting-started) is a good place to get started.
 
