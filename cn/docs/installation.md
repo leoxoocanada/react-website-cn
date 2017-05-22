@@ -54,7 +54,7 @@ Create React App 不能处理后端逻辑或数据库；它只是创建一种前
 >
 >一旦安装好，我们强烈建议设置一个 [生产构建过程](/cn/docs/optimizing-performance.md#use-the-production-build) 确保你在生产环境中使用最新版本的 React 。
 
-我们建议使用 [Yarn](https://yarnpkg.com/) 或 [npm](https://www.npmjs.com/) 来管理前端依赖。如果你对包管理不熟悉，这篇 [Yarn 文档](https://yarnpkg.com/en/docs/getting-started) 是一个非常好的入门的地方。
+我们建议使用 [Yarn](https://yarnpkg.com/) 或 [npm](https://www.npmjs.com/) 来管理前端依赖。如果你对包管理不熟悉，这篇 [Yarn 文档](https://yarnpkg.com/en/docs/getting-started) 是一个非常好的起点。
 
 通过 Yarn 安装 React，运行：
 
@@ -70,7 +70,7 @@ npm init
 npm install --save react react-dom
 ```
 
-Yarn 和 npm 都是从 [npm 仓库](http://npmjs.com/) 下载包。
+Yarn 和 npm 都会从 [npm 仓库](http://npmjs.com/) 下载所需要的包。
 
 
 ### Enabling ES6 and JSX
