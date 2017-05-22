@@ -118,23 +118,23 @@ ReactDOM.render(
 
 ### 使用 CDN
 
-If you don't want to use npm to manage client packages, the `react` and `react-dom` npm packages also provide single-file distributions in `dist` folders, which are hosted on a CDN:
+如果你不想使用 npm 来管理软件包， `react` 和 `react-dom` npm包在 `dist` 目录提供了独立版本，同时托管在以下 CDN:
 
 ```html
 <script src="https://unpkg.com/react@15/dist/react.js"></script>
 <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
 ```
 
-The versions above are only meant for development, and are not suitable for production. Minified and optimized production versions of React are available at:
+上面的版本只适合于开发环境，不适合生产环境，压缩并优化过的 React 版本如下：
 
 ```html
 <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
 <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
 ```
 
-To load a specific version of `react` and `react-dom`, replace `15` with the version number.
+要加载不同版本的 `react` 和 `react-dom` ，只要把以上代码中的 `15` 替换为相应的版本号即可。
 
-If you use Bower, React is available via the `react` package.
+如果你使用 Bower，React 也可以通过 `react` 包获取。
 
 
 ---
