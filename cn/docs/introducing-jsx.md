@@ -166,9 +166,9 @@ We will explore rendering React elements to the DOM in the next section.
 
 #### 快速入门
 
-* [**`安装`**](/cn/docs/installation.md)
+* [安装](/cn/docs/installation.md)
 * [Hello World](/cn/docs/hello-world.md")
-* [JSX 介绍](/cn/docs/introducing-jsx.md)
+* [**`JSX 介绍`**](/cn/docs/introducing-jsx.md)
 * [渲染元素](/cn/docs/rendering-elements.md)
 * [组件和Props](/cn/docs/components-and-props.md)
 * [State和生命周期](/cn/docs/state-and-lifecycle.md)
