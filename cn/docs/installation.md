@@ -44,9 +44,9 @@ Create React App 不能处理后端逻辑或数据库；它只是创建一种前
 
 虽然 React 在没有构建管道的情况下 [也可以使用](/cn/docs/react-without-es6.html) ，我们还是建议你设置一下，这样效率会更高。一个现代的构建管道通常包括这些：
 
-* A **package manager**, such as [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/). It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.
-* A **bundler**, such as [webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/). It lets you write modular code and bundle it together into small packages to optimize load time.
-* A **compiler** such as [Babel](http://babeljs.io/). It lets you write modern JavaScript code that still works in older browsers.
+* 一个**包管理器**, 如 [Yarn](https://yarnpkg.com/) 或 [npm](https://www.npmjs.com/)。 它让你可以使用广阔的第三方包生态系统，并且容易安装或更新。
+* 一个**打包工具**, 如 [webpack](https://webpack.js.org/) 或 [Browserify](http://browserify.org/)。 它让你可以写模块代码并且可以将它们打包在一起以便优化加载时间。
+* 一个**编译器** 如 [Babel](http://babeljs.io/)。 它让你可以使用现代 JavaScript 代码，并且还可以在旧的浏览器里运行。
 
 ### Installing React
 
