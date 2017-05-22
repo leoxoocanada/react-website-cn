@@ -42,7 +42,7 @@ Create React App 不能处理后端逻辑或数据库；它只是创建一种前
 
 我们建议你在应用中的一小部分中添加 React , 例如个别小部件，这样你可以看看它是否适用于你的用例。
 
-While React [can be used](/react/docs/react-without-es6.html) without a build pipeline, we recommend setting it up so you can be more productive. A modern build pipeline typically consists of:
+直到 React 在没有构建管道的情况下 [可以使用](/cn/docs/react-without-es6.html) ，我们建议设置一下效率会更高。一个有代表性的构建管道包括这些：
 
 * A **package manager**, such as [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/). It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.
 * A **bundler**, such as [webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/). It lets you write modular code and bundle it together into small packages to optimize load time.
