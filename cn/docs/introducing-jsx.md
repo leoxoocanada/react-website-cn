@@ -48,9 +48,9 @@ ReactDOM.render(
 
 ### JSX 也是一个表达式
 
-After compilation, JSX expressions become regular JavaScript objects.
+编译完成后，JSX 表达式将变成普通的 JavaScript 对象。
 
-This means that you can use JSX inside of `if` statements and `for` loops, assign it to variables, accept it as arguments, and return it from functions:
+这意味着你可以在 JSX 中使用 `if` 声明和 `for` 循环，用它给变量赋值，作为参数接收，或者作为函数的返回值：
 
 ```js{3,5}
 function getGreeting(user) {
