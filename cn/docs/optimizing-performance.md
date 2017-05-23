@@ -4,7 +4,7 @@
 
 Internally, React uses several clever techniques to minimize the number of costly DOM operations required to update the UI. For many applications, using React will lead to a fast user interface without doing much work to specifically optimize for performance. Nevertheless, there are several ways you can speed up your React application.
 
-## Use the Production Build
+## 使用生产版本
 
 If you're benchmarking or experiencing performance problems in your React apps, make sure you're testing with the minified production build.
 
