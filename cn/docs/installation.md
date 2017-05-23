@@ -107,14 +107,14 @@ ReactDOM.render(
 
 **然而，它会使得开发版本的 React 又大又慢，所以你应当在部署生产环境应用时使用生产版本**
 
-学习 [如何判断你的网站服务是正确的 React 版本](/cn/docs/optimizing-performance.html#use-the-production-build)，以及如何更有效的配置生产环境构建进程：
+学习 [如何判断你的网站服务是正确的 React 版本](/cn/docs/optimizing-performance.md#use-the-production-build)，以及如何更有效的配置生产环境构建进程：
 
-* [通过 Create React App 创建一个生产环境构建](/cn/docs/optimizing-performance.html#create-react-app)
-* [通过 Single-File Builds 创建一个生产环境构建](/cn/docs/optimizing-performance.html#single-file-builds)
-* [通过 Brunch 创建一个生产环境构建](/cn/docs/optimizing-performance.html#brunch)
-* [通过 Browserify 创建一个生产环境构建](/cn/docs/optimizing-performance.html#browserify)
-* [通过 Rollup 创建一个生产环境构建](/cn/docs/optimizing-performance.html#rollup)
-* [通过 Webpack 创建一个生产环境构建](/cn/docs/optimizing-performance.html#webpack)
+* [通过 Create React App 创建一个生产环境构建](/cn/docs/optimizing-performance.md#create-react-app)
+* [通过 Single-File Builds 创建一个生产环境构建](/cn/docs/optimizing-performance.md#single-file-builds)
+* [通过 Brunch 创建一个生产环境构建](/cn/docs/optimizing-performance.md#brunch)
+* [通过 Browserify 创建一个生产环境构建](/cn/docs/optimizing-performance.md#browserify)
+* [通过 Rollup 创建一个生产环境构建](/cn/docs/optimizing-performance.md#rollup)
+* [通过 Webpack 创建一个生产环境构建](/cn/docs/optimizing-performance.md#webpack)
 
 ### 使用 CDN
 
