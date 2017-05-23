@@ -16,9 +16,9 @@ JSX 可以生成 React 元素。我们将在 [下一篇](/cn/docs/rendering-elem
 
 ### 在 JSX 中嵌入表达式
 
-You can embed any [JavaScript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) in JSX by wrapping it in curly braces.
+你可以在 JSX 中嵌入任意的 [JavaScript 表达式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) ，通过花括号包起来。
 
-For example, `2 + 2`, `user.firstName`, and `formatName(user)` are all valid expressions:
+例如 `2 + 2`, `user.firstName`, 和 `formatName(user)` 都是有效的表达式：
 
 ```js{12}
 function formatName(user) {
@@ -42,11 +42,11 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/PGEjdG?editors=0010)
+[在 CodePen 尝试](http://codepen.io/gaearon/pen/PGEjdG?editors=0010)
 
-We split JSX over multiple lines for readability. While it isn't required, when doing this, we also recommend wrapping it in parentheses to avoid the pitfalls of [automatic semicolon insertion](http://stackoverflow.com/q/2846283).
+为了便于阅读，我们将 JSX 分割成多行。我们也建议将它们包含在圆括号里，虽然它不是必须的，当我们这么做时可以避免 [自动分号插入](http://stackoverflow.com/q/2846283) 的陷阱。
 
-### JSX is an Expression Too
+### JSX 也是一个表达式
 
 After compilation, JSX expressions become regular JavaScript objects.
 
