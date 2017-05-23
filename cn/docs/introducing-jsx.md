@@ -136,10 +136,10 @@ const element = React.createElement(
 );
 ```
 
-`React.createElement()` performs a few checks to help you write bug-free code but essentially it creates an object like this:
+`React.createElement()` 执行一些检查以帮助你写出没有bug的代码，本质上它是创建了一个如下的对象：
 
 ```js
-// Note: this structure is simplified
+// 提示：这是一个简化了的结构
 const element = {
   type: 'h1',
   props: {
@@ -149,13 +149,13 @@ const element = {
 };
 ```
 
-These objects are called "React elements". You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
+这些对象被称作 "React 元素"。你可以把它们想像成为你想在屏幕上显示内容的一种描述。React 读取这些对象，使用它们构建 DOM，并且保持它们的不断更新。
 
-We will explore rendering React elements to the DOM in the next section.
+我们将在下一章节探索如何将 React 元素渲染到 DOM。
 
->**Tip:**
+>**提示:**
 >
->We recommend searching for a "Babel" syntax scheme for your editor of choice so that both ES6 and JSX code is properly highlighted.
+>我们建议你去搜索一下你选择的编辑器的 "Babel" 语法方案，以便 ES6 和 JSX 代码能够被正确的高亮。
 
 
 
