@@ -61,31 +61,31 @@ function getGreeting(user) {
 }
 ```
 
-### Specifying Attributes with JSX
+### 在 JSX 中指定属性值
 
-You may use quotes to specify string literals as attributes:
+你可以使用双引号指定字符串字面量作为属性：
 
 ```js
 const element = <div tabIndex="0"></div>;
 ```
 
-You may also use curly braces to embed a JavaScript expression in an attribute:
+你也可以使用花括号嵌入一个 JavaScript 表达式作为属性值：
 
 ```js
 const element = <img src={user.avatarUrl}></img>;
 ```
 
-Don't put quotes around curly braces when embedding a JavaScript expression in an attribute. Otherwise JSX will treat the attribute as a string literal rather than an expression. You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.
+在属性中当嵌入 JavaScript 表达式时不要使用双引号包裹花括号，否则 JSX 将它属性当成一个字符串字面量而不是一个表达式，你应该使用双引号 (字符串值) 或花括号 (表达式)其中一个，但两都不能用于同一属性。
 
-### Specifying Children with JSX
+### 在 JSX 中指定子元素
 
-If a tag is empty, you may close it immediately with `/>`, like XML:
+如果标签是空的，你应该像 XML 一样直接通过 `/>` 来闭合标签：
 
 ```js
 const element = <img src={user.avatarUrl} />;
 ```
 
-JSX tags may contain children:
+JSX 标签可以包含子元素：
 
 ```js
 const element = (
@@ -96,11 +96,11 @@ const element = (
 );
 ```
 
->**Caveat:**
+>**警告:**
 >
->Since JSX is closer to JavaScript than HTML, React DOM uses `camelCase` property naming convention instead of HTML attribute names.
+>由于 JSX 相比 HTML 更接近于 JavaScript，React DOM 使用驼峰属性命名约定代替 HTML 属性名称。
 >
->For example, `class` becomes [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) in JSX, and `tabindex` becomes [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
+>例如，在 JSX 中 `class` 变成 [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) ，并且 `tabindex` 变成 [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 ### JSX Prevents Injection Attacks
 
