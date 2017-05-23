@@ -8,13 +8,13 @@
 const element = <h1>Hello, world!</h1>;
 ```
 
-This funny tag syntax is neither a string nor HTML.
+这个有趣的标签语法既不是一个字符串也不是一个HTML。
 
-It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
+这就是 JSX，它是 JavaScript 的一个语法扩展，我们建议在 React 中使用这种语法来描述 UI 信息。JSX 可能让你想到模板语言，但它拥有 JavaScript 的全部能力。
 
-JSX produces React "elements". We will explore rendering them to the DOM in the [next section](/react/docs/rendering-elements.html). Below, you can find the basics of JSX necessary to get you started.
+JSX 可以生成 React 元素。我们将在 [下一篇](/cn/docs/rendering-elements.md) 中探索如何将它渲染到 DOM 上，接下来，你能找到 JSX 的基础知识，以帮助您开始使用。
 
-### Embedding Expressions in JSX
+### 在 JSX 中嵌入表达式
 
 You can embed any [JavaScript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) in JSX by wrapping it in curly braces.
 
