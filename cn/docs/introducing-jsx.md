@@ -102,9 +102,9 @@ const element = (
 >
 >例如，在 JSX 中 `class` 变成 [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) ，并且 `tabindex` 变成 [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
-### JSX Prevents Injection Attacks
+### JSX 防止注入攻击
 
-It is safe to embed user input in JSX:
+在 JSX 中嵌入用户输入是安全的：
 
 ```js
 const title = response.potentiallyMaliciousInput;
@@ -112,13 +112,13 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
-By default, React DOM [escapes](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that's not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) attacks.
+默认情况下，React DOM 在 渲染他们之前会 [转义](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) 任何嵌入 JSX 的值。从而保证用户无法注入任何应用之外的代码。在被渲染之前任何东西都会被转换成字符串。这将帮助你防止 [XSS (跨站脚本)](https://en.wikipedia.org/wiki/Cross-site_scripting) 攻击。
 
-### JSX Represents Objects
+### JSX 表示对象
 
-Babel compiles JSX down to `React.createElement()` calls.
+Babel 将 JSX 编译成 `React.createElement()` 调用。
 
-These two examples are identical:
+这两个例子是完全相同的：
 
 ```js
 const element = (
