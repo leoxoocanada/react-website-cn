@@ -99,7 +99,7 @@ ReactDOM.render(
 
 同样的，你可以在使用其它 Javascript UI 库所写的现有应用中渲染一个 React 组件到 DOM 节点。
 
-[学习更多关于将 React 整合到现有代码](/cn/docs/integrating-with-other-libraries.html#integrating-with-other-view-libraries)
+[学习更多关于将 React 整合到现有代码](/cn/docs/integrating-with-other-libraries.md#integrating-with-other-view-libraries)
 
 ### 开发与生产版本
 
