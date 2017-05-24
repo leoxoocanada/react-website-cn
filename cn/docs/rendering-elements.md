@@ -97,13 +97,13 @@ ReactDOM.render(
 
 它将在页面上显示 "Hello, world" 。
 
-## Updating the Rendered Element
+## 更新已渲染的元素
 
-React elements are [immutable](https://en.wikipedia.org/wiki/Immutable_object). Once you create an element, you can't change its children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.
+React 元素是 [不可变的](https://en.wikipedia.org/wiki/Immutable_object)。一旦你创建了一个元素，就不能修改它的子元素或属性。一个元素就像电影中的一帧：它表示某一特定时间点的 UI。
 
-With our knowledge so far, the only way to update the UI is to create a new element, and pass it to `ReactDOM.render()`.
+就我们目前掌握的知识而言，唯一更新 UI 的方法就是创建一个新的元素，并且传递参数到 `ReactDOM.render()` 方法。
 
-Consider this ticking clock example:
+思考一下这个时钟的例子：
 
 ```js{8-11}
 function tick() {
@@ -122,15 +122,15 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+[在 CodePen 中尝试一下](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-It calls `ReactDOM.render()` every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+它每秒钟通过 [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) 回调 `ReactDOM.render()` 方法。
 
->**Note:**
+>**提示:**
 >
->In practice, most React apps only call `ReactDOM.render()` once. In the next sections we will learn how such code gets encapsulated into [stateful components](/cn/docs/state-and-lifecycle.md).
+>事实上，更多 React 应用只一次调用 `ReactDOM.render()` ，在下个章节我们将学习如何将代码封装进 [带状态的组件](/cn/docs/state-and-lifecycle.md).
 >
->We recommend that you don't skip topics because they build on each other.
+>我们建议你不要跳过任何一节主题，因为它们彼此关联。
 
 ## React Only Updates What's Necessary
 
