@@ -12,19 +12,19 @@ const element = <h1>Hello, world</h1>;
 
 不同于浏览器 DOM 元素，React 是普通的对象，非常容易创建，React DOM 负责更新 DOM 以匹配 React 元素。
 
->**Note:**
+>**注意:**
 >
->One might confuse elements with a more widely known concept of "components". We will introduce components in the [next section](/cn/docs/components-and-props.md). Elements are what components are "made of", and we encourage you to read this section before jumping ahead.
+>有人可能会将元素跟更广为人知的“组件”概念混淆，我们将在 [下一章节](/cn/docs/components-and-props.md) 学习“组件”。组件是由元素构成，所以我们鼓励你看完这个章节再看下个章节。
 
-## Rendering an Element into the DOM
+## 渲染元素到 DOM
 
-Let's say there is a `<div>` somewhere in your HTML file:
+让我们假设你的 HTML 文件的什么地方有这么一个 `<div>` ：
 
 ```html
 <div id="root"></div>
 ```
 
-We call this a "root" DOM node because everything inside it will be managed by React DOM.
+我们把它叫做 "root" DOM 节点，因为该节点内的所有内容都将由 React DOM 管理。
 
 Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like.
 
