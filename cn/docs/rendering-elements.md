@@ -132,15 +132,14 @@ setInterval(tick, 1000);
 >
 >我们建议你不要跳过任何一节主题，因为它们彼此关联。
 
-## React Only Updates What's Necessary
+## React 仅做必要的更新
 
-React DOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.
+React DOM 会将元素和它的子元素与之前的版本相对比，并只对有必要的 DOM 进行更新，以达到 DOM 所需要的状态。
 
-You can verify by inspecting the [last example](http://codepen.io/gaearon/pen/gwoJZk?editors=0010) with the browser tools:
+你可以通过浏览器工具对 [上一个例子](http://codepen.io/gaearon/pen/gwoJZk?editors=0010) 进行检查来验证这一点：
 
 ![DOM inspector showing granular updates](/cn/img/docs/granular-dom-updates.gif)
 
-Even though we create an element describing the whole UI tree on every tick, only the text node whose contents has changed gets updated by React DOM.
+虽然我们每隔一秒都重建了整个 UI 界面，但是整个内容中只有文本节点通被 React DOM 更新。
 
-In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates a whole class of bugs.
-
+根据我们的经验，关注每个时间点UI的表现, 而不是关注随着时间不断更新UI的状态, 可以减少很多奇怪的 bug 。
