@@ -2,15 +2,15 @@
 
 # 渲染元素
 
-Elements are the smallest building blocks of React apps.
+元素是 React 应用中最小的构建块。
 
-An element describes what you want to see on the screen:
+一个元素描述了你将在屏幕上看到的内容：
 
 ```js
 const element = <h1>Hello, world</h1>;
 ```
 
-Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+不同于浏览器 DOM 元素，React 是普通的对象，非常容易创建，React DOM 负责更新 DOM 以匹配 React 元素。
 
 >**Note:**
 >
