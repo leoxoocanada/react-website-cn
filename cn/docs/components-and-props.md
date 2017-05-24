@@ -56,13 +56,13 @@
 
 # 组件和Props
 
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
+组件让你把 UI 分割成独立的、可复用的块，并且可以对每块进行单独的思考。
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+从概念上讲，组件像 JavaScript 的函数。它接受任意的输入 (称为 "props") ，并且返回用于描述屏幕上显示内容的 React 元素。
 
-## Functional and Class Components
+## 函数式组件和类组件
 
-The simplest way to define a component is to write a JavaScript function:
+最简单的定义一个组件的方式是写一个 Javascript 函数：
 
 ```js
 function Welcome(props) {
@@ -70,9 +70,9 @@ function Welcome(props) {
 }
 ```
 
-This function is a valid React component because it accepts a single "props" object argument with data and returns a React element. We call such components "functional" because they are literally JavaScript functions.
+函数是一个合法的 React 组件，因为它接受一个 "props" 对象参数并且返回一个 React 元素。我们称这类组件叫 "函数式(Functional)"，因为从字面上看它就是一个 Javascript 函数。 
 
-You can also use an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) to define a component:
+你也可以使用 [ES6 类(class)](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) 来定义一个组件：
 
 ```js
 class Welcome extends React.Component {
@@ -82,9 +82,9 @@ class Welcome extends React.Component {
 }
 ```
 
-The above two components are equivalent from React's point of view.
+上面两个组件从 React 的角度是等价的。
 
-Classes have some additional features that we will discuss in the [next sections](/cn/docs/state-and-lifecycle.md). Until then, we will use functional components for their conciseness.
+类(Classes)有一些附加的特性，我们将在 [下一章节](/cn/docs/state-and-lifecycle.md) 来讨论。在这之前，我们将使用函数式(functional)组件，因为他们比较简单。
 
 ## Rendering a Component
 
