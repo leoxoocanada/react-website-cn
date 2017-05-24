@@ -24,11 +24,11 @@ const element = <h1>Hello, world</h1>;
 <div id="root"></div>
 ```
 
-我们把它叫做 "root" DOM 节点，因为该节点内的所有内容都将由 React DOM 管理。
+我们把它叫做 DOM "根"节点，因为该节点内的所有内容都将由 React DOM 管理。
 
-Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like.
+通过 React 构建的应用通常只有单个 DOM 根节点。如果你将 React 整合到当前的应用中，你可能需要有一些相互独立的 DOM 根节点。
 
-To render a React element into a root DOM node, pass both to `ReactDOM.render()`:
+要将 React 元素渲染到一个 DOM 根节点，把它们传递给 `ReactDOM.render()` 方法：
 
 ```js
 const element = <h1>Hello, world</h1>;
@@ -38,9 +38,9 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/rrpgNB?editors=1010)
+[在 CodePen 中试用](http://codepen.io/gaearon/pen/rrpgNB?editors=1010)
 
-It displays "Hello, world" on the page.
+它将在页面上显示 "Hello, world" 。
 
 ## Updating the Rendered Element
 
