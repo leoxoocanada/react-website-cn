@@ -86,23 +86,23 @@ class Welcome extends React.Component {
 
 类(Classes)有一些附加的特性，我们将在 [下一章节](/cn/docs/state-and-lifecycle.md) 来讨论。在这之前，我们将使用函数式(functional)组件，因为他们比较简单。
 
-## Rendering a Component
+## 渲染一个组件
 
-Previously, we only encountered React elements that represent DOM tags:
+之前，我们只遇到过表示 DOM 标签的 React 元素：
 
 ```js
 const element = <div />;
 ```
 
-However, elements can also represent user-defined components:
+然而，元素也能表示用户自定义组件：
 
 ```js
 const element = <Welcome name="Sara" />;
 ```
 
-When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+当 React 遇到一个表示用户自定义组件的元素时，它将 JSX 属性给作为一个单独的对象传递给这个组件，我们称它为 "props" 对象。
 
-For example, this code renders "Hello, Sara" on the page:
+例如，这段代码在页面上渲染 "Hello, Sara" ：
 
 ```js{1,5}
 function Welcome(props) {
@@ -116,14 +116,14 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/YGYmEG?editors=0010)
+[在 CodePen 中尝试一下](http://codepen.io/gaearon/pen/YGYmEG?editors=0010)
 
-Let's recap what happens in this example:
+让我们简要的重述下上面这个示例：
 
-1. We call `ReactDOM.render()` with the `<Welcome name="Sara" />` element.
-2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
-3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
-4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+1. 我们调用 `ReactDOM.render()` 方法，并将 `<Welcome name="Sara" />` 作为参数传入。
+2. React 调用 `Welcome` 组件，并将 `{name: 'Sara'}` 作为 props 对象传入。
+3. 我们的 `Welcome` 组件返回一个 `<h1>Hello, Sara</h1>` 元素。
+4. React DOM 迅速更新 DOM 使其显示为 `<h1>Hello, Sara</h1>`。
 
 >**Caveat:**
 >
