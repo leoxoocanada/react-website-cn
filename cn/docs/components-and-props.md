@@ -125,17 +125,17 @@ ReactDOM.render(
 3. 我们的 `Welcome` 组件返回一个 `<h1>Hello, Sara</h1>` 元素。
 4. React DOM 迅速更新 DOM 使其显示为 `<h1>Hello, Sara</h1>`。
 
->**Caveat:**
+>**警告:**
 >
->Always start component names with a capital letter.
+>组件名总是以大写字母开头。
 >
->For example, `<div />` represents a DOM tag, but `<Welcome />` represents a component and requires `Welcome` to be in scope.
+>例如，`<div />` 表示一个 DOM 标签，但是 `<Welcome />` 表示一个组件，并且需要在作用域中有一个 `Welcome` 组件。
 
-## Composing Components
+## 构成组件
 
-Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+组件能在它们的返回中引用其它组件。这让我们可以使用相同的组件来抽象到任意的层级。按钮、表单、弹层、屏幕：在 React 应用中，所有这些通常都描述为组件。
 
-For example, we can create an `App` component that renders `Welcome` many times:
+例如，我们能创建一个 `App` 组件渲染 `Welcome` 组件很多次：
 
 ```js{8-10}
 function Welcome(props) {
@@ -158,13 +158,13 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/KgQKPr?editors=0010)
+[在 CodePen 中尝试](http://codepen.io/gaearon/pen/KgQKPr?editors=0010)
 
-Typically, new React apps have a single `App` component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like `Button` and gradually work your way to the top of the view hierarchy.
+通常，新的 React 应用有一个 `APP` 组件在最上层，然后，如果你将 React 融入到一个已有的应用中，你可能需要自下而上的，从类似 `Button` 这样的小组件开始，逐渐整合到视图最顶层。
 
->**Caveat:**
+>**警告:**
 >
->Components must return a single root element. This is why we added a `<div>` to contain all the `<Welcome />` elements.
+>组件必须返回一个根元素，这是为什么我们添加一个 `<div>` 来包裹所有 `<Welcome />` 元素的原因。
 
 ## Extracting Components
 
