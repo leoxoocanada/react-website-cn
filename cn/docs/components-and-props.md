@@ -166,11 +166,11 @@ ReactDOM.render(
 >
 >组件必须返回一个根元素，这是为什么我们添加一个 `<div>` 来包裹所有 `<Welcome />` 元素的原因。
 
-## Extracting Components
+## 抽取组件
 
-Don't be afraid to split components into smaller components.
+不要割据把一个组件分割成多个更小的组件。
 
-For example, consider this `Comment` component:
+例如，思考下这个 `Comment` 组件：
 
 ```js
 function Comment(props) {
@@ -196,13 +196,13 @@ function Comment(props) {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/VKQwEo?editors=0010)
+[在 CodePen 中尝试](http://codepen.io/gaearon/pen/VKQwEo?editors=0010)
 
-It accepts `author` (an object), `text` (a string), and `date` (a date) as props, and describes a comment on a social media website.
+它接受 `author` (一个对象)、`text` (一个字符串)、和 `date` (一个日期) 作为属性，并用于在社交网站上描述一个评论。
 
-This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
+这个组件很难被改变，因为它都是嵌套的，并且很难复用它的个别部分。让我们从其中抽取一些组件。
 
-First, we will extract `Avatar`:
+第一步，我们将抽取 `Avatar`：
 
 ```js{3-6}
 function Avatar(props) {
