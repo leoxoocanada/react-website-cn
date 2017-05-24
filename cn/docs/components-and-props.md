@@ -215,11 +215,11 @@ function Avatar(props) {
 }
 ```
 
-The `Avatar` doesn't need to know that it is being rendered inside a `Comment`. This is why we have given its prop a more generic name: `user` rather than `author`.
+这个 `Avatar` 不需要知道它将被渲染到 `Comment`。这是为什么我们给它的属性一个更通用的名字： `user` 而不是`author`。
 
-We recommend naming props from the component's own point of view rather than the context in which it is being used.
+我们建议从组件自己的视角给属性取名字，而不是它将被使用的上下文环境。
 
-We can now simplify `Comment` a tiny bit:
+我们可以稍微简化一下 `Comment` ：
 
 ```js{5}
 function Comment(props) {
@@ -242,7 +242,7 @@ function Comment(props) {
 }
 ```
 
-Next, we will extract a `UserInfo` component that renders an `Avatar` next to user's name:
+下一步，我们将抽取一个 `UserInfo` 组件，用于将 `Avatar` 显示在用户名旁边：
 
 ```js{3-8}
 function UserInfo(props) {
@@ -257,7 +257,7 @@ function UserInfo(props) {
 }
 ```
 
-This lets us simplify `Comment` even further:
+这让我们更进一步的简化 `Comment` ：
 
 ```js{4}
 function Comment(props) {
@@ -275,9 +275,9 @@ function Comment(props) {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/rrJNJY?editors=0010)
+[在 CodePen 中尝试](http://codepen.io/gaearon/pen/rrJNJY?editors=0010)
 
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be a reusable component.
+抽取组件可能最初看起来是一个繁琐的工作，但是在大型应用中可以回报给我们大量的可复用组件。一个好的原则是，如果你的 UI 中有一部分是用到了多次(`Button`, `Panel`, `Avatar`)，或者它自己足够复杂(`App`, `FeedStory`, `Comment`)，最好的做法是使其成为可复用组件。
 
 ## Props are Read-Only
 
