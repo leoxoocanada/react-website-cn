@@ -279,9 +279,9 @@ function Comment(props) {
 
 抽取组件可能最初看起来是一个繁琐的工作，但是在大型应用中可以回报给我们大量的可复用组件。一个好的原则是，如果你的 UI 中有一部分是用到了多次(`Button`, `Panel`, `Avatar`)，或者它自己足够复杂(`App`, `FeedStory`, `Comment`)，最好的做法是使其成为可复用组件。
 
-## Props are Read-Only
+## Props 是只读的
 
-Whether you declare a component [as a function or a class](#functional-and-class-components), it must never modify its own props. Consider this `sum` function:
+尽管你用 [函数或类](#函数式组件和类组件) 声明了一个组件，它不能修改自己的 props。思考下这个 `sum` 函数：
 
 ```js
 function sum(a, b) {
