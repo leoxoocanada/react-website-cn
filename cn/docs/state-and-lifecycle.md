@@ -1,13 +1,62 @@
----
-id: state-and-lifecycle
-title: State and Lifecycle
-permalink: docs/state-and-lifecycle.html
-redirect_from: "docs/interactivity-and-dynamic-uis.html"
-prev: components-and-props.html
-next: handling-events.html
----
+[文档](/cn/docs/hello-world.md) | [教程](/cn/tutorial/tutorial.md) | [社区](/cn/community/support.md) | [博客](/cn/_posts/2017-04-07-react-v15.5.0.md) | [React Github](https://facebook.github.io/react/)
 
-Consider the ticking clock example from [one of the previous sections](/react/docs/rendering-elements.html#updating-the-rendered-element).
+---
+<details>
+  <summary>导航</summary>
+
+#### 快速入门
+
+* [安装](/cn/docs/installation.md)
+* [Hello World](/cn/docs/hello-world.md")
+* [JSX 介绍](/cn/docs/introducing-jsx.md)
+* [渲染元素](/cn/docs/rendering-elements.md)
+* [组件和Props](/cn/docs/components-and-props.md)
+* [**`State和生命周期`**](/cn/docs/state-and-lifecycle.md)
+* [事件处理](/cn/docs/handling-events.md)
+* [条件渲染](/cn/docs/conditional-rendering.md)
+* [列表和键](/cn/docs/lists-and-keys.md)
+* [表单](/cn/docs/forms.md)
+* [状态提升](/cn/docs/lifting-state-up.md)
+* [组合 vs 继承](/cn/docs/composition-vs-inheritance.md)
+* [用 React 思考](/cn/docs/thinking-in-react.md)
+
+#### 高级教程
+
+* [深入JSX](/cn/docs/jsx-in-depth.md)
+* [使用 PropTypes 做类型检查](/cn/docs/typechecking-with-proptypes.md)
+* [Refs 和 DOM](/cn/docs/refs-and-the-dom.md)
+* [不可控组件](/cn/docs/uncontrolled-components.md)
+* [性能优化](/cn/docs/optimizing-performance.md)
+* [不使用 ES6 的 React](/cn/docs/react-without-es6.md)
+* [不使用 JSX 的 React](/cn/docs/react-without-jsx.md)
+* [一致性比较（Reconciliation）](/cn/docs/reconciliation.md)
+* [上下文（Context）](/cn/docs/context.md)
+* [Web Components](/cn/docs/web-components.md)
+* [高阶组件](/cn/docs/higher-order-components.md)
+* [与其它类库集成](/cn/docs/integrating-with-other-libraries.md)
+
+#### 参考
+
+* [React](/cn/docs/react-api.md)
+* [React.Component](/cn/docs/react-component.md)
+* [ReactDOM](/cn/docs/react-dom.md)
+* [ReactDOMServer](/cn/docs/react-dom-server.md)
+* [DOM 元素](/cn/docs/dom-elements.md)
+* [合成事件（SyntheticEvent）](/cn/docs/events.md)
+
+#### 贡献
+
+* [如何贡献](/cn/contributing/how-to-contribute.md)
+* [代码库概述](/cn/contributing/codebase-overview.md)
+* [实现说明](/cn/contributing/implementation-notes.md)
+* [设计原则](/cn/contributing/design-principles.md)
+
+
+</details>
+
+# State和生命周期
+
+Consider the ticking clock example from [one of the previous sections](/cn/docs/rendering-elements.md#更新和渲染元素).
 
 So far we have only learned one way to update the UI.
 
@@ -30,7 +79,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
 In this section, we will learn how to make the `Clock` component truly reusable and encapsulated. It will set up its own timer and update itself every second.
 
@@ -56,7 +105,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
 However, it misses a crucial requirement: the fact that the `Clock` sets up a timer and updates the UI every second should be an implementation detail of the `Clock`.
 
@@ -73,7 +122,7 @@ To implement this, we need to add "state" to the `Clock` component.
 
 State is similar to props, but it is private and fully controlled by the component.
 
-We [mentioned before](/react/docs/components-and-props.html#functional-and-class-components) that components defined as classes have some additional features. Local state is exactly that: a feature available only to classes.
+We [mentioned before](/cn/docs/components-and-props.md#函数组件和类组件) that components defined as classes have some additional features. Local state is exactly that: a feature available only to classes.
 
 ## Converting a Function to a Class
 
@@ -102,7 +151,7 @@ class Clock extends React.Component {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
 `Clock` is now defined as a class rather than a function.
 
@@ -194,7 +243,7 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
 Next, we'll make the `Clock` set up its own timer and update itself every second.
 
@@ -305,7 +354,7 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
 Now the clock ticks every second.
 
@@ -440,7 +489,7 @@ function FormattedDate(props) {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
 This is commonly called a "top-down" or "unidirectional" data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components "below" them in the tree.
 
@@ -465,7 +514,7 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
 Each `Clock` sets up its own timer and updates independently.
 
