@@ -56,11 +56,11 @@
 
 # State和生命周期
 
-Consider the ticking clock example from [one of the previous sections](/cn/docs/rendering-elements.md#更新和渲染元素).
+思考 [前面章节](/cn/docs/rendering-elements.md#更新和渲染元素) 中提到的时钟例子。
 
-So far we have only learned one way to update the UI.
+到目前为止我们只学习了一种更新 UI 的方法。
 
-We call `ReactDOM.render()` to change the rendered output:
+我们调用 `ReactDOM.render()` 方法改变渲染输出：
 
 ```js{8-11}
 function tick() {
@@ -81,9 +81,9 @@ setInterval(tick, 1000);
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-In this section, we will learn how to make the `Clock` component truly reusable and encapsulated. It will set up its own timer and update itself every second.
+在这一节中，我们将学习如何使 `Clock` 组件变得真正的可复用和封装。它将创建自己的定时器并且每秒更新它自己。
 
-We can start by encapsulating how the clock looks:
+我们将从如何封装时钟开始：
 
 ```js{3-6,12}
 function Clock(props) {
@@ -107,9 +107,9 @@ setInterval(tick, 1000);
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
-However, it misses a crucial requirement: the fact that the `Clock` sets up a timer and updates the UI every second should be an implementation detail of the `Clock`.
+然而，它漏掉了一个关键的要求：`Clock` 设置定时器并每秒自动更新 UI ，应该是 `Clock` 自身实现的一部分。
 
-Ideally we want to write this once and have the `Clock` update itself:
+理想情况下我们应该只写一次`Clock` ，它自己更新自己：
 
 ```js{2}
 ReactDOM.render(
@@ -118,11 +118,11 @@ ReactDOM.render(
 );
 ```
 
-To implement this, we need to add "state" to the `Clock` component.
+要实现这点，我们需要添加 "状态（state）" 到 `Clock` 组件。
 
-State is similar to props, but it is private and fully controlled by the component.
+状态跟属性相似，但是它是私有的并且完成由组件来控制。
 
-We [mentioned before](/cn/docs/components-and-props.md#函数组件和类组件) that components defined as classes have some additional features. Local state is exactly that: a feature available only to classes.
+我们 [之前提到](/cn/docs/components-and-props.md#函数组件和类组件) 过通过类定义组件会有一些额外的特性。局部状态恰好是类组件才有的一种特性。
 
 ## Converting a Function to a Class
 
