@@ -124,19 +124,19 @@ ReactDOM.render(
 
 我们 [之前提到](/cn/docs/components-and-props.md#函数组件和类组件) 过通过类定义组件会有一些额外的特性。局部状态恰好是类组件才有的一种特性。
 
-## Converting a Function to a Class
+## 函数组件转换成类组件
 
-You can convert a functional component like `Clock` to a class in five steps:
+通过下面5步你可以将一个类似 `Clock` 的函数组件转换为类组件：
 
-1. Create an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) with the same name that extends `React.Component`.
+1. 用同样的名字通过 `React.Component` 创建一个 [ES6 类](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) 。
 
-2. Add a single empty method to it called `render()`.
+2. 添加一个名为 `render()` 的空方法。
 
-3. Move the body of the function into the `render()` method.
+3. 将函数的内容移动到 `render()` 方法里。
 
-4. Replace `props` with `this.props` in the `render()` body.
+4. 在 `render()` 里面用 `this.props` 代替 `props` 。
 
-5. Delete the remaining empty function declaration.
+5. 删除剩下的空函数声明。
 
 ```js
 class Clock extends React.Component {
@@ -153,15 +153,15 @@ class Clock extends React.Component {
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
-`Clock` is now defined as a class rather than a function.
+`Clock` 现在是通过类定义而不是函数。
 
-This lets us use additional features such as local state and lifecycle hooks.
+这让我们可以使用像局部状态和生命周期钩子的额外特性。
 
-## Adding Local State to a Class
+## 添加局部状态到类
 
-We will move the `date` from props to state in three steps:
+我们通过以下3步将 `date` 从属性中移动到状态中：
 
-1) Replace `this.props.date` with `this.state.date` in the `render()` method:
+1) 在 `render()` 中用 `this.state.date` 替换 `this.props.date` ：
 
 ```js{6}
 class Clock extends React.Component {
@@ -176,7 +176,7 @@ class Clock extends React.Component {
 }
 ```
 
-2) Add a [class constructor](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) that assigns the initial `this.state`:
+2) 添加 [类构造函数](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) 来初始化 `this.state`：
 
 ```js{4}
 class Clock extends React.Component {
@@ -195,8 +195,7 @@ class Clock extends React.Component {
   }
 }
 ```
-
-Note how we pass `props` to the base constructor:
+注意我们如何将 props 传递给基础构造函数：
 
 ```js{2}
   constructor(props) {
@@ -205,7 +204,7 @@ Note how we pass `props` to the base constructor:
   }
 ```
 
-Class components should always call the base constructor with `props`.
+类组件应始终使用 props 调用基础构造函数。
 
 3) Remove the `date` prop from the `<Clock />` element:
 
