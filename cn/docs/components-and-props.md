@@ -289,9 +289,9 @@ function sum(a, b) {
 }
 ```
 
-Such functions are called ["pure"](https://en.wikipedia.org/wiki/Pure_function) because they do not attempt to change their inputs, and always return the same result for the same inputs.
+这样的函数称为 ["纯函数(pure)"](https://en.wikipedia.org/wiki/Pure_function)， 因为它们没有试图改变他们自身的输入，并且同样的输入始终返回同样的结果。
 
-In contrast, this function is impure because it changes its own input:
+与此相反，下面这个函数是非纯函数（impure），因为它会改变自身的输入：
 
 ```js
 function withdraw(account, amount) {
@@ -299,8 +299,8 @@ function withdraw(account, amount) {
 }
 ```
 
-React is pretty flexible but it has a single strict rule:
+虽然 React 相当的灵活，但是它有一条严格的规则：
 
-**All React components must act like pure functions with respect to their props.**
+**所有的 React 组件都必须是纯函数组件，并禁止修改其自身的 props**
 
-Of course, application UIs are dynamic and change over time. In the [next section](/react/docs/state-and-lifecycle.html), we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
+当然，应用程序 UI 总是动态改变的。在 [下一章节](/cn/docs/state-and-lifecycle.md)，我们将学习一种新的概念 "状态(state)"。状态允许 React 组件在不违反上述规则的情况下，随时改变它们的输出以响应用户的行为、网络请求或随便什么东西。
