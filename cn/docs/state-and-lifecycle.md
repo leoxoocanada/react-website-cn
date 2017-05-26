@@ -361,13 +361,13 @@ ReactDOM.render(
 
 1) 当 `<Clock />` 传递到 `ReactDOM.render()`, React 调用 `Clock` 组件的构造函数。 由于 `Clock` 需要显示当前时间, 它通过一个包含当前时间的对象初始化 `this.state`。我们将稍后更新这个状态。
 
-2) 然后 React 调用 `Clock` 组件的`render()` 方法。 React 就是这样得到了需要在屏幕上显示的内容。然后 React 更新 DOM 以匹配 `Clock` 的渲染输出。
+2) 然后 React 调用 `Clock` 组件的`render()` 方法。 就这样 React 得到了需要在屏幕上显示的内容。然后 React 更新 DOM 以匹配 `Clock` 的渲染输出。
 
-3) When the `Clock` output is inserted in the DOM, React calls the `componentDidMount()` lifecycle hook. Inside it, the `Clock` component asks the browser to set up a timer to call `tick()` once a second.
+3) 当 `Clock` 输出插入到了 DOM, React 调用 `componentDidMount()` 生命周期钩子，在该方法中， `Clock` 组件要求浏览器创建一个定时器每秒钟调用 `tick()` 一次。
 
-4) Every second the browser calls the `tick()` method. Inside it, the `Clock` component schedules a UI update by calling `setState()` with an object containing the current time. Thanks to the `setState()` call, React knows the state has changed, and calls `render()` method again to learn what should be on the screen. This time, `this.state.date` in the `render()` method will be different, and so the render output will include the updated time. React updates the DOM accordingly.
+4) 每秒钟浏览器调用 `tick()` 方法。 在该方法中,  `Clock` 组件通过调用 `setState()` 方法，并传递一个包含当前时间的对象来安排一个 UI 更新。由于调用 `setState()` , React 知道状态被改变了, 并且调用 `render()` 方法再次得到了应该显示在屏幕上的内容。这次，在 `render()` 方法中 `this.state.date` 将不一样, 因此渲染输出将包含更新的时间。于是 React 更新 DOM。
 
-5) If the `Clock` component is ever removed from the DOM, React calls the `componentWillUnmount()` lifecycle hook so the timer is stopped.
+5) 如果 `Clock` 组件永远从 DOM 中移除, React 调用 `componentWillUnmount()` 生命周期钩子，于是定时器也停止了。
 
 ## Using State Correctly
 
