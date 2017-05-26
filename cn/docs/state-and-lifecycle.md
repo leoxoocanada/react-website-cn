@@ -357,11 +357,11 @@ ReactDOM.render(
 
 现在时钟每秒运转一次。
 
-Let's quickly recap what's going on and the order in which the methods are called:
+让我们快速回顾一下上面的过程以及方法调用的顺序：
 
-1) When `<Clock />` is passed to `ReactDOM.render()`, React calls the constructor of the `Clock` component. Since `Clock` needs to display the current time, it initializes `this.state` with an object including the current time. We will later update this state.
+1) 当 `<Clock />` 传递到 `ReactDOM.render()`, React 调用 `Clock` 组件的构造函数。 由于 `Clock` 需要显示当前时间, 它通过一个包含当前时间的对象初始化 `this.state`。我们将稍后更新这个状态。
 
-2) React then calls the `Clock` component's `render()` method. This is how React learns what should be displayed on the screen. React then updates the DOM to match the `Clock`'s render output.
+2) 然后 React 调用 `Clock` 组件的`render()` 方法。 React 就是这样得到了需要在屏幕上显示的内容。然后 React 更新 DOM 以匹配 `Clock` 的渲染输出。
 
 3) When the `Clock` output is inserted in the DOM, React calls the `componentDidMount()` lifecycle hook. Inside it, the `Clock` component asks the browser to set up a timer to call `tick()` once a second.
 
