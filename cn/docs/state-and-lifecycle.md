@@ -206,7 +206,7 @@ class Clock extends React.Component {
 
 类组件应始终使用 props 调用基础构造函数。
 
-3) Remove the `date` prop from the `<Clock />` element:
+3) 从 `<Clock />` 元素中移除 `date` 属性：
 
 ```js{2}
 ReactDOM.render(
@@ -215,9 +215,9 @@ ReactDOM.render(
 );
 ```
 
-We will later add the timer code back to the component itself.
+我们稍后再添加定时器代码到组件里面。
 
-The result looks like this:
+目前的结果如下：
 
 ```js{2-5,11,18}
 class Clock extends React.Component {
@@ -244,11 +244,11 @@ ReactDOM.render(
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-Next, we'll make the `Clock` set up its own timer and update itself every second.
+接下来，我们将使得 `Clock` 组件创建自己的定时器，并每秒更新它自己。
 
-## Adding Lifecycle Methods to a Class
+## 给类添加生命周期方法
 
-In applications with many components, it's very important to free up resources taken by the components when they are destroyed.
+一个具有许多组件的应用程序中，在组件被销毁时释放所占用的资源是非常重要的。
 
 We want to [set up a timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) whenever the `Clock` is rendered to the DOM for the first time. This is called "mounting" in React.
 
