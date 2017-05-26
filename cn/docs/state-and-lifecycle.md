@@ -295,13 +295,13 @@ class Clock extends React.Component {
   }
 ```
 
-Note how we save the timer ID right on `this`.
+注意我们如何把定时器 ID 存储在 `this` 上。
 
-While `this.props` is set up by React itself and `this.state` has a special meaning, you are free to add additional fields to the class manually if you need to store something that is not used for the visual output.
+虽然 `this.props` 由 React 自己创建，并且 `this.state` 有特殊的含义，但是如果你需要一些不用于可视化输出的内容，可以手动的去创建额外的字段到这个类。
 
-If you don't use something in `render()`, it shouldn't be in the state.
+如果在 `render()` 中没有被引用，它不应该出现在 state 中。
 
-We will tear down the timer in the `componentWillUnmount()` lifecycle hook:
+我们将在 `componentWillUnmount()` 生命周期钩子中取消这个定时器：
 
 ```js{2}
   componentWillUnmount() {
@@ -309,9 +309,9 @@ We will tear down the timer in the `componentWillUnmount()` lifecycle hook:
   }
 ```
 
-Finally, we will implement the `tick()` method that runs every second.
+最后，我们将每秒运行一次 `tick()` 方法。
 
-It will use `this.setState()` to schedule updates to the component local state:
+它将使用 `this.setState()` 周期性的更新到组件局部状态：
 
 ```js{18-22}
 class Clock extends React.Component {
@@ -355,7 +355,7 @@ ReactDOM.render(
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
-Now the clock ticks every second.
+现在时钟每秒运转一次。
 
 Let's quickly recap what's going on and the order in which the methods are called:
 
