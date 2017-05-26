@@ -250,11 +250,11 @@ ReactDOM.render(
 
 一个具有许多组件的应用程序中，在组件被销毁时释放所占用的资源是非常重要的。
 
-We want to [set up a timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) whenever the `Clock` is rendered to the DOM for the first time. This is called "mounting" in React.
+我们将在 `Clock` 第一次渲染到 DOM 后 [创建定时器](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) 。这在 React 中称为 "挂载(mounting)" 。
 
-We also want to [clear that timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) whenever the DOM produced by the `Clock` is removed. This is called "unmounting" in React.
+我们也要在 `Clock` 产生的 DOM 被移除后 [清除定时器](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) ，这在 React 中称为 "卸载(unmounting)" 。
 
-We can declare special methods on the component class to run some code when a component mounts and unmounts:
+当一个组件挂载和卸载的时候我们可以在组件类中声明一个特殊的方法来运行一些代码：
 
 ```js{7-9,11-13}
 class Clock extends React.Component {
@@ -282,9 +282,9 @@ class Clock extends React.Component {
 }
 ```
 
-These methods are called "lifecycle hooks".
+这些方法被称为 "生命周期钩子".
 
-The `componentDidMount()` hook runs after the component output has been rendered to the DOM. This is a good place to set up a timer:
+`componentDidMount()` 钩子在组件被渲染到 DOM 后运行。这是一个非常适合用来创建定时器的地方：
 
 ```js{2-5}
   componentDidMount() {
