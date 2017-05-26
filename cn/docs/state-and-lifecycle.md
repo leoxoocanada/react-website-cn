@@ -369,29 +369,29 @@ ReactDOM.render(
 
 5) 如果 `Clock` 组件永远从 DOM 中移除, React 调用 `componentWillUnmount()` 生命周期钩子，于是定时器也停止了。
 
-## Using State Correctly
+## 正确使用状态
 
-There are three things you should know about `setState()`.
+关于 `setState()` 有三件事你应该要知道：
 
-### Do Not Modify State Directly
+### 不要直接修改状态
 
-For example, this will not re-render a component:
+例如，这样将不会重新渲染组件：
 
 ```js
 // Wrong
 this.state.comment = 'Hello';
 ```
 
-Instead, use `setState()`:
+相反要使用 `setState()`:
 
 ```js
 // Correct
 this.setState({comment: 'Hello'});
 ```
 
-The only place where you can assign `this.state` is the constructor.
+唯一可以给 `this.state` 赋值的地方是在 constructor 里面.
 
-### State Updates May Be Asynchronous
+### 状态更新可能是异步的
 
 React may batch multiple `setState()` calls into a single update for performance.
 
