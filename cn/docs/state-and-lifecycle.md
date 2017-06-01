@@ -393,11 +393,11 @@ this.setState({comment: 'Hello'});
 
 ### 状态更新可能是异步的
 
-React may batch multiple `setState()` calls into a single update for performance.
+React 为了优化性能可能会将多个 `setState()` 调用合并为一次更新。
 
-Because `this.props` and `this.state` may be updated asynchronously, you should not rely on their values for calculating the next state.
+因为 `this.props` 和 `this.state` 可能是异步更新，你不应该依靠他们的值来计算下一个状态（state）。
 
-For example, this code may fail to update the counter:
+例如，下面的代码更新 counter 可能会失败：
 
 ```js
 // Wrong
@@ -406,7 +406,7 @@ this.setState({
 });
 ```
 
-To fix it, use a second form of `setState()` that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
+要修复它，使用 `setState()` 第2种格式，接收一个函数而不是对象，这个函数将接收上一个状态作为第一个参数，并且将更新后的 props 值作为第2个参数：
 
 ```js
 // Correct
@@ -415,7 +415,7 @@ this.setState((prevState, props) => ({
 }));
 ```
 
-We used an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) above, but it also works with regular functions:
+上面我们使用了一个 [箭头函数](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) , 但是它也可以使用普通函数：
 
 ```js
 // Correct
@@ -426,11 +426,11 @@ this.setState(function(prevState, props) {
 });
 ```
 
-### State Updates are Merged
+### 状态更新会被合并
 
-When you call `setState()`, React merges the object you provide into the current state.
+当你调用 `setState()`, React 将合并你提供的对象到当前状态(state)。
 
-For example, your state may contain several independent variables:
+例如，你的状态可能包含几个独立的变量：
 
 ```js{4,5}
   constructor(props) {
@@ -442,7 +442,7 @@ For example, your state may contain several independent variables:
   }
 ```
 
-Then you can update them independently with separate `setState()` calls:
+然后你可以通过不同的 `setState()` 调用独立的更新它们：
 
 ```js{4,10}
   componentDidMount() {
@@ -460,7 +460,7 @@ Then you can update them independently with separate `setState()` calls:
   }
 ```
 
-The merging is shallow, so `this.setState({comments})` leaves `this.state.posts` intact, but completely replaces `this.state.comments`.
+这是一个浅合并，所以 `this.setState({comments})` 不会修改 `this.state.posts` 的值, 但是会完全替换 `this.state.comments`.
 
 ## The Data Flows Down
 
