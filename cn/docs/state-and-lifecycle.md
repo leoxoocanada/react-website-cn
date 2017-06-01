@@ -462,25 +462,25 @@ this.setState(function(prevState, props) {
 
 这是一个浅合并，所以 `this.setState({comments})` 不会修改 `this.state.posts` 的值, 但是会完全替换 `this.state.comments`.
 
-## The Data Flows Down
+## 数据向下流动
 
-Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn't care whether it is defined as a function or a class.
+不管是父组件还是子组件，都不知道一个组件是否有状态，同时也不需要关心它是函数定义还是类定义。
 
-This is why state is often called local or encapsulated. It is not accessible to any component other than the one that owns and sets it.
+这就是 state(状态) 经常被称为 本地状态 或 封装状态的原因。它不能被拥有并设置它的组件以外的任何组件访问。 
 
-A component may choose to pass its state down as props to its child components:
+一个组件可以选择将 state(状态) 向下传递，作为其子组件的 props(属性)：
 
 ```js
 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 ```
 
-This also works for user-defined components:
+这也适用于用户自定义组件：
 
 ```js
 <FormattedDate date={this.state.date} />
 ```
 
-The `FormattedDate` component would receive the `date` in its props and wouldn't know whether it came from the `Clock`'s state, from the `Clock`'s props, or was typed by hand:
+`FormattedDate` 组件通过 props 接收 `date` 的值，但它不知道该值是来自于 `Clock` 的状态（state）、属性（props）、或手动创建的:
 
 ```js
 function FormattedDate(props) {
@@ -490,9 +490,9 @@ function FormattedDate(props) {
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
-This is commonly called a "top-down" or "unidirectional" data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components "below" them in the tree.
+这通过被称为“自上而下”或“单向”数据流。任何状态(state)始终由一些特有的组件所有，并且从该 state(状态) 导出的任何数据 或 UI 只能影响树中 “下方” 的组件。
 
-If you imagine a component tree as a waterfall of props, each component's state is like an additional water source that joins it at an arbitrary point but also flows down.
+如果把组件树想像为 props(属性) 的瀑布, each component's state is like an additional water source that joins it at an arbitrary point but also flows down.
 
 To show that all components are truly isolated, we can create an `App` component that renders three `<Clock>`s:
 
