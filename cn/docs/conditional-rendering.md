@@ -96,10 +96,9 @@ ReactDOM.render(
 
 ### 元素变量
 
-你能使用变量来存储元素。
-You can use variables to store elements. This can help you conditionally render a part of the component while the rest of the output doesn't change.
+你能使用变量来存储元素。这能帮助你有条件的渲染组件的一部分，而输出其余部分不会更改。
 
-Consider these two new components representing Logout and Login buttons:
+思考这2个表示退出和登录按钮的新组件：
 
 ```js
 function LoginButton(props) {
@@ -119,9 +118,9 @@ function LogoutButton(props) {
 }
 ```
 
-In the example below, we will create a [stateful component](/cn/docs/state-and-lifecycle.md#adding-local-state-to-a-class) called `LoginControl`.
+在这个示例下面，我们将创建一个 [有状态的组件](/cn/docs/state-and-lifecycle.md#adding-local-state-to-a-class) `LoginControl`.
 
-It will render either `<LoginButton />` or `<LogoutButton />` depending on its current state. It will also render a `<Greeting />` from the previous example:
+它将渲染 `<LoginButton />` 或 `<LogoutButton />` ，根据它的当前状态. 同时渲染前面提到的 `<Greeting />` :
 
 ```javascript{20-25,29,30}
 class LoginControl extends React.Component {
@@ -167,7 +166,7 @@ ReactDOM.render(
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
-While declaring a variable and using an `if` statement is a fine way to conditionally render a component, sometimes you might want to use a shorter syntax. There are a few ways to inline conditions in JSX, explained below.
+虽然声明一个变量且使用一个 `if` 声明是一个有条件的渲染一个组件的好办法，有时候你可能想要使用一个更短的语法。在 JSX 中有几种内联条件方法，如下所述：
 
 ### Inline If with Logical && Operator
 
