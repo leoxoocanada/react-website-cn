@@ -165,9 +165,9 @@ class LoggingButton extends React.Component {
 }
 ```
 
-This syntax is enabled by default in [Create React App](https://github.com/facebookincubator/create-react-app).
+这个语法在 [Create React App](https://github.com/facebookincubator/create-react-app) 中默认开启.
 
-If you aren't using property initializer syntax, you can use an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) in the callback:
+如果你不使用属性初始化语法，你可以在函数中使用一个 [箭头函数](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) :
 
 ```js{7-9}
 class LoggingButton extends React.Component {
@@ -176,8 +176,8 @@ class LoggingButton extends React.Component {
   }
 
   render() {
-    // This syntax ensures `this` is bound within handleClick
-    return (
+    // 这个语法确保 `this` 绑定在 handleClick 中
+    return (
       <button onClick={(e) => this.handleClick(e)}>
         Click me
       </button>
@@ -186,4 +186,4 @@ class LoggingButton extends React.Component {
 }
 ```
 
-The problem with this syntax is that a different callback is created each time the `LoggingButton` renders. In most cases, this is fine. However, if this callback is passed as a prop to lower components, those components might do an extra re-rendering. We generally recommend binding in the constructor or using the property initializer syntax, to avoid this sort of performance problem.
+这个语法的问题是每次 `LoggingButton` 渲染的时候都会创建一个不同的回调。多数情况下, 这是没有问题的. 然而, 如果这个回调是作为属性(prop)传递到下级组件，这些组件可能需要额外的重复渲染. 我们通常建议在 constructor  中绑定或使用属性初始化语法，以避开这种性能问题。
