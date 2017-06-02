@@ -492,9 +492,9 @@ function FormattedDate(props) {
 
 这通过被称为“自上而下”或“单向”数据流。任何状态(state)始终由一些特有的组件所有，并且从该 state(状态) 导出的任何数据 或 UI 只能影响树中 “下方” 的组件。
 
-如果把组件树想像为 props(属性) 的瀑布, each component's state is like an additional water source that joins it at an arbitrary point but also flows down.
+如果把组件树想像为 props(属性) 的瀑布,所有组件的 state(状态) 就如同一个额外的水源汇入主流，且只能随着主流的方向向下流动。 
 
-To show that all components are truly isolated, we can create an `App` component that renders three `<Clock>`s:
+要证明所有组件都是完全独立的，我们可以创建一个 `App` 组件渲染3个 `<Clock>`:
 
 ```js{4-6}
 function App() {
@@ -515,6 +515,6 @@ ReactDOM.render(
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
-Each `Clock` sets up its own timer and updates independently.
+每个 `Clock` 创建它自己的定时顺并且独立更新。
 
-In React apps, whether a component is stateful or stateless is considered an implementation detail of the component that may change over time. You can use stateless components inside stateful components, and vice versa.
+在 React 应用中, 一个组件不管是有状态还是无状态，都被认为是组件的实现细节，随时都可能会改变。你可以在有状态的组件里使用无状态组件， 反之亦然。
