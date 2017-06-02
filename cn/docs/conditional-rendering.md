@@ -56,11 +56,11 @@
 
 # 条件渲染
 
-In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
+在 React 中, 你能创建不同的组件封装你所需要的行为。然后，只渲染它们中的一些，取决于你应用中的状态。
 
-Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) or the [conditional operator](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) to create elements representing the current state, and let React update the UI to match them.
+在 React 中的条件渲染就和在 Javascript 中的条件渲染一样. 使用像 [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) 或 [条件运算符](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) 这样的运算符来创建表示当前状态的元素, 并且让 React 更新匹配的 UI .
 
-Consider these two components:
+考虑这2个组件:
 
 ```js
 function UserGreeting(props) {
@@ -72,7 +72,7 @@ function GuestGreeting(props) {
 }
 ```
 
-We'll create a `Greeting` component that displays either of these components depending on whether a user is logged in:
+我们将创建一个 `Greeting` 组件，根据用户是否登录来显示这些组件中的一个:
 
 ```javascript{3-7,11,12}
 function Greeting(props) {
@@ -84,7 +84,7 @@ function Greeting(props) {
 }
 
 ReactDOM.render(
-  // Try changing to isLoggedIn={true}:
+  // 修改为 isLoggedIn={true} 试试:
   <Greeting isLoggedIn={false} />,
   document.getElementById('root')
 );
@@ -92,10 +92,11 @@ ReactDOM.render(
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)
 
-This example renders a different greeting depending on the value of `isLoggedIn` prop.
+这个示例根据 `isLoggedIn` 属性的值渲染不同的 greeting。
 
-### Element Variables
+### 元素变量
 
+你能使用变量来存储元素。
 You can use variables to store elements. This can help you conditionally render a part of the component while the rest of the output doesn't change.
 
 Consider these two new components representing Logout and Login buttons:
