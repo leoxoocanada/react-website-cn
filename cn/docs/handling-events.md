@@ -56,12 +56,12 @@
 
 # 事件处理
 
-Handling events with React elements is very similar to handling events on DOM elements. There are some syntactic differences:
+在 React 中处理事件跟在 DOM 元素中处理事件是类似的。这里有一些语法上的差异：
 
-* React events are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* React 事件名使用驼峰写法而不是小写。
+* 在 JSX 中你传递的是一个函数而不是字符串。
 
-For example, the HTML:
+例如，看下面这个 HTML:
 
 ```html
 <button onclick="activateLasers()">
@@ -69,7 +69,7 @@ For example, the HTML:
 </button>
 ```
 
-is slightly different in React:
+在 React 中略微有一些不同:
 
 ```js{1}
 <button onClick={activateLasers}>
@@ -77,7 +77,7 @@ is slightly different in React:
 </button>
 ```
 
-Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default link behavior of opening a new page, you can write:
+其它不同的地方在于在 React 中你不能返回 `false` 阻止默认行为。你必须明确调用 `preventDefault` . 例如, 在一般的 HTML 中, 要阻止默认的链接行为打开一个新页面，你可以这么写：
 
 ```html
 <a href="#" onclick="console.log('The link was clicked.'); return false">
@@ -85,7 +85,7 @@ Another difference is that you cannot return `false` to prevent default behavior
 </a>
 ```
 
-In React, this could instead be:
+在 React 中, 你应该这么写:
 
 ```js{2-5,8}
 function ActionLink() {
