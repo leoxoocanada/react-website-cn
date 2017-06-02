@@ -168,9 +168,9 @@ ReactDOM.render(
 
 虽然声明一个变量且使用一个 `if` 声明是一个有条件的渲染一个组件的好办法，有时候你可能想要使用一个更短的语法。在 JSX 中有几种内联条件方法，如下所述：
 
-### Inline If with Logical && Operator
+### 使用逻辑 && 操作符的内联 if 用法
 
-You may [embed any expressions in JSX](/cn/docs/introducing-jsx.md#embedding-expressions-in-jsx) by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element:
+你可以通过用花括号包裹它们 [在 JSX 中嵌入一些表达式](/cn/docs/introducing-jsx.md#embedding-expressions-in-jsx) . 这也包括 JavaScript 逻辑 `&&` 运算符. 它有助于有条件的包含一个元素:
 
 ```js{6-10}
 function Mailbox(props) {
@@ -196,9 +196,9 @@ ReactDOM.render(
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
 
-It works because in JavaScript, `true && expression` always evaluates to `expression`, and `false && expression` always evaluates to `false`.
+它可以正常运行，因为在 JavaScript 中, `true && expression` 总是评估为 `expression`, 而 `false && expression` 总是评估为 `false`.
 
-Therefore, if the condition is `true`, the element right after `&&` will appear in the output. If it is `false`, React will ignore and skip it.
+因此, 假如条件是 `true`, 在 `&&` 右侧的元素将在输出中显示. 如果它是 `false`, React 将忽略并跳过它.
 
 ### Inline If-Else with Conditional Operator
 
