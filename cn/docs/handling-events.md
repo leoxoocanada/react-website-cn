@@ -102,11 +102,11 @@ function ActionLink() {
 }
 ```
 
-Here, `e` is a synthetic event. React defines these synthetic events according to the [W3C spec](https://www.w3.org/TR/DOM-Level-3-Events/), so you don't need to worry about cross-browser compatibility. See the [`SyntheticEvent`](/react/docs/events.html) reference guide to learn more.
+在这里, `e` 是一个合成事件. React 按照 [W3C 规则](https://www.w3.org/TR/DOM-Level-3-Events/) 定义他们的合成事件, 所以你不需要担心它的跨浏览器兼容性. 查阅 [`合成事件(SyntheticEvent)`](/cn/docs/events.md) 参考指南了解更多.
 
-When using React you should generally not need to call `addEventListener` to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
+当你使用 React 的时候，通过不需要在 DOM 元素被创建后调用 `addEventListener` 来添加事件监听器. 相反, 只要在元素初始渲染时提供一个监听器就可以.
 
-When you define a component using an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), a common pattern is for an event handler to be a method on the class. For example, this `Toggle` component renders a button that lets the user toggle between "ON" and "OFF" states:
+当你使用 [ES6 类（class）](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) 来定义一个组件的时候, 通常的一个事件处理程序是类上的一个方法. 例如, 这个 `Toggle` 组件渲染一个按钮让用户在 "ON" 和 "OFF" 状态之间切换:
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
@@ -114,8 +114,8 @@ class Toggle extends React.Component {
     super(props);
     this.state = {isToggleOn: true};
 
-    // This binding is necessary to make `this` work in the callback
-    this.handleClick = this.handleClick.bind(this);
+    // 这个绑定是必须的，用来使 `this` 在回调函数中起作用
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
@@ -139,18 +139,18 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/xEmzGg?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
-You have to be careful about the meaning of `this` in JSX callbacks. In JavaScript, class methods are not [bound](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) by default. If you forget to bind `this.handleClick` and pass it to `onClick`, `this` will be `undefined` when the function is actually called.
+在 JSX 回调中你必须注意 `this` 的指向. 在 JavaScript 中, 类（class）方法默认 [绑定](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) . 如果你忘了绑定 `this.handleClick` 并将它传递给了 `onClick`, 当这个函数实际调用的时候 `this` 将会是 `undefined` .
 
-This is not React-specific behavior; it is a part of [how functions work in JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generally, if you refer to a method without `()` after it, such as `onClick={this.handleClick}`, you should bind that method.
+这不是 React 特有的行为; 这是 [在 JavaScript 中函数如何工作](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/) 的一部分. 通常来说, 如果你引用一个后面没有跟 `()` 的方法, 比如 `onClick={this.handleClick}`, 你应该绑定该方法.
 
-If calling `bind` annoys you, there are two ways you can get around this. If you are using the experimental [property initializer syntax](https://babeljs.io/docs/plugins/transform-class-properties/), you can use property initializers to correctly bind callbacks:
+如果调用 `bind` 让你很烦恼, 有2个方法可以解决这个问题. 如果你使用实验性的 [属性初始化语法](https://babeljs.io/docs/plugins/transform-class-properties/), 你能使用属性初始化来正确的绑定（bind）回调:
 
 ```js{2-6}
 class LoggingButton extends React.Component {
-  // This syntax ensures `this` is bound within handleClick.
-  // Warning: this is *experimental* syntax.
+  // 这个语法保证 `this` 绑定在 handleClick 中.
+  // 警告: 这是 *实验性* 语法.
   handleClick = () => {
     console.log('this is:', this);
   }
