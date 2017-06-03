@@ -235,11 +235,11 @@ render() {
 ```
 就像在 Javascript 中一样，你可以根据你和你的团队认为更易于阅读的方式选择合适的风格。还要记住，无论何时何地，当条件变得太复杂时，可能是 [提取组件](/cn/docs/components-and-props.md#extracting-components) 的好时机。
 
-### Preventing Component from Rendering
+### 防止组件渲染
 
-In rare cases you might want a component to hide itself even though it was rendered by another component. To do this return `null` instead of its render output.
+在一些罕见的案例中，你可能要隐藏一个组件自身，即使它已经被另外一个组件渲染。为此，返回 `null` 而不是渲染输出。
 
-In the example below, the `<WarningBanner />` is rendered depending on the value of the prop called `warn`. If the value of the prop is `false`, then the component does not render:
+在下面这个示例中，根据名为 `warn` 的属性值渲染 `<WarningBanner />` 。如果这个属性的值是 `false` ，这个组件将不会渲染：
 
 ```javascript{2-4,29}
 function WarningBanner(props) {
@@ -287,4 +287,4 @@ ReactDOM.render(
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
 
-Returning `null` from a component's `render` method does not affect the firing of the component's lifecycle methods. For instance, `componentWillUpdate` and `componentDidUpdate` will still be called.
+一个组件的 `render` 方法返回 `null`，不影响这个组件的第一个生命周期方法。例如， `componentWillUpdate` 和 `componentDidUpdate` 将还是会被调用。
