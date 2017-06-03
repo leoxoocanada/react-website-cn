@@ -96,11 +96,11 @@ ReactDOM.render(
 
 这段代码显示一个1到5的数字项目列表。
 
-### Basic List Component
+### 基本列表组件
 
-Usually you would render lists inside a [component](/cn/docs/components-and-props.md).
+通常你会在一个 [组件](/cn/docs/components-and-props.md) 中渲染列表.
 
-We can refactor the previous example into a component that accepts an array of `numbers` and outputs an unordered list of elements.
+我们能重构上一个示例到一个组件，它接收一个 `numbers` 数组并输出一个无序列表元素。
 
 ```javascript{3-5,7,13}
 function NumberList(props) {
@@ -120,9 +120,9 @@ ReactDOM.render(
 );
 ```
 
-When you run this code, you'll be given a warning that a key should be provided for list items. A "key" is a special string attribute you need to include when creating lists of elements. We'll discuss why it's important in the next section.
+当你运行这段代码，你将得到一个警告，提示一个 key 应该被提供给列表项。一个 "key" 是一个特殊的字符属性，当你创建一个元素列表时你应该包含它。我们将在下一章节讨论为什么它很重要。
 
-Let's assign a `key` to our list items inside `numbers.map()` and fix the missing key issue.
+让我们指定一个 `key` 到我们在 `numbers.map()` 里面的列表项，并且修复缺少 key 的问题。
 
 ```javascript{4}
 function NumberList(props) {
@@ -146,7 +146,7 @@ ReactDOM.render(
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
 
-## Keys
+## 键(Keys)
 
 Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity:
 
