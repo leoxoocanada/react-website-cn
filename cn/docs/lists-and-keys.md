@@ -311,7 +311,7 @@ const content = posts.map((post) =>
 
 ### 在 JSX 中嵌入 map()
 
-In the examples above we declared a separate `listItems` variable and included it in JSX:
+在上面的示例中我们单独声明了一个  `listItems`  变量，并在 JSX 中引用了它：
 
 ```js{3-6}
 function NumberList(props) {
@@ -328,7 +328,7 @@ function NumberList(props) {
 }
 ```
 
-JSX allows [embedding any expressions](/cn/docs/introducing-jsx.md#embedding-expressions-in-jsx) in curly braces so we could inline the `map()` result:
+JSX 允许在花括号中 [嵌入任意表达式](/cn/docs/introducing-jsx.md#embedding-expressions-in-jsx) ，所以我们可以内联 `map()` 结果：
 
 ```js{5-8}
 function NumberList(props) {
@@ -346,4 +346,4 @@ function NumberList(props) {
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
-Sometimes this results in clearer code, but this style can also be abused. Like in JavaScript, it is up to you to decide whether it is worth extracting a variable for readability. Keep in mind that if the `map()` body is too nested, it might be a good time to [extract a component](/cn/docs/components-and-props.md#extracting-components).
+有时候这可以产生清晰的代码，但这种风格也能被滥用。就像在 JavaScript 中，由你决定是否为了可读性提取一个变量。记住，如果 `map()` 体中嵌套过多，它可能是[提取组件](/cn/docs/components-and-props.md#extracting-components) 的好时机.
