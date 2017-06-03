@@ -256,7 +256,7 @@ ReactDOM.render(
 
 ### keys 在同辈元素中必须是唯一的
 
-Keys used within arrays should be unique among their siblings. However they don't need to be globally unique. We can use the same keys when we produce two different arrays:
+在数组中使用的 Keys 在同辈元素中应该是唯一的。然而它们不需要全局唯一。当我们操作2个不同的数组时可以使用同样的 keys：
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
@@ -296,7 +296,7 @@ ReactDOM.render(
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
 
-Keys serve as a hint to React but they don't get passed to your components. If you need the same value in your component, pass it explicitly as a prop with a different name:
+键是React的一个内部映射，但是它们不会传递到你的组件。如果你在你的组件里需要相同的值，可以通过一个不同的名字把它作为一个属性明确的传递它。
 
 ```js{3,4}
 const content = posts.map((post) =>
@@ -307,9 +307,9 @@ const content = posts.map((post) =>
 );
 ```
 
-With the example above, the `Post` component can read `props.id`, but not `props.key`.
+在上面这个示例中， `Post` 组件能读到 `props.id` 但读不到 `props.key`。
 
-### Embedding map() in JSX
+### 在 JSX 中嵌入 map()
 
 In the examples above we declared a separate `listItems` variable and included it in JSX:
 
