@@ -148,7 +148,7 @@ ReactDOM.render(
 
 ## 键(Keys)
 
-Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity:
+键(Keys)帮助 React 识别哪一项已经改变了，是添加或者被移除。数组中的每一个元素都应该有一个唯一不变的键(Keys)来标识：
 
 ```js{3}
 const numbers = [1, 2, 3, 4, 5];
@@ -159,7 +159,7 @@ const listItems = numbers.map((number) =>
 );
 ```
 
-The best way to pick a key is to use a string that uniquely identifies a list item among its siblings. Most often you would use IDs from your data as keys:
+挑选 key 最好的方式是使用一个在它的同辈元素中不重复的标识字符串。多数情况你可以使用数据中的 IDs 作为 keys：
 
 ```js{2}
 const todoItems = todos.map((todo) =>
@@ -169,7 +169,7 @@ const todoItems = todos.map((todo) =>
 );
 ```
 
-When you don't have stable IDs for rendered items, you may use the item index as a key as a last resort:
+当要渲染的数据项中没有不重复的 IDs 时，你可能使用数据项的索引（index）作为 key 的最后选择：
 
 ```js{2,3}
 const todoItems = todos.map((todo, index) =>
@@ -180,9 +180,9 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-We don't recommend using indexes for keys if the items can reorder, as that would be slow. You may read an [in-depth explanation about why keys are necessary](/cn/docs/reconciliation.md#recursing-on-children) if you're interested.
+如果数据项可能被重新排序时，我们不建议使用索引作为 keys ，这么做将会变得很慢。如果你有兴趣可以阅读 [深入理解为什么 keys 是必要的](/cn/docs/reconciliation.md#recursing-on-children) 
 
-### Extracting Components with Keys
+### 使用 Keys 提取组件
 
 Keys only make sense in the context of the surrounding array.
 
