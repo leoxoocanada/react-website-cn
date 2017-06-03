@@ -200,11 +200,11 @@ ReactDOM.render(
 
 因此, 假如条件是 `true`, 在 `&&` 右侧的元素将在输出中显示. 如果它是 `false`, React 将忽略并跳过它.
 
-### Inline If-Else with Conditional Operator
+### 使用条件运算符的内联 If-Else 
 
-Another method for conditionally rendering elements inline is to use the JavaScript conditional operator [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
+另一个用于条件渲染元素的内联方法是使用 JavaScript 的 条件运算符 [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
 
-In the example below, we use it to conditionally render a small block of text.
+在下面这个示例中，我们使用它来条件渲染一个小的文本块。
 
 ```javascript{5}
 render() {
@@ -217,7 +217,7 @@ render() {
 }
 ```
 
-It can also be used for larger expressions although it is less obvious what's going on:
+它也能被用在更大的表达式上，尽管不太明显发生了什么：
 
 ```js{5,7,9}
 render() {
@@ -233,8 +233,7 @@ render() {
   );
 }
 ```
-
-Just like in JavaScript, it is up to you to choose an appropriate style based on what you and your team consider more readable. Also remember that whenever conditions become too complex, it might be a good time to [extract a component](/cn/docs/components-and-props.md#extracting-components).
+就像在 Javascript 中一样，你可以根据你和你的团队认为更易于阅读的方式选择合适的风格。还要记住，无论何时何地，当条件变得太复杂时，可能是 [提取组件](/cn/docs/components-and-props.md#extracting-components) 的好时机。
 
 ### Preventing Component from Rendering
 
