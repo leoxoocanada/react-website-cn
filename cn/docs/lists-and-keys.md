@@ -1,10 +1,60 @@
+[文档](/cn/docs/hello-world.md) | [教程](/cn/tutorial/tutorial.md) | [社区](/cn/community/support.md) | [博客](/cn/_posts/2017-04-07-react-v15.5.0.md) | [React Github](https://facebook.github.io/react/)
+
 ---
-id: lists-and-keys
-title: Lists and Keys
-permalink: docs/lists-and-keys.html
-prev: conditional-rendering.html
-next: forms.html
----
+<details>
+  <summary>导航</summary>
+
+#### 快速入门
+
+* [安装](/cn/docs/installation.md)
+* [Hello World](/cn/docs/hello-world.md")
+* [JSX 介绍](/cn/docs/introducing-jsx.md)
+* [渲染元素](/cn/docs/rendering-elements.md)
+* [组件和Props](/cn/docs/components-and-props.md)
+* [State和生命周期](/cn/docs/state-and-lifecycle.md)
+* [事件处理](/cn/docs/handling-events.md)
+* [条件渲染](/cn/docs/conditional-rendering.md)
+* [**`列表和键`**](/cn/docs/lists-and-keys.md)
+* [表单](/cn/docs/forms.md)
+* [状态提升](/cn/docs/lifting-state-up.md)
+* [组合 vs 继承](/cn/docs/composition-vs-inheritance.md)
+* [用 React 思考](/cn/docs/thinking-in-react.md)
+
+#### 高级教程
+
+* [深入JSX](/cn/docs/jsx-in-depth.md)
+* [使用 PropTypes 做类型检查](/cn/docs/typechecking-with-proptypes.md)
+* [Refs 和 DOM](/cn/docs/refs-and-the-dom.md)
+* [不可控组件](/cn/docs/uncontrolled-components.md)
+* [性能优化](/cn/docs/optimizing-performance.md)
+* [不使用 ES6 的 React](/cn/docs/react-without-es6.md)
+* [不使用 JSX 的 React](/cn/docs/react-without-jsx.md)
+* [一致性比较（Reconciliation）](/cn/docs/reconciliation.md)
+* [上下文（Context）](/cn/docs/context.md)
+* [Web Components](/cn/docs/web-components.md)
+* [高阶组件](/cn/docs/higher-order-components.md)
+* [与其它类库集成](/cn/docs/integrating-with-other-libraries.md)
+
+#### 参考
+
+* [React](/cn/docs/react-api.md)
+* [React.Component](/cn/docs/react-component.md)
+* [ReactDOM](/cn/docs/react-dom.md)
+* [ReactDOMServer](/cn/docs/react-dom-server.md)
+* [DOM 元素](/cn/docs/dom-elements.md)
+* [合成事件（SyntheticEvent）](/cn/docs/events.md)
+
+#### 贡献
+
+* [如何贡献](/cn/contributing/how-to-contribute.md)
+* [代码库概述](/cn/contributing/codebase-overview.md)
+* [实现说明](/cn/contributing/implementation-notes.md)
+* [设计原则](/cn/contributing/design-principles.md)
+
+
+</details>
+
+# 列表和键
 
 First, let's review how you transform lists in JavaScript.
 
@@ -18,11 +68,11 @@ console.log(doubled);
 
 This code logs `[2, 4, 6, 8, 10]` to the console.
 
-In React, transforming arrays into lists of [elements](/react/docs/rendering-elements.html) is nearly identical.
+In React, transforming arrays into lists of [elements](/cn/docs/rendering-elements.md) is nearly identical.
 
 ### Rendering Multiple Components
 
-You can build collections of elements and [include them in JSX](/react/docs/introducing-jsx.html#embedding-expressions-in-jsx) using curly braces `{}`.
+You can build collections of elements and [include them in JSX](/cn/docs/introducing-jsx.md#embedding-expressions-in-jsx) using curly braces `{}`.
 
 Below, we loop through the `numbers` array using the Javascript [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function. We return an `<li>` element for each item. Finally, we assign the resulting array of elements to `listItems`:
 
@@ -33,7 +83,7 @@ const listItems = numbers.map((number) =>
 );
 ```
 
-We include the entire `listItems` array inside a `<ul>` element, and [render it to the DOM](/react/docs/rendering-elements.html#rendering-an-element-into-the-dom):
+We include the entire `listItems` array inside a `<ul>` element, and [render it to the DOM](/cn/docs/rendering-elements.md#rendering-an-element-into-the-dom):
 
 ```javascript{2}
 ReactDOM.render(
@@ -42,13 +92,13 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
+[在 CodePen 中试试](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
 
 This code displays a bullet list of numbers between 1 and 5.
 
 ### Basic List Component
 
-Usually you would render lists inside a [component](/react/docs/components-and-props.html).
+Usually you would render lists inside a [component](/cn/docs/components-and-props.md).
 
 We can refactor the previous example into a component that accepts an array of `numbers` and outputs an unordered list of elements.
 
@@ -94,7 +144,7 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
+[在 CodePen 中试试](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
 
 ## Keys
 
@@ -130,13 +180,13 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-We don't recommend using indexes for keys if the items can reorder, as that would be slow. You may read an [in-depth explanation about why keys are necessary](/react/docs/reconciliation.html#recursing-on-children) if you're interested.
+We don't recommend using indexes for keys if the items can reorder, as that would be slow. You may read an [in-depth explanation about why keys are necessary](/cn/docs/reconciliation.md#recursing-on-children) if you're interested.
 
 ### Extracting Components with Keys
 
 Keys only make sense in the context of the surrounding array.
 
-For example, if you [extract](/react/docs/components-and-props.html#extracting-components) a `ListItem` component, you should keep the key on the `<ListItem />` elements in the array rather than on the root `<li>` element in the `ListItem` itself.
+For example, if you [extract](/cn/docs/components-and-props.md#extracting-components) a `ListItem` component, you should keep the key on the `<ListItem />` elements in the array rather than on the root `<li>` element in the `ListItem` itself.
 
 **Example: Incorrect Key Usage**
 
@@ -200,7 +250,7 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](https://codepen.io/rthor/pen/QKzJKG?editors=0010)
+[在 CodePen 中试试](https://codepen.io/rthor/pen/QKzJKG?editors=0010)
 
 A good rule of thumb is that elements inside the `map()` call need keys.
 
@@ -244,7 +294,7 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
+[在 CodePen 中试试](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
 
 Keys serve as a hint to React but they don't get passed to your components. If you need the same value in your component, pass it explicitly as a prop with a different name:
 
@@ -278,7 +328,7 @@ function NumberList(props) {
 }
 ```
 
-JSX allows [embedding any expressions](/react/docs/introducing-jsx.html#embedding-expressions-in-jsx) in curly braces so we could inline the `map()` result:
+JSX allows [embedding any expressions](/cn/docs/introducing-jsx.md#embedding-expressions-in-jsx) in curly braces so we could inline the `map()` result:
 
 ```js{5-8}
 function NumberList(props) {
@@ -294,6 +344,6 @@ function NumberList(props) {
 }
 ```
 
-[Try it on CodePen.](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
+[在 CodePen 中试试](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
-Sometimes this results in clearer code, but this style can also be abused. Like in JavaScript, it is up to you to decide whether it is worth extracting a variable for readability. Keep in mind that if the `map()` body is too nested, it might be a good time to [extract a component](/react/docs/components-and-props.html#extracting-components).
+Sometimes this results in clearer code, but this style can also be abused. Like in JavaScript, it is up to you to decide whether it is worth extracting a variable for readability. Keep in mind that if the `map()` body is too nested, it might be a good time to [extract a component](/cn/docs/components-and-props.md#extracting-components).
