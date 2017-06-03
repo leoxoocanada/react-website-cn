@@ -56,9 +56,9 @@
 
 # 列表和键
 
-First, let's review how you transform lists in JavaScript.
+首先，让我们回顾一下在 Javascript 中你是如何转换列表的。
 
-Given the code below, we use the [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function to take an array of `numbers` and double their values. We assign the new array returned by `map()` to the variable `doubled` and log it:
+给定下面的代码，我们使用 [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 函数处理使 `numbers` 数组的值翻倍。我们将 `map()` 返回的新数组赋值给变量 `doubled` 并且打印它：
 
 ```javascript{2}
 const numbers = [1, 2, 3, 4, 5];
@@ -66,15 +66,15 @@ const doubled = numbers.map((number) => number * 2);
 console.log(doubled);
 ```
 
-This code logs `[2, 4, 6, 8, 10]` to the console.
+这段代码将在 console 中打印 `[2, 4, 6, 8, 10]` 
 
-In React, transforming arrays into lists of [elements](/cn/docs/rendering-elements.md) is nearly identical.
+在 React 中，转换数组到 [元素](/cn/docs/rendering-elements.md) 列表几乎是一样的。
 
-### Rendering Multiple Components
+### 渲染多个组件
 
-You can build collections of elements and [include them in JSX](/cn/docs/introducing-jsx.md#embedding-expressions-in-jsx) using curly braces `{}`.
+你可以构建元素的集合，并且通过花括号 `{}` [在 JSX 中包含它们](/cn/docs/introducing-jsx.md#embedding-expressions-in-jsx)。
 
-Below, we loop through the `numbers` array using the Javascript [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function. We return an `<li>` element for each item. Finally, we assign the resulting array of elements to `listItems`:
+下面，我们使用 Javascript [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 函数依次遍历 `numbers` 数组。我们为每一项返回一个 `<li>` 元素。最后，我们将元素结果数组赋值给 `listItems`:
 
 ```javascript{2-4}
 const numbers = [1, 2, 3, 4, 5];
@@ -83,7 +83,7 @@ const listItems = numbers.map((number) =>
 );
 ```
 
-We include the entire `listItems` array inside a `<ul>` element, and [render it to the DOM](/cn/docs/rendering-elements.md#rendering-an-element-into-the-dom):
+我们用 `<ul>` 元素包含全部的 `listItems` 数组，并且 [将它渲染到 DOM](/cn/docs/rendering-elements.md#rendering-an-element-into-the-dom):
 
 ```javascript{2}
 ReactDOM.render(
@@ -94,7 +94,7 @@ ReactDOM.render(
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
 
-This code displays a bullet list of numbers between 1 and 5.
+这段代码显示一个1到5的数字项目列表。
 
 ### Basic List Component
 
