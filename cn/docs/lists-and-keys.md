@@ -160,7 +160,7 @@ const listItems = numbers.map((number) =>
 ```
 
 挑选 key 最好的方式是使用一个在它的同辈元素中不重复的标识字符串。多数情况你可以使用数据中的 IDs 作为 keys：
-
+。
 ```js{2}
 const todoItems = todos.map((todo) =>
   <li key={todo.id}>
@@ -184,17 +184,17 @@ const todoItems = todos.map((todo, index) =>
 
 ### 使用 Keys 提取组件
 
-Keys only make sense in the context of the surrounding array.
+Keys 只在数组的上下文中有意义。
 
-For example, if you [extract](/cn/docs/components-and-props.md#extracting-components) a `ListItem` component, you should keep the key on the `<ListItem />` elements in the array rather than on the root `<li>` element in the `ListItem` itself.
+例如，如果你 [提取](/cn/docs/components-and-props.md#extracting-components) 一个 `ListItem` 组件，你应该在 `<ListItem />` 元素中保持 key，而不是在 `ListItem` 自身的 `<li>` 根元素上。
 
-**Example: Incorrect Key Usage**
+**示例：错误的 Key 用法**
 
 ```javascript{4,5,14,15}
 function ListItem(props) {
   const value = props.value;
   return (
-    // Wrong! There is no need to specify the key here:
+    // 错误！不需要在这里指定 key：
     <li key={value.toString()}>
       {value}
     </li>
@@ -204,7 +204,7 @@ function ListItem(props) {
 function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
-    // Wrong! The key should have been specified here:
+    // 错误！key 应该在这里指定：
     <ListItem value={number} />
   );
   return (
@@ -221,18 +221,18 @@ ReactDOM.render(
 );
 ```
 
-**Example: Correct Key Usage**
+**示例：正确的 Key 用法**
 
 ```javascript{2,3,9,10}
 function ListItem(props) {
-  // Correct! There is no need to specify the key here:
+  // 正确！这里不需要指定 key ：
   return <li>{props.value}</li>;
 }
 
 function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
-    // Correct! Key should be specified inside the array.
+    // 正确！key 应该在这里被指定
     <ListItem key={number.toString()}
               value={number} />
   );
@@ -252,9 +252,9 @@ ReactDOM.render(
 
 [在 CodePen 中试试](https://codepen.io/rthor/pen/QKzJKG?editors=0010)
 
-A good rule of thumb is that elements inside the `map()` call need keys.
+一个好的经验是调用 `map()` 的元素中需要 keys。
 
-### Keys Must Only Be Unique Among Siblings
+### keys 在同辈元素中必须是唯一的
 
 Keys used within arrays should be unique among their siblings. However they don't need to be globally unique. We can use the same keys when we produce two different arrays:
 
