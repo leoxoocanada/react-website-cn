@@ -72,11 +72,11 @@ HTML 表单元素与 React 中其它 DOM 元素有一些不一样，因为表单
 
 ## 受控组件
 
-In HTML, form elements such as `<input>`, `<textarea>`, and `<select>` typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with [`setState()`](/cn/docs/react-component.md#setstate).
+在 HTML 中，表单元素如`<input>`, `<textarea>`,  `<select>` 通常保持它们自己的状态，并根据用户输入进行更新。在 React 中，可变状态通常保持在组件状态（state ）属性里，并且只能通过 [`setState()`](/cn/docs/react-component.md#setstate) 来更新。
 
-We can combine the two by making the React state be the "single source of truth". Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a "controlled component".
+我们能通过使 React 状态变成 “单一数据源原则” 将2者结合起来。然后渲染表单的组件也能控制随后用户的输入。一个输入表单元素的值被 React 控制的方式被称为 “受控组件(controlled components)”。
 
-For example, if we want to make the previous example log the name when it is submitted, we can write the form as a controlled component:
+例如，如果我要让上一个例子当它提交的时候打印名字，我们可以将表单写为受控组件：
 
 ```javascript{4,10-12,24}
 class NameForm extends React.Component {
@@ -113,7 +113,7 @@ class NameForm extends React.Component {
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
 
-Since the `value` attribute is set on our form element, the displayed value will always be `this.state.value`, making the React state the source of truth. Since `handleChange` runs on every keystroke to update the React state, the displayed value will update as the user types.
+设置表单元素的 `value` 属性之后，显示的值总是 `this.state.value`，使 React 状态满足同一数据理念， `handleChange` 在每次键盘输入之后运行用来更新 React 状态，显示的值将作为用户的输入更新。
 
 With a controlled component, every state mutation will have an associated handler function. This makes it straightforward to modify or validate user input. For example, if we wanted to enforce that names are written with all uppercase letters, we could write `handleChange` as:
 
