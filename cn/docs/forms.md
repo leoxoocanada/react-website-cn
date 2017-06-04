@@ -56,7 +56,7 @@
 
 # 表单
 
-HTML 表单元素的行为与 React 中其它 DOM 元素有一些不一样，因为表单元素天生带有一些内部状态。例如，这个纯 HTML 表单接受一个单独的 name:
+HTML 表单元素与 React 中其它 DOM 元素有一些不一样，因为表单元素天生带有一些内部状态。例如，这个纯 HTML 表单接受一个单独的 name:
 
 ```html
 <form>
@@ -68,9 +68,9 @@ HTML 表单元素的行为与 React 中其它 DOM 元素有一些不一样，因
 </form>
 ```
 
-This form has the default HTML form behavior of browsing to a new page when the user submits the form. If you want this behavior in React, it just works. But in most cases, it's convenient to have a JavaScript function that handles the submission of the form and has access to the data that the user entered into the form. The standard way to achieve this is with a technique called "controlled components".
+这个表单有默认的 HTML 表单行为，当用户提交这个表单时它会打开一个新页面。如果你希望在 React 中保持这个行为，它也可以工作。但是在多数情况下，用一个处理表单提交并访问用户输入到表单中的数据的 Javascript 函数来是更方便的。实现这一点的标准方法是使用一种称为“受控组件(controlled components)”的技术。
 
-## Controlled Components
+## 受控组件
 
 In HTML, form elements such as `<input>`, `<textarea>`, and `<select>` typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with [`setState()`](/cn/docs/react-component.md#setstate).
 
