@@ -56,7 +56,7 @@
 
 # 表单
 
-HTML form elements work a little bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+HTML 表单元素的行为与 React 中其它 DOM 元素有一些不一样，因为表单元素天生带有一些内部状态。例如，这个纯 HTML 表单接受一个单独的 name:
 
 ```html
 <form>
