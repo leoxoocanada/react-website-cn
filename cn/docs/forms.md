@@ -115,7 +115,7 @@ class NameForm extends React.Component {
 
 设置表单元素的 `value` 属性之后，显示的值总是 `this.state.value`，使 React 状态满足同一数据理念， `handleChange` 在每次键盘输入之后运行用来更新 React 状态，显示的值将作为用户的输入更新。
 
-With a controlled component, every state mutation will have an associated handler function. This makes it straightforward to modify or validate user input. For example, if we wanted to enforce that names are written with all uppercase letters, we could write `handleChange` as:
+在受控组件里，每个状态的变化将有一个相关的控制函数。这使得修改或验证用户输入变得简单。例如，如果我们要强制写入的名字都使用大写字母，我们可以这么写 `handleChange` ：
 
 ```javascript{2}
 handleChange(event) {
@@ -123,9 +123,9 @@ handleChange(event) {
 }
 ```
 
-## The textarea Tag
+## textarea 标签
 
-In HTML, a `<textarea>` element defines its text by its children:
+在 HTML 里，`<textarea>` 元素通过它的子节点定义文本：
 
 ```html
 <textarea>
@@ -133,7 +133,7 @@ In HTML, a `<textarea>` element defines its text by its children:
 </textarea>
 ```
 
-In React, a `<textarea>` uses a `value` attribute instead. This way, a form using a `<textarea>` can be written very similarly to a form that uses a single-line input:
+在 React 里， `<textarea>` 使用一个 `value` 属性替代。这种方式，使用 `<textarea>` 写的表单非常类似于使用单行 input 的表单：
 
 ```javascript{4-6,12-14,26}
 class EssayForm extends React.Component {
@@ -170,11 +170,11 @@ class EssayForm extends React.Component {
 }
 ```
 
-Notice that `this.state.value` is initialized in the constructor, so that the text area starts off with some text in it.
+请注意 `this.state.value` 是在 constructor 里被初始化，所以这些文本一开始就出现在文本区域中。
 
-## The select Tag
+## select 标签
 
-In HTML, `<select>` creates a drop-down list. For example, this HTML creates a drop-down list of flavors:
+在 HTML 里，`<select>` 创建一个下拉列表。例如，这段 HTML 创建了一个口味（flavors）下拉列表：
 
 ```html
 <select>
@@ -185,7 +185,7 @@ In HTML, `<select>` creates a drop-down list. For example, this HTML creates a d
 </select>
 ```
 
-Note that the Coconut option is initially selected, because of the `selected` attribute. React, instead of using this `selected` attribute, uses a `value` attribute on the root `select` tag. This is more convenient in a controlled component because you only need to update it in one place. For example:
+注意 Coconut 选项是初始选中项，因为它有 `selected` 标签。在 React 中，通过在 `select` 根标签中使用 `value` 属性来替代使用 `selected` 标签。这在受控组件中更方便，因为你只需要在一个地方更新它。例如：
 
 ```javascript{4,10-12,24}
 class FlavorForm extends React.Component {
@@ -227,9 +227,9 @@ class FlavorForm extends React.Component {
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/JbbEzX?editors=0010)
 
-Overall, this makes it so that `<input type="text">`, `<textarea>`, and `<select>` all work very similarly - they all accept a `value` attribute that you can use to implement a controlled component.
+总的来说，这使`<input type="text">`, `<textarea>`, 和 `<select>` 都以类似的方式工作，他们都接受一个 `value` 属性用来实现受控组件。
 
-## Handling Multiple Inputs
+## 处理多个输出元素
 
 When you need to handle multiple controlled `input` elements, you can add a `name` attribute to each element and let the handler function choose what to do based on the value of `event.target.name`.
 
