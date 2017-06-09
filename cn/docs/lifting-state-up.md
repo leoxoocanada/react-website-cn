@@ -163,9 +163,9 @@ class Calculator extends React.Component {
 
 我们也不能在 `Calculator` 中显示 `BoilingVerdict` 。 `Calculator` 不知道当前的温度，因为它是隐藏在 `TemperatureInput` 中。
 
-## Writing Conversion Functions
+## 编写转换函数
 
-First, we will write two functions to convert from Celsius to Fahrenheit and back:
+首先，我们将写2个函数用来将 Celsius（摄氏温度）和 Fahrenheit（华氏温度）互相转换：
 
 ```js
 function toCelsius(fahrenheit) {
@@ -177,9 +177,9 @@ function toFahrenheit(celsius) {
 }
 ```
 
-These two functions convert numbers. We will write another function that takes a string `temperature` and a converter function as arguments and returns a string. We will use it to calculate the value of one input based on the other input.
+这两个函数用来转换数字。我们将写另外一个函数用来接收一个字符串 `temperature` 和一个转换函数作为参数并返回一个字符串。这个函数用来在两个输入之间进行相互转换。
 
-It returns an empty string on an invalid `temperature`, and it keeps the output rounded to the third decimal place:
+对于无效的 `temperature` 值，它返回一个空字符串，输出结果保留3位小数：
 
 ```js
 function tryConvert(temperature, convert) {
@@ -193,11 +193,11 @@ function tryConvert(temperature, convert) {
 }
 ```
 
-For example, `tryConvert('abc', toCelsius)` returns an empty string, and `tryConvert('10.22', toFahrenheit)` returns `'50.396'`.
+例如，`tryConvert('abc', toCelsius)` 返回一个空字符串，`tryConvert('10.22', toFahrenheit)` 返回`'50.396'`.
 
-## Lifting State Up
+## 状态提升(Lifting State Up)
 
-Currently, both `TemperatureInput` components independently keep their values in the local state:
+当前，2个 `TemperatureInput` 组件各自在本地状态中保存它们的值：
 
 ```js{5,9,13}
 class TemperatureInput extends React.Component {
@@ -215,13 +215,13 @@ class TemperatureInput extends React.Component {
     const temperature = this.state.temperature;
 ```
 
-However, we want these two inputs to be in sync with each other. When we update the Celsius input, the Fahrenheit input should reflect the converted temperature, and vice versa.
+然而，我们希望这两个输入是相互同步的。当我们更新 Celsius 输入时，Fahrenheit 输入应显示转换后的温度，反之亦然。
 
-In React, sharing state is accomplished by moving it up to the closest common ancestor of the components that need it. This is called "lifting state up". We will remove the local state from the `TemperatureInput` and move it into the `Calculator` instead.
+在 React 中，共享状态是通过移动它到最接近它的共同祖先组件来实现的。这叫做 状态提升(Lifting State Up)。我们将从 `TemperatureInput` 中删除本地状态，并且把它移动到 `Calculator` 里。
 
-If the `Calculator` owns the shared state, it becomes the "source of truth" for the current temperature in both inputs. It can instruct them both to have values that are consistent with each other. Since the props of both `TemperatureInput` components are coming from the same parent `Calculator` component, the two inputs will always be in sync.
+如果 `Calculator` 拥有共享状态，它将变成当前两个温度输入框的“单一数据来源”。它能指示它们始终都拥有一样的值。由于两个 `TemperatureInput` 组件的属性都是来自同一个父级 `Calculator` 组件，这两个输入框将始终保持同步。
 
-Let's see how this works step by step.
+让我们一步步来看看它是如何运行的。
 
 First, we will replace `this.state.temperature` with `this.props.temperature` in the `TemperatureInput` component. For now, let's pretend `this.props.temperature` already exists, although we will need to pass it from the `Calculator` in the future:
 
