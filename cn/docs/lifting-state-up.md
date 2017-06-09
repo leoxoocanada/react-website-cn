@@ -107,9 +107,9 @@ class Calculator extends React.Component {
 
 ## 添加第2个输入
 
-Our new requirement is that, in addition to a Celsius input, we provide a Fahrenheit input, and they are kept in sync.
+我们的新需求是，除了一个 Celsius（摄氏温度） 输入框外，我们再提供一个 Fahrenheit（华氏温度） 输入框，并且两者保持同步。
 
-We can start by extracting a `TemperatureInput` component from `Calculator`. We will add a new `scale` prop to it that can either be `"c"` or `"f"`:
+我们可以从 `Calculator` 中提取一个 `TemperatureInput` 组件开始。我们将给它添加一个`scale` 属性，值可能是  `"c"` 或 `"f"`:
 
 ```js{1-4,19,22}
 const scaleNames = {
@@ -142,7 +142,7 @@ class TemperatureInput extends React.Component {
 }
 ```
 
-We can now change the `Calculator` to render two separate temperature inputs:
+我们现在可以修改 `Calculator` 来渲染2个独立的温度输入：
 
 ```js{5,6}
 class Calculator extends React.Component {
@@ -159,9 +159,9 @@ class Calculator extends React.Component {
 
 [在 CodePen 中试试](http://codepen.io/valscion/pen/GWKbao?editors=0010)
 
-We have two inputs now, but when you enter the temperature in one of them, the other doesn't update. This contradicts our requirement: we want to keep them in sync.
+现在我们有2个输入框，但是当你在它们中的任何一个中输入温度时，另外一个不会更新。这不。符合我们的需求：我们要保持两者的同步
 
-We also can't display the `BoilingVerdict` from `Calculator`. The `Calculator` doesn't know the current temperature because it is hidden inside the `TemperatureInput`.
+我们也不能在 `Calculator` 中显示 `BoilingVerdict` 。 `Calculator` 不知道当前的温度，因为它是隐藏在 `TemperatureInput` 中。
 
 ## Writing Conversion Functions
 
