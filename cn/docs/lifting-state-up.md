@@ -243,11 +243,11 @@ class TemperatureInput extends React.Component {
     this.props.onTemperatureChange(e.target.value);
 ```
 
-Note that there is no special meaning to either `temperature` or `onTemperatureChange` prop names in custom components. We could have called them anything else, like name them `value` and `onChange` which is a common convention.
+注意，在自定义的组件中 `temperature` 或 `onTemperatureChange` 没有特殊的含义。我们也能用其它任意名称命名它们，像命名它们为 `value` 和 `onChange` ，是一个常见的惯例。
 
-The `onTemperatureChange` prop will be provided together with the `temperature` prop by the parent `Calculator` component. It will handle the change by modifying its own local state, thus re-rendering both inputs with the new values. We will look at the new `Calculator` implementation very soon.
+`onTemperatureChange` 属性将和 `temperature` 属性一起提供通过父级 `Calculator` 组件提供。它将通过修改自己的本地状态来处理变更，这样就可以用新的值来重新渲染两个输入。我们不久将看到一个新的 `Calculator` 实现。
 
-Before diving into the changes in the `Calculator`, let's recap our changes to the `TemperatureInput` component. We have removed the local state from it, and instead of reading `this.state.temperature`, we now read `this.props.temperature`. Instead of calling `this.setState()` when we want to make a change, we now call `this.props.onTemperatureChange()`, which will be provided by the `Calculator`:
+在修改 `Calculator` 前，让我们简要回顾下对 `TemperatureInput` 的修改。我们已经从中移除了本地状态，不是读取 `this.state.temperature`，我们现在读取 `this.props.temperature` 。当我们要更改时，不是调用`this.setState()` ，我们现在调用 `this.props.onTemperatureChange()`, 这将由 `Calculator` 提供:
 
 ```js{8,12}
 class TemperatureInput extends React.Component {
@@ -274,11 +274,11 @@ class TemperatureInput extends React.Component {
 }
 ```
 
-Now let's turn to the `Calculator` component.
+现在让我们来看一下 `Calculator` 组件。
 
-We will store the current input's `temperature` and `scale` in its local state. This is the state we "lifted up" from the inputs, and it will serve as the "source of truth" for both of them. It is the minimal representation of all the data we need to know in order to render both inputs.
+我们将当前输入的 `temperature` 和 `scale` 存储到本地状态。这是我们从输入 "提升" 的的状态，并且它将充当两个输入的 "单一数据源" ，为了渲染两个输入，我们需要知道所有数据的最小表示。
 
-For example, if we enter 37 into the Celsius input, the state of the `Calculator` component will be:
+例如，如果我们在 Celsius 输入框中输入 37， `Calculator` 组件的状态将是：
 
 ```js
 {
@@ -287,7 +287,7 @@ For example, if we enter 37 into the Celsius input, the state of the `Calculator
 }
 ```
 
-If we later edit the Fahrenheit field to be 212, the state of the `Calculator` will be:
+如果我们随后编辑 Fahrenheit 字段为 212， `Calculator` 的状态应该是：
 
 ```js
 {
@@ -296,9 +296,9 @@ If we later edit the Fahrenheit field to be 212, the state of the `Calculator` w
 }
 ```
 
-We could have stored the value of both inputs but it turns out to be unnecessary. It is enough to store the value of the most recently changed input, and the scale that it represents. We can then infer the value of the other input based on the current `temperature` and `scale` alone.
+我们可以存储两个输入框的值，但事实证明是不必要的。存储最近变化的输入值以及它所表示的度量衡就够了。然后，我们可以基于当前的 temperature(温度) 和 scale(度量衡) 来推断其他输入的值。
 
-The inputs stay in sync because their values are computed from the same state:
+输入框保持同步，因为他们的值是从同样的状态中计算的：
 
 ```js{6,10,14,18-21,27-28,31-32,34}
 class Calculator extends React.Component {
