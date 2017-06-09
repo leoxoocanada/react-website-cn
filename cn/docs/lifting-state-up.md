@@ -343,9 +343,9 @@ class Calculator extends React.Component {
 
 [在 CodePen 中试试](http://codepen.io/valscion/pen/jBNjja?editors=0010)
 
-Now, no matter which input you edit, `this.state.temperature` and `this.state.scale` in the `Calculator` get updated. One of the inputs gets the value as is, so any user input is preserved, and the other input value is always recalculated based on it.
+现在，不管你编辑哪个输入框，在 `Calculator` 中的 `this.state.temperature` 和 `this.state.scale` 都会更新。其中一个输入框获取值，所以任何用户输入都被保留，并且另一个输入总是基于它重新计算值。
 
-Let's recap what happens when you edit an input:
+让我们简要回顾一下当你编辑输入框发生了什么；
 
 * React calls the function specified as `onChange` on the DOM `<input>`. In our case, this is the `handleChange` method in `TemperatureInput` component.
 * The `handleChange` method in the `TemperatureInput` component calls `this.props.onTemperatureChange()` with the new desired value. Its props, including `onTemperatureChange`, were provided by its parent component, the `Calculator`.
