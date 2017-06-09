@@ -231,7 +231,7 @@ class FlavorForm extends React.Component {
 
 ## 处理多个输出元素
 
-When you need to handle multiple controlled `input` elements, you can add a `name` attribute to each element and let the handler function choose what to do based on the value of `event.target.name`.
+当你要操作多个受控的 `input` 元素时，你可以给每个元素添加一个 `name` 属性，并且让处理函数根据 `event.target.name` 的值来选择做什么。
 
 For example:
 
@@ -285,7 +285,7 @@ class Reservation extends React.Component {
 
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/wgedvV?editors=0010)
 
-Note how we used the ES6 [computed property name](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names) syntax to update the state key corresponding to the given input name:
+注意我们是如何使用 ES6 [计算的属性名](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names) 语法来更新与给定的 input 名相应的状态键：
 
 ```js{2}
 this.setState({
@@ -293,7 +293,7 @@ this.setState({
 });
 ```
 
-It is equivalent to this ES5 code:
+它相当于这段 ES5 代码：
 
 ```js{2}
 var partialState = {};
@@ -301,8 +301,8 @@ partialState[name] = value;
 this.setState(partialState);
 ```
 
-Also, since `setState()` automatically [merges a partial state into the current state](/cn/docs/state-and-lifecycle.md#state-updates-are-merged), we only needed to call it with the changed parts.
+此外，由于 `setState()` 自动的 [合并一个局部状态到当前状态](/cn/docs/state-and-lifecycle.md#state-updates-are-merged)，我们仅需要调用更改的部分即可。
 
-## Alternatives to Controlled Components
+## 受控组件的替代方案
 
-It can sometimes be tedious to use controlled components, because you need to write an event handler for every way your data can change and pipe all of the input state through a React component. This can become particularly annoying when you are converting a preexisting codebase to React, or integrating a React application with a non-React library. In these situations, you might want to check out [uncontrolled components](/dn/docs/uncontrolled-components.md), an alternative technique for implementing input forms.
+有时候使用受控组件是单调乏味的，因为你需要为每一个可更改的数据写一个事件处理器，并且通过 React 组件管理所有输入状态。当你转换一个现有的代码库到 React 时，或者将一个 React 应用和一个非 React 整合时，这可能会变得特别讨厌。在这种情况下，你可能需要使用 [不受控组件](/cn/docs/uncontrolled-components.md) ，用于实现输入表单的替代技术。
