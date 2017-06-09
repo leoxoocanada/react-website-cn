@@ -223,23 +223,23 @@ class TemperatureInput extends React.Component {
 
 让我们一步步来看看它是如何运行的。
 
-First, we will replace `this.state.temperature` with `this.props.temperature` in the `TemperatureInput` component. For now, let's pretend `this.props.temperature` already exists, although we will need to pass it from the `Calculator` in the future:
+首先，我们将 `TemperatureInput` 组件中的 `this.state.temperature` 用 `this.props.temperature` 替换。目前，让我们假装 `this.props.temperature` 已经存在，虽然将来我们将需要从 `Calculator` 中传递过来：
 
 ```js{3}
   render() {
-    // Before: const temperature = this.state.temperature;
+    // 之前是：const temperature = this.state.temperature;
     const temperature = this.props.temperature;
 ```
 
-We know that [props are read-only](/react/docs/components-and-props.html#props-are-read-only). When the `temperature` was in the local state, the `TemperatureInput` could just call `this.setState()` to change it. However, now that the `temperature` is coming from the parent as a prop, the `TemperatureInput` has no control over it.
+我们知道 [属性是只读的](/cn/docs/components-and-props.md#props-are-read-only)。当 `temperature` 是本地状态时， `TemperatureInput` 只能通过调用 `this.setState()` 来改变它。然而，现在 `temperature`是从父级中作为一个属性传入， `TemperatureInput` 就无法控制它。
 
-In React, this is usually solved by making a component "controlled". Just like the DOM `<input>` accepts both a `value` and an `onChange` prop, so can the custom `TemperatureInput` accept both `temperature` and `onTemperatureChange` props from its parent `Calculator`.
+在 React 中，这通常通过使组件 "controlled（受控）" 来实现。就像DOM `<input>` 接受一个 `value` 和一个 `onChange` 属性一样，所以可以定制 `TemperatureInput` 接受来自父级 `Calculator` 的 `temperature` 和 `onTemperatureChange` 属性。
 
-Now, when the `TemperatureInput` wants to update its temperature, it calls `this.props.onTemperatureChange`:
+现在，当 `TemperatureInput` 要更新它的温度，它调用 `this.props.onTemperatureChange`:
 
 ```js{3}
   handleChange(e) {
-    // Before: this.setState({temperature: e.target.value});
+    // 之前是: this.setState({temperature: e.target.value});
     this.props.onTemperatureChange(e.target.value);
 ```
 
@@ -359,7 +359,7 @@ Every update goes through the same steps so the inputs stay in sync.
 
 ## Lessons Learned
 
-There should be a single "source of truth" for any data that changes in a React application. Usually, the state is first added to the component that needs it for rendering. Then, if other components also need it, you can lift it up to their closest common ancestor. Instead of trying to sync the state between different components, you should rely on the [top-down data flow](/react/docs/state-and-lifecycle.html#the-data-flows-down).
+There should be a single "source of truth" for any data that changes in a React application. Usually, the state is first added to the component that needs it for rendering. Then, if other components also need it, you can lift it up to their closest common ancestor. Instead of trying to sync the state between different components, you should rely on the [top-down data flow](/cn/docs/state-and-lifecycle.md#the-data-flows-down).
 
 Lifting state involves writing more "boilerplate" code than two-way binding approaches, but as a benefit, it takes less work to find and isolate bugs. Since any state "lives" in some component and that component alone can change it, the surface area for bugs is greatly reduced. Additionally, you can implement any custom logic to reject or transform user input.
 
