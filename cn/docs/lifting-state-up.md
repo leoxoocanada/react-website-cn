@@ -58,9 +58,9 @@
 
 通常情况下，相同的数据变化需要在几个组件中体现。我们建议提升共享状态到他们最近的通用祖先组件里。让我们看看这是如何运作的。
 
-In this section, we will create a temperature calculator that calculates whether the water would boil at a given temperature.
+在这个章节中，我们将创建一个温度计算器，给定一个温度计算水是否会沸腾。
 
-We will start with a component called `BoilingVerdict`. It accepts the `celsius` temperature as a prop, and prints whether it is enough to boil the water:
+我们将通过一个叫 `BoilingVerdict` 的组件开始。它接受 `celsius（摄氏温度）` 作为属性，并且打印是否足够让水沸腾；
 
 ```js{3,5}
 function BoilingVerdict(props) {
@@ -71,9 +71,9 @@ function BoilingVerdict(props) {
 }
 ```
 
-Next, we will create a component called `Calculator`. It renders an `<input>` that lets you enter the temperature, and keeps its value in `this.state.temperature`.
+下一步，我们将创建一个叫 `Calculator` 的组件。它返回一个 `<input>` 让你输入一个温度，并且在 `this.state.temperature` 中保存它的值。
 
-Additionally, it renders the `BoilingVerdict` for the current input value.
+此外，它根据当前的输入值渲染 `BoilingVerdict`  。
 
 ```js{5,9,13,17-21}
 class Calculator extends React.Component {
@@ -103,9 +103,9 @@ class Calculator extends React.Component {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/valscion/pen/VpZJRZ?editors=0010)
+[在 CodePen 中试试](http://codepen.io/valscion/pen/VpZJRZ?editors=0010)
 
-## Adding a Second Input
+## 添加第2个输入
 
 Our new requirement is that, in addition to a Celsius input, we provide a Fahrenheit input, and they are kept in sync.
 
@@ -157,7 +157,7 @@ class Calculator extends React.Component {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/valscion/pen/GWKbao?editors=0010)
+[在 CodePen 中试试](http://codepen.io/valscion/pen/GWKbao?editors=0010)
 
 We have two inputs now, but when you enter the temperature in one of them, the other doesn't update. This contradicts our requirement: we want to keep them in sync.
 
@@ -341,7 +341,7 @@ class Calculator extends React.Component {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/valscion/pen/jBNjja?editors=0010)
+[在 CodePen 中试试](http://codepen.io/valscion/pen/jBNjja?editors=0010)
 
 Now, no matter which input you edit, `this.state.temperature` and `this.state.scale` in the `Calculator` get updated. One of the inputs gets the value as is, so any user input is preserved, and the other input value is always recalculated based on it.
 
