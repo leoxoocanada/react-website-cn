@@ -345,26 +345,26 @@ class Calculator extends React.Component {
 
 现在，不管你编辑哪个输入框，在 `Calculator` 中的 `this.state.temperature` 和 `this.state.scale` 都会更新。其中一个输入框获取值，所以任何用户输入都被保留，并且另一个输入总是基于它重新计算值。
 
-让我们简要回顾一下当你编辑输入框发生了什么；
+让我们简要回顾一下当你编辑输入框时发生了什么；
 
-* React calls the function specified as `onChange` on the DOM `<input>`. In our case, this is the `handleChange` method in `TemperatureInput` component.
-* The `handleChange` method in the `TemperatureInput` component calls `this.props.onTemperatureChange()` with the new desired value. Its props, including `onTemperatureChange`, were provided by its parent component, the `Calculator`.
-* When it previously rendered, the `Calculator` has specified that `onTemperatureChange` of the Celsius `TemperatureInput` is the `Calculator`'s `handleCelsiusChange` method, and `onTemperatureChange` of the Fahrenheit `TemperatureInput` is the `Calculator`'s `handleFahrenheitChange` method. So either of these two `Calculator` methods gets called depending on which input we edited.
-* Inside these methods, the `Calculator` component asks React to re-render itself by calling `this.setState()` with the new input value and the current scale of the input we just edited.
-* React calls the `Calculator` component's `render` method to learn what the UI should look like. The values of both inputs are recomputed based on the current temperature and the active scale. The temperature conversion is performed here.
-* React calls the `render` methods of the individual `TemperatureInput` components with their new props specified by the `Calculator`. It learns what their UI should look like.
-* React DOM updates the DOM to match the desired input values. The input we just edited receives its current value, and the other input is updated to the temperature after conversion.
+* React 调用 DOM `<input>` 上指定的函数 `onChange` 。在我的案例中，它是在 `TemperatureInput` 组件上的 `handleChange` 方法。
+* 在 `TemperatureInput` 组件上的 `handleChange` 方法使用新的期望值调用 `this.props.onTemperatureChange()` 。在它的属性（props）里包含 `onTemperatureChange`，通过它的父级 `Calculator` 组件指定。
+* 当它预渲染时， `Calculator` 已经指定了摄氏 `TemperatureInput` 的 `onTemperatureChange` 是 `Calculator` 的 `handleCelsiusChange` 方法，且华氏  `TemperatureInput` 是 `Calculator` 的 `handleFahrenheitChange` 方法。所以会根据我们编辑的输入框分别调用这两个 `Calculator` 方法。
+* 在这些方法中， `Calculator` 组件要求 React 通过使用新的输入值和刚刚编辑的输入框的当前度量衡来调用 `this.setState()` 重新渲染自己。
+* React 调用 `Calculator` 组件的 `render` 方法来了解 UI 应该长什么样子。两个输入的值基于当前温度和激活的度量衡重新计算。在这里执行温度转换。
+* React 使用 Calculator 指定的新 props(属性) 调用各个 TemperatureInput 组件的 render 方法。 它了解 UI 外观应该是什么样子。
+* React DOM 更新 DOM 以匹配期望的输入值。我们刚刚编辑的输入框接收当前值，另一个输入框更新为转换后的温度。
 
-Every update goes through the same steps so the inputs stay in sync.
+每次更新都会执行相同的步骤，以便保持输入同步。
 
-## Lessons Learned
+## 经验教训
 
-There should be a single "source of truth" for any data that changes in a React application. Usually, the state is first added to the component that needs it for rendering. Then, if other components also need it, you can lift it up to their closest common ancestor. Instead of trying to sync the state between different components, you should rely on the [top-down data flow](/cn/docs/state-and-lifecycle.md#the-data-flows-down).
+在一个 React 应用中，对于任何可变的数据都应该循序“单一数据源”原则。通常情况下，state 首先被添加到需要它进行渲染的组件。然后，如果其它的组件也需要它，你可以提升状态到它们最近的祖先组件。你应该依赖 [从上到下的数据流向](/cn/docs/state-and-lifecycle.md#the-data-flows-down)，而不是试图在不同的组件中同步状态。
 
-Lifting state involves writing more "boilerplate" code than two-way binding approaches, but as a benefit, it takes less work to find and isolate bugs. Since any state "lives" in some component and that component alone can change it, the surface area for bugs is greatly reduced. Additionally, you can implement any custom logic to reject or transform user input.
+提升状态相对于双向绑定方法需要写更多的“模板”代码，但是有一个好处，它可以更方便的找到和隔离 bugs。由于任何 state(状态) 都 “存活” 在若干的组件中，而且可以分别对其独立修改，所以发生错误的可能大大减少。另外，你可以实现任何定制的逻辑来拒绝或者转换用户输入。
 
-If something can be derived from either props or state, it probably shouldn't be in the state. For example, instead of storing both `celsiusValue` and `fahrenheitValue`, we store just the last edited `temperature` and its `scale`. The value of the other input can always be calculated from them in the `render()` method. This lets us clear or apply rounding to the other field without losing any precision in the user input.
+如果某个东西可以从 props(属性) 或者 state(状态) 得到，那么它可能不应该在 state(状态) 中。例如，我们只保存最后编辑的 temperature 和它的 scale，而不是保存 celsiusValue 和 fahrenheitValue 。另一个输入框的值总是在 render() 方法中计算得来的。这使我们对其进行清除和四舍五入到其他字段同时不会丢失用户输入的精度。
 
-When you see something wrong in the UI, you can use [React Developer Tools](https://github.com/facebook/react-devtools) to inspect the props and move up the tree until you find the component responsible for updating the state. This lets you trace the bugs to their source:
+当你看到 UI 中的错误，你可以使用 [React 开发者工具](https://github.com/facebook/react-devtools) 来检查 props ，并向上遍历树，直到找到负责更新状态的组件。这使你可以跟踪到 bug 的源头：
 
-<img src="/react/img/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" width="100%">
+<img src="/cn/img/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" width="100%">
