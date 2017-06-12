@@ -176,20 +176,20 @@ React 众多好的部分之一是让你思考如何构建应用。在本文档�
 
 你可以看一下你的应用的行为： 设置 `filterText` 为 `"ball"` 并刷新你的应用。你将看到数据表格被正确的更新。
 
-## Step 5: Add Inverse Data Flow
+## 第五步：添加反向数据流
 
 [在 Codepen 中看效果](https://codepen.io/lacker/pen/qRqmjd)
 
-So far, we've built an app that renders correctly as a function of props and state flowing down the hierarchy. Now it's time to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
+到目前为止, 我们已经构建了一个应用，它能正确渲染一个沿着层次结构向下传播属性和状态的函数. 现在是时候支持另一种数据流了: 层次结构中深层的 form 组件需要在 `FilterableProductTable` 中更新状态.
 
-React makes this data flow explicit to make it easy to understand how your program works, but it does require a little more typing than traditional two-way data binding.
+React 明确的数据流使得很容易理解你的程序如何工作, 但是相比传统的双向数据绑定而言，它确实需要更多一些代码来实现.
 
-If you try to type or check the box in the current version of the example, you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+如果你尝试在当前版本的示例中打字或选择复选框，你将看到 React 忽视你的输入。这是故意的，我们已经设置了 `input` 的 `value` 属性总是等于从 `FilterableProductTable` 传入的 `state` 。
 
-Let's think about what we want to happen. We want to make sure that whenever the user changes the form, we update the state to reflect the user input. Since components should only update their own state, `FilterableProductTable` will pass callbacks to `SearchBar` that will fire whenever the state should be updated. We can use the `onChange` event on the inputs to be notified of it. The callbacks passed by `FilterableProductTable` will call `setState()`, and the app will be updated.
+让我们思考下我们希望发生什么。我们期望当用户改变表单的时候，我们更新状态以反映用户的输入。由于组件应该只更新它们自己的状态，`FilterableProductTable` 将传递回调到 `SearchBar` ，这样当状态应该被更新时将触发。我们能在 input 上使用 `onChange` 事件来接收通知。通过 `FilterableProductTable` 传递的回调调用 `setState()`,然后应用将更新。
 
-Though this sounds complex, it's really just a few lines of code. And it's really explicit how your data is flowing throughout the app.
+尽管这听起来很复杂，但它真的仅需要几行代码。并且它是非常清晰的表达你的数据在应用中的流动。
 
-## And That's It
+## 就是这么简单
 
-Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more than it's written, and it's extremely easy to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
+非常希望，这篇文章给你一些通过 React 如何去思考构建组件和应用的想法。有可能它会比你过去习惯的写法多一些代码，记得代码是阅读比写更重要，并且模块化、结构清晰的代码是非常容易阅读。当你构建一个大型组件库的时候，你将感谢这些结构清晰、模块化、和可以复用的代码，同时你的代码行数将慢慢减少. :)
