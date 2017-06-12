@@ -56,17 +56,17 @@
 
 # 用 React 思考
 
-React is, in our opinion, the premier way to build big, fast Web apps with JavaScript. It has scaled very well for us at Facebook and Instagram.
+在我们看来，React 是通过 JavaScript 用来构建大型、高性能 Web 应用的最佳方式。它在 Facebook 和 Instagram 中都应用的非常好。
 
-One of the many great parts of React is how it makes you think about apps as you build them. In this document, we'll walk you through the thought process of building a searchable product data table using React.
+React 众多好的部分之一是让你思考如何构建应用。在本文档中，我们将跟你一起完成使用 React 构建一个可搜索的产品数据表的思考过程。
 
-## Start With A Mock
+## 从一个 Mock 开始
 
-Imagine that we already have a JSON API and a mock from our designer. The mock looks like this:
+想像一下我们已经有了一个 JSON API，以及从设计师那里拿到的 mock。这个 mock 看起来像这样：
 
 ![Mockup](/cn/img/blog/thinking-in-react-mock.png)
 
-Our JSON API returns some data that looks like this:
+我们的 JSON API 返回一些像这样的数据:
 
 ```
 [
@@ -79,23 +79,23 @@ Our JSON API returns some data that looks like this:
 ];
 ```
 
-## Step 1: Break The UI Into A Component Hierarchy
+## 第一步: 将 UI 拆解到组件层次结构中
 
-The first thing you'll want to do is to draw boxes around every component (and subcomponent) in the mock and give them all names. If you're working with a designer, they may have already done this, so go talk to them! Their Photoshop layer names may end up being the names of your React components!
+你将要做的第一件事是在mock里画一个容器包裹所有的组件（和子组件），并给它们命名。如果你和一个设计师一起工作，它们可能已经做好了这些，所以去跟他们交流一下！他们的 Photoshop 图层名可能就是你的 React 组件名！
 
-But how do you know what should be its own component? Just use the same techniques for deciding if you should create a new function or object. One such technique is the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+但是你怎么知道什么应该是组件自己的呢？其实就像你创建一个新的函数或对象一样就可以。一种方法是 [单一职责原则](https://en.wikipedia.org/wiki/Single_responsibility_principle), 即一个组件理论上只做一件事。如果它持续成长，它应该分解到更小的子组件。
 
-Since you're often displaying a JSON data model to a user, you'll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That's because UI and data models tend to adhere to the same *information architecture*, which means the work of separating your UI into components is often trivial. Just break it up into components that represent exactly one piece of your data model.
+由于你经常向用户显示 JSON 数据模型, 你将发现如果你的模型已经正确的构建，你的 UI (以及你的组件结构) 将很好的映射. 那是因为 UI 和 数据模型往往遵循同样的 *信息结构*, 这意味着拆分你的 UI 到组件的工作是微不足道的，只需要将它拆分为精确对应对应数据模型片断即可。
 
-![Component diagram](/cn/img/blog/thinking-in-react-components.png)
+![组件图解](/cn/img/blog/thinking-in-react-components.png)
 
-You'll see here that we have five components in our simple app. We've italicized the data each component represents.
+在这里你将看到在我们的简单应用里有5个组件。我已经用斜体字标注了每个组件代表的数据。
 
-  1. **`FilterableProductTable` (orange):** contains the entirety of the example
-  2. **`SearchBar` (blue):** receives all *user input*
-  3. **`ProductTable` (green):** displays and filters the *data collection* based on *user input*
-  4. **`ProductCategoryRow` (turquoise):** displays a heading for each *category*
-  5. **`ProductRow` (red):** displays a row for each *product*
+  1. **`FilterableProductTable` (橙色):** 包含全部示例
+  2. **`SearchBar` (蓝色):** 接收所有 *用户输入*
+  3. **`ProductTable` (绿色):** 显示和过滤基于 *用户输入* 的 *数据集合*
+  4. **`ProductCategoryRow` (宝石绿):** 为每个 *category* 显示一个头部
+  5. **`ProductRow` (红色):** 为每个 *product* 显示一行
 
 If you look at `ProductTable`, you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and there's an argument to be made either way. For this example, we left it as part of `ProductTable` because it is part of rendering the *data collection* which is `ProductTable`'s responsibility. However, if this header grows to be complex (i.e. if we were to add affordances for sorting), it would certainly make sense to make this its own `ProductTableHeader` component.
 
