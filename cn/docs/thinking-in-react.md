@@ -125,56 +125,56 @@ React 众多好的部分之一是让你思考如何构建应用。在本文档�
 
 在 React 里有两种类型的 "模型" 数据: props 和 state. 理解两者之间的差别非常重要; 如果你不确定有什么不同可以浏览 [React 官方文档](/cn/docs/interactivity-and-dynamic-uis.md).
 
-## Step 3: Identify The Minimal (but complete) Representation Of UI State
+## 第三步：确定 UI 状态（State）最小（但完整）的表示
 
-To make your UI interactive, you need to be able to trigger changes to your underlying data model. React makes this easy with **state**.
+使你的 UI 有交互性, 你需要能够触发更底层的数据模型。React通过 **state** 让它变得更简单 .
 
-To build your app correctly, you first need to think of the minimal set of mutable state that your app needs. The key here is DRY: *Don't Repeat Yourself*. Figure out the absolute minimal representation of the state your application needs and compute everything else you need on-demand. For example, if you're building a TODO list, just keep an array of the TODO items around; don't keep a separate state variable for the count. Instead, when you want to render the TODO count, simply take the length of the TODO items array.
+要正确的构建你的应用, 你首先需要思考你的应用需要的可变状态的最小集合。这里的关键是 DRY: *不要重复你自己（Don't Repeat Yourself）*. 找出你的应用程序所需 state(状态) 的绝对最小表示，并且可以以此计算出你所需的所有其他数据内容。例如, 如果你正在构建一个 TODO 列表, 只保留一个 TODO 元素数组即可；不需要为数量保留一个单独的 state(状态) 变量。相反, 当你要渲染 TODO 数量, 简单的获取 TODO 列表数组长度就可以。
 
-Think of all of the pieces of data in our example application. We have:
+思考在我们示例应用中的所有数据。我们有：
 
-  * The original list of products
-  * The search text the user has entered
-  * The value of the checkbox
-  * The filtered list of products
+  * 原始产品列表
+  * 用户已经输入的搜索文本
+  * checkbox 的值
+  * 过滤后的产品列表
 
-Let's go through each one and figure out which one is state. Simply ask three questions about each piece of data:
+让我们仔细检查每个数据，并且找出哪个是状态。简单的提出关于第块数据的3个问题：
 
-  1. Is it passed in from a parent via props? If so, it probably isn't state.
-  2. Does it remain unchanged over time? If so, it probably isn't state.
-  3. Can you compute it based on any other state or props in your component? If so, it isn't state.
+  1. 是否通过 props 从父级传入？如果是，它可能不是 state。
+  2. 是否永远保持不变？如果是，它可能不是 state。
+  3. 是否能基于组件中的其它 state 或 props 计算得出？如果是，这不是 state。
 
-The original list of products is passed in as props, so that's not state. The search text and the checkbox seem to be state since they change over time and can't be computed from anything. And finally, the filtered list of products isn't state because it can be computed by combining the original list of products with the search text and value of the checkbox.
+原始产品列表作为 props 传入， 所以它不是 state. 搜索文本和 checkbox 看起来像是 state ，因为它们随时会变化，并且不能从其它数据计算得出. 最后, 产品过滤列表不是 state，因为它可以通过结合原始产品列表、搜索文本和 checkbox 计算得出.
 
-So finally, our state is:
+所以最终, 我们的 state 是:
 
-  * The search text the user has entered
-  * The value of the checkbox
+  * 用户输入的搜索文本
+  * checkbox 的值
 
-## Step 4: Identify Where Your State Should Live
+## 第四步：确定你的状态的位置
 
 [在 Codepen 中看效果](https://codepen.io/lacker/pen/ORzEkG)
 
-OK, so we've identified what the minimal set of app state is. Next, we need to identify which component mutates, or *owns*, this state.
+好了，我们已经确定了应用状态（state）的最小集合。下一步，我们需要确定哪个组件可变，或者说 *拥有（owns）* 这些状态（state）
 
-Remember: React is all about one-way data flow down the component hierarchy. It may not be immediately clear which component should own what state. **This is often the most challenging part for newcomers to understand,** so follow these steps to figure it out:
+记住：React 单向数据流在组件中从上而下的进行。这样有可能不能立即判断状态属于哪个组件。**这是经常对新手理解最有挑战的一部分,** 按下面的步骤把它弄明白：
 
-For each piece of state in your application:
+对于你应用中的每一个状态（state）:
 
-  * Identify every component that renders something based on that state.
-  * Find a common owner component (a single component above all the components that need the state in the hierarchy).
-  * Either the common owner or another component higher up in the hierarchy should own the state.
-  * If you can't find a component where it makes sense to own the state, create a new component simply for holding the state and add it somewhere in the hierarchy above the common owner component.
+  * 确定每个基于状态渲染的组件
+  * 找出公共父级组件 (一个单独的组件，在层次结构中位于所有需要状态的组件之上).
+  * 公共父级组件或另一个在层次结构中更高级的组件应该拥有这个状态.
+  * 如果你不能找到一个拥有该state的合适组件, 可以创建一个简单的新组件来保留这个状态，并将它添加到公共父级组件的上层层次结构的任意位置.
 
-Let's run through this strategy for our application:
+让我们在我们的应用中贯穿这个策略:
 
-  * `ProductTable` needs to filter the product list based on state and `SearchBar` needs to display the search text and checked state.
-  * The common owner component is `FilterableProductTable`.
-  * It conceptually makes sense for the filter text and checked value to live in `FilterableProductTable`
+  * `ProductTable` 需要基于状态过滤产品列表， `SearchBar` 需要显示搜索文本和选中状态.
+  * 公共父组件是 `FilterableProductTable`.
+  * 它从概念上讲适用于过滤文本和选中值，应该存在于 `FilterableProductTable`
 
-Cool, so we've decided that our state lives in `FilterableProductTable`. First, add an instance property `this.state = {filterText: '', inStockOnly: false}` to `FilterableProductTable`'s `constructor` to reflect the initial state of your application. Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as a prop. Finally, use these props to filter the rows in `ProductTable` and set the values of the form fields in `SearchBar`.
+那么我们已经决定我们的状态保存在 `FilterableProductTable`. 首先, 添加一个实例属性 `this.state = {filterText: '', inStockOnly: false}` 到 `FilterableProductTable` 的 `constructor` 来反映应用的初始化状态. 然后, 传递 `filterText` 和 `inStockOnly` 到 `ProductTable` 和 `SearchBar` 作为一个属性. 最后, 使用这些属性来过滤 `ProductTable` 中的行，并设置 `SearchBar` 中的表单字段的值.
 
-You can start seeing how your application will behave: set `filterText` to `"ball"` and refresh your app. You'll see that the data table is updated correctly.
+你可以看一下你的应用的行为： 设置 `filterText` 为 `"ball"` 并刷新你的应用。你将看到数据表格被正确的更新。
 
 ## Step 5: Add Inverse Data Flow
 
