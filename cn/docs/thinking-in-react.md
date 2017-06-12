@@ -119,11 +119,11 @@ React 众多好的部分之一是让你思考如何构建应用。在本文档�
 
 在这一步结束时, 你已经有了一个可重用的组件库，用于渲染你的数据模型。由于这是应用的一个静态版本，所以组件将只有 `render()` 方法. 层次结构顶部的组件 (`FilterableProductTable`) 将接收你的数据模型作为一个属性（porp）。如果你对基础数据模型做了更改，并再次调用 `ReactDOM.render()` , UI 将更新. 这有利于查看 UI 的更新以及相关的数据变化在哪里， 因为那里没有什么复杂的事情发生。React 的**单向数据注** (也叫 *单向绑定*) 保持所有都是模块化和高性能.
 
-如果执行这一步你需要帮助，可以简单的参考 [React docs](/react/docs/) .
+如果执行这一步你需要帮助，可以简单的参考 [React docs](/cn/docs/) .
 
-### A Brief Interlude: Props vs State
+### 小插曲: Props(属性) vs State(状态)
 
-There are two types of "model" data in React: props and state. It's important to understand the distinction between the two; skim [the official React docs](/react/docs/interactivity-and-dynamic-uis.html) if you aren't sure what the difference is.
+在 React 里有两种类型的 "模型" 数据: props 和 state. 理解两者之间的差别非常重要; 如果你不确定有什么不同可以浏览 [React 官方文档](/cn/docs/interactivity-and-dynamic-uis.md).
 
 ## Step 3: Identify The Minimal (but complete) Representation Of UI State
 
