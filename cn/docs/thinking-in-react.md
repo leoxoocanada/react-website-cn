@@ -97,9 +97,9 @@ React 众多好的部分之一是让你思考如何构建应用。在本文档�
   4. **`ProductCategoryRow` (宝石绿):** 为每个 *category* 显示一个头部
   5. **`ProductRow` (红色):** 为每个 *product* 显示一行
 
-If you look at `ProductTable`, you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and there's an argument to be made either way. For this example, we left it as part of `ProductTable` because it is part of rendering the *data collection* which is `ProductTable`'s responsibility. However, if this header grows to be complex (i.e. if we were to add affordances for sorting), it would certainly make sense to make this its own `ProductTableHeader` component.
+如果你看到了 `ProductTable`, 你将看到表格头(包含 "Name" 和 "Price" 标签) 不是独立的组件。 这是个人喜好问题，并且有一些用其它方式实现的争论。在这个示例中,我们把它分离出来作为 `ProductTable` 的一部分，是因为渲染 *数据集合* 是 `ProductTable` 职责的一部分。然而，这个头部变得非常复杂(例如：如果我们添加支持排序)的时候, 这时候创建一个独立的 ProductTableHeader 组件更合适。
 
-Now that we've identified the components in our mock, let's arrange them into a hierarchy. This is easy. Components that appear within another component in the mock should appear as a child in the hierarchy:
+现在我们已经在我们的 mock 里对组件作了标识，让我们对它们做一个层次结构排列。这是容易的。在 mock 中出现在其它组件中的组件，应该在层次结构上显示为子组件：
 
   * `FilterableProductTable`
     * `SearchBar`
