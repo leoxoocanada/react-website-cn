@@ -133,47 +133,47 @@ function BlueDatePicker() {
 }
 ```
 
-### User-Defined Components Must Be Capitalized
+### 用户自定义组件必须首字母大写
 
-When an element type starts with a lowercase letter, it refers to a built-in component like `<div>` or `<span>` and results in a string `'div'` or `'span'` passed to `React.createElement`. Types that start with a capital letter like `<Foo />` compile to `React.createElement(Foo)` and correspond to a component defined or imported in your JavaScript file.
+当一个元素类型以小写字母开头，它引用一个像 `<div>` 或 `<span>` 这样的内置组件，会给 `React.createElement` 传递 `'div'` 或 `'span'` 字符串。像 `<Foo />` 这样以大写字母开头的类型，会被编译到 `React.createElement(Foo)` ，对应一个在你的 JavaScript 文件中定义或导入的组件。
 
-We recommend naming components with a capital letter. If you do have a component that starts with a lowercase letter, assign it to a capitalized variable before using it in JSX.
+我们建议用一个大写首字母给组件命名。如果你已经有一个以小写字母开头的组件，在 JSX 中使用前将它赋值给一个大字书字母开头的变量。
 
-For example, this code will not run as expected:
+例如，这段代码将不会以预期的方式运行：
 
 ```js{3,4,10,11}
 import React from 'react';
 
-// Wrong! This is a component and should have been capitalized:
+// 错误！这是一个组件，首字母应该大写：
 function hello(props) {
-  // Correct! This use of <div> is legitimate because div is a valid HTML tag:
+  // 正确！这种使用 <div> 是合法的，因为 div 是一个有效的HTML标记：
   return <div>Hello {props.toWhat}</div>;
 }
 
 function HelloWorld() {
-  // Wrong! React thinks <hello /> is an HTML tag because it's not capitalized:
+  // 错误！React 认为 <hello /> 是一个 HTML 标签，因为它首字母应不是大写的：
   return <hello toWhat="World" />;
 }
 ```
 
-To fix this, we will rename `hello` to `Hello` and use `<Hello />` when referring to it:
+为了修复这个问题，我们将 `hello` 重命名为 `Hello` ，并且使用在引用时使用 `<Hello />` :
 
 ```js{3,4,10,11}
 import React from 'react';
 
-// Correct! This is a component and should be capitalized:
+// 正确！ 这是一个组件，首字母应该大写：
 function Hello(props) {
-  // Correct! This use of <div> is legitimate because div is a valid HTML tag:
+  // 正确！这种使用 <div> 是合法的，因为 div 是一个有效的HTML标记：
   return <div>Hello {props.toWhat}</div>;
 }
 
 function HelloWorld() {
-  // Correct! React knows <Hello /> is a component because it's capitalized.
+  // 正确! React 认为 <Hello /> 是一个组件，因为首字母大写
   return <Hello toWhat="World" />;
 }
 ```
 
-### Choosing the Type at Runtime
+### 在运行时选择类型
 
 You cannot use a general expression as the React element type. If you do want to use a general expression to indicate the type of the element, just assign it to a capitalized variable first. This often comes up when you want to render a different component based on a prop:
 
