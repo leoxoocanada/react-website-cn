@@ -56,7 +56,7 @@
 
 # 深入JSX
 
-Fundamentally, JSX just provides syntactic sugar for the `React.createElement(component, props, ...children)` function. The JSX code:
+从本质上讲, JSX 只是为 `React.createElement(component, props, ...children)` 函数提供的语法糖。JSX 代码:
 
 ```js
 <MyButton color="blue" shadowSize={2}>
@@ -64,7 +64,7 @@ Fundamentally, JSX just provides syntactic sugar for the `React.createElement(co
 </MyButton>
 ```
 
-compiles into:
+编译为:
 
 ```js
 React.createElement(
@@ -74,13 +74,13 @@ React.createElement(
 )
 ```
 
-You can also use the self-closing form of the tag if there are no children. So:
+如果没有子节点的话，你也能使用自闭合格式的标签. 例如:
 
 ```js
 <div className="sidebar" />
 ```
 
-compiles into:
+编译为:
 
 ```js
 React.createElement(
@@ -89,20 +89,19 @@ React.createElement(
   null
 )
 ```
+如果你要测试一些特殊的 JSX 如何转换为 JavaScript，你可以尝试 [在线 Babel 编译](https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015%2Creact%2Cstage-0&code=function%20hello()%20%7B%0A%20%20return%20%3Cdiv%3EHello%20world!%3C%2Fdiv%3E%3B%0A%7D).
 
-If you want to test out how some specific JSX is converted into JavaScript, you can try out [the online Babel compiler](https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015%2Creact%2Cstage-0&code=function%20hello()%20%7B%0A%20%20return%20%3Cdiv%3EHello%20world!%3C%2Fdiv%3E%3B%0A%7D).
+## 指定 React 元素类型
 
-## Specifying The React Element Type
+一个 JSX 标签的的开始部分决定了 React 元素的类型。
 
-The first part of a JSX tag determines the type of the React element.
+首大写的 JSX 标签表示一个 React 组件。这些标签会被编译为一个直接引用的命名变量，所以如果你使用 JSX `<Foo />` 表达式， `Foo` 必须在作用域中。
 
-Capitalized types indicate that the JSX tag is referring to a React component. These tags get compiled into a direct reference to the named variable, so if you use the JSX `<Foo />` expression, `Foo` must be in scope.
+### React 必须在作用域中
 
-### React Must Be in Scope
+由于 JSX 编译为 `React.createElement` 的调用，所以 `React` 库也必须一直在你的 JSX 代码的作用域中。
 
-Since JSX compiles into calls to `React.createElement`, the `React` library must also always be in scope from your JSX code.
-
-For example, both of the imports are necessary in this code, even though `React` and `CustomButton` are not directly referenced from JavaScript:
+例如，在这段代码中两个 imports 是必须的，即使 `React` 和 `CustomButton` 没有直接从 JavaScript 中引用：
 
 ```js{1,2,5}
 import React from 'react';
@@ -114,11 +113,11 @@ function WarningButton() {
 }
 ```
 
-If you don't use a JavaScript bundler and loaded React from a `<script>` tag, it is already in scope as the `React` global.
+如果你不需要使用 JavaScript 打包器，而是通过 `<script>` 标签加载 React，它已经作为全局 `React` 存在。
 
-### Using Dot Notation for JSX Type
+### 为 JSX 类型使用点符号
 
-You can also refer to a React component using dot-notation from within JSX. This is convenient if you have a single module that exports many React components. For example, if `MyComponents.DatePicker` is a component, you can use it directly from JSX with:
+你也能在 JSX 中通过点符号引用一个 React 组件。如果你有一个独立的模块导出多个 React 组件的话，它是很方便的。例如，如果 `MyComponents.DatePicker` 是一个组件，你能直接在 JSX 中使用它：
 
 ```js{10}
 import React from 'react';
