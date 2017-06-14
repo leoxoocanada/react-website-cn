@@ -175,7 +175,7 @@ function HelloWorld() {
 
 ### 在运行时选择类型
 
-You cannot use a general expression as the React element type. If you do want to use a general expression to indicate the type of the element, just assign it to a capitalized variable first. This often comes up when you want to render a different component based on a prop:
+你不能使用一个普通的表达式作为 React 元素类型。如果你要使用一个普通的表达式来表示元素类型，首先需要将它赋值给首字母大写的变量。这经常发生在当你要根据一个属性渲染一个不同的组件的时候：
 
 ```js{10,11}
 import React from 'react';
@@ -187,12 +187,12 @@ const components = {
 };
 
 function Story(props) {
-  // Wrong! JSX type can't be an expression.
+  // 错误！JSX 类型不能是表达式
   return <components[props.storyType] story={props.story} />;
 }
 ```
 
-To fix this, we will assign the type to a capitalized variable first:
+要修复这个问题，我们首先将它赋值给首字母大写的变量：
 
 ```js{10-12}
 import React from 'react';
@@ -204,17 +204,17 @@ const components = {
 };
 
 function Story(props) {
-  // Correct! JSX type can be a capitalized variable.
+  // 正确！JSX 类型可以是首字母大写的变量.
   const SpecificStory = components[props.storyType];
   return <SpecificStory story={props.story} />;
 }
 ```
 
-## Props in JSX
+## JSX 中的属性(props)
 
-There are several different ways to specify props in JSX.
+有一些不同的方式来指定 JSX 中的属性(props)
 
-### JavaScript Expressions as Props
+### JavaScript 表达式作为 Props
 
 You can pass any JavaScript expression as a prop, by surrounding it with `{}`. For example, in this JSX:
 
