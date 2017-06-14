@@ -216,15 +216,15 @@ function Story(props) {
 
 ### JavaScript 表达式作为 Props
 
-You can pass any JavaScript expression as a prop, by surrounding it with `{}`. For example, in this JSX:
+你可以传递任何 JavaScript 表达式作为一个属性，通过 `{}` 包裹起来。例如，在这个 JSX 中：
 
 ```js
 <MyComponent foo={1 + 2 + 3 + 4} />
 ```
 
-For `MyComponent`, the value of `props.foo` will be `10` because the expression `1 + 2 + 3 + 4` gets evaluated.
+对于 `MyComponent`, `props.foo` 的值将是 `10` ，因为表达式 `1 + 2 + 3 + 4` 会被计算估值.
 
-`if` statements and `for` loops are not expressions in JavaScript, so they can't be used in JSX directly. Instead, you can put these in the surrounding code. For example:
+在 JavaScript 里 `if` 声明和 `for` 循环不是表达式，因为它们不能被直接在 JSX 里使用。你可以把它们放在附近的代码块中。例如：
 
 ```js{3-7}
 function NumberDescriber(props) {
@@ -238,11 +238,11 @@ function NumberDescriber(props) {
 }
 ```
 
-You can learn more about [conditional rendering](/cn/docs/conditional-rendering.md) and [loops](/cn/docs/lists-and-keys.md) in the corresponding sections.
+你能在想着章节中了解有关 [条件渲染](/cn/docs/conditional-rendering.md) 和 [循环](/cn/docs/lists-and-keys.md) 的更多信息.
 
-### String Literals
+### 字符串字面量
 
-You can pass a string literal as a prop. These two JSX expressions are equivalent:
+你能传递一个字符串字面量作为一个属性。这两个 JSX 表达式是等价的：
 
 ```js
 <MyComponent message="hello world" />
@@ -250,7 +250,7 @@ You can pass a string literal as a prop. These two JSX expressions are equivalen
 <MyComponent message={'hello world'} />
 ```
 
-When you pass a string literal, its value is HTML-unescaped. So these two JSX expressions are equivalent:
+当你传递一个字符串字面量，它的值是未转义的 HTML(HTML-unescaped) 。因此这两个 JSX 表达式是等价的：
 
 ```js
 <MyComponent message="&lt;3" />
@@ -258,11 +258,11 @@ When you pass a string literal, its value is HTML-unescaped. So these two JSX ex
 <MyComponent message={'<3'} />
 ```
 
-This behavior is usually not relevant. It's only mentioned here for completeness.
+这种行为通常是不相关的。它在这里提及只是为了完整性。
 
-### Props Default to "True"
+### 属性（Props）默认是 "True"
 
-If you pass no value for a prop, it defaults to `true`. These two JSX expressions are equivalent:
+如果你传递一个没有值的属性，它的默认值是 `true` 。这两个 JSX 表达式是等价的：
 
 ```js
 <MyTextBox autocomplete />
@@ -270,11 +270,11 @@ If you pass no value for a prop, it defaults to `true`. These two JSX expression
 <MyTextBox autocomplete={true} />
 ```
 
-In general, we don't recommend using this because it can be confused with the [ES6 object shorthand](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` which is short for `{foo: foo}` rather than `{foo: true}`. This behavior is just there so that it matches the behavior of HTML.
+通常，我们不建议使用这种方式，因为这会与 [ES6 的 shorthand 对象](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) 搞混。ES6 shorthand 中 `{foo}` 指的是 `{foo: foo}` 的简写，而不是 `{foo: true}` 。这种行为只是为了跟 HTML 的行为相匹配。
 
-### Spread Attributes
+### 属性扩展
 
-If you already have `props` as an object, and you want to pass it in JSX, you can use `...` as a "spread" operator to pass the whole props object. These two components are equivalent:
+如果你已经有一个 object 类型的 `props` ，并且你希望在 JSX 中传入，你可以使用 `...` 作为一个扩展操作符传入整个属性对象。这两个表达式是等价的：
 
 ```js{7}
 function App1() {
@@ -286,8 +286,7 @@ function App2() {
   return <Greeting {...props} />;
 }
 ```
-
-Spread attributes can be useful when you are building generic containers. However, they can also make your code messy by making it easy to pass a lot of irrelevant props to components that don't care about them. We recommend that you use this syntax sparingly.
+当你构建一个普通的容器时，属性扩展非常有用。然而，它们也能让你的代码非常的凌乱，因为这非常容易传入许多不相干且不需要的属性到组件中。我们建议你谨慎的使用这些语法。
 
 ## Children in JSX
 
