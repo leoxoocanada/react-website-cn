@@ -56,10 +56,10 @@
 
 # 使用 PropTypes 做类型检查
 
-> Note:
-> `React.PropTypes` is deprecated as of React v15.5. Please use [the `prop-types` library instead](https://www.npmjs.com/package/prop-types).
+> 注意:
+> `React.PropTypes` 从 React v15.5 开始弃用. 请使用 [ `prop-types` 库](https://www.npmjs.com/package/prop-types) 代替.
 
-As your app grows, you can catch a lot of bugs with typechecking. For some applications, you can use JavaScript extensions like [Flow](https://flowtype.org/) or [TypeScript](https://www.typescriptlang.org/) to typecheck your whole application. But even if you don't use those, React has some built-in typechecking abilities. To run typechecking on the props for a component, you can assign the special `propTypes` property:
+随着你的应用程序的增长，你可以通过类型检测捕获许多的bug。对于一些应用，你可能需要使用类似于 [Flow](https://flowtype.org/) 或者 [TypeScript](https://www.typescriptlang.org/) 等 JavaScript 扩展来对你整个应用做类型检测。但即使你不使用这些，React 内置了类型检测的功能。要在组件中进行类型检测，你可以赋值特别的  `propTypes`  属性。
 
 ```javascript
 import PropTypes from 'prop-types';
@@ -77,7 +77,7 @@ Greeting.propTypes = {
 };
 ```
 
-`PropTypes` exports a range of validators that can be used to make sure the data you receive is valid. In this example, we're using `PropTypes.string`. When an invalid value is provided for a prop, a warning will be shown in the JavaScript console. For performance reasons, `propTypes` is only checked in development mode.
+`PropTypes` 输出了一系列的验证器，可以用来确保接收到的参数是有效的。在这个示例中，我们使用 `PropTypes.string`. 当一个无效的值被作为属性提供, 一个警告将显示在 JavaScript 控制台. 出于性能的原因，`propTypes` 权在开发模式中检测.
 
 ### PropTypes
 
