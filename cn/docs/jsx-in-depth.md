@@ -409,11 +409,11 @@ function ListOfTenThings() {
 }
 ```
 
-Children passed to a custom component can be anything, as long as that component transforms them into something React can understand before rendering. This usage is not common, but it works if you want to stretch what JSX is capable of.
+传递到自定义组件的 Children(子元素) 可以是任何内容，只要组件渲染前可以转化为 React 能够处理的东西就可以。这种用法不常见，但是如果你需要扩展 JSX 的它很管用。
 
-### Booleans, Null, and Undefined Are Ignored
+### Booleans, Null, 和 Undefined 会被忽略
 
-`false`, `null`, `undefined`, and `true` are valid children. They simply don't render. These JSX expressions will all render to the same thing:
+`false`, `null`, `undefined`, 和 `true` 都是有效的 children(子元素). 但是不会被渲染. 下面这些 JSX 表达式都将渲染成一样的：
 
 ```js
 <div />
@@ -429,7 +429,7 @@ Children passed to a custom component can be anything, as long as that component
 <div>{true}</div>
 ```
 
-This can be useful to conditionally render React elements. This JSX only renders a `<Header />` if `showHeader` is `true`:
+在条件渲染 React 元素时这非常有用。如果 `showHeader` 是 `true`，这段 JSX 仅渲染一个 `<Header />` ：
 
 ```js{2}
 <div>
@@ -438,7 +438,7 @@ This can be useful to conditionally render React elements. This JSX only renders
 </div>
 ```
 
-One caveat is that some ["falsy" values](https://developer.mozilla.org/en-US/docs/Glossary/Falsy), such as the `0` number, are still rendered by React. For example, this code will not behave as you might expect because `0` will be printed when `props.messages` is an empty array:
+一些关于 ["falsy" 值](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) 的警告, 例如数值 `0` , 还是会被 React 渲染. 例如，这段代码不会按照你的预期起作用，因为当 props.messages 是一个空数组时 0 会被打印：
 
 ```js{2}
 <div>
@@ -448,7 +448,7 @@ One caveat is that some ["falsy" values](https://developer.mozilla.org/en-US/doc
 </div>
 ```
 
-To fix this, make sure that the expression before `&&` is always boolean:
+要修复这个问题，确保 `&&` 之前的表达式总是布尔值：
 
 ```js{2}
 <div>
@@ -458,7 +458,7 @@ To fix this, make sure that the expression before `&&` is always boolean:
 </div>
 ```
 
-Conversely, if you want a value like `false`, `true`, `null`, or `undefined` to appear in the output, you have to [convert it to a string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_conversion) first:
+相反，如果在输出中想要渲染 false ，true，null 或者 undefined ，你必须先 [将其转化为字符串](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_conversion):
 
 ```js{2}
 <div>
