@@ -77,18 +77,17 @@ Greeting.propTypes = {
 };
 ```
 
-`PropTypes` 输出了一系列的验证器，可以用来确保接收到的参数是有效的。在这个示例中，我们使用 `PropTypes.string`. 当一个无效的值被作为属性提供, 一个警告将显示在 JavaScript 控制台. 出于性能的原因，`propTypes` 权在开发模式中检测.
+`PropTypes` 输出了一系列的验证器，可以用来确保接收到的参数是有效的。在这个示例中，我们使用 `PropTypes.string`. 当一个无效的值被作为属性提供, 一个警告将显示在 JavaScript 控制台. 出于性能的原因，`propTypes` 仅在开发模式中检测.
 
 ### PropTypes
 
-Here is an example documenting the different validators provided:
+这里是一个示例记录提供的不同的验证器：
 
 ```javascript
 import PropTypes from 'prop-types';
 
 MyComponent.propTypes = {
-  // You can declare that a prop is a specific JS primitive. By default, these
-  // are all optional.
+  // 你能声明一个属性是特定的原始类型。默认情况下，它们都是可选的
   optionalArray: PropTypes.array,
   optionalBool: PropTypes.bool,
   optionalFunc: PropTypes.func,
@@ -97,50 +96,45 @@ MyComponent.propTypes = {
   optionalString: PropTypes.string,
   optionalSymbol: PropTypes.symbol,
 
-  // Anything that can be rendered: numbers, strings, elements or an array
-  // (or fragment) containing these types.
+  // 任何东西都可以被渲染：数字, 字符串, 元素 或一个包含这些类型的数组（或片断）
   optionalNode: PropTypes.node,
 
-  // A React element.
-  optionalElement: PropTypes.element,
+  // React 元素
+  optionalElement: PropTypes.element,
 
-  // You can also declare that a prop is an instance of a class. This uses
-  // JS's instanceof operator.
+  // 你也能声明一个属性是类实例，使用 JS 的 instanceof 运算符。
   optionalMessage: PropTypes.instanceOf(Message),
 
-  // You can ensure that your prop is limited to specific values by treating
-  // it as an enum.
+  // 你能确保你的属性是限于枚举的特定值
   optionalEnum: PropTypes.oneOf(['News', 'Photos']),
 
-  // An object that could be one of many types
+  // 一个对象可能是许多类型中的一个
   optionalUnion: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
     PropTypes.instanceOf(Message)
   ]),
 
-  // An array of a certain type
+  // 一个某些类型的数组
   optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
 
-  // An object with property values of a certain type
+  // 属性值为某种类型的对象
   optionalObjectOf: PropTypes.objectOf(PropTypes.number),
 
-  // An object taking on a particular shape
+  // 一个特定形式的对象
   optionalObjectWithShape: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number
   }),
 
-  // You can chain any of the above with `isRequired` to make sure a warning
-  // is shown if the prop isn't provided.
+  // 你可以使用 `isRequired' 链接上述任何一个，以确保在没有提供 prop 的情况下显示警告。
   requiredFunc: PropTypes.func.isRequired,
 
-  // A value of any data type
+  // 任何数据类型的值
   requiredAny: PropTypes.any.isRequired,
 
-  // You can also specify a custom validator. It should return an Error
-  // object if the validation fails. Don't `console.warn` or throw, as this
-  // won't work inside `oneOfType`.
+  // 你也能指定一下定制的验证器。假如这个验证失败，它应该返回一个错误（Error）对象。
+  // 不要使用 `console.warn` 或 throw ，因为它不会在 `oneOfType` 中起作用
   customProp: function(props, propName, componentName) {
     if (!/matchme/.test(props[propName])) {
       return new Error(
@@ -150,11 +144,9 @@ MyComponent.propTypes = {
     }
   },
 
-  // You can also supply a custom validator to `arrayOf` and `objectOf`.
-  // It should return an Error object if the validation fails. The validator
-  // will be called for each key in the array or object. The first two
-  // arguments of the validator are the array or object itself, and the
-  // current item's key.
+  // 你也能提供一个定制的验证器给 `arrayOf` 和 `objectOf`.
+  // 假如这个验证失败，它应该返回一个错误（Error）对象。这个验证器将在数组或对象的每一个元素上调用。
+  // 验证器的前两个参数是数组或对象自身，以及当前元素的键值
   customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
     if (!/matchme/.test(propValue[key])) {
       return new Error(
@@ -166,16 +158,16 @@ MyComponent.propTypes = {
 };
 ```
 
-### Requiring Single Child
+### 要求单独的 Child
 
-With `PropTypes.element` you can specify that only a single child can be passed to a component as children.
+通过 `PropTypes.element` 你能指定仅一个单一的子元素能被传递到组件，作为子节点
 
 ```javascript
 import PropTypes from 'prop-types';
 
 class MyComponent extends React.Component {
   render() {
-    // This must be exactly one element or it will warn.
+    // 这里必须是一个元素，否则它将报错
     const children = this.props.children;
     return (
       <div>
@@ -190,9 +182,9 @@ MyComponent.propTypes = {
 };
 ```
 
-### Default Prop Values
+### 默认属性值
 
-You can define default values for your `props` by assigning to the special `defaultProps` property:
+你能通过赋值特定的 `defaultProps` 属性，为你的 `props` 定义默认值
 
 ```javascript
 class Greeting extends React.Component {
@@ -203,16 +195,16 @@ class Greeting extends React.Component {
   }
 }
 
-// Specifies the default values for props:
+// 指定 props 的默认值：Specifies the default values for props:
 Greeting.defaultProps = {
   name: 'Stranger'
 };
 
-// Renders "Hello, Stranger":
+// 渲染为 "Hello, Stranger":
 ReactDOM.render(
   <Greeting />,
   document.getElementById('example')
 );
 ```
 
-The `defaultProps` will be used to ensure that `this.props.name` will have a value if it was not specified by the parent component. The `propTypes` typechecking happens after `defaultProps` are resolved, so typechecking will also apply to the `defaultProps`.
+`defaultProps` 将被用来确保如果它是没有通过父组件指定值的时候 `this.props.name` 将有一个值。`propTypes` 类型检查发生在 `defaultProps` 解析之后，因此也会对 `defaultProps` 进行类型检查.
