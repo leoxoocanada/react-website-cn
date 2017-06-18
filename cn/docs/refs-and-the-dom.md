@@ -56,13 +56,13 @@
 
 # Refs 和 DOM
 
-In the typical React dataflow, [props](/react/docs/components-and-props.html) are the only way that parent components interact with their children. To modify a child, you re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow. The child to be modified could be an instance of a React component, or it could be a DOM element. For both of these cases, React provides an escape hatch.
+在常规的 React 数据流里，[props](/cn/docs/components-and-props.md) 是父组件和他们的子元素交互的唯一方式。要修改子元素，你需要用一个新的属性值来重新渲染它。然而，在少数情况下，你需要在常规数据流外强制修改子元素。被修改的子元素可以是 React 组件实例，或是一个 DOM 元素。在这种情况下，React 提供了解决办法。
 
-### When to Use Refs
+### 什么时候使用 Refs
 
-There are a few good use cases for refs:
+这里有一些适合使用 refs 的场景：
 
-* Managing focus, text selection, or media playback.
+* 处理聚焦、文本选择或者媒体播放
 * Triggering imperative animations.
 * Integrating with third-party DOM libraries.
 
