@@ -112,11 +112,11 @@ class CustomTextInput extends React.Component {
 
 当组件 装载(mounted) 时 React 将用 DOM 元素作为参数调用 `ref` 回调，当它 卸载(unmounted) 时用 `null` 作为参数调用回调。
 
-Using the `ref` callback just to set a property on the class is a common pattern for accessing DOM elements. The preferred way is to set the property in the `ref` callback like in the above example. There is even a shorter way to write it: `ref={input => this.textInput = input}`. 
+使用 `ref` 回调只是在类上设置一个属性，这是一种访问 DOM 元素的常用做法。首选的方式是像上面的示例一样在 `ref` 回调里设置一个属性。有一个更短的写法：`ref={input => this.textInput = input}`. 
 
-### Adding a Ref to a Class Component
+### 给 类（Class） 组件 添加一个 Ref
 
-When the `ref` attribute is used on a custom component declared as a class, the `ref` callback receives the mounted instance of the component as its argument. For example, if we wanted to wrap the `CustomTextInput` above to simulate it being clicked immediately after mounting:
+当给一个类（Class）声明的自定义组件使用 `ref` 属性时， `ref` 回调接受 装载(mounted) 的组件实例作为它的参数。例如，如果我们想要包装 `CustomTextInput` ，实现组件在装载后立即触发模拟点击：
 
 ```javascript{3,9}
 class AutoFocusTextInput extends React.Component {
@@ -133,7 +133,7 @@ class AutoFocusTextInput extends React.Component {
 }
 ```
 
-Note that this only works if `CustomTextInput` is declared as a class:
+注意这仅在 `CustomTextInput` 是用类（class）定义的情况下才生效
 
 ```js{1}
 class CustomTextInput extends React.Component {
@@ -141,9 +141,9 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-### Refs and Functional Components
+### Refs 和 函数式（Functional）组件
 
-**You may not use the `ref` attribute on functional components** because they don't have instances:
+**你可能在函数式（Functional）组件上不需要使用 `ref` 属性**，因为它们没有实例：
 
 ```javascript{1,7}
 function MyFunctionalComponent() {
@@ -152,7 +152,7 @@ function MyFunctionalComponent() {
 
 class Parent extends React.Component {
   render() {
-    // This will *not* work!
+    // 这里将 *不* 生效!
     return (
       <MyFunctionalComponent
         ref={(input) => { this.textInput = input; }} />
