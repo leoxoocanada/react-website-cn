@@ -189,15 +189,15 @@ function CustomTextInput(props) {
 }
 ```
 
-### Exposing DOM Refs to Parent Components
+### 暴露 DOM 引用给父组件
 
-In rare cases, you might want to have access to a child's DOM node from a parent component. This is generally not recommended because it breaks component encapsulation, but it can occasionally be useful for triggering focus or measuring the size or position of a child DOM node.
+在极少数情况下，你可能要在父组件里使用子元素的 DOM 节点，通常不建议这么做，因为它破坏了组件的封装，但是它偶尔能用来触发聚焦或测量 DOM 子节点的大小或位置。
 
-While you could [add a ref to to the child component](#adding-a-ref-to-a-class-component), this is not an ideal solution, as you would only get a component instance rather than a DOM node. Additionally, this wouldn't work with functional components.
+虽然你能[向子组件添加 ref](#adding-a-ref-to-a-class-component)，但这不是一个理想的解决方案，这样做你只能获取到一个组件实例而不是一个 DOM 节点。此外，在函数式（Functional）组件里这将不生效。
 
-Instead, in such cases we recommend exposing a special prop on the child. The child would take a function prop with an arbitrary name (e.g. `inputRef`) and attach it to the DOM node as a `ref` attribute. This lets the parent pass its ref callback to the child's DOM node through the component in the middle.
+相反，在这种情况下，我们建议在子节点上暴露一个特殊的属性。子节点将会获得一个任意名字的函数属性(例如 `inputRef`)，并将其作为 ref 属性附加到 DOM 节点。这样使得父组件通过中间组件传递它的 ref 回调到子节点的 DOM 节点。
 
-This works both for classes and for functional components.
+这样将在类(classes)和函数式（functional）组件中都能生效
 
 ```javascript{4,13}
 function CustomTextInput(props) {
@@ -219,9 +219,9 @@ class Parent extends React.Component {
 }
 ```
 
-In the example above, `Parent` passes its ref callback as an `inputRef` prop to the `CustomTextInput`, and the `CustomTextInput` passes the same function as a special `ref` attribute to the `<input>`. As a result, `this.inputElement` in `Parent` will be set to the DOM node corresponding to the `<input>` element in the `CustomTextInput`.
+在上面的示例中，`Parent` 通过 `inputRef` 属性传递它的 ref 回调到 `CustomTextInput`，并且 `CustomTextInput`传递同样的函数作为一个特殊的 `ref` 属性给 `<input>`。最终，在 `Parent` 的 `this.inputElement` 将被设置为跟 `CustomTextInput` 里的 `<input>` 对应的 DOM 节点。
 
-Note that the name of the `inputRef` prop in the above example has no special meaning, as it is a regular component prop. However, using the `ref` attribute on the `<input>` itself is important, as it tells React to attach a ref to its DOM node.
+注意在上面示例中 `inputRef` 属性的名字没有特殊的含义，它只是一般的组件属性。然而，使用 `<input>` 本身的 `ref` 很重要，它告诉 React 附加一个 ref 到它的 DOM 节点。
 
 This works even though `CustomTextInput` is a functional component. Unlike the special `ref` attribute which can [only be specified for DOM elements and for class components](#refs-and-functional-components), there are no restrictions on regular component props like `inputRef`.
 
