@@ -161,13 +161,13 @@ class Parent extends React.Component {
 }
 ```
 
-You should convert the component to a class if you need a ref to it, just like you do when you need lifecycle methods or state.
+如果需要使用 ref ，你应该将这个组件转换为类（class），就像你需要生命周期方法和状态时一样。
 
-You can, however, **use the `ref` attribute inside a functional component** as long as you refer to a DOM element or a class component:
+然而你可以**在函数式（Functional）组件内部使用 `ref` 属性**来引用一个 DOM 元素或者 类(class)组件
 
 ```javascript{2,3,6,13}
 function CustomTextInput(props) {
-  // textInput must be declared here so the ref callback can refer to it
+  // textInput 必须在这里声明，以便 ref 可以引用到它
   let textInput = null;
 
   function handleClick() {
