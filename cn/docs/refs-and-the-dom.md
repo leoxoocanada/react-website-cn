@@ -223,9 +223,9 @@ class Parent extends React.Component {
 
 注意在上面示例中 `inputRef` 属性的名字没有特殊的含义，它只是一般的组件属性。然而，使用 `<input>` 本身的 `ref` 很重要，它告诉 React 附加一个 ref 到它的 DOM 节点。
 
-This works even though `CustomTextInput` is a functional component. Unlike the special `ref` attribute which can [only be specified for DOM elements and for class components](#refs-and-functional-components), there are no restrictions on regular component props like `inputRef`.
+即使 `CustomTextInput` 是一个函数式（functional）组件，它也能生效。不同于[只为 DOM 元素和类(class)组件指定](#refs-and-functional-components)的特殊 `ref` 属性，像 `inputRef` 这样的普通组件属性没有限制。
 
-Another benefit of this pattern is that it works several components deep. For example, imagine `Parent` didn't need that DOM node, but a component that rendered `Parent` (let's call it `Grandparent`) needed access to it. Then we could let the `Grandparent` specify the `inputRef` prop to the `Parent`, and let `Parent` "forward" it to the `CustomTextInput`:
+这种模式的另外一个好处是它能在几个深层的组件的里生效。例如，想像一下 `Parent` 不需要 DOM 节点，但是一个渲染 `Parent` 的组件(让我们称它为 `Grandparent`)需要使用它。这时我们能让 `Grandparent` 传递 `inputRef` 给 `Parent`，并且让 `Parent` 将其转发给 `CustomTextInput`：
 
 ```javascript{4,12,22}
 function CustomTextInput(props) {
@@ -256,14 +256,14 @@ class Grandparent extends React.Component {
 }
 ```
 
-Here, the ref callback is first specified by `Grandparent`. It is passed to the `Parent` as a regular prop called `inputRef`, and the `Parent` passes it to the `CustomTextInput` as a prop too. Finally, the `CustomTextInput` reads the `inputRef` prop and attaches the passed function as a `ref` attribute to the `<input>`. As a result, `this.inputElement` in `Grandparent` will be set to the DOM node corresponding to the `<input>` element in the `CustomTextInput`.
+在这里，ref 回调首先通过 `Grandparent` 指定 。它作为一个叫 `inputRef` 的普通属性传递给 `Parent` ，`Parent` 也将它作为一个属性传递给 `CustomTextInput` 。最终， `CustomTextInput` 读取到 `inputRef` 属性并且将传递的函数作为一个 `ref` 属性附加到 `<input>`。最终， `Grandparent` 里的 `this.inputElement` 将被设置为跟 `CustomTextInput` 里的 `<input>` 元素一样的 DOM 节点。
 
-All things considered, we advise against exposing DOM nodes whenever possible, but this can be a useful escape hatch. Note that this approach requires you to add some code to the child component. If you have absolutely no control over the child component implementation, your last option is to use [`findDOMNode()`](/react/docs/react-dom.html#finddomnode), but it is discouraged.
+总而言之，我们建议尽可能不暴露 DOM 节点，但这是有一个有用的解决方式。注意这种方式要求你添加一些代码到子组件。如果你无法完全控制子组件，你最后的选择是使用 [`findDOMNode()`](/cn/docs/react-dom.md#finddomnode)，但这是不推荐的做法。
 
-### Legacy API: String Refs
+### 旧版API: String 类型的 Refs 
 
-If you worked with React before, you might be familiar with an older API where the `ref` attribute is a string, like `"textInput"`, and the DOM node is accessed as `this.refs.textInput`. We advise against it because string refs have [some issues](https://github.com/facebook/react/pull/8333#issuecomment-271648615), are considered legacy, and **are likely to be removed in one of the future releases**. If you're currently using `this.refs.textInput` to access refs, we recommend the callback pattern instead.
+如果你之前使用过 React，你可能熟悉一个更老的 API， `ref` 属性是一个字符串，像 `"textInput"`，并且 DOM 节点是作为 `this.refs.textInput` 使用。我们建议不使用它，因为字符串类型的 refs 有[一些问题](https://github.com/facebook/react/pull/8333#issuecomment-271648615),已经过时了，**可能会在未来的版本是移除**。如果你当前还在使用 `this.refs.textInput` 来获取 refs，我们建议用回调模式代替。
 
-### Caveats
+### 警告
 
-If the `ref` callback is defined as an inline function, it will get called twice during updates, first with `null` and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one. You can avoid this by defining the `ref` callback as a bound method on the class, but note that it shouldn't matter in most cases.
+如果 `ref` 回调是以内联方式定义，在更新期间会被调用两次，第一次参数是 `null` ，之后参数是 DOM 元素。这是因为每次渲染时一个新的函数实例被创建，因此 eact 需要清除旧的 ref 并且设置新的。通过将 ref 的回调函数定义成类的绑定函数的方式可以避免上述问题，但是在大多数例子中这都不是很重要。
