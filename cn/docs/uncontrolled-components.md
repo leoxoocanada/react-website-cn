@@ -56,11 +56,11 @@
 
 # 不可控组件
 
-In most cases, we recommend using [controlled components](/cn/docs/forms.md) to implement forms. In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form data is handled by the DOM itself.
+在更多的案例里，我们建议使用 [受控组件](/cn/docs/forms.md) 来实现表单。在一个可控组件里，表单数据是 React 组件负责处理。另外一个选择是非受控组件，其表单数据由 DOM 自己负责处理。
 
-To write an uncontrolled component, instead of writing an event handler for every state update, you can [use a ref](/cn/docs/refs-and-the-dom.md) to get form values from the DOM.
+要编写一个非受控组件，你能 [使用 ref](/cn/docs/refs-and-the-dom.md) 来从 DOM 获取值，而不是为每个状态更新写一个事件处理器。
 
-For example, this code accepts a single name in an uncontrolled component:
+例如，在一个非受控组件里，这段代码接受一个一个独立的名字：
 
 ```javascript{8,17}
 class NameForm extends React.Component {
@@ -90,11 +90,11 @@ class NameForm extends React.Component {
 
 [在CodePen中试试](https://codepen.io/gaearon/pen/WooRWa?editors=0010)
 
-Since an uncontrolled component keeps the source of truth in the DOM, it is sometimes easier to integrate React and non-React code when using uncontrolled components. It can also be slightly less code if you want to be quick and dirty. Otherwise, you should usually use controlled components.
+由于非受控组件的数据来源是 DOM，当使用非受控组件时它有时候更容易整合 React 和非 React 代码。如果你要求快速开发，不要求代码质量，非受控组件也可以一定程度上减少代码量。否则，通常你应该使用受控组件。
 
-If it's still not clear which type of component you should use for a particular situation, you might find [this article on controlled versus uncontrolled inputs](http://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) to be helpful.
+如果仍然不清楚在某个特定方案你应该使用哪种类型的组件，你可以在[这个文章中了解受控和不受控组件](http://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) 寻找帮助。
 
-### Default Values
+### 默认值
 
 In the React rendering lifecycle, the `value` attribute on form elements will override the value in the DOM. With an uncontrolled component, you often want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a `defaultValue` attribute instead of `value`.
 
