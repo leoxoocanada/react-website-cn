@@ -56,7 +56,7 @@
 
 # 优化性能
 
-Internally, React uses several clever techniques to minimize the number of costly DOM operations required to update the UI. For many applications, using React will lead to a fast user interface without doing much work to specifically optimize for performance. Nevertheless, there are several ways you can speed up your React application.
+在内部，React使用几种巧妙的技术来最大限度地减少更新 UI 所需的昂贵的 DOM 操作的数量。对于大多数应用而言，使用 React 可以达到一个快速的用户界面，而不需要做太多的工作来专门优化性能。 然而，有几种方法可以加快你的React应用。
 
 ## 使用生产版本
 
