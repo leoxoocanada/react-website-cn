@@ -96,7 +96,7 @@ class NameForm extends React.Component {
 
 ### 默认值
 
-In the React rendering lifecycle, the `value` attribute on form elements will override the value in the DOM. With an uncontrolled component, you often want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a `defaultValue` attribute instead of `value`.
+在 React 渲染生命周期里，表单元素的 `value` 属性将覆盖 DOM 中的 value。在非受控组件中，你经常需要给 React 指定初始值，但保留后续的更新不受控制。要处理这个情况，你能指定一个 `defaultValue` 属性替代 `value`.
 
 ```javascript{7}
 render() {
@@ -115,4 +115,4 @@ render() {
 }
 ```
 
-Likewise, `<input type="checkbox">` and `<input type="radio">` support `defaultChecked`, and `<select>` and `<textarea>` supports `defaultValue`.
+同样, `<input type="checkbox">` 和 `<input type="radio">` 支持 `defaultChecked`,  `<select>` 和 `<textarea>` 支持 `defaultValue`.
