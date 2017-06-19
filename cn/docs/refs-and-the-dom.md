@@ -63,22 +63,22 @@
 这里有一些适合使用 refs 的场景：
 
 * 处理聚焦、文本选择或者媒体播放
-* Triggering imperative animations.
-* Integrating with third-party DOM libraries.
+* 触发必要的动画
+* 和第三方 DOM 库整合
 
-Avoid using refs for anything that can be done declaratively.
+如果可以通过声明式实现，就尽量避免使用 refs 。
 
-For example, instead of exposing `open()` and `close()` methods on a `Dialog` component, pass an `isOpen` prop to it.
+例如，在一个 `Dialog` 组件上，通过传递一个 `isOpen` 属性给它来代替暴露 `open()` 和 `close()` 方法。
 
-### Don't Overuse Refs
+### 不要过度使用 Refs
 
-Your first inclination may be to use refs to "make things happen" in your app. If this is the case, take a moment and think more critically about where state should be owned in the component hierarchy. Often, it becomes clear that the proper place to "own" that state is at a higher level in the hierarchy. See the [Lifting State Up](/react/docs/lifting-state-up.html) guide for examples of this.
+的第一个想法可能是在你的应用中使用 refs 来做点事情。如果是这种情况，请花一点时间，更多的关注在组件层中使用 state。在组件层中，通常较高层次的 state 更为清晰。有关示例，请参考[状态提升](/cn/docs/lifting-state-up.md).
 
-### Adding a Ref to a DOM Element
+### 给 DOM 元素添加一个 Ref
 
-React supports a special attribute that you can attach to any component. The `ref` attribute takes a callback function, and the callback will be executed immediately after the component is mounted or unmounted.
+React 支持一个附加在任何组件上的特殊属性。 `ref` 属性接受一个回调函数，并且回调将在组件 装载(mounted) 或者 卸载(unmounted) 之后立即执行。
 
-When the `ref` attribute is used on an HTML element, the `ref` callback receives the underlying DOM element as its argument. For example, this code uses the `ref` callback to store a reference to a DOM node:
+当给一个 HTML 元素使用 `ref` 属性时， `ref` 接受底层的 DOM 元素作为参数。例如，这段代码使用 `ref` 回调来保存一个 DOM 节点的引用。
 
 ```javascript{8,9,19}
 class CustomTextInput extends React.Component {
@@ -88,13 +88,12 @@ class CustomTextInput extends React.Component {
   }
 
   focus() {
-    // Explicitly focus the text input using the raw DOM API
+    // 使用原生 DOM API 来显式的聚焦文本输入框
     this.textInput.focus();
   }
 
   render() {
-    // Use the `ref` callback to store a reference to the text input DOM
-    // element in an instance field (for example, this.textInput).
+    // 使用 `ref` 回调在实例字段中保存一个文本输入框 DOM 元素的引用（例如，this.textInput）
     return (
       <div>
         <input
@@ -111,7 +110,7 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-React will call the `ref` callback with the DOM element when the component mounts, and call it with `null` when it unmounts.
+当组件 装载(mounted) 时 React 将用 DOM 元素作为参数调用 `ref` 回调，当它 卸载(unmounted) 时用 `null` 作为参数调用回调。
 
 Using the `ref` callback just to set a property on the class is a common pattern for accessing DOM elements. The preferred way is to set the property in the `ref` callback like in the above example. There is even a shorter way to write it: `ref={input => this.textInput = input}`. 
 
