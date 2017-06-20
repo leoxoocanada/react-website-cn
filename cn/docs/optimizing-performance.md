@@ -85,7 +85,7 @@ If you visit a site with React in development mode, the icon will have a red bac
 npm run build
 ```
 
-This will create a production build of your app in the `build/` folder of your project.
+这将在你项目的 `build/` 目录为你的应用创建一个生产构建。
 
 Remember that this is only necessary before deploying to production. For normal development, use `npm start`.
 
