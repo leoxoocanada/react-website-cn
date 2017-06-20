@@ -197,7 +197,6 @@ plugins: [
 >这个章节只适用于直接配置 Webpack 的情况
 
 为了更高效的 Webpack 生产构建，请确保在你的生产配置里包含了这些插件：
-For the most efficient Webpack production build, make sure to include these plugins in your production configuration:
 
 ```js
 new webpack.DefinePlugin({
@@ -212,25 +211,25 @@ new webpack.optimize.UglifyJsPlugin()
 
 记住你需要在生产构建里这么做，你不应该在开发环境中使用 `UglifyJsPlugin` 或 `DefinePlugin` 的 `'production'` 值，因为它们将隐藏有用的 React 警告信息，并使构建更慢。
 
-## Profiling Components with Chrome Timeline
+## 通过 Chrome Timeline 分析组件性能
 
-In the **development** mode, you can visualize how components mount, update, and unmount, using the performance tools in supported browsers. For example:
+在 **开发模式** 中, 你能在支持的浏览器里使用性能工具可视化组件如何装载(mount) ，更新(update) 和 卸载(unmount) 的过程，例如:
 
 <center><img src="/cn/img/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="React components in Chrome timeline" /></center>
 
-To do this in Chrome:
+在Chrome里这么做:
 
-1. Load your app with `?react_perf` in the query string (for example, `http://localhost:3000/?react_perf`).
+1. 在你的请求字符串里通过 `?react_perf` 加载你的应用 (例如, `http://localhost:3000/?react_perf`).
 
-2. Open the Chrome DevTools **[Timeline](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** tab and press **Record**.
+2. 打开Chrome开发者工具 **[Timeline](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** 标签并点击 **Record**（译者：新版Chrome已经改用 [Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)）.
 
-3. Perform the actions you want to profile. Don't record more than 20 seconds or Chrome might hang.
+3. 执行你想要分析的操作. 不要记录超过20秒，否则Chrome可能会挂起.
 
-4. Stop recording.
+4. 停止记录.
 
-5. React events will be grouped under the **User Timing** label.
+5. React 事件将被分组在 **User Timing** 标签下
 
-Note that **the numbers are relative so components will render faster in production**. Still, this should help you realize when unrelated UI gets updated by mistake, and how deep and how often your UI updates occur.
+注意 **这些数字是相对的，组件在生产环境中将更快** 。然而，这对你分析由于错误导致不相关的组件的更新、分析组件更新的深度和频率很有帮助。
 
 Currently Chrome, Edge, and IE are the only browsers supporting this feature, but we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) so we expect more browsers to add support for it.
 
