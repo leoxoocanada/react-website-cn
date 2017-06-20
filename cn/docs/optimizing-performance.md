@@ -87,38 +87,37 @@ npm run build
 
 这将在你项目的 `build/` 目录为你的应用创建一个生产构建。
 
-Remember that this is only necessary before deploying to production. For normal development, use `npm start`.
+记住这只在部署到生产环境前才是必须的。在一般的开发环境中，使用 `npm start`.
 
-### Single-File Builds
+### 单文件构建
 
-We offer production-ready versions of React and React DOM as single files:
+我们提供单个文件生产版本的 React 和 React DOM：
 
 ```html
 <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
 <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
 ```
 
-Remember that only React files ending with `.min.js` are suitable for production.
+记住只有以 `.min.js` 结尾的 React 文件才是适用于生产环境的。
 
-### Brunch
+### Brunch [一个构建工具](http://brunch.io/)
 
-For the most efficient Brunch production build, install the [`uglify-js-brunch`](https://github.com/brunch/uglify-js-brunch) plugin:
+为了创建更高效的 Brunch 生产构建，安装 [`uglify-js-brunch`](https://github.com/brunch/uglify-js-brunch) 插件：
 
 ```
-# If you use npm
+# 如果你使用 npm
 npm install --save-dev uglify-js-brunch
 
-# If you use Yarn
+# 如果你使用 Yarn
 yarn add --dev uglify-js-brunch
 ```
-
-Then, to create a production build, add the `-p` flag to the `build` command:
+然后，去创建一个生产构建，添加 `-p` 参数到 `build` 命令：
 
 ```
 brunch build -p
 ```
 
-Remember that you only need to do this for production builds. You shouldn't pass `-p` flag or apply this plugin in development because it will hide useful React warnings, and make the builds much slower.
+记住你只需要在生产构建的时候这么做。你不应该在开发环境中传递 `-p` 参数或使用这个插件，因为它将隐藏有用的 React 提醒信息，县城会让构建更慢。
 
 ### Browserify
 
