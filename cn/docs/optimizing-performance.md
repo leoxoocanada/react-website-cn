@@ -117,7 +117,7 @@ yarn add --dev uglify-js-brunch
 brunch build -p
 ```
 
-记住你只需要在生产构建的时候这么做。你不应该在开发环境中传递 `-p` 参数或使用这个插件，因为它将隐藏有用的 React 提醒信息，县城会让构建更慢。
+记住你只需要在生产构建的时候这么做。你不应该在开发环境中传递 `-p` 参数或使用这个插件，因为它将隐藏有用的 React 警告信息，县城会让构建更慢。
 
 ### Browserify [一个构建工具](http://browserify.org/)
 
@@ -153,7 +153,7 @@ browserify ./index.js \
 >包名是 `uglify-js`, 但是它提供的文件名叫 `uglifyjs`.
 >这不是一个印刷错误.
 
-记住你只需要在生产构建中这么做。你不应该把这些插件用在开发环境中，因为它将隐藏有用的 React 错误提示，并且使得构建变慢。
+记住你只需要在生产构建中这么做。你不应该把这些插件用在开发环境中，因为它将隐藏有用的 React 警告信息，并且使得构建变慢。
 
 ### Rollup [一个构建工具](http://rollupjs.org/)
 
@@ -167,11 +167,11 @@ npm install --save-dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugi
 yarn add --dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-uglify 
 ```
 
-To create a production build, make sure that you add these plugins **(the order matters)**:
+要创建一个生产构建，请确保你添加了这些插件 **(这点很重要)**:
 
-* The [`replace`](https://github.com/rollup/rollup-plugin-replace) plugin ensures the right build environment is set.
-* The [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) plugin provides support for CommonJS in Rollup.
-* The [`uglify`](https://github.com/TrySound/rollup-plugin-uglify) plugin compresses and mangles the final bundle.
+* [`replace`](https://github.com/rollup/rollup-plugin-replace) 插件确保设置了正确的构建环境
+* [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) 插件在 Rollup 内提供对 CommonJS 的支持
+* [`uglify`](https://github.com/TrySound/rollup-plugin-uglify) 插件压缩生成最终版本
 
 ```js
 plugins: [
@@ -185,17 +185,18 @@ plugins: [
 ]
 ```
 
-For a complete setup example [see this gist](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
+一个完整的安装示例 [看这里](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
 
-Remember that you only need to do this for production builds. You shouldn't apply the `uglify` plugin or the `replace` plugin with `'production'` value in development because they will hide useful React warnings, and make the builds much slower.
+记住你只需要在生产构建时这么做。在开发环境中不应该使用 `uglify` 或 `replace` 插件的 `'production'` 值，因为它们将隐藏有用的 React 警告信息，并使构建更慢。
 
-### Webpack
+### Webpack [一个构建工具](https://webpack.github.io/)
 
->**Note:**
+>**提示:**
 >
->If you're using Create React App, please follow [the instructions above](#create-react-app).<br>
->This section is only relevant if you configure Webpack directly.
+>如果你正在使用 Create React App, 请拉到 [上述文档](#create-react-app).
+>这个章节只适用于直接配置 Webpack 的情况
 
+为了更高效的 Webpack 生产构建，请确保在你的生产配置里包含了这些插件：
 For the most efficient Webpack production build, make sure to include these plugins in your production configuration:
 
 ```js
@@ -207,9 +208,9 @@ new webpack.DefinePlugin({
 new webpack.optimize.UglifyJsPlugin()
 ```
 
-You can learn more about this in [Webpack documentation](https://webpack.js.org/guides/production-build/).
+你能在 [Webpack 文档](https://webpack.js.org/guides/production-build/) 里了解到更多
 
-Remember that you only need to do this for production builds. You shouldn't apply `UglifyJsPlugin` or `DefinePlugin` with `'production'` value in development because they will hide useful React warnings, and make the builds much slower.
+记住你需要在生产构建里这么做，你不应该在开发环境中使用 `UglifyJsPlugin` 或 `DefinePlugin` 的 `'production'` 值，因为它们将隐藏有用的 React 警告信息，并使构建更慢。
 
 ## Profiling Components with Chrome Timeline
 
