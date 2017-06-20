@@ -231,8 +231,7 @@ new webpack.optimize.UglifyJsPlugin()
 
 注意 **这些数字是相对的，组件在生产环境中将更快** 。然而，这对你分析由于错误导致不相关的组件的更新、分析组件更新的深度和频率很有帮助。
 
-Currently Chrome, Edge, and IE are the only browsers supporting this feature, but we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) so we expect more browsers to add support for it.
-
+最新的 Chrome, Edge, 和 IE 是唯一支持这个特性的浏览器，但是我们使用标准的  [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) ，因此我们期待更多浏览器对它添加支持。
 
 ## Avoid Reconciliation
 
