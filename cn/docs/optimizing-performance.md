@@ -153,7 +153,7 @@ browserify ./index.js \
 >包名是 `uglify-js`, 但是它提供的文件名叫 `uglifyjs`.
 >这不是一个印刷错误.
 
-Remember that you only need to do this for production builds. You shouldn't apply these plugins in development because they will hide useful React warnings, and make the builds much slower.
+记住你只需要在生产构建中这么做。你不应该把这些插件用在开发环境中，因为它将隐藏有用的 React 错误提示，并且使得构建变慢。
 
 ### Rollup
 
