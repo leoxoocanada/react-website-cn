@@ -233,13 +233,13 @@ new webpack.optimize.UglifyJsPlugin()
 
 最新的 Chrome, Edge, 和 IE 是唯一支持这个特性的浏览器，但是我们使用标准的  [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) ，因此我们期待更多浏览器对它添加支持。
 
-## Avoid Reconciliation
+## 避免更新
 
-React builds and maintains an internal representation of the rendered UI. It includes the React elements you return from your components. This representation lets React avoid creating DOM nodes and accessing existing ones beyond necessity, as that can be slower than operations on JavaScript objects. Sometimes it is referred to as a "virtual DOM", but it works the same way on React Native.
+React 构建和维护渲染 UI 的内部表现。它包含从你的组件中返回的 React 元素。这个表现让 React 避免创建 DOM 节点和访问已经存在的 DOM 节点，因为这比操作 JavaScript 对象更慢。有时它被称为"虚拟DOM"，但是它在 React Native 中以一样的方式运行。
 
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM.
+当一个组件的属性或状态变动，React 通过比较新返回的元素 和 之前渲染的元素来决定是否有必要更新DOM元素，当它们不相等时，React将更新DOM。
 
-In some cases, your component can speed all of this up by overriding the lifecycle function `shouldComponentUpdate`, which is triggered before the re-rendering process starts. The default implementation of this function returns `true`, leaving React to perform the update:
+在一些的情况下，你的组件可以通过重写生命周期函数 `shouldComponentUpdate` 来优化性能，它在重新渲染进程开始前触发。这个函数的默认实现返回 `true`，使得 React 执行更新：
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {
@@ -247,7 +247,7 @@ shouldComponentUpdate(nextProps, nextState) {
 }
 ```
 
-If you know that in some situations your component doesn't need to update, you can return `false` from `shouldComponentUpdate` instead, to skip the whole rendering process, including calling `render()` on this component and below.
+如果你知道在一些你的组件不需要更新的情况，你能在 `shouldComponentUpdate` 中返回 `false` ，用来跳过整个渲染进程，包含在组件上调用 `render()` 和之后的流程。
 
 ## shouldComponentUpdate In Action
 
