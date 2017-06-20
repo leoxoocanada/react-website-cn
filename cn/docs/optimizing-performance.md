@@ -155,15 +155,15 @@ browserify ./index.js \
 
 记住你只需要在生产构建中这么做。你不应该把这些插件用在开发环境中，因为它将隐藏有用的 React 错误提示，并且使得构建变慢。
 
-### Rollup
+### Rollup [一个构建工具](http://rollupjs.org/)
 
-For the most efficient Rollup production build, install a few plugins:
+要创建更高效的 Rollup 生产构建，需要安装一些插件：
 
 ```
-# If you use npm
+# 如果你使用 npm
 npm install --save-dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-uglify 
 
-# If you use Yarn
+# 如果你使用 Yarn
 yarn add --dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-uglify 
 ```
 
