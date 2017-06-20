@@ -249,11 +249,11 @@ shouldComponentUpdate(nextProps, nextState) {
 
 如果你知道在一些你的组件不需要更新的情况，你能在 `shouldComponentUpdate` 中返回 `false` ，用来跳过整个渲染进程，包含在组件上调用 `render()` 和之后的流程。
 
-## shouldComponentUpdate In Action
+## shouldComponentUpdate
 
-Here's a subtree of components. For each one, `SCU` indicates what `shouldComponentUpdate` returned, and `vDOMEq` indicates whether the rendered React elements were equivalent. Finally, the circle's color indicates whether the component had to be reconciled or not.
+这是一个组件树。这里面，`SCU` 表示 `shouldComponentUpdate` 返回结果,  `vDOMEq` 表示已渲染的 React 元素是否相等。最后，这个圆形的颜色表示组件是否需要更新。
 
-<figure><img src="/react/img/docs/should-component-update.png" style="max-width:100%" /></figure>
+<figure><img src="/cn/img/docs/should-component-update.png" style="max-width:100%" /></figure>
 
 Since `shouldComponentUpdate` returned `false` for the subtree rooted at C2, React did not attempt to render C2, and thus didn't even have to invoke `shouldComponentUpdate` on C4 and C5.
 
