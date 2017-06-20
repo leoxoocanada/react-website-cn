@@ -119,26 +119,26 @@ brunch build -p
 
 记住你只需要在生产构建的时候这么做。你不应该在开发环境中传递 `-p` 参数或使用这个插件，因为它将隐藏有用的 React 提醒信息，县城会让构建更慢。
 
-### Browserify
+### Browserify [一个构建工具](http://browserify.org/)
 
-For the most efficient Browserify production build, install a few plugins:
+为了创建更高效的 Browserify 生产构建，需要安装一些插件：
 
 ```
-# If you use npm
+# 如果你使用 npm
 npm install --save-dev bundle-collapser envify uglify-js uglifyify 
 
-# If you use Yarn
+# 如果你使用 Yarn
 yarn add --dev bundle-collapser envify uglify-js uglifyify 
 ```
 
-To create a production build, make sure that you add these transforms **(the order matters)**:
+要创建一个生产构建，请确保你添加了这些转换器 **(这点很重要)**:
 
-* The [`envify`](https://github.com/hughsk/envify) transform ensures the right build environment is set. Make it global (`-g`).
-* The [`uglifyify`](https://github.com/hughsk/uglifyify) transform removes development imports. Make it global too (`-g`).
-* The [`bundle-collapser`](https://github.com/substack/bundle-collapser) plugin replaces long module IDs with numbers.
-* Finally, the resulting bundle is piped to [`uglify-js`](https://github.com/mishoo/UglifyJS2) for mangling ([read why](https://github.com/hughsk/uglifyify#motivationusage)).
+* [`envify`](https://github.com/hughsk/envify) 转换器确保正确的编译环境被设置。全局安装 (`-g`).
+* [`uglifyify`](https://github.com/hughsk/uglifyify) 转换器移除开发接口. 全局安装 (`-g`).
+* [`bundle-collapser`](https://github.com/substack/bundle-collapser) 插件用数字替换长长的模块ID.
+* 最终, 产生的结果被管理传送到 [`uglify-js`](https://github.com/mishoo/UglifyJS2) 来整合 ([了解原因](https://github.com/hughsk/uglifyify#motivationusage)).
 
-For example:
+示例:
 
 ```
 browserify ./index.js \
@@ -148,10 +148,10 @@ browserify ./index.js \
   | uglifyjs --compress --mangle > ./bundle.js
 ```
 
->**Note:**
+>**提示:**
 >
->The package name is `uglify-js`, but the binary it provides is called `uglifyjs`.<br>
->This is not a typo.
+>包名是 `uglify-js`, 但是它提供的文件名叫 `uglifyjs`.
+>这不是一个印刷错误.
 
 Remember that you only need to do this for production builds. You shouldn't apply these plugins in development because they will hide useful React warnings, and make the builds much slower.
 
