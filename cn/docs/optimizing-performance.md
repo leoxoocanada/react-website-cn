@@ -60,25 +60,26 @@
 
 ## 使用生产版本
 
-If you're benchmarking or experiencing performance problems in your React apps, make sure you're testing with the minified production build.
+如果您在 React 应用中进行基准测试或遇到性能问题，请确保您正在使用压缩过的生产版本进行测试。
 
-By default, React includes many helpful warnings. These warnings are very useful in development. However, they make React larger and slower so you should make sure to use the production version when you deploy the app.
+默认情况下，React 包含一些错误帮助信息。这些错误信息在开发环境中是非常有帮助的。然而，它们使得 React 又大又慢，因此你应该确保部署你的应用时使用生产版本。
 
-If you aren't sure whether your build process is set up correctly, you can check it by installing [React Developer Tools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). If you visit a site with React in production mode, the icon will have a dark background:
+如果你不能确定你的构建过程是否正确设置，你可以通过Chrome安装 [React 开发者工具](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) 来检查。如果你在生产模式下查看一个用 React 创建的站点，这个工具的 icon 将有一个深色的背景。
 
 <img src="/cn/img/docs/devtools-prod.png" style="max-width:100%" alt="React DevTools on a website with production version of React">
 
+如果你在开发模式下查看一个用 React 创建的站点，这个工具的 icon 将有一个红色的背景。
 If you visit a site with React in development mode, the icon will have a red background:
 
 <img src="/cn/img/docs/devtools-dev.png" style="max-width:100%" alt="React DevTools on a website with development version of React">
 
-It is expected that you use the development mode when working on your app, and the production mode when deploying your app to the users.
+最好在开发应用时使用开发模式，部署应用时换为生产模式。
 
-You can find instructions for building your app for production below.
+您可以在下面找到构建您的应用程序的说明。
 
 ### Create React App
 
-If your project is built with [Create React App](https://github.com/facebookincubator/create-react-app), run:
+如果你的应用是通过 [Create React App](https://github.com/facebookincubator/create-react-app) 创建的, 运行:
 
 ```
 npm run build
