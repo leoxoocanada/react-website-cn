@@ -255,15 +255,15 @@ shouldComponentUpdate(nextProps, nextState) {
 
 ![](/cn/img/docs/should-component-update.png)
 
-由于以C2为根节点的子树 `shouldComponentUpdate` 返回 `false` ，React 不会试图渲染C2，因此也不会在 C4 和 C5 上调用 `shouldComponentUpdate`
+由于以 C2 为根节点的子树 `shouldComponentUpdate` 返回 `false` ，React 不会试图渲染 C2，因此也不会在 C4 和 C5 上调用 `shouldComponentUpdate`
 
-For C1 and C3, `shouldComponentUpdate` returned `true`, so React had to go down to the leaves and check them. For C6 `shouldComponentUpdate` returned `true`, and since the rendered elements weren't equivalent React had to update the DOM.
+对于 C1 和 C3, `shouldComponentUpdate` 返回 `true`, 因此 React 需要向下遍历检查叶子节点。 C6 `shouldComponentUpdate` 返回 `true`, 并且由于需要渲染的元素不相同，因此 React 需要更新 DOM。
 
-The last interesting case is C8. React had to render this component, but since the React elements it returned were equal to the previously rendered ones, it didn't have to update the DOM.
+最后一个值得关注的例子是 C8。React 必须渲染这个组件，但由于返回的 React 元素跟之前渲染的一样，因此它不需要更新 DOM。
 
-Note that React only had to do DOM mutations for C6, which was inevitable. For C8, it bailed out by comparing the rendered React elements, and for C2's subtree and C7, it didn't even have to compare the elements as we bailed out on `shouldComponentUpdate`, and `render` was not called.
+注意 React 仅需要修改 C6 的 DOM，这是必须的。对于 C8 ，通过比较已渲染的 React 元素被剔除，对于 C2 的子树和 C7，它甚至不需要比较元素，我们在 `shouldComponentUpdate` 里就已经剔除了，并且 `render` 不会被调用。
 
-## Examples
+## 示例
 
 If the only way your component ever changes is when the `props.color` or the `state.count` variable changes, you could have `shouldComponentUpdate` check that:
 
