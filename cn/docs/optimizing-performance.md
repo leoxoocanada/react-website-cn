@@ -296,7 +296,7 @@ class CounterButton extends React.Component {
 }
 ```
 
-In this code, `shouldComponentUpdate` is just checking if there is any change in `props.color` or `state.count`. If those values don't change, the component doesn't update. If your component got more complex, you could use a similar pattern of doing a "shallow comparison" between all the fields of `props` and `state` to determine if the component should update. This pattern is common enough that React provides a helper to use this logic - just inherit from `React.PureComponent`. So this code is a simpler way to achieve the same thing:
+在这段代码里， `shouldComponentUpdate` 只需检查`props.color`或`state.count`是否有任何变化。如果这些值没有变化，组件不会更新。如果你的组件更复杂，你可以使用类似的模式，在“props”和“state”的所有字段之间进行“浅比较”，以确定组件是否应该更新。这个模式很普遍，React提供了一个帮助程序来使用这个逻辑 - 只是继承自'React.PureComponent'。因此下面这段代码是一种更简单的方式来做同样的事情：
 
 ```js
 class CounterButton extends React.PureComponent {
@@ -317,9 +317,9 @@ class CounterButton extends React.PureComponent {
 }
 ```
 
-Most of the time, you can use `React.PureComponent` instead of writing your own `shouldComponentUpdate`. It only does a shallow comparison, so you can't use it if the props or state may have been mutated in a way that a shallow comparison would miss.
+大部分时间，你能使用 `React.PureComponent` 代替你自己写 `shouldComponentUpdate`.它只做一个浅比较，因此如果 props 或 state 可能在浅比较中失效的话，你就不能使用它。
 
-This can be a problem with more complex data structures. For example, let's say you want a `ListOfWords` component to render a comma-separated list of words, with a parent `WordAdder` component that lets you click a button to add a word to the list. This code does *not* work correctly:
+如果有更复杂的数据结构这可能有一些问题，假设你想要一个“ListOfWords”组件来呈现一个逗号分隔的单词列表，在父组件 `WordAdder` 中当你点击一个按钮添加一个单词到列表。这段代码 *不能* 正确的执行：
 
 ```javascript
 class ListOfWords extends React.PureComponent {
@@ -338,7 +338,7 @@ class WordAdder extends React.Component {
   }
 
   handleClick() {
-    // This section is bad style and causes a bug
+    // 这个部分是不好的风格，造成一个错误
     const words = this.state.words;
     words.push('marklar');
     this.setState({words: words});
@@ -355,9 +355,9 @@ class WordAdder extends React.Component {
 }
 ```
 
-The problem is that `PureComponent` will do a simple comparison between the old and new values of `this.props.words`. Since this code mutates the `words` array in the `handleClick` method of `WordAdder`, the old and new values of `this.props.words` will compare as equal, even though the actual words in the array have changed. The `ListOfWords` will thus not update even though it has new words that should be rendered.
+这里的问题在于 `PureComponent` 将在 `this.props.words` 旧的值和新的值之间做一个简单的比较。由于这段代码在 `WordAdder` 的 `handleClick` 方法里改变了 `words` 数组，虽然在数组里的单词实际已经有变化，但 `this.props.words` 旧的值和新的值是相等的。虽然它有应该被渲染的新的单词，但 `ListOfWords` 不会更新。
 
-## The Power Of Not Mutating Data
+## 不可变数据的力量
 
 The simplest way to avoid this problem is to avoid mutating values that you are using as props or state. For example, the `handleClick` method above could be rewritten using `concat` as:
 
