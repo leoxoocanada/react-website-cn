@@ -265,7 +265,7 @@ shouldComponentUpdate(nextProps, nextState) {
 
 ## 示例
 
-If the only way your component ever changes is when the `props.color` or the `state.count` variable changes, you could have `shouldComponentUpdate` check that:
+如果你的组件变化的唯一方式是通过 `props.color` 或 `state.count` 变量改变，你可以通过 `shouldComponentUpdate` 来检查:
 
 ```javascript
 class CounterButton extends React.Component {
