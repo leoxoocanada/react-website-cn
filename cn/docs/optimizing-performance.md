@@ -253,9 +253,9 @@ shouldComponentUpdate(nextProps, nextState) {
 
 这是一个组件树。这里面，`SCU` 表示 `shouldComponentUpdate` 返回结果,  `vDOMEq` 表示已渲染的 React 元素是否相等。最后，这个圆形的颜色表示组件是否需要更新。
 
-<figure><img src="/cn/img/docs/should-component-update.png" style="max-width:100%" /></figure>
+![](/cn/img/docs/should-component-update.png)
 
-Since `shouldComponentUpdate` returned `false` for the subtree rooted at C2, React did not attempt to render C2, and thus didn't even have to invoke `shouldComponentUpdate` on C4 and C5.
+由于以C2为根节点的子树 `shouldComponentUpdate` 返回 `false` ，React 不会试图渲染C2，因此也不会在 C4 和 C5 上调用 `shouldComponentUpdate`
 
 For C1 and C3, `shouldComponentUpdate` returned `true`, so React had to go down to the leaves and check them. For C6 `shouldComponentUpdate` returned `true`, and since the rendered elements weren't equivalent React had to update the DOM.
 
