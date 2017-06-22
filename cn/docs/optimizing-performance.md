@@ -359,7 +359,7 @@ class WordAdder extends React.Component {
 
 ## 不可变数据的力量
 
-The simplest way to avoid this problem is to avoid mutating values that you are using as props or state. For example, the `handleClick` method above could be rewritten using `concat` as:
+避开这个问题最简单的方式是避免使用变化的值作为属性(props)或状态(state)。例如，上面的 `handleClick` 方法能使用`concat` 重写：
 
 ```javascript
 handleClick() {
