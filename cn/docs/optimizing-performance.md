@@ -407,15 +407,15 @@ function updateColorMap(colormap) {
 
 如果你正在使用 Create React App， `Object.assign` 和对象展开语法默认都是可用的。
 
-## 使用不变的数据结构
+## 使用不可变（Immutable）数据结构
 
-[Immutable.js](https://github.com/facebook/immutable-js) is another way to solve this problem. It provides immutable, persistent collections that work via structural sharing:
+[Immutable.js](https://github.com/facebook/immutable-js) 是解决这个问题的另外一种方式。其提供了通过结构共享实现(Structural Sharing)地不可变的(Immutable)、持久的(Persistent)集合:
 
-* *Immutable*: once created, a collection cannot be altered at another point in time.
-* *Persistent*: new collections can be created from a previous collection and a mutation such as set. The original collection is still valid after the new collection is created.
-* *Structural Sharing*: new collections are created using as much of the same structure as the original collection as possible, reducing copying to a minimum to improve performance.
+* *不可变（Immutable）*: 一旦创建，集合在其它时间不能被改变。
+* *持久的(Persistent)*: 可以从之前的集合和诸如 set 这样的突变中创建新的集合. 新的集合创建后之前的集合依旧是可用的.
+* *结构共享(Structural Sharing)*: 新的集合尽可能使用之前的集合相同的结构创建，将复制降至最低，以提高性能。
 
-Immutability makes tracking changes cheap. A change will always result in a new object so we only need to check if the reference to the object has changed. For example, in this regular JavaScript code:
+不可变性使得追踪变得容易。改变会产生新的对象，因此我们仅需要检查对象的引用是否改变。例如，下面是普通的JavaScript代码：
 
 ```javascript
 const x = { foo: 'bar' };
@@ -424,7 +424,7 @@ y.foo = 'baz';
 x === y; // true
 ```
 
-Although `y` was edited, since it's a reference to the same object as `x`, this comparison returns `true`. You can write similar code with immutable.js:
+尽管 `y` 已经被编辑, 但由于它引用的是相同的对象 `x`, 这个比较返回 `true`. 你能用 immutable.js 写类似的代码:
 
 ```javascript
 const SomeRecord = Immutable.Record({ foo: null });
@@ -433,8 +433,8 @@ const y = x.set('foo', 'baz');
 x === y; // false
 ```
 
-In this case, since a new reference is returned when mutating `x`, we can safely assume that `x` has changed.
+在种情况下，由于当改变 `x` 时返回一个新的引用，我们可以放心的假设 `x` 已经改变了
 
-Two other libraries that can help use immutable data are [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) and [immutability-helper](https://github.com/kolodny/immutability-helper).
+其它两个能帮助我们使用不可变数据的库分别是 [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) 和 [immutability-helper](https://github.com/kolodny/immutability-helper).
 
-Immutable data structures provide you with a cheap way to track changes on objects, which is all we need to implement `shouldComponentUpdate`. This can often provide you with a nice performance boost.
+不可变数据结构提供了一种简单的方式追踪对象的变化，这正是我们实现 `shouldComponentUpdate` 所需要的. 这经常能给你带来可观的性能提升.
