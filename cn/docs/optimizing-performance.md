@@ -407,7 +407,7 @@ function updateColorMap(colormap) {
 
 If you're using Create React App, both `Object.assign` and the object spread syntax are available by default.
 
-## Using Immutable Data Structures
+## 使用不变的数据结构
 
 [Immutable.js](https://github.com/facebook/immutable-js) is another way to solve this problem. It provides immutable, persistent collections that work via structural sharing:
 
