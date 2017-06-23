@@ -369,7 +369,7 @@ handleClick() {
 }
 ```
 
-ES6 supports a [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) for arrays which can make this easier. If you're using Create React App, this syntax is available by default.
+ES6 支持数组 [展开语法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)，可以使这个问题变得简单。如果你正在使用 Create React App，默认支持该语法。
 
 ```js
 handleClick() {
@@ -379,7 +379,7 @@ handleClick() {
 };
 ```
 
-You can also rewrite code that mutates objects to avoid mutation, in a similar way. For example, let's say we have an object named `colormap` and we want to write a function that changes `colormap.right` to be `'blue'`. We could write:
+你也能以一种简单的方式重写代码，使得改变对象的同时不会突变对象。例如，假设我们有一个名为 `colormap` 的对象，并且我们要写一个函数来将 `colormap.right` 的值变为 `'blue'`。我们可以这么写：
 
 ```js
 function updateColorMap(colormap) {
@@ -387,7 +387,7 @@ function updateColorMap(colormap) {
 }
 ```
 
-To write this without mutating the original object, we can use [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) method:
+要不改变原始对象来实现，我们能使用 [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) 方法：
 
 ```js
 function updateColorMap(colormap) {
@@ -395,9 +395,9 @@ function updateColorMap(colormap) {
 }
 ```
 
-`updateColorMap` now returns a new object, rather than mutating the old one. `Object.assign` is in ES6 and requires a polyfill.
+`updateColorMap` 现在返回一个新的对象，而不是改变之前的对象。 `Object.assign` 属于 ES6 的语法，需要一个 polyfill.
 
-There is a JavaScript proposal to add [object spread properties](https://github.com/sebmarkbage/ecmascript-rest-spread) to make it easier to update objects without mutation as well:
+有一个 JavaScript 提案添加了 [对象展开符](https://github.com/sebmarkbage/ecmascript-rest-spread) 来让更新对象而不改变对象变得更简单：
 
 ```js
 function updateColorMap(colormap) {
@@ -405,7 +405,7 @@ function updateColorMap(colormap) {
 }
 ```
 
-If you're using Create React App, both `Object.assign` and the object spread syntax are available by default.
+如果你正在使用 Create React App， `Object.assign` 和对象展开语法默认都是可用的。
 
 ## 使用不变的数据结构
 
