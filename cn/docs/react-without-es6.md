@@ -56,7 +56,7 @@
 
 # 不使用 ES6 的 React
 
-Normally you would define a React component as a plain JavaScript class:
+通常你将以纯 Javascript 类的方式定义一个 React 组件：
 
 ```javascript
 class Greeting extends React.Component {
@@ -66,8 +66,7 @@ class Greeting extends React.Component {
 }
 ```
 
-If you don't use ES6 yet, you may use the `create-react-class` module instead:
-
+如果你还没有使用 ES6，你可以使用 `create-react-class` 模块：
 
 ```javascript
 var createReactClass = require('create-react-class');
@@ -78,7 +77,7 @@ var Greeting = createReactClass({
 });
 ```
 
-The API of ES6 classes is similar to `createReactClass()` with a few exceptions.
+除了一些例外，ES6 classes(类) API 非常类似于函数 createReactClass() 。
 
 ## Declaring Default Props
 
