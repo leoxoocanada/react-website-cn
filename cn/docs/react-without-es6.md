@@ -135,14 +135,14 @@ var Counter = createReactClass({
 
 ## 自动绑定
 
-In React components declared as ES6 classes, methods follow the same semantics as regular ES6 classes. This means that they don't automatically bind `this` to the instance. You'll have to explicitly use `.bind(this)` in the constructor:
+在 ES6 classes（类）声明的 React 组件里，方法遵循常规 ES6 classes（类）相同的语义。这意味着它们不能自动绑定 `this` 到实例。你必须在 constructor  里明确的使用 `.bind(this)` ：
 
 ```javascript
 class SayHello extends React.Component {
   constructor(props) {
     super(props);
     this.state = {message: 'Hello!'};
-    // This line is important!
+    // 这行很重要!
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -151,7 +151,7 @@ class SayHello extends React.Component {
   }
 
   render() {
-    // Because `this.handleClick` is bound, we can use it as an event handler.
+    // 因为 `this.handleClick` 已经绑定，我们能作为事件处理器使用它
     return (
       <button onClick={this.handleClick}>
         Say hello
@@ -161,7 +161,7 @@ class SayHello extends React.Component {
 }
 ```
 
-With `createReactClass()`, this is not necessary because it binds all methods:
+通过 `createReactClass()`, 这不是必须的，因为它给所有方法都绑定了:
 
 ```javascript
 var SayHello = createReactClass({
@@ -183,10 +183,9 @@ var SayHello = createReactClass({
 });
 ```
 
-This means writing ES6 classes comes with a little more boilerplate code for event handlers, but the upside is slightly better performance in large applications.
+这意味着写 ES6 classes（类）会为事件处理器带来更多的样本代码，但是优势是在大型的应用里会带来轻微的性能提升：
 
-If the boilerplate code is too unattractive to you, you may enable the **experimental** [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/) syntax proposal with Babel:
-
+如果对你而言样本代码非常不美观，你能通过 Babel 启用**实验性的** [Class Properties（类属性）](https://babeljs.io/docs/plugins/transform-class-properties/) 语法提案:
 
 ```javascript
 class SayHello extends React.Component {
@@ -194,8 +193,8 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Hello!'};
   }
-  // WARNING: this syntax is experimental!
-  // Using an arrow here binds the method:
+  // 警告: 这个语法是实验性的！
+  // 使用一个箭头函数绑定方法:
   handleClick = () => {
     alert(this.state.message);
   }
@@ -210,7 +209,7 @@ class SayHello extends React.Component {
 }
 ```
 
-Please note that the syntax above is **experimental** and the syntax may change, or the proposal might not make it into the language.
+请注意上面这个语法是**实验性的**，并且这个语法可能有变化，或者提案可能不会进入语言。
 
 If you'd rather play it safe, you have a few options:
 
