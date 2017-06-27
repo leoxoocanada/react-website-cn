@@ -79,7 +79,7 @@ var Greeting = createReactClass({
 
 除了一些例外，ES6 classes(类) API 非常类似于函数 createReactClass() 。
 
-## 声明默认 Props
+## 声明默认属性（Props）
 
 通过函数式和 ES6 类 `defaultProps` 被定义作为组件自身的一个属性：
 
@@ -93,7 +93,7 @@ Greeting.defaultProps = {
 };
 ```
 
-With `createReactClass()`, you need to define `getDefaultProps()` as a function on the passed object:
+通过 `createReactClass()`,你需要定义 `getDefaultProps()` 作为传递对象的函数：
 
 ```javascript
 var Greeting = createReactClass({
@@ -108,9 +108,9 @@ var Greeting = createReactClass({
 });
 ```
 
-## Setting the Initial State
+## 设置初始化状态（State）
 
-In ES6 classes, you can define the initial state by assigning `this.state` in the constructor:
+在 ES6 classes（类）里，你能通过在 constructor 里赋值 `this.state` 定义一个初始化状态：
 
 ```javascript
 class Counter extends React.Component {
@@ -122,7 +122,7 @@ class Counter extends React.Component {
 }
 ```
 
-With `createReactClass()`, you have to provide a separate `getInitialState` method that returns the initial state:
+通过 `createReactClass()`, 你必须指定一个单独的 `getInitialState` 方法返回初始化状态：
 
 ```javascript
 var Counter = createReactClass({
@@ -133,7 +133,7 @@ var Counter = createReactClass({
 });
 ```
 
-## Autobinding
+## 自动绑定
 
 In React components declared as ES6 classes, methods follow the same semantics as regular ES6 classes. This means that they don't automatically bind `this` to the instance. You'll have to explicitly use `.bind(this)` in the constructor:
 
