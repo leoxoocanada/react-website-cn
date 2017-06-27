@@ -26,8 +26,8 @@
 * [使用 PropTypes 做类型检查](/cn/docs/typechecking-with-proptypes.md)
 * [Refs 和 DOM](/cn/docs/refs-and-the-dom.md)
 * [不可控组件](/cn/docs/uncontrolled-components.md)
-* [**`性能优化`**](/cn/docs/optimizing-performance.md)
-* [不使用 ES6 的 React](/cn/docs/react-without-es6.md)
+* [性能优化](/cn/docs/optimizing-performance.md)
+* [**`不使用 ES6 的 React`**](/cn/docs/react-without-es6.md)
 * [不使用 JSX 的 React](/cn/docs/react-without-jsx.md)
 * [一致性比较（Reconciliation）](/cn/docs/reconciliation.md)
 * [上下文（Context）](/cn/docs/context.md)
@@ -79,9 +79,9 @@ var Greeting = createReactClass({
 
 除了一些例外，ES6 classes(类) API 非常类似于函数 createReactClass() 。
 
-## Declaring Default Props
+## 声明默认 Props
 
-With functions and ES6 classes `defaultProps` is defined as a property on the component itself:
+通过函数式和 ES6 类 `defaultProps` 被定义作为组件自身的一个属性：
 
 ```javascript
 class Greeting extends React.Component {
