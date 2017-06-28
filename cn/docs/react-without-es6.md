@@ -227,9 +227,9 @@ class SayHello extends React.Component {
 >
 >以下部分仅用来参考
 
-Sometimes very different components may share some common functionality. These are sometimes called [cross-cutting concerns](https://en.wikipedia.org/wiki/Cross-cutting_concern). [`createReactClass`](/cn/docs/top-level-api.md#react.createclass) lets you use a legacy `mixins` system for that.
+有时一些不同的组件可能需要分享一些通用的方法。这些方法被称为[横切关注点(cross-cutting concerns)](https://en.wikipedia.org/wiki/Cross-cutting_concern). [`createReactClass`](/cn/docs/top-level-api.md#react.createclass) 使得你可以使用一个 `mixins`。
 
-One common use case is a component wanting to update itself on a time interval. It's easy to use `setInterval()`, but it's important to cancel your interval when you don't need it anymore to save memory. React provides [lifecycle methods](/cn/docs/working-with-the-browser.md#component-lifecycle) that let you know when a component is about to be created or destroyed. Let's create a simple mixin that uses these methods to provide an easy `setInterval()` function that will automatically get cleaned up when your component is destroyed.
+一个通用的案例是一个组件要间隔一段时间自我更新。使用 `setInterval()` 很容易实现，但是为了节省内存空间必须在不使用时取消。React 提供了 [生命周期方法](/cn/docs/working-with-the-browser.md#component-lifecycle) 可以通知你组件是创建还是销毁。我们来创建一个简单的 mixin，通过使用这些方法实现一个简单的 `setInterval()` 函数，它将在你的组件被销毁的时候自动被清除。
 
 ```javascript
 var SetIntervalMixin = {
@@ -247,12 +247,12 @@ var SetIntervalMixin = {
 var createReactClass = require('create-react-class');
 
 var TickTock = createReactClass({
-  mixins: [SetIntervalMixin], // Use the mixin
+  mixins: [SetIntervalMixin], // 使用 mixin
   getInitialState: function() {
     return {seconds: 0};
   },
   componentDidMount: function() {
-    this.setInterval(this.tick, 1000); // Call a method on the mixin
+    this.setInterval(this.tick, 1000); // 调用在 mixin 上的方法
   },
   tick: function() {
     this.setState({seconds: this.state.seconds + 1});
@@ -272,4 +272,4 @@ ReactDOM.render(
 );
 ```
 
-If a component is using multiple mixins and several mixins define the same lifecycle method (i.e. several mixins want to do some cleanup when the component is destroyed), all of the lifecycle methods are guaranteed to be called. Methods defined on mixins run in the order mixins were listed, followed by a method call on the component.
+如果一个组件是使用多个 mixins，且几个 mixins 定时相同的命名空间方法（也就是说当组件被销毁时几个 mixins 要做一些清除的事），所有的命名空间方法都会被调用。在组件内部的生命周期方法执行完毕后，mixin中的方法将会按照mixin的顺序依次执行。
