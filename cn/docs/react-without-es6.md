@@ -211,21 +211,21 @@ class SayHello extends React.Component {
 
 请注意上面这个语法是**实验性的**，并且这个语法可能有变化，或者提案可能不会进入语言。
 
-If you'd rather play it safe, you have a few options:
+如果你想安全的使用它，你有几个选择：
 
-* Bind methods in the constructor.
-* Use arrow functions, e.g. `onClick={(e) => this.handleClick(e)}`.
-* Keep using `createReactClass`.
+* 在 constructor 里绑定方法
+* 使用箭头函数，例如。`onClick={(e) => this.handleClick(e)}`.
+* 继续使用 `createReactClass`.
 
 ## Mixins
 
->**Note:**
+>**注意:**
 >
->ES6 launched without any mixin support. Therefore, there is no support for mixins when you use React with ES6 classes.
+>ES6 是不支持 mixin 的. 因此，当你在 React 里使用 ES6 classes 时它是不支持 mixins.
 >
->**We also found numerous issues in codebases using mixins, [and don't recommend using them in the new code](/cn/blog/2016/07/13/mixins-considered-harmful.md).**
+>**我们在使用 mixins 时也发现了许多问题，, [所以在新的代码中不推荐使用](/cn/blog/2016/07/13/mixins-considered-harmful.md).**
 >
->This section exists only for the reference.
+>以下部分仅用来参考
 
 Sometimes very different components may share some common functionality. These are sometimes called [cross-cutting concerns](https://en.wikipedia.org/wiki/Cross-cutting_concern). [`createReactClass`](/cn/docs/top-level-api.md#react.createclass) lets you use a legacy `mixins` system for that.
 
