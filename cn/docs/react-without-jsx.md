@@ -56,11 +56,11 @@
 
 # 不使用 JSX 的 React
 
-JSX is not a requirement for using React. Using React without JSX is especially convenient when you don't want to set up compilation in your build environment.
+使用 React 时 JSX 不是必须的。当你不想在构建环境中设置编译时，使用不含 JSX 的 React 是特别方便的。
 
-Each JSX element is just syntactic sugar for calling `React.createElement(component, props, ...children)`. So, anything you can do with JSX can also be done with just plain JavaScript.
+每个 JSX 元素只是调用 `React.createElement(component, props, ...children)` 的语法糖。因此，任何你用 JSX 做的事情也能只用普通的 Javascript 实现。
 
-For example, this code written with JSX:
+例如，这段代码使用 JSX 编写：
 
 ```js
 class Hello extends React.Component {
@@ -75,7 +75,7 @@ ReactDOM.render(
 );
 ```
 
-can be compiled to this code that does not use JSX:
+能把这段代码编译成不使用 JSX ：
 
 ```js
 class Hello extends React.Component {
@@ -90,11 +90,11 @@ ReactDOM.render(
 );
 ```
 
-If you're curious to see more examples of how JSX is converted to JavaScript, you can try out [the online Babel compiler](https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015%2Creact%2Cstage-0&code=function%20hello()%20%7B%0A%20%20return%20%3Cdiv%3EHello%20world!%3C%2Fdiv%3E%3B%0A%7D).
+如果你对 JSX 如何转换成 Javascript 比较好奇，想看更多示例，你可以用 [Babel 在线编译](https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015%2Creact%2Cstage-0&code=function%20hello()%20%7B%0A%20%20return%20%3Cdiv%3EHello%20world!%3C%2Fdiv%3E%3B%0A%7D).
 
-The component can either be provided as a string, or as a subclass of `React.Component`, or a plain function for stateless components.
+组件可以作为字符串提供，或作为 `React.Component` 的子类，或是一个普通函数的无状态组件。
 
-If you get tired of typing `React.createElement` so much, one common pattern is to assign a shorthand:
+如果你厌倦了输入 `React.createElement` 这么多字，一个常见的方法是赋值给一个速记变量：
 
 ```js
 const e = React.createElement;
@@ -105,7 +105,6 @@ ReactDOM.render(
 );
 ```
 
-If you use this shorthand form for `React.createElement`, it can be almost as convenient to use React without JSX.
+如果你为 `React.createElement` 使用这个速记变量，在没有 JSX 的情况下使用 React 是非常方便的。
 
-Alternatively, you can refer to community projects such as [`react-hyperscript`](https://github.com/mlmorg/react-hyperscript) and [`hyperscript-helpers`](https://github.com/ohanhi/hyperscript-helpers) which offer a terser syntax.
-
+或者，你能参考社区项目如 [`react-hyperscript`](https://github.com/mlmorg/react-hyperscript) 和 [`hyperscript-helpers`](https://github.com/ohanhi/hyperscript-helpers)，它们提供了更简洁的语法。 
