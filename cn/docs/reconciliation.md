@@ -123,11 +123,11 @@ React 提供了一个声明式的 API，因此您不必担心每次更新会有�
 
 当组件更新时，实例保持不变，从而在渲染之间保持状态。 React更新底层组件实例的属性以匹配新元素，并调用底层实例上的 `componentWillReceiveProps()` 和 `componentWillUpdate()` 。
 
-Next, the `render()` method is called and the diff algorithm recurses on the previous result and the new result.
+下一步， `render()` 方法被调用，并且 diff 算法在上一次结果中和新的结果中递归。
 
-### Recursing On Children
+### 子元素递归
 
-By default, when recursing on the children of a DOM node, React just iterates over both lists of children at the same time and generates a mutation whenever there's a difference.
+默认情况下，当对DOM节点的子节点进行递归时，React只会同时遍历两个子元素列表，并在有差异时生成突变（mutation）。
 
 For example, when adding an element at the end of the children, converting between these two trees works well:
 
