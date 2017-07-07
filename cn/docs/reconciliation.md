@@ -56,32 +56,32 @@
 
 # 一致性比较（Reconciliation）
 
-React 提供了一个声明式的 API，因此您不必担心每次更新会有什么变化。这使得编写应用程序容易得多，但是在React中如何实现它可能不是很明显。本文介绍了我们在React的“差异”算法中做出的选择，以便组件更新是可预测的，同时对于高性能应用程序来说足够快。
+React 提供了一个声明式的 API，因此您不必担心每次更新会有什么变化。这使得编写应用程序容易得多，但是在React中如何实现它可能不是很明显。本文介绍了我们在React的"差异（diffing）"算法中做出的选择，以便组件更新是可预测的，同时对于高性能应用程序来说足够快。
 
-## Motivation
+## 动机
 
-When you use React, at a single point in time you can think of the `render()` function as creating a tree of React elements. On the next state or props update, that `render()` function will return a different tree of React elements. React then needs to figure out how to efficiently update the UI to match the most recent tree.
+当您使用React时，在单个时间点，您可以将 `render()` 函数视为创建一个React元素树。 在下一个状态或道具更新中，`render（）`函数将返回一个不同的React元素树。 然后需要确定如何有效地更新UI以匹配最近的树。
 
-There are some generic solutions to this algorithmic problem of generating the minimum number of operations to transform one tree into another. However, the [state of the art algorithms](http://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) have a complexity in the order of O(n<sup>3</sup>) where n is the number of elements in the tree.
+对于生成最小数量的操作以将一棵树转换为另一棵树的算法问题，存在一些通用的解决方案。 然而，[现有技术算法](http://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) 具有为O(n3)的复杂度,其中n是树中元素的数量。
 
-If we used this in React, displaying 1000 elements would require in the order of one billion comparisons. This is far too expensive. Instead, React implements a heuristic O(n) algorithm based on two assumptions:
+如果我们在React中使用这种算法显示1000个元素将需要十亿次比较。这样的代价过于昂贵，相反，React 基于以下两个假设实现了时间复杂度为 O(n) 的算法:
 
-1. Two elements of different types will produce different trees.
-2. The developer can hint at which child elements may be stable across different renders with a `key` prop.
+1. 不同类型的两个元素将会产生不同的树。
+2. 开发人员可以提示使用 `key` 属性来指示在不同渲染器上哪些子元素可能是稳定的。
 
-In practice, these assumptions are valid for almost all practical use cases.
+实际上，这些假设对于几乎所有的实际用例都是有效的。
 
-## The Diffing Algorithm
+## Diffing 算法
 
-When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements.
+当比较两棵树时，React首先比较两个根元素。 根据根元素的类型，行为是不同的。
 
-### Elements Of Different Types
+### 元素类型不相同
 
-Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. Going from `<a>` to `<img>`, or from `<Article>` to `<Comment>`, or from `<Button>` to `<div>` - any of those will lead to a full rebuild.
+无论什么时候当根节点有不同的类型时，React 将销毁原先的树并重建新的树。从 `<a>` 到 `<img>`, 或从 `<Article>` 到 `<Comment>`, 或从 `<Button>` 到 `<div>` ，任何一个都将导致完全的重建。
 
-When tearing down a tree, old DOM nodes are destroyed. Component instances receive `componentWillUnmount()`. When building up a new tree, new DOM nodes are inserted into the DOM. Component instances receive `componentWillMount()` and then `componentDidMount()`. Any state associated with the old tree is lost.
+当销毁一颗树时，老的 DOM 节点将被销毁。组件实例执行 `componentWillUnmount()`.当构建一颗新树时，新的 DOM 节点将被插入到 DOM。组件实例执行 `componentWillMount()` ，然后执行  `componentDidMount()`.与之前旧的树相关的 state 都会丢失。
 
-Any components below the root will also get unmounted and have their state destroyed. For example, when diffing:
+根节点以下的任何组件都会被卸载(unmounted)，其 state(状态)都会丢失。例如，当比较:
 
 ```xml
 <div>
@@ -93,7 +93,7 @@ Any components below the root will also get unmounted and have their state destr
 </span>
 ```
 
-This will destroy the old `Counter` and remount a new one.
+这将销毁老的 `Counter` 并重新装载一个新的。
 
 ### DOM Elements Of The Same Type
 
