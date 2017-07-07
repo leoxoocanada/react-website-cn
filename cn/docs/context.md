@@ -59,7 +59,7 @@
 >注意： 
 > 从 React v15.5 开始 ，`React.PropTypes` 助手函数已被弃用，我们建议使用  [`prop-types` 库](https://www.npmjs.com/package/prop-types)  来定义 `contextTypes`.
 
-With React, it's easy to track the flow of data through your React components. When you look at a component, you can see which props are being passed, which makes your apps easy to reason about.
+使用React，您可以轻松地通过React组件跟踪数据流。 当你看一个组件，你可以看到哪些属性被传递，这使得你的应用程序容易理解。
 
 In some cases, you want to pass data through the component tree without having to pass the props down manually at every level.
 You can do this directly in React with the powerful "context" API.
