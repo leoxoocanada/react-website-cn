@@ -205,13 +205,13 @@ const BasicExample = () => (
 
 ## 在无状态的函数式组件中引用 Context
 
-Stateless functional components are also able to reference `context` if `contextTypes` is defined as a property of the function. The following code shows a `Button` component written as a stateless functional component.
+如果 `contextTypes` 作为一个函数的属性定义，无状态的函数式组件也可能引用 `context` 。下面的代码显示了一个作为无状态函数组件编写的 `Button` 组件。
 
 ```javascript
 const PropTypes = require('prop-types');
 
 const Button = ({children}, context) =>
-  <button style={{'{{'}}background: context.color}}>
+  <button style={{background: context.color}}>
     {children}
   </button>;
 
