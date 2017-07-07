@@ -64,9 +64,9 @@
 在某些情况下，您希望通过组件树传递数据，而无需在每个级别手动传递属性。
 您可以使用强大的"context" API在React中直接执行此操作。
 
-## Why Not To Use Context
+## 为什么不使用 Context
 
-The vast majority of applications do not need to use context.
+绝大多数应用不需要使用context。
 
 If you want your application to be stable, don't use context. It is an experimental API and it is likely to break in future releases of React.
 
