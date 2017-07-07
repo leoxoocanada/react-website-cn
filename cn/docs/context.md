@@ -220,11 +220,11 @@ Button.contextTypes = {color: PropTypes.string};
 
 ## 更新 Context
 
-Don't do it.
+不要这么做
 
-React has an API to update context, but it is fundamentally broken and you should not use it.
+React 有一个更新 context 的 API , 但是它打破了基本流程，不应该使用。
 
-The `getChildContext` function will be called when the state or props changes. In order to update data in the context, trigger a local state update with `this.setState`. This will trigger a new context and changes will be received by the children.
+当state 或 props变化时，`getChildContext` 函数将被调用 。为了在context里更新数据, 通过 `this.setState` 触发本地的状态更新. 这将触发一个新的 context ，子节点将接收到变化.
 
 ```javascript
 const PropTypes = require('prop-types');
@@ -261,4 +261,4 @@ MediaQuery.childContextTypes = {
 };
 ```
 
-The problem is, if a context value provided by component changes, descendants that use that value won't update if an intermediate parent returns `false` from `shouldComponentUpdate`. This is totally out of control of the components using context, so there's basically no way to reliably update the context. [This blog post](https://medium.com/@mweststrate/how-to-safely-use-react-context-b7e343eff076) has a good explanation of why this is a problem and how you might get around it.
+问题是，如果由组件提供的 context 值更改，则使用该值的后代如果中间父项从`shouldComponentUpdate'返回`false`将不会更新。 这完全不能使用 context 来控制组件，所以基本上没有办法可靠地更新 context。 [这个博客文章]（https://medium.com/@mweststrate/how-to-safely-use-react-context-b7e343eff076）有一个很好的解释，为什么这是一个问题，以及如何绕过它。
