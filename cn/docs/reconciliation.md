@@ -56,7 +56,7 @@
 
 # 一致性比较（Reconciliation）
 
-React provides a declarative API so that you don't have to worry about exactly what changes on every update. This makes writing applications a lot easier, but it might not be obvious how this is implemented within React. This article explains the choices we made in React's "diffing" algorithm so that component updates are predictable while being fast enough for high-performance apps.
+React 提供了一个声明式的 API，因此您不必担心每次更新会有什么变化。这使得编写应用程序容易得多，但是在React中如何实现它可能不是很明显。本文介绍了我们在React的“差异”算法中做出的选择，以便组件更新是可预测的，同时对于高性能应用程序来说足够快。
 
 ## Motivation
 
