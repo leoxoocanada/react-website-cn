@@ -95,9 +95,9 @@ React 提供了一个声明式的 API，因此您不必担心每次更新会有�
 
 这将销毁老的 `Counter` 并重新装载一个新的。
 
-### DOM Elements Of The Same Type
+### 元素类型相同
 
-When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes. For example:
+当比较两个相同类型的React DOM元素时，React会查看两者的属性，保留相同的底层DOM节点，并且只更新已更改的属性。 例如：
 
 ```xml
 <div className="before" title="stuff" />
@@ -105,9 +105,9 @@ When comparing two React DOM elements of the same type, React looks at the attri
 <div className="after" title="stuff" />
 ```
 
-By comparing these two elements, React knows to only modify the `className` on the underlying DOM node.
+比较这两个元素，React只会修改底层 DOM 节点的 `className` 。
 
-When updating `style`, React also knows to update only the properties that changed. For example:
+当更新 `style`，React也只会更新变动的属性。例如：
 
 ```xml
 <div style={{'{{'}}color: 'red', fontWeight: 'bold'}} />
