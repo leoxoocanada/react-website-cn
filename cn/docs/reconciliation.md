@@ -129,7 +129,7 @@ React 提供了一个声明式的 API，因此您不必担心每次更新会有�
 
 默认情况下，当对DOM节点的子节点进行递归时，React只会同时遍历两个子元素列表，并在有差异时生成突变（mutation）。
 
-For example, when adding an element at the end of the children, converting between these two trees works well:
+例如，当在子节点末尾添加一个元素时，这两棵树之间的转换会正常进行：
 
 ```xml
 <ul>
@@ -144,9 +144,9 @@ For example, when adding an element at the end of the children, converting betwe
 </ul>
 ```
 
-React will match the two `<li>first</li>` trees, match the two `<li>second</li>` trees, and then insert the `<li>third</li>` tree.
+React 将比较两个 `<li>first</li>` 树，比较两个 `<li>second</li>` 树，然后插入 `<li>third</li>` 树。
 
-If you implement it naively, inserting an element at the beginning has worse performance. For example, converting between these two trees works poorly:
+如果你在开始处插入一个节点也是这样简单地实现，那么性能将会很差。例如，在下面两棵树的转化中性能就不佳。
 
 ```xml
 <ul>
@@ -161,7 +161,7 @@ If you implement it naively, inserting an element at the beginning has worse per
 </ul>
 ```
 
-React will mutate every child instead of realizing it can keep the `<li>Duke</li>` and `<li>Villanova</li>` subtrees intact. This inefficiency can be a problem.
+React 将会改变每一个子节点而没有意识到需要保留 `<li>Duke</li>` 和 `<li>Villanova</li>` 两个子树。这种低效是一个问题。
 
 ### Keys
 
