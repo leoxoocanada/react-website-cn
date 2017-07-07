@@ -163,9 +163,9 @@ MessageList.childContextTypes = {
 
 如果 `contextTypes` 没有定义,  `context` 将是一个空对象.
 
-## Parent-Child Coupling
+## 父子耦合
 
-Context can also let you build an API where parents and children communicate. For example, one library that works this way is [React Router V4](https://reacttraining.com/react-router):
+Context 也能让你构建一个父子通讯的 API。例如，一个通过这种方式运行的库是 [React Router V4](https://reacttraining.com/react-router):
 
 ```javascript
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -189,21 +189,21 @@ const BasicExample = () => (
 );
 ```
 
-By passing down some information from the `Router` component, each `Link` and `Route` can communicate back to the containing `Router`.
+通过从 `Router` 组件往下传递一些信息, 每个 `Link` 和 `Route` 都能回传到包含的容器 `Router` .
 
-Before you build components with an API similar to this, consider if there are cleaner alternatives. For example, you can pass entire React component as props if you'd like to.
+在使用与此类似的API构建组件之前，请考虑是否有更干净的选择。 例如，如果您愿意，您可以将整个React组件作为 属性 传递。
 
-## Referencing Context in Lifecycle Methods
+## 在生命周期方法中引用 Context
 
-If `contextTypes` is defined within a component, the following [lifecycle methods](/react/docs/react-component.html#the-component-lifecycle) will receive an additional parameter, the `context` object:
+如果在组件里定义 `contextTypes` ，下面的 [生命周期方法](/cn/docs/react-component.md#the-component-lifecycle) 将接收一个附加参数 `context` 对象:
 
-- [`constructor(props, context)`](/react/docs/react-component.html#constructor)
-- [`componentWillReceiveProps(nextProps, nextContext)`](/react/docs/react-component.html#componentwillreceiveprops)
-- [`shouldComponentUpdate(nextProps, nextState, nextContext)`](/react/docs/react-component.html#shouldcomponentupdate)
-- [`componentWillUpdate(nextProps, nextState, nextContext)`](/react/docs/react-component.html#componentwillupdate)
-- [`componentDidUpdate(prevProps, prevState, prevContext)`](/react/docs/react-component.html#componentdidupdate)
+- [`constructor(props, context)`](/cn/docs/react-component.md#constructor)
+- [`componentWillReceiveProps(nextProps, nextContext)`](/cn/docs/react-component.md#componentwillreceiveprops)
+- [`shouldComponentUpdate(nextProps, nextState, nextContext)`](/cn/docs/react-component.md#shouldcomponentupdate)
+- [`componentWillUpdate(nextProps, nextState, nextContext)`](/cn/docs/react-component.md#componentwillupdate)
+- [`componentDidUpdate(prevProps, prevState, prevContext)`](/cn/docs/react-component.md#componentdidupdate)
 
-## Referencing Context in Stateless Functional Components
+## 在无状态的函数式组件中引用 Context
 
 Stateless functional components are also able to reference `context` if `contextTypes` is defined as a property of the function. The following code shows a `Button` component written as a stateless functional component.
 
@@ -218,7 +218,7 @@ const Button = ({children}, context) =>
 Button.contextTypes = {color: PropTypes.string};
 ```
 
-## Updating Context
+## 更新 Context
 
 Don't do it.
 
