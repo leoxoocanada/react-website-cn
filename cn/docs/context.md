@@ -76,15 +76,15 @@
 
 尽管有这些警告，如果你坚持使用context，尝试在一个小的隔离区域使用context，避免在可能的情况下直接使用 context API ，以便当API变动时比较容易升级。
 
-## How To Use Context
+## 如何使用 Context
 
-Suppose you have a structure like:
+假设你有一个像这样的结构：
 
 ```javascript
 class Button extends React.Component {
   render() {
     return (
-      <button style={{'{{'}}background: this.props.color}}>
+      <button style={{background: this.props.color}}>
         {this.props.children}
       </button>
     );
@@ -112,7 +112,7 @@ class MessageList extends React.Component {
 }
 ```
 
-In this example, we manually thread through a `color` prop in order to style the `Button` and `Message` components appropriately. Using context, we can pass this through the tree automatically:
+在这个例子中，我们手动传递一个 `color` 属性使得 `Button` 和 `Message` 组件正确的显示样式。使用 context，我们能通过树自动的传递：
 
 ```javascript{6,13-15,21,28-30,40-42}
 const PropTypes = require('prop-types');
@@ -120,7 +120,7 @@ const PropTypes = require('prop-types');
 class Button extends React.Component {
   render() {
     return (
-      <button style={{'{{'}}background: this.context.color}}>
+      <button style={{background: this.context.color}}>
         {this.props.children}
       </button>
     );
@@ -159,9 +159,9 @@ MessageList.childContextTypes = {
 };
 ```
 
-By adding `childContextTypes` and `getChildContext` to `MessageList` (the context provider), React passes the information down automatically and any component in the subtree (in this case, `Button`) can access it by defining `contextTypes`.
+通过添加 `childContextTypes` 和 `getChildContext` 到 `MessageList` (context 提供者),React 自动往下传递信息，在子树上的任意组件(在这里是 `Button`)能通过定义`contextTypes`接收到它。
 
-If `contextTypes` is not defined, then `context` will be an empty object.
+如果 `contextTypes` 没有定义,  `context` 将是一个空对象.
 
 ## Parent-Child Coupling
 
