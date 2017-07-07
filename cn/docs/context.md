@@ -61,9 +61,8 @@
 
 使用React，您可以轻松地通过React组件跟踪数据流。 当你看一个组件，你可以看到哪些属性被传递，这使得你的应用程序容易理解。
 
-In some cases, you want to pass data through the component tree without having to pass the props down manually at every level.
-You can do this directly in React with the powerful "context" API.
-
+在某些情况下，您希望通过组件树传递数据，而无需在每个级别手动传递属性。
+您可以使用强大的"context" API在React中直接执行此操作。
 
 ## Why Not To Use Context
 
