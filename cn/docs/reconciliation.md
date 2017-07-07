@@ -115,13 +115,13 @@ React 提供了一个声明式的 API，因此您不必担心每次更新会有�
 <div style={{'{{'}}color: 'green', fontWeight: 'bold'}} />
 ```
 
-When converting between these two elements, React knows to only modify the `color` style, not the `fontWeight`.
+当在这两个元素之间转换时，React知道只修改`color`样式，而不是`fontWeight`。
 
-After handling the DOM node, React then recurses on the children.
+处理DOM节点后，React然后对子节点进行递归。
 
-### Component Elements Of The Same Type
+### 相同类型的组件
 
-When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls `componentWillReceiveProps()` and `componentWillUpdate()` on the underlying instance.
+当组件更新时，实例保持不变，从而在渲染之间保持状态。 React更新底层组件实例的属性以匹配新元素，并调用底层实例上的 `componentWillReceiveProps()` 和 `componentWillUpdate()` 。
 
 Next, the `render()` method is called and the diff algorithm recurses on the previous result and the new result.
 
