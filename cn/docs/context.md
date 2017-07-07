@@ -66,15 +66,15 @@
 
 ## 为什么不使用 Context
 
-绝大多数应用不需要使用context。
+绝大多数应用不需要使用 context。
 
-If you want your application to be stable, don't use context. It is an experimental API and it is likely to break in future releases of React.
+如果您希望应用程序稳定，请勿使用context。 它是一个实验API，它可能在将来的React版本中改变。
 
-If you aren't familiar with state management libraries like [Redux](https://github.com/reactjs/redux) or [MobX](https://github.com/mobxjs/mobx), don't use context. For many practical applications, these libraries and their React bindings are a good choice for managing state that is relevant to many components. It is far more likely that Redux is the right solution to your problem than that context is the right solution.
+如果您不熟悉像[Redux]（https://github.com/reactjs/redux）或[MobX]（https://github.com/mobxjs/mobx）等状态管理库，请勿使用context。 对于许多实际应用，这些库及其React绑定是管理与许多组件相关的状态的不错选择。 Redux更可能是您的问题的正确解决方案，而context不是正确的解决方案。
 
-If you aren't an experienced React developer, don't use context. There is usually a better way to implement functionality just using props and state.
+如果您不是经验丰富的React开发人员，请勿使用context。 通常使用props 和 state来实现功能是更好方法。
 
-If you insist on using context despite these warnings, try to isolate your use of context to a small area and avoid using the context API directly when possible so that it's easier to upgrade when the API changes.
+尽管有这些警告，如果你坚持使用context，尝试在一个小的隔离区域使用context，避免在可能的情况下直接使用 context API ，以便当API变动时比较容易升级。
 
 ## How To Use Context
 
