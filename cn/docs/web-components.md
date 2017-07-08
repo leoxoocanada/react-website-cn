@@ -56,11 +56,11 @@
 
 # Web Components
 
-React and [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) are built to solve different problems.  Web Components provide strong encapsulation for reusable components, while React provides a declarative library that keeps the DOM in sync with your data. The two goals are complementary. As a developer, you are free to use React in your Web Components, or to use Web Components in React, or both.
+React 和 [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) 是为了解决不同的问题而产生的.  Web Components 为可复用组件提供了强大的封装, 而 React 提供了一个声明库，保持 DOM 与数据的同步. 这两个目标是互补的. 作为一个开发者, 你可以在你的 Web Components 里自由使用 React , 或在React里使用 Web Components , 或两者都使用.
 
-Most people who use React don't use Web Components, but you may want to, especially if you are using third-party UI components that are written using Web Components.
+大多数使用React的人不使用Web Components，但是您可能希望，特别是如果您使用使用Web Components编写的第三方UI组件。
 
-## Using Web Components in React
+## 在 React 中使用 Web Components 
 
 ```javascript
 class HelloMessage extends React.Component {
@@ -70,14 +70,14 @@ class HelloMessage extends React.Component {
 }
 ```
 
-> Note:
+> 注意:
 >
-> Web Components often expose an imperative API. For instance, a `video` Web Component might expose `play()` and `pause()` functions. To access the imperative APIs of a Web Component, you will need to use a ref to interact with the DOM node directly. If you are using third-party Web Components, the best solution is to write a React component that behaves as a wrapper for your Web Component.
+> Web Components 经常会暴露一些必要的 API. 例如, 一个 `video` Web Component 可能暴露 `play()` 和 `pause()` 方法. 要访问 Web Component 必要的 APIs , 你将需要使用一个 ref 与 DOM 节点进行交互. 如果你正在使用第三方 Web Components, 最佳解决方案是写一个 React 组件，作为 Web Component 的容器.
 >
-> Events emitted by a Web Component may not properly propagate through a React render tree.
-> You will need to manually attach event handlers to handle these events within your React components.
+> Web组件发出的事件可能无法通过React渲染树正确传播。
+> 你将需要手动附加事件处理器来处理你的 React 组件里的事件
 
-One common confusion is that Web Components use "class" instead of "className".
+一个常见的困惑是Web Components使用 "class" 而不是 "className"。
 
 ```javascript
 function BrickFlipbox() {
@@ -90,7 +90,7 @@ function BrickFlipbox() {
 }
 ```
 
-## Using React in your Web Components
+## 在你的 Web Components 中使用React
 
 ```javascript
 const proto = Object.create(HTMLElement.prototype, {
