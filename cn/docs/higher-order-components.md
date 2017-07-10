@@ -54,31 +54,31 @@
 
 </details>
 
-# 高阶组件
+# 高阶组件(Higher-Order Components)
 
-A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React's compositional nature.
+高阶组件(HOC)是 React 中可复用组件逻辑的高级技术。HOCs 不是 React API 的一部分。它源自 React 生态体系。
 
-Concretely, **a higher-order component is a function that takes a component and returns a new component.**
+具体地来说，**高阶组件是一个函数，能够接收一个组件并且返回一个组件**
 
 ```js
 const EnhancedComponent = higherOrderComponent(WrappedComponent);
 ```
 
-Whereas a component transforms props into UI, a higher-order component transforms a component into another component.
+组件是将属性转换成 UI，而高阶组件是将一个组件转换成另一个组件。
 
-HOCs are common in third-party React libraries, such as Redux's [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) and Relay's [`createContainer`](https://facebook.github.io/relay/docs/api-reference-relay.html#createcontainer-static-method).
+HOCs 在第三方 React 库中比较常见，像 Redux's [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) 和 Relay's [`createContainer`](https://facebook.github.io/relay/docs/api-reference-relay.html#createcontainer-static-method).
 
-In this document, we'll discuss why higher-order components are useful, and how to write your own.
+在这篇文档里，我们将讨论为什么高阶组件是有用的，并且如何编写你自己的高阶组件。
 
-## Use HOCs For Cross-Cutting Concerns
+## 在横切关注点中使用高阶组件
 
-> **Note**
+> **注意**
 >
-> We previously recommended mixins as a way to handle cross-cutting concerns. We've since realized that mixins create more trouble than they are worth. [Read more](/react/blog/2016/07/13/mixins-considered-harmful.html) about why we've moved away from mixins and how you can transition your existing components.
+> 我们以前推荐 mixins 作为处理横切关注点的一种方式。我们已经意识到 mixins 相比它创造的价值会带来更多麻烦。[阅读更多](/cn/blog/2016/07/13/mixins-considered-harmful.md) 关于为什么我们已经放弃了 mixins，并且你如何过渡你目前的组件。
 
-Components are the primary unit of code reuse in React. However, you'll find that some patterns aren't a straightforward fit for traditional components.
+组件是 React 中代码复用的主要单位。然而，你将发现某些模式不是简单适用于传统的组件。
 
-For example, say you have a `CommentList` component that subscribes to an external data source to render a list of comments:
+例如，假设你有一个`CommentList` 组件可以订阅一个外部的数据源，用来渲染一个评论列表：
 
 ```js
 class CommentList extends React.Component {
@@ -86,23 +86,23 @@ class CommentList extends React.Component {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.state = {
-      // "DataSource" is some global data source
+      // "DataSource" 是一些全局数据源
       comments: DataSource.getComments()
     };
   }
 
   componentDidMount() {
-    // Subscribe to changes
+    // 更改订阅
     DataSource.addChangeListener(this.handleChange);
   }
 
   componentWillUnmount() {
-    // Clean up listener
+    // 清除监听
     DataSource.removeChangeListener(this.handleChange);
   }
 
   handleChange() {
-    // Update component state whenever the data source changes
+    // 当数据源变化时更新组件
     this.setState({
       comments: DataSource.getComments()
     });
@@ -120,7 +120,7 @@ class CommentList extends React.Component {
 }
 ```
 
-Later, you write a component for subscribing to a single blog post, which follows a similar pattern:
+之后，你写了一个组件用于订阅一个简单的博客贴子，它类似于下面的模型：
 
 ```js
 class BlogPost extends React.Component {
@@ -152,11 +152,12 @@ class BlogPost extends React.Component {
 }
 ```
 
-`CommentList` and `BlogPost` aren't identical — they call different methods on `DataSource`, and they render different output. But much of their implementation is the same:
+`CommentList` 和 `BlogPost` 不是完全相同的，它们调用`DataSource`上不同的方法, 并且它们渲染不同的输出。但它们大多数实现是相同的：
 
-- On mount, add a change listener to `DataSource`.
-- Inside the listener, call `setState` whenever the data source changes.
-- On unmount, remove the change listener.
+- 在挂载阶段，添加一个变化监听到 `DataSource`.
+- 在监听内部，每当数据源变化时调用 `setState` .
+- 在卸载阶段，移除变化监听.
+
 
 You can imagine that in a large app, this same pattern of subscribing to `DataSource` and calling `setState` will occur over and over again. We want an abstraction that allows us to define this logic in a single place and share them across many components. This is where higher-order components excel.
 
