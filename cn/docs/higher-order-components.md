@@ -158,10 +158,9 @@ class BlogPost extends React.Component {
 - 在监听内部，每当数据源变化时调用 `setState` .
 - 在卸载阶段，移除变化监听.
 
+你能想像一下在大型应用中，这种订阅 `DataSource` 和调用 `setState` 的模式将反复不断地发生。我们需要一个抽象允许我们在一个地方去定义这个逻辑，并且将它们分享到更多组件。这是高阶组件擅长的地方。
 
-You can imagine that in a large app, this same pattern of subscribing to `DataSource` and calling `setState` will occur over and over again. We want an abstraction that allows us to define this logic in a single place and share them across many components. This is where higher-order components excel.
-
-We can write a function that creates components, like `CommentList` and `BlogPost`, that subscribe to `DataSource`. The function will accept as one of its arguments a child component that receives the subscribed data as a prop. Let's call the function `withSubscription`:
+我们能写一个创建组件的函数，像`CommentList` 和 `BlogPost` ，在那订阅 `DataSource`。该函数将接受作为其参数之一的子组件，该子组件接收订阅的数据作为属性。让我们叫这个函数为 `withSubscription`：
 
 ```js
 const CommentListWithSubscription = withSubscription(
@@ -175,14 +174,14 @@ const BlogPostWithSubscription = withSubscription(
 });
 ```
 
-The first parameter is the wrapped component. The second parameter retrieves the data we're interested in, given a `DataSource` and the current props.
+第一个参数是容器组件。第二个参数检索我们感兴趣的数据，给出一个 `DataSource` 和当前的属性。
 
-When `CommentListWithSubscription` and `BlogPostWithSubscription` are rendered, `CommentList` and `BlogPost` will be passed a `data` prop with the most current data retrieved from `DataSource`:
+当 `CommentListWithSubscription` 和 `BlogPostWithSubscription` 被渲染时， `CommentList` 和 `BlogPost` 将被传递一个 `data` 属性，并从 `DataSource` 检索最新的数据：
 
 ```js
-// This function takes a component...
+// 此函数需要一个组件...
 function withSubscription(WrappedComponent, selectData) {
-  // ...and returns another component...
+  // ...并且返回另外一个组件...
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -193,7 +192,7 @@ function withSubscription(WrappedComponent, selectData) {
     }
 
     componentDidMount() {
-      // ... that takes care of the subscription...
+      // ... 它负责订阅 ...
       DataSource.addChangeListener(this.handleChange);
     }
 
@@ -208,8 +207,8 @@ function withSubscription(WrappedComponent, selectData) {
     }
 
     render() {
-      // ... and renders the wrapped component with the fresh data!
-      // Notice that we pass through any additional props
+      // ... 从最新的数据渲染容器组件!
+      // 注意我们传递一些附加的属性
       return <WrappedComponent data={this.state.data} {...this.props} />;
     }
   };
