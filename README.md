@@ -1,4 +1,4 @@
-# React官网中文翻译(v16.0.0)
+# React官网中文翻译
 
 [中文翻译](cn/index.md) | [英文原版](en/index.md)
 
