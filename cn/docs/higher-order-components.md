@@ -215,13 +215,13 @@ function withSubscription(WrappedComponent, selectData) {
 }
 ```
 
-Note that an HOC doesn't modify the input component, nor does it use inheritance to copy its behavior. Rather, an HOC *composes* the original component by *wrapping* it in a container component. An HOC is a pure function with zero side-effects.
+请注意， HOC 不会修改输入组件，也不使用继承来拷贝它的行为。相反，HOC 通过 *包裹* 在一个容器组件里来 *组成* 原始组件。HOC 是一个没有副作用的纯函数。
 
-And that's it! The wrapped component receives all the props of the container, along with a new prop, `data`, which it uses to render its output. The HOC isn't concerned with how or why the data is used, and the wrapped component isn't concerned with where the data came from.
+就是这样！容器组件接收所有的容器属性，以及一个新的属性 `data`，它用于渲染输出。HOC 不关心如何或为什么数据被使用，容器组件不关心数据从哪里来。
 
-Because `withSubscription` is a normal function, you can add as many or as few arguments as you like. For example, you may want to make the name of the `data` prop configurable, to further isolate the HOC from the wrapped component. Or you could accept an argument that configures `shouldComponentUpdate`, or one that configures the data source. These are all possible because the HOC has full control over how the component is defined.
+因为 `withSubscription` 是一个普通的函数，所以你能添加任意数据的参数。例如，你可能希望可以配置 `data` 的名字，以进一步将 HOC 和 容器组件隔离。或你可能接受配置 `shouldComponentUpdate` 参数，或配置数据源的参数。这些都是可能，因为 HOC 完全控制组件的定义。
 
-Like components, the contract between `withSubscription` and the wrapped component is entirely props-based. This makes it easy to swap one HOC for a different one, as long as they provide the same props to the wrapped component. This may be useful if you change data-fetching libraries, for example.
+与组件一样， `withSubscription` 和容器组件之间的联系完全是基于属性的。 这样可以方便地将一个HOC替换为不同的HOC，只要它们为容器组件提供相同的属性。如果更改数据获取库，这可能很有用，例如。
 
 ## Don't Mutate the Original Component. Use Composition.
 
