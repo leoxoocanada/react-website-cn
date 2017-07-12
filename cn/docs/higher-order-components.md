@@ -223,9 +223,9 @@ function withSubscription(WrappedComponent, selectData) {
 
 与组件一样， `withSubscription` 和容器组件之间的联系完全是基于属性的。 这样可以方便地将一个HOC替换为不同的HOC，只要它们为容器组件提供相同的属性。如果更改数据获取库，这可能很有用，例如。
 
-## Don't Mutate the Original Component. Use Composition.
+## 不要改变原始组件，而是使用组合
 
-Resist the temptation to modify a component's prototype (or otherwise mutate it) inside an HOC.
+抵制在HOC内部修改组件原型（或以其他方式修改）的诱惑。
 
 ```js
 function logProps(InputComponent) {
@@ -233,20 +233,19 @@ function logProps(InputComponent) {
     console.log('Current props: ', this.props);
     console.log('Next props: ', nextProps);
   }
-  // The fact that we're returning the original input is a hint that it has
-  // been mutated.
+  // 事实上，我们返回的原始输入意味着它已经被修改
   return InputComponent;
 }
 
-// EnhancedComponent will log whenever props are received
+// EnhancedComponent 将在接收到属性时记录
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-There are a few problems with this. One is that the input component cannot be reused separately from the enhanced component. More crucially, if you apply another HOC to `EnhancedComponent` that *also* mutates `componentWillReceiveProps`, the first HOC's functionality will be overridden! This HOC also won't work with function components, which do not have lifecycle methods.
+这会有一些问题。一是输入组件不能与 enhanced 组件分开复用。更关键的是，如果你应用其它 HOC 到 `EnhancedComponent` ，那么*也*将修改 `componentWillReceiveProps`， 第一个 HOC 的功能将被覆盖！ 这个HOC也不适用于没有生命周期方法的功能组件。
 
-Mutating HOCs are a leaky abstraction—the consumer must know how they are implemented in order to avoid conflicts with other HOCs.
+具有修改功能的 HOC 是一种有漏洞的抽象 - 用户必须知道如何实施它们，以避免与其他HOC的冲突。
 
-Instead of mutation, HOCs should use composition, by wrapping the input component in a container component:
+相比较修改，HOCs 应该使用组合，通过包裹输入组件在一个容器组件里：
 
 ```js
 function logProps(WrappedComponent) {
@@ -256,16 +255,16 @@ function logProps(WrappedComponent) {
       console.log('Next props: ', nextProps);
     }
     render() {
-      // Wraps the input component in a container, without mutating it. Good!
+      // 包裹输入组件在一个容器组件里, 没有修改它，非常好!
       return <WrappedComponent {...this.props} />;
     }
   }
 }
 ```
 
-This HOC has the same functionality as the mutating version while avoiding the potential for clashes. It works equally well with class and functional components. And because it's a pure function, it's composable with other HOCs, or even with itself.
+这个 HOC 有跟修改版本同样的功能，同时避免了潜在的冲突。它在 class 和 functional 组件里同样运行的非常好。并且因为它是纯函数，它可以和其它 HOCs 甚至它自己组合。
 
-You may have noticed similarities between HOCs and a pattern called **container components**. Container components are part of a strategy of separating responsibility between high-level and low-level concerns. Containers manage things like subscriptions and state, and pass props to components that handle things like rendering UI. HOCs use containers as part of their implementation. You can think of HOCs as parameterized container component definitions.
+你可能已经注意到 HOCs 和 **容器组件**模式 有相似之处。容器组件是将责任分为高级和低级关注点策略的一部分。容器管理类似于订阅和状态的东西，传递属性到处理类似于渲染UI之类的组件。HOCs 使用容器作为它们实现的一部分。你可以将 HOCs 作为参数容器组件来定义。
 
 ## Convention: Pass Unrelated Props Through to the Wrapped Component
 
