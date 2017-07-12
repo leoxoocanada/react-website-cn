@@ -363,11 +363,11 @@ function getDisplayName(WrappedComponent) {
 ```
 
 
-## Caveats
+## 警告
 
-Higher-order components come with a few caveats that aren't immediately obvious if you're new to React.
+高阶组件带有一些警告，如果您刚接触到React，则不会立即显现。
 
-### Don't Use HOCs Inside the render Method
+### 不要在 render 方法里使用 HOCs
 
 React's diffing algorithm (called reconciliation) uses component identity to determine whether it should update the existing subtree or throw it away and mount a new one. If the component returned from `render` is identical (`===`) to the component from the previous render, React recursively updates the subtree by diffing it with the new one. If they're not equal, the previous subtree is unmounted completely.
 
@@ -389,7 +389,7 @@ Instead, apply HOCs outside the component definition so that the resulting compo
 
 In those rare cases where you need to apply an HOC dynamically, you can also do it inside a component's lifecycle methods or its constructor.
 
-### Static Methods Must Be Copied Over
+### 静态方法必须复制
 
 Sometimes it's useful to define a static method on a React component. For example, Relay containers expose a static method `getFragment` to facilitate the composition of GraphQL fragments.
 
@@ -441,7 +441,7 @@ export { someFunction };
 import MyComponent, { someFunction } from './MyComponent.js';
 ```
 
-### Refs Aren't Passed Through
+### Refs 不会被传递
 
 While the convention for higher-order components is to pass through all props to the wrapped component, it's not possible to pass through refs. That's because `ref` is not really a prop — like `key`, it's handled specially by React. If you add a ref to an element whose component is the result of an HOC, the ref refers to an instance of the outermost container component, not the wrapped component.
 
