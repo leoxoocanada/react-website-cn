@@ -266,23 +266,21 @@ function logProps(WrappedComponent) {
 
 你可能已经注意到 HOCs 和 **容器组件**模式 有相似之处。容器组件是将责任分为高级和低级关注点策略的一部分。容器管理类似于订阅和状态的东西，传递属性到处理类似于渲染UI之类的组件。HOCs 使用容器作为它们实现的一部分。你可以将 HOCs 作为参数容器组件来定义。
 
-## Convention: Pass Unrelated Props Through to the Wrapped Component
+## 约定: 给包裹组件传递不相关的属性(Props)
 
-HOCs add features to a component. They shouldn't drastically alter its contract. It's expected that the component returned from an HOC has a similar interface to the wrapped component.
+HOCs 向组件功能功能。它们不应该彻底的修改它的约定。它预期组件从 HOC 返回一个相似的界面到包裹组件。
 
-HOCs should pass through props that are unrelated to its specific concern. Most HOCs contain a render method that looks something like this:
+HOCs 应该传递与其具体关切无关的属性(props)。大多数HOC包含一个如下所示的渲染方法：
 
 ```js
 render() {
-  // Filter out extra props that are specific to this HOC and shouldn't be
-  // passed through
+  // 过滤特定于本 HOC 的额外属性(props)，不应该被传递
   const { extraProp, ...passThroughProps } = this.props;
 
-  // Inject props into the wrapped component. These are usually state values or
-  // instance methods.
+  // 注入属性(props)到包裹组件。这些通常是状态值或实例方法
   const injectedProp = someStateOrInstanceMethod;
 
-  // Pass props to wrapped component
+  // 传递属性(props)到包裹组件
   return (
     <WrappedComponent
       injectedProp={injectedProp}
@@ -292,7 +290,7 @@ render() {
 }
 ```
 
-This convention helps ensure that HOCs are as flexible and reusable as possible.
+这个约定有助于确保 HOCs 尽可能灵活的和可复用
 
 ## Convention: Maximizing Composability
 
