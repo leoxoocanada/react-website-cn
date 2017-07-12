@@ -292,59 +292,59 @@ render() {
 
 这个约定有助于确保 HOCs 尽可能灵活的和可复用
 
-## Convention: Maximizing Composability
+## 约定: 最大化组合
 
-Not all HOCs look the same. Sometimes they accept only a single argument, the wrapped component:
+不是所有的 HOCs 都看起来一样。有时它们只接受包裹组件作为单个参数：
 
 ```js
 const NavbarWithRouter = withRouter(Navbar);
 ```
 
-Usually, HOCs accept additional arguments. In this example from Relay, a config object is used to specify a component's data dependencies:
+通常来说，HOCs 接受额外的参数。在 Relay 这个示例中，配置对象用于指定组件的数据依赖关系：
 
 ```js
 const CommentWithRelay = Relay.createContainer(Comment, config);
 ```
 
-The most common signature for HOCs looks like this:
+HOCs 最常见的签名如下：
 
 ```js
-// React Redux's `connect`
+// React Redux 的 `connect`
 const ConnectedComment = connect(commentSelector, commentActions)(Comment);
 ```
 
-*What?!* If you break it apart, it's easier to see what's going on.
+*什么？！*如果你把它分开，很容易看到发生了什么。
 
 ```js
-// connect is a function that returns another function
+// connect 是一个返回另一个函数的函数
 const enhance = connect(commentListSelector, commentListActions);
-// The returned function is an HOC, which returns a component that is connected
-// to the Redux store
+// 返回的函数是一个 HOC，它返回一个连接到 Redux 存储的组件
 const ConnectedComment = enhance(CommentList);
 ```
-In other words, `connect` is a higher-order function that returns a higher-order component!
 
-This form may seem confusing or unnecessary, but it has a useful property. Single-argument HOCs like the one returned by the `connect` function have the signature `Component => Component`. Functions whose output type is the same as its input type are really easy to compose together.
+换句话说，`connect` 是一个返回高阶组件的高阶函数！
+
+这张表可能看起来很混乱或不必要，但它有一个有用的属性。 `connect` 函数返回的单参数HOC具有 `Component => Component`的签名。 输出类型与其输入类型相同的函数真的很容易组合在一起。
 
 ```js
-// Instead of doing this...
+// 而不是这样做
 const EnhancedComponent = connect(commentSelector)(withRouter(WrappedComponent))
 
-// ... you can use a function composition utility
-// compose(f, g, h) is the same as (...args) => f(g(h(...args)))
+// ... 你能使用功能组合实用程序
+// compose(f, g, h) 和 (...args) => f(g(h(...args))) 是相同的
 const enhance = compose(
-  // These are both single-argument HOCs
+  // 它们都是单个参数的 HOCs
   connect(commentSelector),
   withRouter
 )
 const EnhancedComponent = enhance(WrappedComponent)
 ```
 
-(This same property also allows `connect` and other enhancer-style HOCs to be used as decorators, an experimental JavaScript proposal.)
+(相同的属性与允许 `connect` 和其它的增加风格 HOCs 作为装饰器使用，一个实验性的提议)
 
-The `compose` utility function is provided by many third-party libraries including lodash (as [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), [Redux](http://redux.js.org/docs/api/compose.html), and [Ramda](http://ramdajs.com/docs/#compose).
+`compose` 功能函数通过一些包含 lodash 的第三方库提供（像 [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), [Redux](http://redux.js.org/docs/api/compose.html), 和 [Ramda](http://ramdajs.com/docs/#compose）
 
-## Convention: Wrap the Display Name for Easy Debugging
+## 约定：为了方便调试包裹显示名称
 
 The container components created by HOCs show up in the [React Developer Tools](https://github.com/facebook/react-devtools) like any other component. To ease debugging, choose a display name that communicates that it's the result of an HOC.
 
