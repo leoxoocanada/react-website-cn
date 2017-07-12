@@ -346,9 +346,9 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 ## 约定：为了方便调试包裹显示名称
 
-The container components created by HOCs show up in the [React Developer Tools](https://github.com/facebook/react-devtools) like any other component. To ease debugging, choose a display name that communicates that it's the result of an HOC.
+通过 HOCs 创建的容器组件像其它任意组件一样在 [React Developer Tools](https://github.com/facebook/react-devtools) 里显示。为便于调试，选择一个表示它是 HOC 的显示名称。
 
-The most common technique is to wrap the display name of the wrapped component. So if your higher-order component is named `withSubscription`, and the wrapped component's display name is `CommentList`, use the display name `WithSubscription(CommentList)`:
+大多数常用的技巧是包裹包裹组件的显示名。所以如果你的高阶组件名叫 `withSubscription`，并且包裹组件显示名是 `CommentList`，显示这个显示名 `WithSubscription(CommentList)`：
 
 ```js
 function withSubscription(WrappedComponent) {
