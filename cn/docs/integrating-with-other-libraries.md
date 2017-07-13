@@ -91,21 +91,21 @@ class SomePlugin extends React.Component {
 }
 ```
 
-Note that we defined both `componentDidMount` and `componentWillUnmount` [lifecycle hooks](/react/docs/react-component.html#the-component-lifecycle). Many jQuery plugins attach event listeners to the DOM so it's important to detach them in `componentWillUnmount`. If the plugin does not provide a method for cleanup, you will probably have to provide your own, remembering to remove any event listeners the plugin registered to prevent memory leaks.
+注意我们定义了 `componentDidMount` 和 `componentWillUnmount` 两个[生命周期钩子](/cn/docs/react-component.md#the-component-lifecycle). 一些 jQuery 插件附加 DOM 事件监听，因此在 `componentWillUnmount` 中分离它们是非常重要的。如果插件没有指定清除的方法，你或许不得不自己提供，记住移除插件注册的任何事件监听防止内存泄漏。
 
-### Integrating with jQuery Chosen Plugin
+### 与 jQuery 选择插件集成
 
-For a more concrete example of these concepts, let's write a minimal wrapper for the plugin [Chosen](https://harvesthq.github.io/chosen/), which augments `<select>` inputs.
+对于这些概念的一个更具体的例子，让我们为插件[Chosen]（https://harvesthq.github.io/chosen/）写一个最小的包装，这增加了`<select>`的输入。
 
->**Note:**
+>**注意:**
 >
->Just because it's possible, doesn't mean that it's the best approach for React apps. We encourage you to use React components when you can. React components are easier to reuse in React applications, and often provide more control over their behavior and appearance.
+>只是因为这是可能的，并不意味着它是React应用程序的最佳方法。如果可以的话，我们鼓励你使用React组件。 React 组件在 React 应用程序中更容易重用，并且通常可以更好地控制其行为和外观。
 
-First, let's look at what Chosen does to the DOM.
+首先，让我们看看 Chosen 对 DOM 做了什么
 
-If you call it on a `<select>` DOM node, it reads the attributes off of the original DOM node, hides it with an inline style, and then appends a separate DOM node with its own visual representation right after the `<select>`. Then it fires jQuery events to notify us about the changes.
+如果你在 `<select>` DOM节点上调用它，它读取原始 DOM 节点的属性，通过一个内联样式隐藏它，然后附加一个带有自身视觉表现的独立 DOM 节点在 `<select>` 后面。然后它触发 jQuery 事件去通知我们有关变动。
 
-Let's say that this is the API we're striving for with our `<Chosen>` wrapper React component:
+假设这是我们正在使用的 `<Chosen>` 包装器 React 组件的API。
 
 ```js
 function Example() {
@@ -119,9 +119,9 @@ function Example() {
 }
 ```
 
-We will implement it as an [uncontrolled component](/react/docs/uncontrolled-components.html) for simplicity.
+为简单起见，我们将作为一个 [非受控组件](/react/docs/uncontrolled-components.html) 来实现。
 
-First, we will create an empty component with a `render()` method where we return `<select>` wrapped in a `<div>`:
+首先，我们将创建一个带有 `render()` 方法的空组件，它返回一个包裹在 `<div>` 里的`<select>`：
 
 ```js{4,5}
 class Chosen extends React.Component {
@@ -137,7 +137,7 @@ class Chosen extends React.Component {
 }
 ```
 
-Notice how we wrapped `<select>` in an extra `<div>`. This is necessary because Chosen will append another DOM element right after the `<select>` node we passed to it. However, as far as React is concerned, `<div>` always only has a single child. This is how we ensure that React updates won't conflict with the extra DOM node appended by Chosen. It is important that if you modify the DOM outside of React flow, you must ensure React doesn't have a reason to touch those DOM nodes.
+注意我们如何将 `<select>` 包裹到一个额外的 `<div>`，这是必要的，因为 Chosen 将在传递给它的 `<select>` 节点后面附加另外的 DOM 元素。然而，就 React 而言，`<div>` 经常只有单个子节点。这是我们如何确保 React 更新将不会和额外的 DOM 节点冲突。重要的是，如果你在 React 外部修改 DOM 时，你必须确保 React 没有理由接触到 DOM 节点。
 
 Next, we will implement the lifecycle hooks. We need to initialize Chosen with the ref to the `<select>` node in `componentDidMount`, and tear it down in `componentWillUnmount`:
 
