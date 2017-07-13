@@ -443,30 +443,30 @@ import MyComponent, { someFunction } from './MyComponent.js';
 
 ### Refs 不会被传递
 
-While the convention for higher-order components is to pass through all props to the wrapped component, it's not possible to pass through refs. That's because `ref` is not really a prop — like `key`, it's handled specially by React. If you add a ref to an element whose component is the result of an HOC, the ref refers to an instance of the outermost container component, not the wrapped component.
+虽然高阶组件的约定是传递所有的属性到包裹组件，但它不可能传递 refs 。那是因为 `ref` 不是一个真正的属性，就像 `key` 一样。它通过 React 特殊处理。如果你添加 ref  到 HOC 结果的组件元素中，ref 引用一个最外层容器组件的实例，而不是包裹组件。
 
-If you find yourself facing this problem, the ideal solution is to figure out how to avoid using `ref` at all. Occasionally, users who are new to the React paradigm rely on refs in situations where a prop would work better.
+如果你发现你自己正面临这个问题，最理想的解决方案是想出如何从根本上避免使用 `ref` 。有时，刚开始使用 React 的用户依赖 refs ，在这种情况下，属性将做的更好。
 
-That said, there are times when refs are a necessary escape hatch — React wouldn't support them otherwise. Focusing an input field is an example where you may want imperative control of a component. In that case, one solution is to pass a ref callback as a normal prop, by giving it a different name:
+也就是说，有些时候，refs 是必要的，否则 React 将不会支持它们。聚焦输入字段是你可能需要控制组件一个例子。在这种情况下，一种解决方案是传递一个 ref 回调作为一个普通的属性，通过一个不同的名字来获取：
 
 ```js
 function Field({ inputRef, ...rest }) {
   return <input ref={inputRef} {...rest} />;
 }
 
-// Wrap Field in a higher-order component
+// 在一个高阶组件里包裹字段 Field
 const EnhancedField = enhance(Field);
 
-// Inside a class component's render method...
+// 在 class 组件的 render 方法里...
 <EnhancedField
   inputRef={(inputEl) => {
-    // This callback gets passed through as a regular prop
+    // 这个回调作为普通的属性获取传递
     this.inputEl = inputEl
   }}
 />
 
-// Now you can call imperative methods
+// 现在你能调用需要的方法了
 this.inputEl.focus();
 ```
 
-This is not a perfect solution by any means. We prefer that refs remain a library concern, rather than require you to manually handle them. We are exploring ways to solve this problem so that using an HOC is unobservable.
+这不是一个完美的解决方案。我们更喜欢 refs 保留在图书馆里，而不是需要你手动的处理它们。我们正在探索解决这个问题的方法，以便使用 HOC 是无感知的。
