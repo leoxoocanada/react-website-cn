@@ -369,25 +369,25 @@ function getDisplayName(WrappedComponent) {
 
 ### 不要在 render 方法里使用 HOCs
 
-React's diffing algorithm (called reconciliation) uses component identity to determine whether it should update the existing subtree or throw it away and mount a new one. If the component returned from `render` is identical (`===`) to the component from the previous render, React recursively updates the subtree by diffing it with the new one. If they're not equal, the previous subtree is unmounted completely.
+React 的差异算法（又称 reconciliation）使用组件特性来决定是否它应该更新目前的子树，或放弃它挂载一个新的。如果从 `render` 返回的组件跟之前渲染的组件完全相等(`===`)。React 通过新的组件递归更新子树。如果它们不相等，上一个子树将完全卸载。
 
-Normally, you shouldn't need to think about this. But it matters for HOCs because it means you can't apply an HOC to a component within the render method of a component:
+一般来说，你不需要关心这些。但是对于HOC来说很重要，因为它意味着你不能将 HOC 应用到组件的render方法中的组件：
 
 ```js
 render() {
-  // A new version of EnhancedComponent is created on every render
+  // 在每一个 render 上创建一个新版本的 EnhancedComponent 
   // EnhancedComponent1 !== EnhancedComponent2
   const EnhancedComponent = enhance(MyComponent);
-  // That causes the entire subtree to unmount/remount each time!
+  // 这会导致整个子树每次都会执行 卸载/重新装载（unmount/remount）！
   return <EnhancedComponent />;
 }
 ```
 
-The problem here isn't just about performance — remounting a component causes the state of that component and all of its children to be lost.
+这里的问题不仅是关于性能，重新装载一个组件会导致组件的状态和所有的子节点丢失。
 
-Instead, apply HOCs outside the component definition so that the resulting component is created only once. Then, its identity will be consistent across renders. This is usually what you want, anyway.
+相反，在组件定义之外应用HOC，以便生成的组件只能创建一次。 那么，它的身份在渲染中是一致的。 无论如何，这通常是你想要的。
 
-In those rare cases where you need to apply an HOC dynamically, you can also do it inside a component's lifecycle methods or its constructor.
+在那些你需要动态应用 HOC 的极少案例中，你也能在组件的生命周期方法或它的 constructor 里处理它。
 
 ### 静态方法必须复制
 
