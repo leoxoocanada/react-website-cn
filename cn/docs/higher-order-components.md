@@ -391,32 +391,32 @@ render() {
 
 ### 静态方法必须复制
 
-Sometimes it's useful to define a static method on a React component. For example, Relay containers expose a static method `getFragment` to facilitate the composition of GraphQL fragments.
+有时在 React 组件上定义一个静态方法是非常有用的。例如，Relay 容器暴露一个静态方法 `getFragment` ，用于构建 GraphQL 片断。
 
-When you apply an HOC to a component, though, the original component is wrapped with a container component. That means the new component does not have any of the static methods of the original component.
+当你应用 HOC 到一个组件，但是，原始组件被容器组件包裹。这意味着新的组件没有任何原始组件的静态方法。
 
 ```js
-// Define a static method
+// 定义一个静态方法
 WrappedComponent.staticMethod = function() {/*...*/}
-// Now apply an HOC
+// 现在应用一个 HOC
 const EnhancedComponent = enhance(WrappedComponent);
 
-// The enhanced component has no static method
+// 增强的组件没有静态方法
 typeof EnhancedComponent.staticMethod === 'undefined' // true
 ```
 
-To solve this, you could copy the methods onto the container before returning it:
+要解决这个问题，你可以在返回它之前复制一个方法到容器
 
 ```js
 function enhance(WrappedComponent) {
   class Enhance extends React.Component {/*...*/}
-  // Must know exactly which method(s) to copy :(
+  // 必须知道要复制的方法 :(
   Enhance.staticMethod = WrappedComponent.staticMethod;
   return Enhance;
 }
 ```
 
-However, this requires you to know exactly which methods need to be copied. You can use [hoist-non-react-statics](https://github.com/mridgway/hoist-non-react-statics) to automatically copy all non-React static methods:
+然而，这要求你知道需要复制哪个方法。你能使用 [hoist-non-react-statics](https://github.com/mridgway/hoist-non-react-statics) 来自动的复制所有的非 React 静态方法： 
 
 ```js
 import hoistNonReactStatic from 'hoist-non-react-statics';
@@ -427,17 +427,17 @@ function enhance(WrappedComponent) {
 }
 ```
 
-Another possible solution is to export the static method separately from the component itself.
+另一种可能的解决方法是从组件自身输出静态方法
 
 ```js
-// Instead of...
+// 代替这种做法
 MyComponent.someFunction = someFunction;
 export default MyComponent;
 
-// ...export the method separately...
+// ...分别输出方法...
 export { someFunction };
 
-// ...and in the consuming module, import both
+// ...并在使用的模块里，导入两者
 import MyComponent, { someFunction } from './MyComponent.js';
 ```
 
