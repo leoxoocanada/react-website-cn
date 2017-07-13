@@ -56,23 +56,23 @@
 
 # 与其它类库集成
 
-React can be used in any web application. It can be embedded in other applications and, with a little care, other applications can be embedded in React. This guide will examine some of the more common use cases, focusing on integration with [jQuery](https://jquery.com/) and [Backbone](http://backbonejs.org/), but the same ideas can be applied to integrating components with any existing code.
+React 可以在任何web应用中使用。它能嵌入其它的应用，并且只要小心一点，其它的应用也能嵌入到 React。本指南将检查一些更常见的用例，重点是 [jQuery](https://jquery.com/) 和 [Backbone](http://backbonejs.org/) 的集成，但是同样的想法也能应用于将组件和任何现有代码集成。
 
-## Integrating with DOM Manipulation Plugins
+## 与 DOM 操作插件集成
 
-React is unaware of changes made to the DOM outside of React. It determines updates based on its own internal representation, and if the same DOM nodes are manipulated by another library, React gets confused and has no way to recover.
+React 不知道在 React 以外对 DOM 的修改。它决定更新是基于它自己的内部的表现，并且如果同样的 DOM 节点被其它库操作，React 会感到困惑并且没有办法恢复。
 
-This does not mean it is impossible or even necessarily difficult to combine React with other ways of affecting the DOM, you just have to be mindful of what each are doing.
+这并不意味着将React与影响DOM的其他方式相结合是不可能的，甚至是一定难以理解的，你只需要注意每个人在做什么。
 
-The easiest way to avoid conflicts is to prevent the React component from updating. You can do this by rendering elements that React has no reason to update, like an empty `<div />`.
+避免冲突最简单的方式是防止 React 组件更新。您可以通过渲染React的元素来完成此操作，无需更新，像一个空的  `<div />`.
 
-### How to Approach the Problem
+### 如何解决问题
 
-To demonstrate this, let's sketch out a wrapper for a generic jQuery plugin.
+为了演示这个，我们绘制一个包裹通用 jQuery 插件的容器。
 
-We will attach a [ref](/react/docs/refs-and-the-dom.html) to the root DOM element. Inside `componentDidMount`, we will get a reference to it so we can pass it to the jQuery plugin.
+我们将附加一个[ref](/cn/docs/refs-and-the-dom.md) 到根 DOM 节点。在 `componentDidMount` 里，我们将获取一个到它的引用，以便我们能将它传递到 jQuery 插件。
 
-To prevent React from touching the DOM after mounting, we will return an empty `<div />` from the `render()` method. The `<div />` element has no properties or children, so React has no reason to update it, leaving the jQuery plugin free to manage that part of the DOM:
+为了防止 React 在挂载之后接触 DOM，我们将从 `render()` 方法中返回一个空的 `<div />` 。这个 `<div />` 元素没有属性或子元素，因此 React 无须更新它，让 jQuery 插件可以自由的管理 DOM 的一部分：
 
 ```js{3,4,8,12}
 class SomePlugin extends React.Component {
@@ -210,7 +210,7 @@ class Chosen extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.$el.on('change', this.handleChange);
   }
-  
+
   componentDidUpdate(prevProps) {
     if (prevProps.children !== this.props.children) {
       this.$el.trigger("chosen:updated");
@@ -221,7 +221,7 @@ class Chosen extends React.Component {
     this.$el.off('change', this.handleChange);
     this.$el.chosen('destroy');
   }
-  
+
   handleChange(e) {
     this.props.onChange(e.target.value);
   }
