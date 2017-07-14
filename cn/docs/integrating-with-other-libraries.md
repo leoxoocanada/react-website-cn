@@ -240,13 +240,13 @@ class Chosen extends React.Component {
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/xdgKOz?editors=0010)
 
-## Integrating with Other View Libraries
+## 与其他视图（View）库集成
 
-React can be embedded into other applications thanks to the flexibility of [`ReactDOM.render()`](/react/docs/react-dom.html#render).
+React 能被嵌入到其它的应用，这多亏了灵活的[`ReactDOM.render()`](/cn/docs/react-dom.md#render).
 
-Although React is commonly used at startup to load a single root React component into the DOM, `ReactDOM.render()` can also be called multiple times for independent parts of the UI which can be as small as a button, or as large as an app.
+虽然 React 在启动时通常用于将单个根 React 组件加载到DOM中，但对于UI的独立部分，`ReactDOM.render()` 也能被调用多次，可以像按钮一样小，或者像一个应用程序那么大。
 
-In fact, this is exactly how React is used at Facebook. This lets us write applications in React piece by piece, and combine it with our existing server-generated templates and other client-side code.
+事实上，这恰好是如何在 Facebook 中使用 React。这让我们在 React 中逐个编写应用程序，并将其与我们现有的服务器生成的模板和其他客户端代码相结合。
 
 ### Replacing String-Based Rendering with React
 
