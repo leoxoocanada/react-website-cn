@@ -139,7 +139,7 @@ class Chosen extends React.Component {
 
 注意我们如何将 `<select>` 包裹到一个额外的 `<div>`，这是必要的，因为 Chosen 将在传递给它的 `<select>` 节点后面附加另外的 DOM 元素。然而，就 React 而言，`<div>` 经常只有单个子节点。这是我们如何确保 React 更新将不会和额外的 DOM 节点冲突。重要的是，如果你在 React 外部修改 DOM 时，你必须确保 React 没有理由接触到 DOM 节点。
 
-Next, we will implement the lifecycle hooks. We need to initialize Chosen with the ref to the `<select>` node in `componentDidMount`, and tear it down in `componentWillUnmount`:
+接下来，我们将实现生命周期钩子。我们需要使用'componentDidMount`中的`<select>`节点的引用来初始化Chosen，并且在 `componentWillUnmount` 里销毁它:
 
 ```js{2,3,7}
 componentDidMount() {
@@ -152,17 +152,17 @@ componentWillUnmount() {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/qmqeQx?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/qmqeQx?editors=0010)
 
-Note that React assigns no special meaning to the `this.el` field. It only works because we have previously assigned this field from a `ref` in the `render()` method:
+注意 React 对 `this.el` 字段没有特别的含义。它只是可以工作，因为我们在 `render()` 方法里已经预先把 `ref` 赋值给了这个字段；
 
 ```js
 <select className="Chosen-select" ref={el => this.el = el}>
 ```
 
-This is enough to get our component to render, but we also want to be notified about the value changes. To do this, we will subscribe to the jQuery `change` event on the `<select>` managed by Chosen.
+这足够让我们的组件渲染，但是我希望得到关于值变化的通知。为此，我们将在通过 Chosen 管理的 `<select>` 上订阅 jQuery `change` 事件。
 
-We won't pass `this.props.onChange` directly to Chosen because component's props might change over time, and that includes event handlers. Instead, we will declare a `handleChange()` method that calls `this.props.onChange`, and subscribe it to the jQuery `change` event:
+我们将不会直接传递 `this.props.onChange` 给 Chosen，因为组件的属性（props）可能随时会改变，并且包含事件处理器。相反，我们将声明一个 `handleChange()` 方法去调用 `this.props.onChange`，并且将其订阅到 jQuery `change` 事件：
 
 ```js{5,6,10,14-16}
 componentDidMount() {
@@ -183,11 +183,11 @@ handleChange(e) {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/bWgbeE?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/bWgbeE?editors=0010)
 
-Finally, there is one more thing left to do. In React, props can change over time. For example, the `<Chosen>` component can get different children if parent component's state changes. This means that at integration points it is important that we manually update the DOM in response to prop updates, since we no longer let React manage the DOM for us.
+最后，还有一件事情要做，在 React 里，属性（props）随时会变化。例如，假如父组件的状态（state）变化时， `<Chosen>` 组件能获取不同的子节点。这意味着在集成点上，重要的是我们手动更新 DOM 在响应更新，直到我们不再让 React 为我们管理 DOM。
 
-Chosen's documentation suggests that we can use jQuery `trigger()` API to notify it about changes to the original DOM element. We will let React take care of updating `this.props.children` inside `<select>`, but we will also add a `componentDidUpdate()` lifecycle hook that notifies Chosen about changes in the children list:
+Chosen 文档建议我们能使用 jQuery `trigger()` API 来通知它有关原始 DOM 元素的变动。我们将让 React 注意更新 `<select>` 内部的 `this.props.children` ，但是我们也将添加一个 `componentDidUpdate()` 生命周期钩子来通知 Chosen 关于子节点列表的变化：
 
 ```js{2,3}
 componentDidUpdate(prevProps) {
@@ -197,9 +197,9 @@ componentDidUpdate(prevProps) {
 }
 ```
 
-This way, Chosen will know to update its DOM element when the `<select>` children managed by React change.
+这样，当 React 更改管理的 `<select>` 子节点时，Chosen 将知道更新它的 DOM 元素。
 
-The complete implementation of the `Chosen` component looks like this:
+`Chosen` 组件完整的实现看起来像这样：
 
 ```js
 class Chosen extends React.Component {
@@ -238,7 +238,7 @@ class Chosen extends React.Component {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/xdgKOz?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/xdgKOz?editors=0010)
 
 ## Integrating with Other View Libraries
 
@@ -299,7 +299,7 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/RVKbvW?editors=1010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/RVKbvW?editors=1010)
 
 You can have as many such isolated components as you like, and use `ReactDOM.render()` to render them to different DOM containers. Gradually, as you convert more of your app to React, you will be able to combine them into larger components, and move some of the `ReactDOM.render()` calls up the hierarchy.
 
@@ -327,7 +327,7 @@ const ParagraphView = Backbone.View.extend({
 });
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/gWgOYL?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/gWgOYL?editors=0010)
 
 It is important that we also call `ReactDOM.unmountComponentAtNode()` in the `remove` method so that React unregisters event handlers and other resources associated with the component tree when it is detached.
 
@@ -399,7 +399,7 @@ class List extends React.Component {
 }
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/GmrREm?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/GmrREm?editors=0010)
 
 ### Extracting Data from Backbone Models
 
@@ -486,6 +486,6 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/PmWwwa?editors=0010)
+[在 CodePen 中试试](http://codepen.io/gaearon/pen/PmWwwa?editors=0010)
 
 This technique is not limited to Backbone. You can use React with any model library by subscribing to its changes in the lifecycle hooks and, optionally, copying the data into the local React state.
