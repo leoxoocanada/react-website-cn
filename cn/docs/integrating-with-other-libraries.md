@@ -248,11 +248,11 @@ React 能被嵌入到其它的应用，这多亏了灵活的[`ReactDOM.render()`
 
 事实上，这恰好是如何在 Facebook 中使用 React。这让我们在 React 中逐个编写应用程序，并将其与我们现有的服务器生成的模板和其他客户端代码相结合。
 
-### Replacing String-Based Rendering with React
+### 用 React 替换基于字符串的渲染
 
-A common pattern in older web applications is to describe chunks of the DOM as a string and insert it into the DOM like so: `$el.html(htmlString)`. These points in a codebase are perfect for introducing React. Just rewrite the string based rendering as a React component.
+旧的web应用的一个常见模式是将DOM块作为一个字符串来描述，并且像 `$el.html(htmlString)` 这样把它插入到DOM。代码库的这些要点可以完美的引入到 React。只要将基于字符串的渲染作为一个 React 组件重写。
 
-So the following jQuery implementation...
+因此，下面的 jQuery 实现...
 
 ```js
 $('#container').html('<button id="btn">Say Hello</button>');
@@ -261,7 +261,7 @@ $('#btn').click(function() {
 });
 ```
 
-...could be rewritten using a React component:
+...可以被作为 React 组件重写:
 
 ```js
 function Button() {
@@ -279,7 +279,7 @@ ReactDOM.render(
 );
 ```
 
-From here you could start moving more logic into the component and begin adopting more common React practices. For example, in components it is best not to rely on IDs because the same component can be rendered multiple times. Instead, we will use the [React event system](/react/docs/handling-events.html) and register the click handler directly on the React `<button>` element:
+从这里你可以开始移动更多的逻辑到组件，并且采用更多常见的 React 实践。例如，在组件里最好不要依赖 ID，因为同一个组件会被多次渲染。相反，我们将使用 [React 事件系统](/cn/docs/handling-events.md) 并且在 React  `<button>` 元素上注册点击处理程序：
 
 ```js{2,6,9}
 function Button(props) {
@@ -301,7 +301,7 @@ ReactDOM.render(
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/RVKbvW?editors=1010)
 
-You can have as many such isolated components as you like, and use `ReactDOM.render()` to render them to different DOM containers. Gradually, as you convert more of your app to React, you will be able to combine them into larger components, and move some of the `ReactDOM.render()` calls up the hierarchy.
+你可以拥有许多像这样你喜欢的独立组件，并使用`ReactDOM.render()` 将它们渲染到不同的 DOM 容器。渐渐的，当你将更多的应用转换到 React，你将能够将它们组合到更大的组件，并将一些 `ReactDOM.render()` 调用移动到层次结构中。
 
 ### Embedding React in a Backbone View
 
