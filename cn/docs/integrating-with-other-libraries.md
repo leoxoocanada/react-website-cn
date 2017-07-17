@@ -303,11 +303,11 @@ ReactDOM.render(
 
 你可以拥有许多像这样你喜欢的独立组件，并使用`ReactDOM.render()` 将它们渲染到不同的 DOM 容器。渐渐的，当你将更多的应用转换到 React，你将能够将它们组合到更大的组件，并将一些 `ReactDOM.render()` 调用移动到层次结构中。
 
-### Embedding React in a Backbone View
+### 在 Backbone 视图中嵌入 React
 
-[Backbone](http://backbonejs.org/) views typically use HTML strings, or string-producing template functions, to create the content for their DOM elements. This process, too, can be replaced with rendering a React component.
+[Backbone](http://backbonejs.org/) 视图典型的用法是使用 HTML 字符串或字符串生成模板函数，为他们的 DOM 元素创建内容，这个过程也能被渲染 React 组件替换。
 
-Below, we will create a Backbone view called `ParagraphView`. It will override Backbone's `render()` function to render a React `<Paragraph>` component into the DOM element provided by Backbone (`this.el`). Here, too, we are using [`ReactDOM.render()`](/react/docs/react-dom.html#render):
+下面我们将创建一个名为 `ParagraphView` 的Backbone视图。 它将覆盖Backbone的 `render()` 函数，以将React `<Paragraph>` 组件渲染到由Backbone（`this.el`）提供的DOM元素中。 这里也是使用 [`ReactDOM.render()`](/cn/docs/react-dom.md#render):
 
 ```js{1,5,8,12}
 function Paragraph(props) {
@@ -329,9 +329,9 @@ const ParagraphView = Backbone.View.extend({
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/gWgOYL?editors=0010)
 
-It is important that we also call `ReactDOM.unmountComponentAtNode()` in the `remove` method so that React unregisters event handlers and other resources associated with the component tree when it is detached.
+在 `remove` 方法里也调用 `ReactDOM.unmountComponentAtNode()` 是非常重要的，因此当它被销毁时 React 移除事件处理器和组件树其它关联的资源。
 
-When a component is removed *from within* a React tree, the cleanup is performed automatically, but because we are removing the entire tree by hand, we must call it this method.
+当组件从 React 树上移除时，会自动执行清除，但是因为我们是通过手工方式移除这个入口，我们必须调用这个方法。
 
 ## Integrating with Model Layers
 
