@@ -191,3 +191,8 @@ ReactDOM.render(
 
 如果你使用 Bower，React 也可以通过 `react` 包获取。
 
+
+
+---
+
+* 下一篇：[Hello World](/cn/docs/hello-world.md)
