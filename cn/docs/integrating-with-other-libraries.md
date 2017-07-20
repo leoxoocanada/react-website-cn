@@ -401,17 +401,17 @@ class List extends React.Component {
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/GmrREm?editors=0010)
 
-### Extracting Data from Backbone Models
+### 从 Backbone Models 中提取数据
 
-The approach above requires your React components to be aware of the Backbone models and collections. If you later plan to migrate to another data management solution, you might want to concentrate the knowledge about Backbone in as few parts of the code as possible.
+上述方法需要你的 React 组件知道 Backbone 模型和集合。如果你以后计划迁移到其它数据管理方案，你肯定不愿意在 Backbone 这里改动太多的代码。
 
-One solution to this is to extract the model's attributes as plain data whenever it changes, and keep this logic in a single place. The following is [a higher-order component](/react/docs/higher-order-components.html) that extracts all attributes of a Backbone model into state, passing the data to the wrapped component.
+一个解决方案是当它改变时提取模型的属性作为纯数据，并且将这个逻辑保留在一个位置。以下是 [一个高阶组件](/cn/docs/higher-order-components.md) 用于提取 Backbone 模型所有的属性到状态(state)，传递数据到包裹组件。
 
-This way, only the higher-order component needs to know about Backbone model internals, and most components in the app can stay agnostic of Backbone.
+这种方式，只有高阶组件需要知道关于 Backbone 模型的内部构造，并且在应用中的大多数组件可以与 Backbone 保持不变。
 
-In the example below, we will make a copy of the model's attributes to form the initial state. We subscribe to the `change` event (and unsubscribe on unmounting), and when it happens, we update the state with the model's current attributes. Finally, we make sure that if the `model` prop itself changes, we don't forget to unsubscribe from the old model, and subscribe to the new one.
+在下面的示例里，我们将复制模型的属性以形成初始状态。我们订阅 `change` 事件 (在 unmounting 中取消订阅),当它发生变化时，我们将通过模型的当前属性更新状态。最终，我们确保如果 `model` 属性自己变化时，不要忘了从以前的模型里取消订阅，并在新的模型里订阅。
 
-Note that this example is not meant to be exhaustive with regards to working with Backbone, but it should give you an idea for how to approach this in a generic way:
+请注意，此示例并不意味着与 Backbone 工作有关的细节，但它应该为您提供如何以通用方式处理这个问题的想法：
 
 ```js{1,5,10,14,16,17,22,26,32}
 function connectToBackboneModel(WrappedComponent) {
@@ -451,7 +451,7 @@ function connectToBackboneModel(WrappedComponent) {
 }
 ```
 
-To demonstrate how to use it, we will connect a `NameInput` React component to a Backbone model, and update its `firstName` attribute every time the input changes:
+为了展示如何使用它，我们将连接一个 `NameInput` React 组件到 Backbone 模型，并且在每次输入改变时更新它的 `firstName` 属性：
 
 ```js{4,6,11,15,19-21}
 function NameInput(props) {
@@ -488,4 +488,4 @@ ReactDOM.render(
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/PmWwwa?editors=0010)
 
-This technique is not limited to Backbone. You can use React with any model library by subscribing to its changes in the lifecycle hooks and, optionally, copying the data into the local React state.
+这种技术不限于 Backbone。 您可以通过在生命周期钩子里订阅其更改，并可选地将数据复制到本地 React 状态，将 React 与任何模型库配合使用。
