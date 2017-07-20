@@ -77,3 +77,6 @@ ReactDOM.render(
 React 是一个 JavaScript 库, 所以需要你对 JavaScript 知识有一个基本的了解。如果你不是很自信，我们推荐看一下 [refreshing your JavaScript knowledge](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) ，这样才能更容易跟上脚步。
 
 在示例中我们会使用一些 ES6 语法。因为它相对来说比较新，所以我们尽量谨慎的使用它，但是我们鼓励你熟悉一下[箭头函数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [类](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [模板字符串](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`声明](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 。你可以使用 [在线 Babel 转换器（Babel REPL）](http://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015%2Creact&experimental=false&loose=false&spec=false&code=const%20element%20%3D%20%3Ch1%3EHello%2C%20world!%3C%2Fh1%3E%3B%0Aconst%20container%20%3D%20document.getElementById('root')%3B%0AReactDOM.render(element%2C%20container)%3B%0A) 查看E6的代码编译。
+
+* 上一篇：[安装](/cn/docs/installation.md)
+* 下一篇：[JSX 介绍](/cn/docs/introducing-jsx.md)
