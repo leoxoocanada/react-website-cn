@@ -333,17 +333,17 @@ const ParagraphView = Backbone.View.extend({
 
 当组件从 React 树上移除时，会自动执行清除，但是因为我们是通过手工方式移除这个入口，我们必须调用这个方法。
 
-## Integrating with Model Layers
+## 与模型层(Model Layers)集成
 
-While it is generally recommended to use unidirectional data flow such as [React state](/react/docs/lifting-state-up.html), [Flux](http://facebook.github.io/flux/), or [Redux](http://redux.js.org/), React components can use a model layer from other frameworks and libraries.
+虽然一般来说推荐使用单向数据流，比如 [React state](/cn/docs/lifting-state-up.md), [Flux](http://facebook.github.io/flux/), or [Redux](http://redux.js.org/), 但是 React 组件也能使用其它框架和库的模型层。
 
-### Using Backbone Models in React Components
+### 在 React 组件中使用 Backbone Models
 
-The simplest way to consume [Backbone](http://backbonejs.org/) models and collections from a React component is to listen to the various change events and manually force an update.
+在 React 组件里使用 [Backbone](http://backbonejs.org/) 模型(Models)和集合(Collections)的最简单的方法是监听 change 事件并手动强制更新。
 
-Components responsible for rendering models would listen to `'change'` events, while components responsible for rendering collections would listen for `'add'` and `'remove'` events. In both cases, call [`this.forceUpdate()`](/react/docs/react-component.html#forceupdate) to rerender the component with the new data.
+负责渲染模型(Models)的组件将监听 `'change'` 事件，而负责渲染集合(Collections)的组件将监听 `'add'` 和 `'remove'` 事件。这两种情况里，调用 [`this.forceUpdate()`](/cn/docs/react-component.md#forceupdate) 以使用新数据重新渲染组件。
 
-In the example below, the `List` component renders a Backbone collection, using the `Item` component to render individual items.
+在下面的示例中，`List` 组件渲染 Backbone 集合(Collections)，使用 `Item` 组件渲染单个的项目。
 
 ```js{1,7-9,12,16,24,30-32,35,39,46}
 class Item extends React.Component {
