@@ -518,3 +518,9 @@ ReactDOM.render(
 每个 `Clock` 创建它自己的定时顺并且独立更新。
 
 在 React 应用中, 一个组件不管是有状态还是无状态，都被认为是组件的实现细节，随时都可能会改变。你可以在有状态的组件里使用无状态组件， 反之亦然。
+
+
+---
+
+* 上一篇：[组件和Props](/cn/docs/components-and-props.md)
+* 下一篇：[事件处理](/cn/docs/handling-events.md)
