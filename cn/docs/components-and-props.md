@@ -304,3 +304,8 @@ function withdraw(account, amount) {
 **所有的 React 组件都必须是纯函数组件，并禁止修改其自身的 props**
 
 当然，应用程序 UI 总是动态改变的。在 [下一章节](/cn/docs/state-and-lifecycle.md)，我们将学习一种新的概念 "状态(state)"。状态允许 React 组件在不违反上述规则的情况下，随时改变它们的输出以响应用户的行为、网络请求或随便什么东西。
+
+---
+
+* 上一篇：[渲染元素](/cn/docs/rendering-elements.md)
+* 下一篇：[State和生命周期](/cn/docs/state-and-lifecycle.md)
