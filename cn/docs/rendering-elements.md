@@ -143,3 +143,10 @@ React DOM 会将元素和它的子元素与之前的版本相对比，并只对�
 虽然我们每隔一秒都重建了整个 UI 界面，但是整个内容中只有文本节点通被 React DOM 更新。
 
 根据我们的经验，关注每个时间点UI的表现, 而不是关注随着时间不断更新UI的状态, 可以减少很多奇怪的 bug 。
+
+
+
+---
+
+* 上一篇：[JSX 介绍](/cn/docs/introducing-jsx.md)
+* 下一篇：[组件和Props](/cn/docs/components-and-props.md)
