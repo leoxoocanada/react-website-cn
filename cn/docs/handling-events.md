@@ -7,7 +7,7 @@
 #### 快速入门
 
 * [安装](/cn/docs/installation.md)
-* [Hello World](/cn/docs/hello-world.md")
+* [Hello World](/cn/docs/hello-world.md)
 * [JSX 介绍](/cn/docs/introducing-jsx.md)
 * [渲染元素](/cn/docs/rendering-elements.md)
 * [组件和Props](/cn/docs/components-and-props.md)
@@ -187,3 +187,9 @@ class LoggingButton extends React.Component {
 ```
 
 这个语法的问题是每次 `LoggingButton` 渲染的时候都会创建一个不同的回调。多数情况下, 这是没有问题的. 然而, 如果这个回调是作为属性(prop)传递到下级组件，这些组件可能需要额外的重复渲染. 我们通常建议在 constructor  中绑定或使用属性初始化语法，以避开这种性能问题。
+
+
+---
+
+* 上一篇：[State和生命周期](/cn/docs/state-and-lifecycle.md)
+* 下一篇：[条件渲染](/cn/docs/conditional-rendering.md)
