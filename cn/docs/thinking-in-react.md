@@ -7,7 +7,7 @@
 #### 快速入门
 
 * [安装](/cn/docs/installation.md)
-* [Hello World](/cn/docs/hello-world.md")
+* [Hello World](/cn/docs/hello-world.md)
 * [JSX 介绍](/cn/docs/introducing-jsx.md)
 * [渲染元素](/cn/docs/rendering-elements.md)
 * [组件和Props](/cn/docs/components-and-props.md)
@@ -193,3 +193,8 @@ React 明确的数据流使得很容易理解你的程序如何工作, 但是相
 ## 就是这么简单
 
 非常希望，这篇文章给你一些通过 React 如何去思考构建组件和应用的想法。有可能它会比你过去习惯的写法多一些代码，记得代码是阅读比写更重要，并且模块化、结构清晰的代码是非常容易阅读。当你构建一个大型组件库的时候，你将感谢这些结构清晰、模块化、和可以复用的代码，同时你的代码行数将慢慢减少. :)
+
+---
+
+* 上一篇：[组合 vs 继承](/cn/docs/composition-vs-inheritance.md)
+* 下一篇：[深入JSX](/cn/docs/jsx-in-depth.md)
