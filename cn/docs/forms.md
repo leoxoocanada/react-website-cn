@@ -7,7 +7,7 @@
 #### 快速入门
 
 * [安装](/cn/docs/installation.md)
-* [Hello World](/cn/docs/hello-world.md")
+* [Hello World](/cn/docs/hello-world.md)
 * [JSX 介绍](/cn/docs/introducing-jsx.md)
 * [渲染元素](/cn/docs/rendering-elements.md)
 * [组件和Props](/cn/docs/components-and-props.md)
@@ -306,3 +306,8 @@ this.setState(partialState);
 ## 受控组件的替代方案
 
 有时候使用受控组件是单调乏味的，因为你需要为每一个可更改的数据写一个事件处理器，并且通过 React 组件管理所有输入状态。当你转换一个现有的代码库到 React 时，或者将一个 React 应用和一个非 React 整合时，这可能会变得特别讨厌。在这种情况下，你可能需要使用 [不受控组件](/cn/docs/uncontrolled-components.md) ，用于实现输入表单的替代技术。
+
+---
+
+* 上一篇：[列表和键](/cn/docs/lists-and-keys.md)
+* 下一篇：[状态提升](/cn/docs/lifting-state-up.md)
