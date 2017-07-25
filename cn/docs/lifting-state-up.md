@@ -7,7 +7,7 @@
 #### 快速入门
 
 * [安装](/cn/docs/installation.md)
-* [Hello World](/cn/docs/hello-world.md")
+* [Hello World](/cn/docs/hello-world.md)
 * [JSX 介绍](/cn/docs/introducing-jsx.md)
 * [渲染元素](/cn/docs/rendering-elements.md)
 * [组件和Props](/cn/docs/components-and-props.md)
@@ -368,3 +368,8 @@ class Calculator extends React.Component {
 当你看到 UI 中的错误，你可以使用 [React 开发者工具](https://github.com/facebook/react-devtools) 来检查 props ，并向上遍历树，直到找到负责更新状态的组件。这使你可以跟踪到 bug 的源头：
 
 <img src="/cn/img/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" width="100%">
+
+---
+
+* 上一篇：[表单](/cn/docs/forms.md)
+* 下一篇：[组合 vs 继承](/cn/docs/composition-vs-inheritance.md)
