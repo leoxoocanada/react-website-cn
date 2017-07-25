@@ -7,7 +7,7 @@
 #### 快速入门
 
 * [安装](/cn/docs/installation.md)
-* [Hello World](/cn/docs/hello-world.md")
+* [Hello World](/cn/docs/hello-world.md)
 * [JSX 介绍](/cn/docs/introducing-jsx.md)
 * [渲染元素](/cn/docs/rendering-elements.md)
 * [组件和Props](/cn/docs/components-and-props.md)
@@ -347,3 +347,8 @@ function NumberList(props) {
 [在 CodePen 中试试](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
 有时候这可以产生清晰的代码，但这种风格也能被滥用。就像在 JavaScript 中，由你决定是否为了可读性提取一个变量。记住，如果 `map()` 体中嵌套过多，它可能是[提取组件](/cn/docs/components-and-props.md#extracting-components) 的好时机.
+
+---
+
+* 上一篇：[条件渲染](/cn/docs/conditional-rendering.md)
+* 下一篇：[表单](/cn/docs/forms.md)
