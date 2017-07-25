@@ -7,7 +7,7 @@
 #### 快速入门
 
 * [安装](/cn/docs/installation.md)
-* [Hello World](/cn/docs/hello-world.md")
+* [Hello World](/cn/docs/hello-world.md)
 * [JSX 介绍](/cn/docs/introducing-jsx.md)
 * [渲染元素](/cn/docs/rendering-elements.md)
 * [组件和Props](/cn/docs/components-and-props.md)
@@ -218,3 +218,8 @@ class SignUpDialog extends React.Component {
 使用 props(属性) 和 组合已经足够灵活来明确、安全的定制一个组件的外观和行为，切记，组件可以接受任意的 props(属性) ，包括原始值、React 元素，或者函数。
 
 如果你要在组件间重用非 UI 功能，我们建议将它提取到一个单独的 JavaScript 模块。组件可以导入并使用这些函数，对象或一个类，而不扩展它。
+
+---
+
+* 上一篇：[状态提升](/cn/docs/lifting-state-up.md)
+* 下一篇：[用 React 思考](/cn/docs/thinking-in-react.md)
