@@ -208,3 +208,8 @@ ReactDOM.render(
 ```
 
 `defaultProps` 将被用来确保如果它是没有通过父组件指定值的时候 `this.props.name` 将有一个值。`propTypes` 类型检查发生在 `defaultProps` 解析之后，因此也会对 `defaultProps` 进行类型检查.
+
+---
+
+* 上一篇：[深入JSX](/cn/docs/jsx-in-depth.md)
+* 下一篇：[Refs 和 DOM](/cn/docs/refs-and-the-dom.md)
