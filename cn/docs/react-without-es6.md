@@ -273,3 +273,9 @@ ReactDOM.render(
 ```
 
 如果一个组件是使用多个 mixins，且几个 mixins 定时相同的命名空间方法（也就是说当组件被销毁时几个 mixins 要做一些清除的事），所有的命名空间方法都会被调用。在组件内部的生命周期方法执行完毕后，mixin中的方法将会按照mixin的顺序依次执行。
+
+
+---
+
+* 上一篇：[性能优化](/cn/docs/optimizing-performance.md)
+* 下一篇：[不使用 JSX 的 React](/cn/docs/react-without-jsx.md)
