@@ -107,3 +107,8 @@ const proto = Object.create(HTMLElement.prototype, {
 });
 document.registerElement('x-search', {prototype: proto});
 ```
+
+---
+
+* 上一篇：[上下文（Context）](/cn/docs/context.md)
+* 下一篇：[高阶组件](/cn/docs/higher-order-components.md)
