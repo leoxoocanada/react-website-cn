@@ -37,7 +37,7 @@
 
 #### 参考
 
-* [React](/cn/docs/react-api.md)
+* [React API](/cn/docs/react-api.md)
 * [React.Component](/cn/docs/react-component.md)
 * [ReactDOM](/cn/docs/react-dom.md)
 * [ReactDOMServer](/cn/docs/react-dom-server.md)
@@ -489,3 +489,9 @@ ReactDOM.render(
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/PmWwwa?editors=0010)
 
 这种技术不限于 Backbone。 您可以通过在生命周期钩子里订阅其更改，并可选地将数据复制到本地 React 状态，将 React 与任何模型库配合使用。
+
+
+---
+
+* 上一篇：[高阶组件](/cn/docs/higher-order-components.md)
+* 下一篇：[React API](/cn/docs/react-api.md)
