@@ -108,3 +108,9 @@ ReactDOM.render(
 如果你为 `React.createElement` 使用这个速记变量，在没有 JSX 的情况下使用 React 是非常方便的。
 
 或者，你能参考社区项目如 [`react-hyperscript`](https://github.com/mlmorg/react-hyperscript) 和 [`hyperscript-helpers`](https://github.com/ohanhi/hyperscript-helpers)，它们提供了更简洁的语法。 
+
+
+---
+
+* 上一篇：[不使用 ES6 的 React](/cn/docs/react-without-es6.md)
+* 下一篇：[一致性比较（Reconciliation）](/cn/docs/reconciliation.md)
