@@ -470,3 +470,9 @@ this.inputEl.focus();
 ```
 
 这不是一个完美的解决方案。我们更喜欢 refs 保留在图书馆里，而不是需要你手动的处理它们。我们正在探索解决这个问题的方法，以便使用 HOC 是无感知的。
+
+
+---
+
+* 上一篇：[Web Components](/cn/docs/web-components.md)
+* 下一篇：[与其它类库集成](/cn/docs/integrating-with-other-libraries.md)
