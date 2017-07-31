@@ -114,7 +114,7 @@ class MessageList extends React.Component {
 
 在这个例子中，我们手动传递一个 `color` 属性使得 `Button` 和 `Message` 组件正确的显示样式。使用 context，我们能通过树自动的传递：
 
-```javascript{6,13-15,21,28-30,40-42}
+```javascript
 const PropTypes = require('prop-types');
 
 class Button extends React.Component {
