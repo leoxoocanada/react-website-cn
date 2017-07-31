@@ -438,3 +438,9 @@ x === y; // false
 其它两个能帮助我们使用不可变数据的库分别是 [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) 和 [immutability-helper](https://github.com/kolodny/immutability-helper).
 
 不可变数据结构提供了一种简单的方式追踪对象的变化，这正是我们实现 `shouldComponentUpdate` 所需要的. 这经常能给你带来可观的性能提升.
+
+
+---
+
+* 上一篇：[不可控组件](/cn/docs/uncontrolled-components.md)
+* 下一篇：[不使用 ES6 的 React](/cn/docs/react-without-es6.md)
