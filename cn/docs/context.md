@@ -262,6 +262,8 @@ MediaQuery.childContextTypes = {
 ```
 
 问题是，如果由组件提供的 context 值更改，则使用该值的后代如果中间父项从`shouldComponentUpdate'返回`false`将不会更新。 这完全不能使用 context 来控制组件，所以基本上没有办法可靠地更新 context。 [这个博客文章](https://medium.com/@mweststrate/how-to-safely-use-react-context-b7e343eff076) 有一个很好的解释，为什么这是一个问题，以及如何绕过它。
+
+
 ---
 
 * 上一篇：[一致性比较（Reconciliation）](/cn/docs/reconciliation.md)
