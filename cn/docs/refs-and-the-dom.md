@@ -7,7 +7,7 @@
 #### 快速入门
 
 * [安装](/cn/docs/installation.md)
-* [Hello World](/cn/docs/hello-world.md")
+* [Hello World](/cn/docs/hello-world.md)
 * [JSX 介绍](/cn/docs/introducing-jsx.md)
 * [渲染元素](/cn/docs/rendering-elements.md)
 * [组件和Props](/cn/docs/components-and-props.md)
@@ -267,3 +267,9 @@ class Grandparent extends React.Component {
 ### 警告
 
 如果 `ref` 回调是以内联方式定义，在更新期间会被调用两次，第一次参数是 `null` ，之后参数是 DOM 元素。这是因为每次渲染时一个新的函数实例被创建，因此 eact 需要清除旧的 ref 并且设置新的。通过将 ref 的回调函数定义成类的绑定函数的方式可以避免上述问题，但是在大多数例子中这都不是很重要。
+
+
+---
+
+* 上一篇：[使用 PropTypes 做类型检查](/cn/docs/typechecking-with-proptypes.md)
+* 下一篇：[不可控组件](/cn/docs/uncontrolled-components.md)
