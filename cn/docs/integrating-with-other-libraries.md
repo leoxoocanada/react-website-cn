@@ -74,7 +74,7 @@ React 不知道在 React 以外对 DOM 的修改。它决定更新是基于它�
 
 为了防止 React 在挂载之后接触 DOM，我们将从 `render()` 方法中返回一个空的 `<div />` 。这个 `<div />` 元素没有属性或子元素，因此 React 无须更新它，让 jQuery 插件可以自由的管理 DOM 的一部分：
 
-```js{3,4,8,12}
+```javascript
 class SomePlugin extends React.Component {
   componentDidMount() {
     this.$el = $(this.el);
@@ -107,7 +107,7 @@ class SomePlugin extends React.Component {
 
 假设这是我们正在使用的 `<Chosen>` 包装器 React 组件的API。
 
-```js
+```javascript
 function Example() {
   return (
     <Chosen onChange={value => console.log(value)}>
@@ -123,7 +123,7 @@ function Example() {
 
 首先，我们将创建一个带有 `render()` 方法的空组件，它返回一个包裹在 `<div>` 里的`<select>`：
 
-```js{4,5}
+```javascript
 class Chosen extends React.Component {
   render() {
     return (
@@ -141,7 +141,7 @@ class Chosen extends React.Component {
 
 接下来，我们将实现生命周期钩子。我们需要使用'componentDidMount`中的`<select>`节点的引用来初始化Chosen，并且在 `componentWillUnmount` 里销毁它:
 
-```js{2,3,7}
+```javascript
 componentDidMount() {
   this.$el = $(this.el);
   this.$el.chosen();
@@ -164,7 +164,7 @@ componentWillUnmount() {
 
 我们将不会直接传递 `this.props.onChange` 给 Chosen，因为组件的属性（props）可能随时会改变，并且包含事件处理器。相反，我们将声明一个 `handleChange()` 方法去调用 `this.props.onChange`，并且将其订阅到 jQuery `change` 事件：
 
-```js{5,6,10,14-16}
+```javascript
 componentDidMount() {
   this.$el = $(this.el);
   this.$el.chosen();
@@ -189,7 +189,7 @@ handleChange(e) {
 
 Chosen 文档建议我们能使用 jQuery `trigger()` API 来通知它有关原始 DOM 元素的变动。我们将让 React 注意更新 `<select>` 内部的 `this.props.children` ，但是我们也将添加一个 `componentDidUpdate()` 生命周期钩子来通知 Chosen 关于子节点列表的变化：
 
-```js{2,3}
+```javascript
 componentDidUpdate(prevProps) {
   if (prevProps.children !== this.props.children) {
     this.$el.trigger("chosen:updated");
@@ -201,7 +201,7 @@ componentDidUpdate(prevProps) {
 
 `Chosen` 组件完整的实现看起来像这样：
 
-```js
+```javascript
 class Chosen extends React.Component {
   componentDidMount() {
     this.$el = $(this.el);
@@ -254,7 +254,7 @@ React 能被嵌入到其它的应用，这多亏了灵活的[`ReactDOM.render()`
 
 因此，下面的 jQuery 实现...
 
-```js
+```javascript
 $('#container').html('<button id="btn">Say Hello</button>');
 $('#btn').click(function() {
   alert('Hello!');
@@ -263,7 +263,7 @@ $('#btn').click(function() {
 
 ...可以被作为 React 组件重写:
 
-```js
+```javascript
 function Button() {
   return <button id="btn">Say Hello</button>;
 }
@@ -281,7 +281,7 @@ ReactDOM.render(
 
 从这里你可以开始移动更多的逻辑到组件，并且采用更多常见的 React 实践。例如，在组件里最好不要依赖 ID，因为同一个组件会被多次渲染。相反，我们将使用 [React 事件系统](/cn/docs/handling-events.md) 并且在 React  `<button>` 元素上注册点击处理程序：
 
-```js{2,6,9}
+```javascript
 function Button(props) {
   return <button onClick={props.onClick}>Say Hello</button>;
 }
@@ -309,7 +309,7 @@ ReactDOM.render(
 
 下面我们将创建一个名为 `ParagraphView` 的Backbone视图。 它将覆盖Backbone的 `render()` 函数，以将React `<Paragraph>` 组件渲染到由Backbone（`this.el`）提供的DOM元素中。 这里也是使用 [`ReactDOM.render()`](/cn/docs/react-dom.md#render):
 
-```js{1,5,8,12}
+```javascript
 function Paragraph(props) {
   return <p>{props.text}</p>;
 }
@@ -345,7 +345,7 @@ const ParagraphView = Backbone.View.extend({
 
 在下面的示例中，`List` 组件渲染 Backbone 集合(Collections)，使用 `Item` 组件渲染单个的项目。
 
-```js{1,7-9,12,16,24,30-32,35,39,46}
+```javascript
 class Item extends React.Component {
   constructor(props) {
     super(props);
@@ -413,7 +413,7 @@ class List extends React.Component {
 
 请注意，此示例并不意味着与 Backbone 工作有关的细节，但它应该为您提供如何以通用方式处理这个问题的想法：
 
-```js{1,5,10,14,16,17,22,26,32}
+```javascript
 function connectToBackboneModel(WrappedComponent) {
   return class BackboneComponent extends React.Component {
     constructor(props) {
@@ -453,7 +453,7 @@ function connectToBackboneModel(WrappedComponent) {
 
 为了展示如何使用它，我们将连接一个 `NameInput` React 组件到 Backbone 模型，并且在每次输入改变时更新它的 `firstName` 属性：
 
-```js{4,6,11,15,19-21}
+```javascript
 function NameInput(props) {
   return (
     <p>
