@@ -56,11 +56,11 @@
 
 # React API
 
-`React` is the entry point to the React library. If you load React from a `<script>` tag, these top-level APIs are available on the `React` global. If you use ES6 with npm, you can write `import React from 'react'`. If you use ES5 with npm, you can write `var React = require('react')`.
+`React` 是 React 库的入口. 如果你是从 `<script>` 标签加载 React, 这些顶层的 API 可以在 `React` 全局变量中使用. 如果你通过 npm 使用 ES6, 可以这么写 `import React from 'react'`. 如果你通过 npm 使用 ES5 , 可以这么写 `var React = require('react')`.
 
-## Overview
+## 概览
 
-### Components
+### 组件
 
 React components let you split the UI into independent, reusable pieces, and think about each piece in isolation. React components can be defined by subclassing `React.Component` or `React.PureComponent`.
 
@@ -69,7 +69,7 @@ React components let you split the UI into independent, reusable pieces, and thi
 
 If you don't use ES6 classes, you may use the `create-react-class` module instead. See [Using React without ES6](/react/docs/react-without-es6.html) for more information.
 
-### Creating React Elements
+### 创建 React 元素
 
 We recommend [using JSX](/react/docs/introducing-jsx.html) to describe what your UI should look like. Each JSX element is just syntactic sugar for calling [`React.createElement()`](#createelement). You will not typically invoke the following methods directly if you are using JSX.
 
@@ -78,7 +78,7 @@ We recommend [using JSX](/react/docs/introducing-jsx.html) to describe what your
 
 See [Using React without JSX](/react/docs/react-without-jsx.html) for more information.
 
-### Transforming Elements
+### 转换元素
 
 `React` also provides some other APIs:
 
@@ -88,7 +88,7 @@ See [Using React without JSX](/react/docs/react-without-jsx.html) for more infor
 
 * * *
 
-## Reference
+## 参考
 
 ### `React.Component`
 
