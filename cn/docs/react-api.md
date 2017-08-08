@@ -62,7 +62,7 @@
 
 ### 组件
 
-React components let you split the UI into independent, reusable pieces, and think about each piece in isolation. React components can be defined by subclassing `React.Component` or `React.PureComponent`.
+React 组件让你将 UI 拆分到独立的、可复用的块，并分别考虑每个块。React 组件可以通过 `React.Component` 或 `React.PureComponent` 的子类来定义.
 
  - [`React.Component`](#react.component)
  - [`React.PureComponent`](#react.purecomponent)
