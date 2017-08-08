@@ -71,12 +71,12 @@ React 组件让你将 UI 拆分到独立的、可复用的块，并分别考虑�
 
 ### 创建 React 元素
 
-We recommend [using JSX](/react/docs/introducing-jsx.html) to describe what your UI should look like. Each JSX element is just syntactic sugar for calling [`React.createElement()`](#createelement). You will not typically invoke the following methods directly if you are using JSX.
+我们建议 [使用 JSX](/cn/docs/introducing-jsx.md) 来描述你的 UI 看起来应该长什么样. 每个 JSX 元素只是调用 [`React.createElement()`](#createelement) 的语法糖. 如果使用 JSX ，你将不需要直接调用下面的方法.
 
 - [`createElement()`](#createelement)
 - [`createFactory()`](#createfactory)
 
-See [Using React without JSX](/react/docs/react-without-jsx.html) for more information.
+查看 [Using React without JSX](/cn/docs/react-without-jsx.md) 了解更多信息.
 
 ### 转换元素
 
