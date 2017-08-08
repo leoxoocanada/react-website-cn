@@ -76,11 +76,11 @@ React 组件让你将 UI 拆分到独立的、可复用的块，并分别考虑�
 - [`createElement()`](#createelement)
 - [`createFactory()`](#createfactory)
 
-查看 [Using React without JSX](/cn/docs/react-without-jsx.md) 了解更多信息.
+查看 [不使用 JSX 的 React](/cn/docs/react-without-jsx.md) 了解更多信息.
 
 ### 转换元素
 
-`React` also provides some other APIs:
+`React` 还提供了一些其他API：
 
 - [`cloneElement()`](#cloneelement)
 - [`isValidElement()`](#isvalidelement)
@@ -92,7 +92,7 @@ React 组件让你将 UI 拆分到独立的、可复用的块，并分别考虑�
 
 ### `React.Component`
 
-`React.Component` is the base class for React components when they are defined using [ES6 classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes).
+`React.Component` 是使用 [ES6 classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) 来定义 React 组件的基类.
 
 ```javascript
 class Greeting extends React.Component {
@@ -102,7 +102,7 @@ class Greeting extends React.Component {
 }
 ```
 
-See the [React.Component API Reference](/react/docs/react-component.html) for a list of methods and properties related to the base `React.Component` class.
+查看 [React.Component API 参考](/cn/docs/react-component.md) 查看有关基于 `React.Component` 类的方法和属性列表.
 
 * * *
 
