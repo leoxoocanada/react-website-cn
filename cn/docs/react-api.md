@@ -108,15 +108,16 @@ class Greeting extends React.Component {
 
 ### `React.PureComponent`
 
-`React.PureComponent` is exactly like [`React.Component`](#react.component) but implements [`shouldComponentUpdate()`](/react/docs/react-component.html#shouldcomponentupdate) with a shallow prop and state comparison.
+`React.PureComponent` 与 [`React.Component`](#react.component) 完全一样，但使用浅属性和状态来实现 [`shouldComponentUpdate()`](/cn/docs/react-component.md#shouldcomponentupdate) 比较.
 
-If your React component's `render()` function renders the same result given the same props and state, you can use `React.PureComponent` for a performance boost in some cases.
+如果你的 React 组件的 `render()` 方法在给定同样属性和状态下渲染同样的结果，你能使用 `React.PureComponent` 在某些情况下提升性能。
 
-> Note
+> 提示
 
-> `React.PureComponent`'s `shouldComponentUpdate()` only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only extend `PureComponent` when you expect to have simple props and state, or use [`forceUpdate()`](/react/docs/react-component.html#forceupdate) when you know deep data structures have changed. Or, consider using [immutable objects](https://facebook.github.io/immutable-js/) to facilitate fast comparisons of nested data.
+> `React.PureComponent` 的 `shouldComponentUpdate()` 只会做对象浅比较。如果他们包含复杂的数据结构，它可能会产生漏报率，导致更深层次的偏差。 当你预期有简单的属性和状态时，只需要扩展 `PureComponent`，或者当你知道深层次数据结构已经改变时使用 [`forceUpdate()`](/cn/docs/react-component.md#forceupdate) 。或者考虑使用 [不可变对象](https://facebook.github.io/immutable-js/) 促进嵌套数据的快速比较。
 >
 > Furthermore, `React.PureComponent`'s `shouldComponentUpdate()` skips prop updates for the whole component subtree. Make sure all the children components are also "pure".
+> 此外，`React.PureComponent` 的 `shouldComponentUpdate（）` 跳过整个组件子树的属性更新。 确保所有的子组件也是 "纯(pure)"。
 
 * * *
 
