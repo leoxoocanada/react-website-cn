@@ -67,7 +67,7 @@ React 组件让你将 UI 拆分到独立的、可复用的块，并分别考虑�
  - [`React.Component`](#react.component)
  - [`React.PureComponent`](#react.purecomponent)
 
-If you don't use ES6 classes, you may use the `create-react-class` module instead. See [Using React without ES6](/react/docs/react-without-es6.html) for more information.
+如果你不使用 ES6 类(classes), 你可以使用 `create-react-class` 模块代替. 查看 [不使用 ES6 的 React](/cn/docs/react-without-es6.md)  了解更多信息.
 
 ### 创建 React 元素
 
