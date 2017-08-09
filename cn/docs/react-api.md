@@ -188,7 +188,7 @@ React.isValidElement(object)
 
 ### `React.Children`
 
-`React.Children` 提供了处理 `this.props.children` 不透明数据结构的工具。
+`React.Children` 提供了处理 `this.props.children` 这样的不透明数据结构的实用程序。
 
 #### `React.Children.map`
 
