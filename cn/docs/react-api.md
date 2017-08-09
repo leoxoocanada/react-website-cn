@@ -116,7 +116,7 @@ class Greeting extends React.Component {
 
 > `React.PureComponent` 的 `shouldComponentUpdate()` 只会做对象浅比较。如果他们包含复杂的数据结构，它可能会产生漏报率，导致更深层次的偏差。 当你预期有简单的属性和状态时，只需要扩展 `PureComponent`，或者当你知道深层次数据结构已经改变时使用 [`forceUpdate()`](/cn/docs/react-component.md#forceupdate) 。或者考虑使用 [不可变对象](https://facebook.github.io/immutable-js/) 促进嵌套数据的快速比较。
 >
-> 此外，`React.PureComponent` 的 `shouldComponentUpdate（）` 跳过整个组件子树的属性更新。 确保所有的子组件也是 "纯(pure)"。
+> 此外，`React.PureComponent` 的 `shouldComponentUpdate（）` 跳过整个组件子树的属性更新。 确保所有的子组件也是 "纯的(pure)"。
 
 * * *
 
