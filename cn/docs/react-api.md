@@ -131,11 +131,11 @@ React.createElement(
 )
 ```
 
-Create and return a new [React element](/react/docs/rendering-elements.html) of the given type. The type argument can be either a tag name string (such as `'div'` or `'span'`), or a [React component](/react/docs/components-and-props.html) type (a class or a function).
+创建并返回一个给定类型的新 [React 元素](/cn/docs/rendering-elements.md) . type 参数可以是一个标签名字符串 (如 `'div'` 或 `'span'`), 或一个 [React 组件](/cn/docs/components-and-props.md) 类型 (一个类（class）或函数（ function）).
 
-Convenience wrappers around `React.createElement()` for DOM components are provided by `React.DOM`. For example, `React.DOM.a(...)` is a convenience wrapper for `React.createElement('a', ...)`. They are considered legacy, and we encourage you to either use JSX or use `React.createElement()` directly instead.
+`React.DOM` 提供了 DOM 组件 `React.createElement()` 的快捷包装. 例如, `React.DOM.a(...)` 是 `React.createElement('a', ...)` 的快捷包装. 它们是历史遗留下来的功能，我们鼓励你使用 JSX 或直接使用 `React.createElement()`.
 
-Code written with [JSX](/react/docs/introducing-jsx.html) will be converted to use `React.createElement()`. You will not typically invoke `React.createElement()` directly if you are using JSX. See [React Without JSX](/react/docs/react-without-jsx.html) to learn more.
+通过 [JSX](/cn/docs/introducing-jsx.md) 写代码将转换为使用 `React.createElement()`. 如果你使用 JSX ，那你将不必直接调用 `React.createElement()` . 查看 [不使用 JSX 的 React](/react/docs/react-without-jsx.html) 了解更多.
 
 * * *
 
