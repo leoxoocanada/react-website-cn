@@ -134,7 +134,7 @@ React.createElement(
 
 `React.DOM` 提供了 DOM 组件 `React.createElement()` 的快捷包装. 例如, `React.DOM.a(...)` 是 `React.createElement('a', ...)` 的快捷包装. 它们是历史遗留下来的功能，我们鼓励你使用 JSX 或直接使用 `React.createElement()`.
 
-通过 [JSX](/cn/docs/introducing-jsx.md) 写代码将转换为使用 `React.createElement()`. 如果你使用 JSX ，那你将不必直接调用 `React.createElement()` . 查看 [不使用 JSX 的 React](/react/docs/react-without-jsx.html) 了解更多.
+通过 [JSX](/cn/docs/introducing-jsx.md) 写代码将转换为使用 `React.createElement()`. 如果你使用 JSX ，那你将不必直接调用 `React.createElement()` . 查看 [不使用 JSX 的 React](/cn/docs/react-without-jsx.md) 了解更多.
 
 * * *
 
@@ -172,7 +172,7 @@ React.createFactory(type)
 
 这个辅助方法是一个历史遗留功能，我们鼓励你使用 JSX 或直接使用 `React.createElement()`.
 
-如果你使用 JSX ，那你将不必直接调用 `React.createFactory()` . 查看 [不使用 JSX 的 React](/react/docs/react-without-jsx.html) 了解更多.
+如果你使用 JSX ，那你将不必直接调用 `React.createFactory()` . 查看 [不使用 JSX 的 React](/cn/docs/react-without-jsx.md) 了解更多.
 
 * * *
 
