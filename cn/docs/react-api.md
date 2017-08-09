@@ -169,11 +169,11 @@ React.cloneElement(
 React.createFactory(type)
 ```
 
-Return a function that produces React elements of a given type. Like [`React.createElement()`](#createElement), the type argument can be either a tag name string (such as `'div'` or `'span'`), or a [React component](/react/docs/components-and-props.html) type (a class or a function).
+返回一个生成给定类型的 React 元素的函数。类似 [`React.createElement()`](#createElement)，type 参数可以是一个标签名字符串(如 `'div'` 或 `'span'`)，或一个 [React 组件](/cn/docs/components-and-props.md) 类型 (一个类（class）或函数（ function）).
 
-This helper is considered legacy, and we encourage you to either use JSX or use `React.createElement()` directly instead.
+这个辅助方法是一个历史遗留功能，我们鼓励你使用 JSX 或直接使用 `React.createElement()`.
 
-You will not typically invoke `React.createFactory()` directly if you are using JSX. See [React Without JSX](/react/docs/react-without-jsx.html) to learn more.
+如果你使用 JSX ，那你将不必直接调用 `React.createFactory()` . 查看 [不使用 JSX 的 React](/react/docs/react-without-jsx.html) 了解更多.
 
 * * *
 
