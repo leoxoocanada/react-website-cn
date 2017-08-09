@@ -183,13 +183,13 @@ React.createFactory(type)
 React.isValidElement(object)
 ```
 
-Verifies the object is a React element. Returns `true` or `false`.
+验证对象是不是一个 React 元素。 返回 `true` 或 `false`。
 
 * * *
 
 ### `React.Children`
 
-`React.Children` provides utilities for dealing with the `this.props.children` opaque data structure.
+`React.Children` 提供了处理 `this.props.children` 不透明数据结构的工具。
 
 #### `React.Children.map`
 
@@ -197,7 +197,7 @@ Verifies the object is a React element. Returns `true` or `false`.
 React.Children.map(children, function[(thisArg)])
 ```
 
-Invokes a function on every immediate child contained within `children` with `this` set to `thisArg`. If `children` is a keyed fragment or array it will be traversed: the function will never be passed the container objects. If children is `null` or `undefined`, returns `null` or `undefined` rather than an array.
+在每个包含在 `children` 里的直接子节点上执行一个函数，通过 `this` 设置到 `thisArg`。如果 `children` 是一个键控的片段或数组，它将被遍历：该函数永远不会传递容器对象。如果 `children` 是 `null` 或 `undefined`，返回 `null` 或 `undefined` 而不是一个数组
 
 #### `React.Children.forEach`
 
@@ -205,7 +205,7 @@ Invokes a function on every immediate child contained within `children` with `th
 React.Children.forEach(children, function[(thisArg)])
 ```
 
-Like [`React.Children.map()`](#react.children.map) but does not return an array.
+类似 [`React.Children.map()`](#react.children.map) 但不返回数组.
 
 #### `React.Children.count`
 
@@ -213,7 +213,7 @@ Like [`React.Children.map()`](#react.children.map) but does not return an array.
 React.Children.count(children)
 ```
 
-Returns the total number of components in `children`, equal to the number of times that a callback passed to `map` or `forEach` would be invoked.
+返回`children`中的组件总数，等于回调传递给 `map` 或 `forEach` 的次数。
 
 #### `React.Children.only`
 
@@ -221,7 +221,7 @@ Returns the total number of components in `children`, equal to the number of tim
 React.Children.only(children)
 ```
 
-Returns the only child in `children`. Throws otherwise.
+返回 `children` 中唯一的子节点。抛弃其它的子节点。
 
 #### `React.Children.toArray`
 
@@ -229,11 +229,11 @@ Returns the only child in `children`. Throws otherwise.
 React.Children.toArray(children)
 ```
 
-Returns the `children` opaque data structure as a flat array with keys assigned to each child. Useful if you want to manipulate collections of children in your render methods, especially if you want to reorder or slice `this.props.children` before passing it down.
+将 `children` 的不透明数据结构作为扁平数组返回，并将键分配给每个子项。 如果您想要在渲染方法中操作子集的集合，尤其是如果要在将其传递下来之前重新排序或 分离 `this.props.children` 时非常有用。
 
-> Note:
+> 注意:
 >
-> `React.Children.toArray()` changes keys to preserve the semantics of nested arrays when flattening lists of children. That is, `toArray` prefixes each key in the returned array so that each element's key is scoped to the input array containing it.
+> `React.Children.toArray（）`改变键，以便在平铺子节点列表时保留嵌套数组的语义。 也就是说，`toArray` 在返回的数组中的每个键作为前缀，以便每个元素的键被限定到包含它的输入数组。
 
 ---
 
