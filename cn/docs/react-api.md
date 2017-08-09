@@ -149,17 +149,17 @@ React.cloneElement(
 )
 ```
 
-Clone and return a new React element using `element` as the starting point. The resulting element will have the original element's props with the new props merged in shallowly. New children will replace existing children. `key` and `ref` from the original element will be preserved.
+复制并返回一个使用 `element` 作为起点的新 React 元素. 所产生的元素将拥有源元素作为浅拷贝合并的属性. 新的子节点将替换现有子节点。 源元素中的 `key` 和 `ref` 将被保留.
 
-`React.cloneElement()` is almost equivalent to:
+`React.cloneElement()` 几乎相当于:
 
 ```js
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
 
-However, it also preserves `ref`s. This means that if you get a child with a `ref` on it, you won't accidentally steal it from your ancestor. You will get the same `ref` attached to your new element.
+但是，它也保留了 `ref`。 这意味着如果你通过 `ref` 获得一个子节点，不会在你的祖先节点中丢失。 您将获得与您的新元素相同的 `ref` 。
 
-This API was introduced as a replacement of the deprecated `React.addons.cloneWithProps()`.
+引入了这个API是作为废弃的 `React.addons.cloneWithProps()`的替代品。
 
 * * *
 
