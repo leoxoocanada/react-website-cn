@@ -72,13 +72,13 @@ class Greeting extends React.Component {
 }
 ```
 
-如果你不使用 ES6，你可以使用 [`create-react-class`](/cn/docs/react-api.md#createclass) 模块来代替. 查看 [不使用 ES6 的 React](/react/docs/react-without-es6.html) 了解更多.
+如果你不使用 ES6，你可以使用 `create-react-class` 模块来代替. 查看 [不使用 ES6 的 React](/react/docs/react-without-es6.html) 了解更多.
 
-### The Component Lifecycle
+### 组件生命周期
 
-Each component has several "lifecycle methods" that you can override to run code at particular times in the process. Methods prefixed with **`will`** are called right before something happens, and methods prefixed with **`did`** are called right after something happens.
+每个组件都有几个 "生命周期方法"，你可以在这个过程中的特定时间覆盖运行代码。前面带有 **`will`** 的方法在事情发生之前被调用，前端带有 **`did`** 的方法在事情发生之后调用。
 
-#### Mounting
+#### 加载（Mounting）
 
 These methods are called when an instance of a component is being created and inserted into the DOM:
 
@@ -87,7 +87,7 @@ These methods are called when an instance of a component is being created and in
 - [`render()`](#render)
 - [`componentDidMount()`](#componentdidmount)
 
-#### Updating
+#### 更新（Updating）
 
 An update can be caused by changes to props or state. These methods are called when a component is being re-rendered:
 
@@ -97,32 +97,32 @@ An update can be caused by changes to props or state. These methods are called w
 - [`render()`](#render)
 - [`componentDidUpdate()`](#componentdidupdate)
 
-#### Unmounting
+#### 卸载（Unmounting）
 
 This method is called when a component is being removed from the DOM:
 
 - [`componentWillUnmount()`](#componentwillunmount)
 
-### Other APIs
+### 其它 API
 
 Each component also provides some other APIs:
 
   - [`setState()`](#setstate)
   - [`forceUpdate()`](#forceupdate)
 
-### Class Properties
+### 类（Class）属性
 
   - [`defaultProps`](#defaultprops)
   - [`displayName`](#displayname)
 
-### Instance Properties
+### 实例（Instance)属性
 
   - [`props`](#props)
   - [`state`](#state)
 
 * * *
 
-## Reference
+## 参考
 
 ### `render()`
 
@@ -348,7 +348,7 @@ Normally you should try to avoid all uses of `forceUpdate()` and only read from 
 
 * * *
 
-## Class Properties
+## 类（Class）属性
 
 ### `defaultProps`
 
@@ -388,7 +388,7 @@ The `displayName` string is used in debugging messages. JSX sets this value auto
 
 * * *
 
-## Instance Properties
+## 实例（Instance）属性
 
 ### `props`
 
