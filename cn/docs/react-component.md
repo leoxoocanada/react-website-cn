@@ -80,7 +80,7 @@ class Greeting extends React.Component {
 
 #### 加载（Mounting）
 
-These methods are called when an instance of a component is being created and inserted into the DOM:
+当创建组件的实例并将其插入到DOM中时，将调用这些方法：
 
 - [`constructor()`](#constructor)
 - [`componentWillMount()`](#componentwillmount)
@@ -89,7 +89,7 @@ These methods are called when an instance of a component is being created and in
 
 #### 更新（Updating）
 
-An update can be caused by changes to props or state. These methods are called when a component is being re-rendered:
+更新可能是 属性 或 状态 的改变引起的。 当重新渲染组件时，将调用这些方法：
 
 - [`componentWillReceiveProps()`](#componentwillreceiveprops)
 - [`shouldComponentUpdate()`](#shouldcomponentupdate)
@@ -99,13 +99,13 @@ An update can be caused by changes to props or state. These methods are called w
 
 #### 卸载（Unmounting）
 
-This method is called when a component is being removed from the DOM:
+当组件从 DOM 中移除时调用这些方法：
 
 - [`componentWillUnmount()`](#componentwillunmount)
 
 ### 其它 API
 
-Each component also provides some other APIs:
+每个组件也提供一些其它的 API：
 
   - [`setState()`](#setstate)
   - [`forceUpdate()`](#forceupdate)
