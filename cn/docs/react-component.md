@@ -130,17 +130,17 @@ class Greeting extends React.Component {
 render()
 ```
 
-The `render()` method is required.
+`render()` 是必须的.
 
-When called, it should examine `this.props` and `this.state` and return a single React element. This element can be either a representation of a native DOM component, such as `<div />`, or another composite component that you've defined yourself.
+调用时，它应该检查 `this.props` 和 `this.state` ，并且返回单个 React 元素. 这个元素可以是一个表示原生 DOM 的组件，类似 `<div />`, 或另一个你自己定义的复合组件.
 
-You can also return `null` or `false` to indicate that you don't want anything rendered. When returning `null` or `false`, `ReactDOM.findDOMNode(this)` will return `null`.
+你也能返回 `null` 或 `false` 用来表明你不做任何渲染。你返回 `null` 或 `false` 时，`ReactDOM.findDOMNode(this)` 将返回 `null`.
 
-The `render()` function should be pure, meaning that it does not modify component state, it returns the same result each time it's invoked, and it does not directly interact with the browser. If you need to interact with the browser, perform your work in `componentDidMount()` or the other lifecycle methods instead. Keeping `render()` pure makes components easier to think about.
+`render()` 函数应该是沌洁的，这意味着它不能修改组件状态，每次调用时它返回同样的结果，并且它不直接与浏览器产生影响。如果你需要在浏览器中发生作用，请在 `componentDidMount()` 或其它生命周期方法中执行，保持 `render()` 的纯洁可以确保组件更容易思考。
 
-> Note
+> 注意
 >
-> `render()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> 如果 [`shouldComponentUpdate()`](#shouldcomponentupdate) 返回 false，`render()` 将不会被调用.
 
 * * *
 
