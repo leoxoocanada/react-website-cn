@@ -150,11 +150,11 @@ render()
 constructor(props)
 ```
 
-The constructor for a React component is called before it is mounted. When implementing the constructor for a `React.Component` subclass, you should call `super(props)` before any other statement. Otherwise, `this.props` will be undefined in the constructor, which can lead to bugs.
+React 组件的 constructor 在加载前调用。 当执行 `React.Component` 子类的 constructor 时，你应该在其它声明前调用 `super(props)` . 否则, `this.props` 在 constructor 里将是 undefined, 这可能会导致 bug.
 
-The constructor is the right place to initialize state. If you don't initialize state and you don't bind methods, you don't need to implement a constructor for your React component.
+constructor 是初始化状态的正确位置。如果你不需要初始化状态，并且不需要绑定方法，你就不需要为 React 组件执行一个constructor。
 
-It's okay to initialize state based on props. This effectively "forks" the props and sets the state with the initial props. Here's an example of a valid `React.Component` subclass constructor:
+根据 props 来初始化状态是可以的。这会有效的 "forks" props，并且根据初始化的 props 来设置 state. 这里有一个有效的 `React.Component` 子类 constructor 示例:
 
 ```js
 constructor(props) {
@@ -165,9 +165,9 @@ constructor(props) {
 }
 ```
 
-Beware of this pattern, as state won't be up-to-date with any props update. Instead of syncing props to state, you often want to [lift the state up](/react/docs/lifting-state-up.html).
+当心这种模式, state 将不会随着任何 props 更新而更新。你不是同步 props 到 state, 而是经常需要 [提升 state ](/cn/docs/lifting-state-up.md).
 
-If you "fork" props by using them for state, you might also want to implement [`componentWillReceiveProps(nextProps)`](#componentwillreceiveprops) to keep the state up-to-date with them. But lifting state up is often easier and less bug-prone.
+如果你通过使用 state 来 "fork" props, 你可能也要执行 [`componentWillReceiveProps(nextProps)`](#componentwillreceiveprops) 来确保 state 随着他们而改变。但提升 state 通常更容易且更不易出错。
 
 * * *
 
