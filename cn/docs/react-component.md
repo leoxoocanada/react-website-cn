@@ -177,9 +177,9 @@ constructor(props) {
 componentWillMount()
 ```
 
-`componentWillMount()` is invoked immediately before mounting occurs. It is called before `render()`, therefore setting state synchronously in this method will not trigger a re-rendering. Avoid introducing any side-effects or subscriptions in this method.
+在加载之前立即调用 `componentWillMount()` 。它在 `render()` 之前执行，因此设置在这个方法里同步设置 state 将不会触发重新渲染。避免在这个方法里引入任何副作用或订阅。
 
-This is the only lifecycle hook called on server rendering. Generally, we recommend using the `constructor()` instead.
+这是在服务器端渲染唯一的调用的生命周期钩子，我们建议使用 `constructor()` 来代替.
 
 * * *
 
