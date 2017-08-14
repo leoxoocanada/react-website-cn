@@ -177,7 +177,7 @@ constructor(props) {
 componentWillMount()
 ```
 
-在加载之前立即调用 `componentWillMount()` 。它在 `render()` 之前执行，因此设置在这个方法里同步设置 state 将不会触发重新渲染。避免在这个方法里引入任何副作用或订阅。
+在挂载之前立即调用 `componentWillMount()` 。它在 `render()` 之前执行，因此设置在这个方法里同步设置 state 将不会触发重绘。避免在这个方法里引入任何副作用或订阅。
 
 这是在服务器端渲染唯一的调用的生命周期钩子，我们建议使用 `constructor()` 来代替.
 
@@ -189,7 +189,7 @@ componentWillMount()
 componentDidMount()
 ```
 
-`componentDidMount()` is invoked immediately after a component is mounted. Initialization that requires DOM nodes should go here. If you need to load data from a remote endpoint, this is a good place to instantiate the network request. Setting state in this method will trigger a re-rendering.
+组件挂载之后立即执行 `componentDidMount()` ，应该在这里初始化 DOM 节点。如果你需要从远端加载数据，这里是实例化网络请求的好地方。在这个方法里设置 state 将触发重绘。
 
 * * *
 
@@ -199,11 +199,11 @@ componentDidMount()
 componentWillReceiveProps(nextProps)
 ```
 
-`componentWillReceiveProps()` is invoked before a mounted component receives new props. If you need to update the state in response to prop changes (for example, to reset it), you may compare `this.props` and `nextProps` and perform state transitions using `this.setState()` in this method.
+已加载的组件接收新 prop 之前立即执行 `componentWillReceiveProps()` 。如果你需要更新状态以响应 prop 变化 (例如重置)，你可以在这个方法里比较 `this.props` 和 `nextProps` ，并通过 `this.setState()` 执行状态转换。
 
-Note that React may call this method even if the props have not changed, so make sure to compare the current and next values if you only want to handle changes. This may occur when the parent component causes your component to re-render.
+注意，即使 prop 没有变化，React 也可能调用这个方法，因此如果你只想在变化时处理，请确保比较当前值和下一个值，这可能会发生在当你的父组件引起的重绘时。
 
-React doesn't call `componentWillReceiveProps` with initial props during [mounting](#mounting). It only calls this method if some of component's props may update. Calling `this.setState` generally doesn't trigger `componentWillReceiveProps`.
+在 [挂载](#mounting) 时的初始化 prop 不会调用 `componentWillReceiveProps`。如果组件的某些 prop 可能更新时，它只会调用这个方法。调用 `this.setState` 通常不会触发  `componentWillReceiveProps`。
 
 * * *
 
