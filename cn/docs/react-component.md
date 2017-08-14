@@ -199,11 +199,11 @@ componentDidMount()
 componentWillReceiveProps(nextProps)
 ```
 
-已加载的组件接收新 prop 之前立即执行 `componentWillReceiveProps()` 。如果你需要更新状态以响应 prop 变化 (例如重置)，你可以在这个方法里比较 `this.props` 和 `nextProps` ，并通过 `this.setState()` 执行状态转换。
+已挂载的组件接收新 prop 之前立即执行 `componentWillReceiveProps()` 。如果你需要更新状态以响应 prop 变化 (例如重置)，你可以在这个方法里比较 `this.props` 和 `nextProps` ，并通过 `this.setState()` 执行状态转换。
 
 注意，即使 prop 没有变化，React 也可能调用这个方法，因此如果你只想在变化时处理，请确保比较当前值和下一个值，这可能会发生在当你的父组件引起的重绘时。
 
-在 [挂载](#mounting) 时的初始化 prop 不会调用 `componentWillReceiveProps`。如果组件的某些 prop 可能更新时，它只会调用这个方法。调用 `this.setState` 通常不会触发  `componentWillReceiveProps`。
+在 [挂载](#mounting) 时的初始化 prop 不会调用 `componentWillReceiveProps`。如果组件的某些 prop 可能更新时，它只会调用这个方法。调用 `this.setState` 通常不会触发 `componentWillReceiveProps`。
 
 * * *
 
@@ -213,15 +213,15 @@ componentWillReceiveProps(nextProps)
 shouldComponentUpdate(nextProps, nextState)
 ```
 
-Use `shouldComponentUpdate()` to let React know if a component's output is not affected by the current change in state or props. The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior.
+使用 `shouldComponentUpdate()` 是为了让 React 知道组件的输出是否会被 state 或 prop 当前的变化所影响。默认行为是在每次 state 状态变化时重绘，在绝大多数情况下，你应该依赖默认行为。
 
-`shouldComponentUpdate()` is invoked before rendering when new props or state are being received. Defaults to `true`. This method is not called for the initial render or when `forceUpdate()` is used.
+`shouldComponentUpdate()` 在新 prop 或 state 被接收并渲染前调用。默认返回 `true`. 这个方法在初始化渲染或 `forceUpdate()` 被使用时不调用。
 
-Returning `false` does not prevent child components from re-rendering when *their* state changes.
+当*它们的* state 变化时返回 `false` 不会阻止子组件重绘。
 
-Currently, if `shouldComponentUpdate()` returns `false`, then [`componentWillUpdate()`](#componentwillupdate), [`render()`](#render), and [`componentDidUpdate()`](#componentdidupdate) will not be invoked. Note that in the future React may treat `shouldComponentUpdate()` as a hint rather than a strict directive, and returning `false` may still result in a re-rendering of the component.
+目前，如果 `shouldComponentUpdate()` 返回 `false`,  [`componentWillUpdate()`](#componentwillupdate), [`render()`](#render), 和 [`componentDidUpdate()`](#componentdidupdate) 将不会调用。注意，未来 React 可能把 `shouldComponentUpdate()` 看作一个提示而不是一个严格的指令，并且返回 `false` 可能结果还是会导致组件的重绘。
 
-If you determine a specific component is slow after profiling, you may change it to inherit from [`React.PureComponent`](/react/docs/react-api.html#react.purecomponent) which implements `shouldComponentUpdate()` with a shallow prop and state comparison. If you are confident you want to write it by hand, you may compare `this.props` with `nextProps` and `this.state` with `nextState` and return `false` to tell React the update can be skipped.
+如果你确定特定组件在性能分析后还是很慢，你可以从 [`React.PureComponent`](/cn/docs/react-api.md#react.purecomponent) 继承，它通过一个浅的 prop 和 state 比较来执行 `shouldComponentUpdate()` 。如果你有信心手写功能，你也可以比较比较 `this.props` 和 `nextProps` 、 `this.state` 和 `nextState` ，并返回 `false` 来通知 React 跳过更新。
 
 * * *
 
