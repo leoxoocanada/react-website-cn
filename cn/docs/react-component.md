@@ -273,21 +273,21 @@ componentWillUnmount()
 setState(updater, [callback])
 ```
 
-`setState()` enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state. This is the primary method you use to update the user interface in response to event handlers and server responses.
+`setState()` 以队列的方式改变组件的 state，并通知 React 此组件及它的子节点需要使用新的 state 重绘。这是用于响应事件处理程序和服务器响应更新用户界面的主要方法。
 
-Think of `setState()` as a *request* rather than an immediate command to update the component. For better perceived performance, React may delay it, and then update several components in a single pass. React does not guarantee that the state changes are applied immediately.
+考虑将 `setState()` 作为一个 *请求* 而不是一个立即执行的命令来更新组件。为了更好的感知性能，React 可能会延迟执行，并一次更新多个组件。React 不保证立即应用 state 的改变。
 
-`setState()` does not always immediately update the component. It may batch or defer the update until later. This makes reading `this.state` right after calling `setState()` a potential pitfall. Instead, use `componentDidUpdate` or a `setState` callback (`setState(updater, callback)`), either of which are guaranteed to fire after the update has been applied. If you need to set the state based on the previous state, read about the `updater` argument below.
+`setState()` 并不总是立即更新组件。它可能会批量或延迟更新。这样就可能在调用 `setState()' 之后看到 `this.state` 的一个潜在陷阱。相反，使用 `componentDidUpdate` 或 `setState` 回调（`setState(updater，callback)`），两者在应用更新后都被保证触发。 如果需要根据先前的状态设置状态，请阅读下面的 `updater` 参数
 
-`setState()` will always lead to a re-render unless `shouldComponentUpdate()` returns `false`. If mutable objects are being used and conditional rendering logic cannot be implemented in `shouldComponentUpdate()`, calling `setState()` only when the new state differs from the previous state will avoid unnecessary re-renders.
+除非 `shouldComponentUpdate()` 返回 `false`，否则 `setStat()` 将一直引发重新渲染。 如果正在使用可变对象，并且 `shouldComponentUpdate()` 中无法实现条件渲染逻辑，则仅当新状态与先前状态不同时调用 `setState()` 将避免不必要的重新渲染。
 
-The first argument is an `updater` function with the signature:
+第一个参数是带有签名的 `updater` 函数：
 
 ```javascript
 (prevState, props) => stateChange
 ```
 
-`prevState` is a reference to the previous state. It should not be directly mutated. Instead, changes should be represented by building a new object based on the input from `prevState` and `props`. For instance, suppose we wanted to increment a value in state by `props.step`:
+`prevState` 是对前一个状态的引用。不应该直接改变。相反，应该根据 `prevState` 和 'props` 的输入构建一个新对象来表示更改。例如，假设我们想通过 `props.step` 在状态中增加一个值：
 
 ```javascript
 this.setState((prevState, props) => {
@@ -295,23 +295,23 @@ this.setState((prevState, props) => {
 });
 ```
 
-Both `prevState` and `props` received by the updater function are guaranteed to be up-to-date. The output of the updater is shallowly merged with `prevState`.
+`prevState` 和 `props` 都通过 updater 函数接收可以保证是最新的。 updater 的输出与 `prevState` 进行浅合并。
 
-The second parameter to `setState()` is an optional callback function that will be executed once `setState` is completed and the component is re-rendered. Generally we recommend using `componentDidUpdate()` for such logic instead.
+`setStat()` 的第二个参数是一个可选的回调函数，一旦 `setState` 完成并重新渲染该组件，该函数将被执行。 通常我们建议使用 `componentDidUpdate()` 来代替。
 
-You may optionally pass an object as the first argument to `setState()` instead of a function:
+您可以选择将一个对象作为第一个参数传递给 `setState()` 而不是一个函数：
 
 ```javascript
 setState(stateChange, [callback])
 ```
 
-This performs a shallow merge of `stateChange` into the new state, e.g., to adjust a shopping cart item quantity:
+这将执行 `stateChange` 的浅合并到新状态，例如调整购物车项目数量：
 
 ```javascript
 this.setState({quantity: 2})
 ```
 
-This form of `setState()` is also asynchronous, and multiple calls during the same cycle may be batched together. For example, if you attempt to increment an item quantity more than once in the same cycle, that will result in the equivalent of:
+这种形式的 `setState()` 也是异步的，同一周期中的多个调用可能被合并在一起处理。 例如，如果您尝试在同一周期内多次增加项目数量，则将导致相当于：
 
 ```javaScript
 Object.assign(
@@ -322,7 +322,7 @@ Object.assign(
 )
 ```
 
-Subsequent calls will override values from previous calls in the same cycle, so the quantity will only be incremented once. If the next state depends on the previous state, we recommend using the updater function form, instead:
+后面的调用将覆盖同一周期中之前调用的值，因此数量只会增加一次。 如果下一个状态取决于以前的状态，我们建议使用 updater 函数形式：
 
 ```js
 this.setState((prevState) => {
@@ -330,7 +330,7 @@ this.setState((prevState) => {
 });
 ```
 
-For more detail, see the [State and Lifecycle guide](/react/docs/state-and-lifecycle.html).
+要了解更多详情，请查阅 [状态和生命周期指南](/cn/docs/state-and-lifecycle.md).
 
 * * *
 
