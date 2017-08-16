@@ -231,13 +231,13 @@ shouldComponentUpdate(nextProps, nextState)
 componentWillUpdate(nextProps, nextState)
 ```
 
-`componentWillUpdate()` is invoked immediately before rendering when new props or state are being received. Use this as an opportunity to perform preparation before an update occurs. This method is not called for the initial render.
+当新 prop 或 state 被接收并渲染前立即执行 `componentWillUpdate()` 。使用此作为在更新发生之前做其它准备的机会。初始化渲染不会调用此方法。
 
-Note that you cannot call `this.setState()` here. If you need to update state in response to a prop change, use `componentWillReceiveProps()` instead.
+注意在这里你不能调用 `this.setState()` 。如果你需要更新 state 以响应 prop 的变化，请使用 `componentWillReceiveProps()` 。
 
-> Note
+> 提示
 >
-> `componentWillUpdate()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> 如果 [`shouldComponentUpdate()`](#shouldcomponentupdate) 返回 false，`componentWillUpdate()` 将不会调用
 
 * * *
 
@@ -247,13 +247,13 @@ Note that you cannot call `this.setState()` here. If you need to update state in
 componentDidUpdate(prevProps, prevState)
 ```
 
-`componentDidUpdate()` is invoked immediately after updating occurs. This method is not called for the initial render.
+更新完成后立即调用 `componentDidUpdate()` ，初始化渲染不会调用此方法。
 
-Use this as an opportunity to operate on the DOM when the component has been updated. This is also a good place to do network requests as long as you compare the current props to previous props (e.g. a network request may not be necessary if the props have not changed).
+使用此作为在组件已经更新完成后操作 DOM 的机会。如果你要比较当前 prop 和之前的 prop ，这里是一个发送网络请求的好地方 (如果 props 没有变化，网络请求也可能不是必须的).
 
-> Note
+> 提示
 >
-> `componentDidUpdate()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> 如果 [`shouldComponentUpdate()`](#shouldcomponentupdate) 返回 false，`componentDidUpdate()` 将不会调用。
 
 * * *
 
@@ -263,7 +263,7 @@ Use this as an opportunity to operate on the DOM when the component has been upd
 componentWillUnmount()
 ```
 
-`componentWillUnmount()` is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any DOM elements that were created in `componentDidMount`
+组件卸载和销毁之前立即调用 `componentWillUnmount()` 。 在这个方法里执行一些必须的清除操作，类似初始化定时器，取消网络请求，或清除在 `componentDidMount` 中创建的 DOM 元素。
 
 * * *
 
