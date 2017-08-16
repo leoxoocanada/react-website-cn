@@ -340,11 +340,11 @@ this.setState((prevState) => {
 component.forceUpdate(callback)
 ```
 
-By default, when your component's state or props change, your component will re-render. If your `render()` method depends on some other data, you can tell React that the component needs re-rendering by calling `forceUpdate()`.
+默认情况下，当组件的状态或道具更改时，您的组件将重新渲染。 如果你的 `render()` 方法依赖于一些其他数据，你可以通过调用 `forceUpdate()` 来告诉 React 这个组件需要重新渲染。
 
-Calling `forceUpdate()` will cause `render()` to be called on the component, skipping `shouldComponentUpdate()`. This will trigger the normal lifecycle methods for child components, including the `shouldComponentUpdate()` method of each child. React will still only update the DOM if the markup changes.
+调用 `forceUpdate()` 会导致在组件上调用 `render()`，跳过 `shouldComponentUpdate()` 。这将触发子组件的正常生命周期方法，包括每个子级的 `shouldComponentUpdate()` 方法。 如果标记更改，则 React 仍将仅更新DOM。
 
-Normally you should try to avoid all uses of `forceUpdate()` and only read from `this.props` and `this.state` in `render()`.
+通常你应该尽量避免使用 `forceUpdate()`，只能从 `render()` 中读取 `this.props` 和 `this.state。
 
 * * *
 
