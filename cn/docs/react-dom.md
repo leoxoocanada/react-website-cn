@@ -92,16 +92,15 @@ ReactDOM.render(
 
 如果将 React 元素预先渲染到 `container`，这样就可以对它进行更新，根据需要改变 DOM，以反映最新的 React 元素。
 
-If the optional callback is provided, it will be executed after the component is rendered or updated.
+如果提供了可选的回调函数，它将在组件渲染完成或更新完成后执行。
 
-> Note:
+> 提示:
 >
-> `ReactDOM.render()` controls the contents of the container node you pass in. Any existing DOM elements inside are replaced when first called. Later calls use React’s DOM diffing algorithm for efficient updates.
+> `ReactDOM.render()` 控制您传入的容器节点的内容。任何里面的现有 DOM 元素都将在第一次调用时被替换。 后续的调用使用 React 的 DOM diffing 算法进行有效的更新。
 >
-> `ReactDOM.render()` does not modify the container node (only modifies the children of the container). It may be possible to insert a component to an existing DOM node without overwriting the existing children.
+> `ReactDOM.render()` 不修改容器节点（只修改容器的子节点）。 可以将组件插入到现有的 DOM 节点，而不会覆盖现有的子节点。 
 >
-> `ReactDOM.render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy
-> and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a
+> `ReactDOM.render()` 返回对根 `ReactComponent` 实例的引用。然而，使用这个返回值是个历史遗留问题，应该避免这么做，因为未来的 React 版本可能会在一些情况下异步渲染组件。如果你需要引用到根 `ReactComponent` instance, the preferred solution is to attach a
 > [callback ref](/cn/docs/more-about-refs.md#the-ref-callback-attribute) to the root element.
 
 * * *
