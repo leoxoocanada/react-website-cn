@@ -56,10 +56,9 @@
 
 # ReactDOM
 
+如果从 `<script>` 标签加载 React，则这些顶级API可以在全局 `ReactDOM` 中使用。 如果您使用带有 npm 的 ES6，可以这么写 `import ReactDOM from 'react-dom'`。 如果你用 npm 使用 ES5，你可以这么写 `var ReactDOM = require('react-dom')`。
 
-If you load React from a `<script>` tag, these top-level APIs are available on the `ReactDOM` global. If you use ES6 with npm, you can write `import ReactDOM from 'react-dom'`. If you use ES5 with npm, you can write `var ReactDOM = require('react-dom')`.
-
-## Overview
+## 预览
 
 The `react-dom` package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Most of your components should not need to use this module.
 
@@ -67,7 +66,7 @@ The `react-dom` package provides DOM-specific methods that can be used at the to
 - [`unmountComponentAtNode()`](#unmountcomponentatnode)
 - [`findDOMNode()`](#finddomnode)
 
-### Browser Support
+### 浏览器支持
 
 React supports all popular browsers, including Internet Explorer 9 and above.
 
@@ -77,7 +76,7 @@ React supports all popular browsers, including Internet Explorer 9 and above.
 
 * * *
 
-## Reference
+## 参考
 
 ### `render()`
 
@@ -89,7 +88,7 @@ ReactDOM.render(
 )
 ```
 
-Render a React element into the DOM in the supplied `container` and return a [reference](/react/docs/more-about-refs.html) to the component (or returns `null` for [stateless components](/react/docs/components-and-props.html#functional-and-class-components)).
+Render a React element into the DOM in the supplied `container` and return a [reference](/cn/docs/more-about-refs.md) to the component (or returns `null` for [stateless components](/cn/docs/components-and-props.md#functional-and-class-components)).
 
 If the React element was previously rendered into `container`, this will perform an update on it and only mutate the DOM as necessary to reflect the latest React element.
 
@@ -103,7 +102,7 @@ If the optional callback is provided, it will be executed after the component is
 >
 > `ReactDOM.render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy
 > and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a
-> [callback ref](/react/docs/more-about-refs.html#the-ref-callback-attribute) to the root element.
+> [callback ref](/cn/docs/more-about-refs.md#the-ref-callback-attribute) to the root element.
 
 * * *
 
