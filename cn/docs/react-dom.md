@@ -100,8 +100,7 @@ ReactDOM.render(
 >
 > `ReactDOM.render()` 不修改容器节点（只修改容器的子节点）。 可以将组件插入到现有的 DOM 节点，而不会覆盖现有的子节点。 
 >
-> `ReactDOM.render()` 返回对根 `ReactComponent` 实例的引用。然而，使用这个返回值是个历史遗留问题，应该避免这么做，因为未来的 React 版本可能会在一些情况下异步渲染组件。如果你需要引用到根 `ReactComponent` instance, the preferred solution is to attach a
-> [callback ref](/cn/docs/more-about-refs.md#the-ref-callback-attribute) to the root element.
+> `ReactDOM.render()` 返回对根 `ReactComponent` 实例的引用。然而，使用这个返回值是个历史遗留问题，应该避免这么做，因为未来的 React 版本可能会在一些情况下异步渲染组件。如果你需要引用到根 `ReactComponent` 实例，首选的方案是附加一个 [ref 回调](/cn/docs/more-about-refs.md#the-ref-callback-attribute) 到根节点。
 
 * * *
 
