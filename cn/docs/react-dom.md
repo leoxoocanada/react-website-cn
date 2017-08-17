@@ -110,7 +110,7 @@ ReactDOM.render(
 ReactDOM.unmountComponentAtNode(container)
 ```
 
-Remove a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns `true` if a component was unmounted and `false` if there was no component to unmount.
+从 DOM 中删除已挂载的 React 组件，并清除其事件处理程序和状态。 如果没有组件挂装在容器中，调用此函数什么也不做。 如果组件被卸载，则返回 `true` ，如果没有组件卸载，则返回 `false`。
 
 * * *
 
