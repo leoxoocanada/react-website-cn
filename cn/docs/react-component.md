@@ -384,7 +384,7 @@ CustomButton.defaultProps = {
 
 ### `displayName`
 
-The `displayName` string is used in debugging messages. JSX sets this value automatically; see [JSX in Depth](/react/docs/jsx-in-depth.html).
+`displayName` 字符串用于调试信息， JSX 会自动设置这个值；查阅 [深入 JSX](/cn/docs/jsx-in-depth.md).
 
 * * *
 
@@ -392,15 +392,15 @@ The `displayName` string is used in debugging messages. JSX sets this value auto
 
 ### `props`
 
-`this.props` contains the props that were defined by the caller of this component. See [Components and Props](/react/docs/components-and-props.html) for an introduction to props.
+`this.props` 包含由该组件的调用者定义的 prop。 有关 prop 的介绍，请参阅[组件和属性](/cn/docs/components-and-props.md)。
 
-In particular, `this.props.children` is a special prop, typically defined by the child tags in the JSX expression rather than in the tag itself.
+比较特别的是，`this.props.children` 是一个特殊的 prop，通常由JSX表达式中的子标签定义，而不是标签本身。
 
 ### `state`
 
-The state contains data specific to this component that may change over time. The state is user-defined, and it should be a plain JavaScript object.
+state 包含特定于该组件的数据，该数据可能随时变化。 state 是用户定义的，它应该是一个纯粹的 JavaScript 对象。
 
-If you don't use it in `render()`, it shouldn't be on the state. For example, you can put timer IDs directly on the instance.
+如果你不在 `render()' 中使用它，它不应该出现在 state 中。 例如，您可以直接在实例上放置定时器ID。
 
 See [State and Lifecycle](/react/docs/state-and-lifecycle.html) for more information about the state.
 
