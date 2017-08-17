@@ -119,15 +119,16 @@ ReactDOM.unmountComponentAtNode(container)
 ```javascript
 ReactDOM.findDOMNode(component)
 ```
-If this component has been mounted into the DOM, this returns the corresponding native browser DOM element. This method is useful for reading values out of the DOM, such as form field values and performing DOM measurements. **In most cases, you can attach a ref to the DOM node and avoid using `findDOMNode` at all.** When `render` returns `null` or `false`, `findDOMNode` returns `null`.
 
-> Note:
+如果该组件已经被挂载到 DOM 中，则返回相应的原生浏览器 DOM 元素。 该方法对于从 DOM 读取值非常有用，例如表单域值和执行 DOM 测量。 **在大多数情况下，您可以附加一个 ref 到 DOM 节点，并避免使用 `findDOMNode`。** 当 `render` 返回 'null` 或 `false` 时，`findDOMNode` 返回 `null`。
+
+> 提示:
 >
-> `findDOMNode` is an escape hatch used to access the underlying DOM node. In most cases, use of this escape hatch is discouraged because it pierces the component abstraction.
+> `findDOMNode` 是一个用于访问真实 DOM 节点（underlying DOM node）的接口，在大多数情况下，不建议使用它，因为它会越过组件抽象层访问真实 DOM 。
 >
-> `findDOMNode` only works on mounted components (that is, components that have been placed in the DOM). If you try to call this on a component that has not been mounted yet (like calling `findDOMNode()` in `render()` on a component that has yet to be created) an exception will be thrown.
+> `findDOMNode` 只适用于已挂装的组件（即已放置在DOM中的组件）。 如果您尝试在尚未挂装的组件上调用此函数（例如在尚未创建的组件上的 `render()` 中调用 `findDOMNode()` ），将抛出异常。
 >
-> `findDOMNode` cannot be used on functional components.
+> `findDOMNode` 不能用于函数式组件。
 
 ---
 
