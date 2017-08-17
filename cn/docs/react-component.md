@@ -402,10 +402,9 @@ state 包含特定于该组件的数据，该数据可能随时变化。 state �
 
 如果你不在 `render()' 中使用它，它不应该出现在 state 中。 例如，您可以直接在实例上放置定时器ID。
 
-See [State and Lifecycle](/react/docs/state-and-lifecycle.html) for more information about the state.
+有关 state 的详细信息，请参阅 [状态和生命周期](/cn/docs/state-and-lifecycle.md) 。
 
-Never mutate `this.state` directly, as calling `setState()` afterwards may replace the mutation you made. Treat `this.state` as if it were immutable.
-
+不要直接改变 `this.state`，因为调用 `setState()' 可能会覆盖你所做的改变。 把 'this.state` 看作是不可变数据。
 
 ---
 
