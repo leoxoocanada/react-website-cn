@@ -88,9 +88,9 @@ ReactDOM.render(
 )
 ```
 
-Render a React element into the DOM in the supplied `container` and return a [reference](/cn/docs/more-about-refs.md) to the component (or returns `null` for [stateless components](/cn/docs/components-and-props.md#functional-and-class-components)).
+将一个 React 元素渲染到提供的的DOM `container` 中，并返回组件的一个 [引用(reference)](/cn/docs/more-about-refs.md) （或返回 `null` 作为[无状态组件](/cn/docs/components-and-props.md#functional-and-class-components))。
 
-If the React element was previously rendered into `container`, this will perform an update on it and only mutate the DOM as necessary to reflect the latest React element.
+如果将 React 元素预先渲染到 `container`，这样就可以对它进行更新，根据需要改变 DOM，以反映最新的 React 元素。
 
 If the optional callback is provided, it will be executed after the component is rendered or updated.
 
