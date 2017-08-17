@@ -60,7 +60,7 @@
 
 ## 预览
 
-The `react-dom` package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Most of your components should not need to use this module.
+`react-dom` 包提供了DOM特定的方法，可以在应用程序的顶层使用，并且如果需要，可以将其作为一个在React模型之外特殊操作DOM的接口。 大多数组件不需要使用此模块。
 
 - [`render()`](#render)
 - [`unmountComponentAtNode()`](#unmountcomponentatnode)
@@ -68,11 +68,11 @@ The `react-dom` package provides DOM-specific methods that can be used at the to
 
 ### 浏览器支持
 
-React supports all popular browsers, including Internet Explorer 9 and above.
+React支持所有主流的浏览器，包括 Internet Explorer 9 及更高版本。
 
-> Note
+> 提示
 >
-> We don't support older browsers that don't support ES5 methods, but you may find that your apps do work in older browsers if polyfills such as [es5-shim and es5-sham](https://github.com/es-shims/es5-shim) are included in the page. You're on your own if you choose to take this path.
+> 我们不支持那些不支持ES5方法的旧版浏览器，但如果在页面中使用了诸如 [es5-shim和es5-sham](https://github.com/es-shims/es5-shim) 这样的脚本，您可能会发现您的应用程序在旧版浏览器中可以正常工作。如果你愿意你也可以选择走这条路。
 
 * * *
 
