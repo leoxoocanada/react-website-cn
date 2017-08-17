@@ -352,7 +352,7 @@ component.forceUpdate(callback)
 
 ### `defaultProps`
 
-`defaultProps` can be defined as a property on the component class itself, to set the default props for the class. This is used for undefined props, but not for null props. For example:
+`defaultProps` 可以定义为组件类本身的属性，以设置类的默认 prop。 这用于值为 undefined 的 prop，但不用于值为 null 的 prop。 例如：
 
 ```js
 class CustomButton extends React.Component {
@@ -364,19 +364,19 @@ CustomButton.defaultProps = {
 };
 ```
 
-If `props.color` is not provided, it will be set by default to `'blue'`:
+如果 `props.color` 未指定，它将以 `'blue'` 作为默认值:
 
 ```js
   render() {
-    return <CustomButton /> ; // props.color will be set to blue
+    return <CustomButton /> ; // props.color 将设置为 blue
   }
 ```
 
-If `props.color` is set to null, it will remain null:
+如果 `props.color` 设定为 null，它将保持为 null:
 
 ```js
   render() {
-    return <CustomButton color={null} /> ; // props.color will remain null
+    return <CustomButton color={null} /> ; // props.color 将保持为 null
   }
 ```
 
