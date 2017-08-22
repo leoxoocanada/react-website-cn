@@ -87,7 +87,7 @@ ReactDOMServer.renderToString(element)
 ReactDOMServer.renderToStaticMarkup(element)
 ```
 
-Similar to [`renderToString`](#rendertostring), except this doesn't create extra DOM attributes such as `data-reactid`, that React uses internally. This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save lots of bytes.
+类似于 [`renderToString`](#rendertostring)，除了它不会创建额外的DOM属性，如 `data-reactid`，React在内部使用。 如果要将 React 用作简单的静态页面生成器，这很有用，因为剥离掉额外的属性可以节省大量字节。
 
 
 ---
