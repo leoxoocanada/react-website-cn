@@ -56,18 +56,18 @@
 
 # ReactDOMServer
 
-If you load React from a `<script>` tag, these top-level APIs are available on the `ReactDOMServer` global. If you use ES6 with npm, you can write `import ReactDOMServer from 'react-dom/server'`. If you use ES5 with npm, you can write `var ReactDOMServer = require('react-dom/server')`.
+如果从 `<script>` 标签加载 React，则这些顶层 API 可以在全局 `ReactDOMServer` 中使用。 如果您使用带有npm的ES6，可以这么写 `import ReactDOMServer from 'react-dom/server'`。 如果你用npm使用ES5，你可以这么写 `var ReactDOMServer = require('react-dom/server')`。
 
-## Overview
+## 概述
 
-The `ReactDOMServer` class allows you to render your components on the server.
+`ReactDOMServer` 类允许你在服务器上渲染组件。
 
  - [`renderToString()`](#rendertostring)
  - [`renderToStaticMarkup()`](#rendertostaticmarkup)
 
 * * *
 
-## Reference
+## 参考
 
 ### `renderToString()`
 
@@ -75,9 +75,9 @@ The `ReactDOMServer` class allows you to render your components on the server.
 ReactDOMServer.renderToString(element)
 ```
 
-Render a React element to its initial HTML. This should only be used on the server. React will return an HTML string. You can use this method to generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl your pages for SEO purposes.
+将 React 元素渲染到其初始 HTML。 这只能在服务器上使用。 React将返回一个HTML字符串。 您可以使用此方法在服务器上生成 HTML，并在初始请求上发送标记以加快页面加载速度，并允许搜索引擎抓取您的页面以进行 SEO 优化。
 
-If you call [`ReactDOM.render()`](/cn/docs/react-dom.md#render) on a node that already has this server-rendered markup, React will preserve it and only attach event handlers, allowing you to have a very performant first-load experience.
+如果在已经具有此服务器渲染标记的节点上调用 [`ReactDOM.render()`](/cn/docs/react-dom.md#render) ，则React将保留它，并仅附加事件处理程序，从而允许 具有非常优秀的首次体验。
 
 * * *
 
