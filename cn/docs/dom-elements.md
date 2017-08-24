@@ -56,11 +56,11 @@
 
 # DOM 元素
 
-React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
+React 实现了与浏览器无关的DOM系统，以实现性能和跨浏览器的兼容性。 我们借此机会在浏览器DOM实现中清理了一些粗糙的实现。
 
-In React, all DOM properties and attributes (including event handlers) should be camelCased. For example, the HTML attribute `tabindex` corresponds to the attribute `tabIndex` in React. The exception is `aria-*` and `data-*` attributes, which should be lowercased.
+在React中，所有DOM属性和属性（包括事件处理程序）都应该是驼峰式命名。 例如，HTML属性 `tabindex` 对应于React中的 `tabIndex` 属性。 例外的情况是 `aria-*` 和 `data-*` 属性，它们应该是小写的。
 
-## Differences In Attributes
+## 属性差异
 
 There are a number of attributes that work differently between React and HTML:
 
