@@ -76,7 +76,7 @@ React和HTML之间有很多属性有所不同：
 
 ### dangerouslySetInnerHTML
 
-`dangerouslySetInnerHTML` is React's replacement for using `innerHTML` in the browser DOM. In general, setting HTML from code is risky because it's easy to inadvertently expose your users to a [cross-site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) attack. So, you can set HTML directly from React, but you have to type out `dangerouslySetInnerHTML` and pass an object with a `__html` key, to remind yourself that it's dangerous. For example:
+`dangerouslySetInnerHTML` 是React在浏览器DOM中使用 `innerHTML` 的替代品。 一般来说，从代码设置HTML是有风险的，因为它很容易无意中暴露您的用户到[跨站点脚本(XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) 攻击。 因此，您可以直接从React设置HTML，但是您必须输入 `dangerouslySetInnerHTML` 并传递一个带有 `__html` 键的对象，以提醒自己这是危险的。 例如：
 
 ```js
 function createMarkup() {
@@ -90,19 +90,19 @@ function MyComponent() {
 
 ### htmlFor
 
-Since `for` is a reserved word in JavaScript, React elements use `htmlFor` instead.
+由于`for`是JavaScript中的保留字，React元素使用`htmlFor`代替。
 
 ### onChange
 
-The `onChange` event behaves as you would expect it to: whenever a form field is changed, this event is fired. We intentionally do not use the existing browser behavior because `onChange` is a misnomer for its behavior and React relies on this event to handle user input in real time.
+`onChange` 事件的行为与您期望的一样：每当一个表单字段被更改时，这个事件被触发。 我们故意不使用现有的浏览器行为，因为 `onChange` 对其行为的描述是不正确的，而 React 依赖此事件来实时处理用户输入。
 
 ### selected
 
-The `selected` attribute is supported by `<option>` components. You can use it to set whether the component is selected. This is useful for building controlled components.
+`selected' 属性由 `<option>` 组件支持。 您可以使用它来设置是否选中组件。 这对于构建受控组件很有用。
 
 ### style
 
-The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM `style` JavaScript property, is more efficient, and prevents XSS security holes. For example:
+`style` 属性接受一个带有驼峰属性而不是一个CSS字符串的JavaScript对象。 这与DOM `style` 的JavaScript属性一致，但效率更高，并且可以防止XSS的安全漏洞。 例如：
 
 ```js
 const divStyle = {
@@ -115,12 +115,12 @@ function HelloWorldComponent() {
 }
 ```
 
-Note that styles are not autoprefixed. To support older browsers, you need to supply corresponding style properties:
+请注意，样式不是自动加前缀的。要支持旧版浏览器，您需要提供相应的样式属性：
 
 ```js
 const divStyle = {
-  WebkitTransition: 'all', // note the capital 'W' here
-  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+  WebkitTransition: 'all', // 注意这里大写的 'W' 
+  msTransition: 'all' // 'ms' 是唯一的小写字母供应商前缀
 };
 
 function ComponentWithTransition() {
@@ -128,7 +128,7 @@ function ComponentWithTransition() {
 }
 ```
 
-Style keys are camelCased in order to be consistent with accessing the properties on DOM nodes from JS (e.g. `node.style.backgroundImage`). Vendor prefixes [other than `ms`](http://www.andismith.com/blog/2012/02/modernizr-prefixed/) should begin with a capital letter. This is why `WebkitTransition` has an uppercase "W".
+Style key 是驼峰式命名，以便与从JS访问DOM节点上的属性（例如`node.style.backgroundImage`）保持一致。 供应商前缀 [`ms` 除外](http://www.andismith.com/blog/2012/02/modernizr-prefixed/) 应以大写字母开头。这就是为什么`WebkitTransition`有一个大写字母 "W"。
 
 ### suppressContentEditableWarning
 
