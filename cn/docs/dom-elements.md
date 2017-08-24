@@ -62,17 +62,17 @@ React 实现了与浏览器无关的DOM系统，以实现性能和跨浏览器�
 
 ## 属性差异
 
-There are a number of attributes that work differently between React and HTML:
+React和HTML之间有很多属性有所不同：
 
 ### checked
 
-The `checked` attribute is supported by `<input>` components of type `checkbox` or `radio`. You can use it to set whether the component is checked. This is useful for building controlled components. `defaultChecked` is the uncontrolled equivalent, which sets whether the component is checked when it is first mounted.
+`checked` 属性由 `checkbox` 或 `radio` 类型的 `<input>` 组件支持。您可以使用它来设置组件是否选中。这对于构建受控组件很有用。`defaultChecked` 等价于不受控组件，它设置组件是否在首次挂载时检查。
 
 ### className
 
-To specify a CSS class, use the `className` attribute. This applies to all regular DOM and SVG elements like `<div>`, `<a>`, and others.
+要指定一个CSS类，请使用`className`属性。 这适用于所有常规的DOM和SVG元素，如`<div>`，`<a>`等。
 
-If you use React with Web Components (which is uncommon), use the `class` attribute instead.
+如果您使用 Web Components 的 React（这不常见），请改用`class`属性。
 
 ### dangerouslySetInnerHTML
 
