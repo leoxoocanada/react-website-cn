@@ -88,13 +88,12 @@ string type
 
 ### 事件池
 
-The `SyntheticEvent` is pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event callback has been invoked.
-This is for performance reasons.
-As such, you cannot access the event in an asynchronous way.
+`SyntheticEvent` 是通过合并得到的，这意味着在事件回调被调用后，`SyntheticEvent` 对象将被重用并且所有属性都将被取消。
+这是出于性能原因。 因此，您无法以异步方式访问该事件。
 
 ```javascript
 function onClick(event) {
-  console.log(event); // => nullified object.
+  console.log(event); // => 无效的对象.
   console.log(event.type); // => "click"
   const eventType = event.type; // => "click"
 
@@ -103,23 +102,23 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Won't work. this.state.clickEvent will only contain null values.
+  // 不生效， this.state.clickEvent 将只包含 null 值
   this.setState({clickEvent: event});
 
-  // You can still export event properties.
+  // 你仍然可以导出事件属性
   this.setState({eventType: event.type});
 }
 ```
 
-> Note:
+> 注意:
 >
-> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
+> 如果要以异步方式访问事件属性，应该对事件调用 `event.persist()` ，这将从池中删除合成事件，并允许用户代码保留对事件的引用。
 
-## Supported Events
+## 支持的事件
 
-React normalizes events so that they have consistent properties across different browsers.
+React将事件规范化，以便它们在不同的浏览器中具有一致的属性。
 
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
+下面的事件处理程序由冒泡阶段中的事件触发。 要为捕获阶段注册事件处理程序，请将 `Capture` 附加到事件名称中; 例如，您可以使用 `onClickCapture` 来处理捕获阶段中的点击事件，而不是使用 `onClick` 。
 
 - [Clipboard Events](#clipboard-events)
 - [Composition Events](#composition-events)
@@ -139,17 +138,17 @@ The event handlers below are triggered by an event in the bubbling phase. To reg
 
 * * *
 
-## Reference
+## 参考
 
-### Clipboard Events
+### 剪贴板事件(Clipboard Events)
 
-Event names:
+事件名称：
 
 ```
 onCopy onCut onPaste
 ```
 
-Properties:
+属性：
 
 ```javascript
 DOMDataTransfer clipboardData
@@ -157,15 +156,15 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Composition Events
+### 合成事件(Composition Events)
 
-Event names:
+事件名称：
 
 ```
 onCompositionEnd onCompositionStart onCompositionUpdate
 ```
 
-Properties:
+属性：
 
 ```javascript
 string data
@@ -174,15 +173,15 @@ string data
 
 * * *
 
-### Keyboard Events
+### 键盘事件(Keyboard Events)
 
-Event names:
+事件名称：
 
 ```
 onKeyDown onKeyPress onKeyUp
 ```
 
-Properties:
+属性：
 
 ```javascript
 boolean altKey
@@ -201,17 +200,17 @@ number which
 
 * * *
 
-### Focus Events
+### 焦点事件(Focus Events)
 
-Event names:
+事件名称：
 
 ```
 onFocus onBlur
 ```
 
-These focus events work on all elements in the React DOM, not just form elements.
+这些焦点事件工作在 React DOM 中所有的元素上 ，不仅是表单元素。
 
-Properties:
+属性：
 
 ```javascript
 DOMEventTarget relatedTarget
@@ -219,21 +218,21 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Form Events
+### 表单事件(Form Events)
 
-Event names:
+事件名称：
 
 ```
 onChange onInput onSubmit
 ```
 
-For more information about the onChange event, see [Forms](/react/docs/forms.html).
+有关onChange事件的更多信息，请参阅 [Forms](/cn/docs/forms.md).
 
 * * *
 
-### Mouse Events
+### 鼠标事件(Mouse Events)
 
-Event names:
+事件名称：
 
 ```
 onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit
@@ -241,9 +240,9 @@ onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 
-The `onMouseEnter` and `onMouseLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+ `onMouseEnter` 和 `onMouseLeave` 事件从离开的元素传播到正在进入的元素，而不是普通的冒泡，并且没有捕获阶段。
 
-Properties:
+属性：
 
 ```javascript
 boolean altKey
@@ -264,9 +263,9 @@ boolean shiftKey
 
 * * *
 
-### Selection Events
+### 选择事件(Selection Events)
 
-Event names:
+事件名称：
 
 ```
 onSelect
@@ -274,15 +273,15 @@ onSelect
 
 * * *
 
-### Touch Events
+### 触摸事件(Touch Events)
 
-Event names:
+事件名称：
 
 ```
 onTouchCancel onTouchEnd onTouchMove onTouchStart
 ```
 
-Properties:
+属性：
 
 ```javascript
 boolean altKey
@@ -297,15 +296,15 @@ DOMTouchList touches
 
 * * *
 
-### UI Events
+### UI事件(UI Events)
 
-Event names:
+事件名称：
 
 ```
 onScroll
 ```
 
-Properties:
+属性：
 
 ```javascript
 number detail
@@ -314,15 +313,15 @@ DOMAbstractView view
 
 * * *
 
-### Wheel Events
+### 滚轮事件(Wheel Events)
 
-Event names:
+事件名称：
 
 ```
 onWheel
 ```
 
-Properties:
+属性：
 
 ```javascript
 number deltaMode
@@ -333,9 +332,9 @@ number deltaZ
 
 * * *
 
-### Media Events
+### 媒体事件(Media Events)
 
-Event names:
+事件名称：
 
 ```
 onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted
@@ -346,9 +345,9 @@ onTimeUpdate onVolumeChange onWaiting
 
 * * *
 
-### Image Events
+### 图像事件(Image Events)
 
-Event names:
+事件名称：
 
 ```
 onLoad onError
@@ -356,15 +355,15 @@ onLoad onError
 
 * * *
 
-### Animation Events
+### 动画事件(Animation Events)
 
-Event names:
+事件名称：
 
 ```
 onAnimationStart onAnimationEnd onAnimationIteration
 ```
 
-Properties:
+属性：
 
 ```javascript
 string animationName
@@ -374,15 +373,15 @@ float elapsedTime
 
 * * *
 
-### Transition Events
+### 转换事件(Transition Events)
 
-Event names:
+事件名称：
 
 ```
 onTransitionEnd
 ```
 
-Properties:
+属性：
 
 ```javascript
 string propertyName
@@ -392,9 +391,9 @@ float elapsedTime
 
 * * *
 
-### Other Events
+### 其他事件(Other Events)
 
-Event names:
+事件名称：
 
 ```
 onToggle
