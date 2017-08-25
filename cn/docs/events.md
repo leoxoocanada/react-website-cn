@@ -63,7 +63,7 @@
 
 你的事件处理器将被传递 `SyntheticEvent` 的实例, 一个跨浏览器原生事件包装器。它具有原生浏览器相同的事件接口，包含 `stopPropagation()` 和 `preventDefault()`, 除了这些，事件在所有浏览器中的工作相同。
 
-If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. Every `SyntheticEvent` object has the following attributes:
+如果你发现为了某些原因你需要底层的浏览器事件，只需要使用 `nativeEvent` 属性来获取它。每个 `SyntheticEvent` 对象都有下面的属性：
 
 ```javascript
 boolean bubbles
@@ -82,11 +82,11 @@ number timeStamp
 string type
 ```
 
-> Note:
+> 注意:
 >
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
+> 从 v0.14 起, 从一个事件处理器返回 `false` 将不再停止事件传播。相反，`e.stopPropagation()` 或 `e.preventDefault()` 应该视情况手动触发。
 
-### Event Pooling
+### 事件池
 
 The `SyntheticEvent` is pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event callback has been invoked.
 This is for performance reasons.
