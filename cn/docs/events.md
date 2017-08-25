@@ -57,11 +57,11 @@
 
 # 合成事件（SyntheticEvent）
 
-这个参考指南记录了 `SyntheticEvent` 包装器，组成 React 事件系统的一部分。查阅 [事件处理指南](/cn/docs/handling-events.md) 了解更多。
+这个参考指南记录了 `SyntheticEvent` 包装器，这个组成 React 事件系统的一部分。查阅 [事件处理指南](/cn/docs/handling-events.md) 了解更多。
 
 ## 概述
 
-Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+你的事件处理器将被传递 `SyntheticEvent` 的实例, 一个跨浏览器原生事件包装器。它具有原生浏览器相同的事件接口，包含 `stopPropagation()` 和 `preventDefault()`, 除了这些，事件在所有浏览器中的工作相同。
 
 If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. Every `SyntheticEvent` object has the following attributes:
 
