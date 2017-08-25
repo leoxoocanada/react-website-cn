@@ -132,15 +132,15 @@ Style key 是驼峰式命名，以便与从JS访问DOM节点上的属性（例�
 
 ### suppressContentEditableWarning
 
-Normally, there is a warning when an element with children is also marked as `contentEditable`, because it won't work. This attribute suppresses that warning. Don't use this unless you are building a library like [Draft.js](https://facebook.github.io/draft-js/) that manages `contentEditable` manually.
+通常，当有 children 的元素也被标记为 `contentEditable` 时，会发出警告，因为它不起作用。 此属性禁止该警告。 除非您正在构建手动管理 `contentEditable` 的 [Draft.js](https://facebook.github.io/draft-js/) 这样的库，否则请勿使用。
 
 ### value
 
-The `value` attribute is supported by `<input>` and `<textarea>` components. You can use it to set the value of the component. This is useful for building controlled components. `defaultValue` is the uncontrolled equivalent, which sets the value of the component when it is first mounted.
+`value` 属性由 `<input>` 和  `<textarea>`  组件支持。您可以使用它来设置组件的值。这对于构建受控组件很有用。`defaultChecked` 等价于不受控组件，它设置组件在首次挂载时的值。
 
-## All Supported HTML Attributes
+## 所有支持的 HTML 属性
 
-React supports all `data-*` and `aria-*` attributes as well as these attributes:
+React 支持所有 `data-*` 和 `aria-*` 属性以及以下属性：
 
 ```
 accept acceptCharset accessKey action allowFullScreen allowTransparency alt
@@ -158,24 +158,24 @@ selected shape size sizes span spellCheck src srcDoc srcLang srcSet start step
 style summary tabIndex target title type useMap value width wmode wrap
 ```
 
-These RDFa attributes are supported (several RDFa attributes overlap with standard HTML attributes and thus are excluded from this list):
+这些 RDFa 属性（几个 RDFa 属性与标准 HTML 属性重叠，因此不在此列表中）受支持：
 
 ```
 about datatype inlist prefix property resource typeof vocab
 ```
 
-In addition, the following non-standard attributes are supported:
+此外，下面这些非标准属性也被支持：
 
-- `autoCapitalize autoCorrect` for Mobile Safari.
-- `color` for `<link rel="mask-icon" />` in Safari.
-- `itemProp itemScope itemType itemRef itemID` for [HTML5 microdata](http://schema.org/docs/gs.html).
-- `security` for older versions of Internet Explorer.
-- `unselectable` for Internet Explorer.
-- `results autoSave` for WebKit/Blink input fields of type `search`.
+- Mobile Safari 的 `autoCapitalize autoCorrect` .
+- Safari 中 `<link rel="mask-icon" />` 的 `color` .
+- [HTML5 microdata](http://schema.org/docs/gs.html) 的 `itemProp itemScope itemType itemRef itemID` .
+- 老版本 Internet Explorer  的 `security` .
+- Internet Explorer 的 `unselectable` .
+- 对WebKit/Blink 中的 search 类型输入域中的 `results autoSave` .
 
-## All Supported SVG Attributes
+## 所有支持的 SVG 属性
 
-React supports these SVG attributes:
+React 支持这些 SVG 属性:
 
 ```
 accentHeight accumulate additive alignmentBaseline allowReorder alphabetic
