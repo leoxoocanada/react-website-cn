@@ -44,6 +44,7 @@
 * [DOM 元素](/cn/docs/dom-elements.md)
 * [**`合成事件（SyntheticEvent）`**](/cn/docs/events.md)
 
+
 #### 贡献
 
 * [如何贡献](/cn/contributing/how-to-contribute.md)
@@ -398,3 +399,8 @@ Event names:
 ```
 onToggle
 ```
+
+---
+
+* 上一篇：[DOM 元素](/cn/docs/dom-elements.md)
+* 下一篇：[如何贡献](/cn/contributing/how-to-contribute.md)
