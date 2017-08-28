@@ -57,24 +57,23 @@
 
 # 如何贡献
 
+React 是 Facebook 的第一个开源项目之一，它们都处于非常积极的发展之中，也被用于向 [facebook.com](https://www.facebook.com) 上的所有人发送代码。我们仍然在努力做贡献，尽可能使这个项目简单和透明，但是我们做的还不是很到位。希望这个文档可以让贡献的过程更清晰，并回答一些你可能需要的问题。
 
-React is one of Facebook's first open source projects that is both under very active development and is also being used to ship code to everybody on [facebook.com](https://www.facebook.com). We're still working out the kinks to make contributing to this project as easy and transparent as possible, but we're not quite there yet. Hopefully this document makes the process for contributing clear and answers some questions that you may have.
-
-### [Code of Conduct](https://code.facebook.com/codeofconduct)
+### [行为守则](https://code.facebook.com/codeofconduct)
 
 Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://code.facebook.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
 
-### Open Development
+### 开放发展
 
 All work on React happens directly on [GitHub](https://github.com/facebook/react). Both core team members and external contributors send pull requests which go through the same review process.
 
-### Branch Organization
+### 分支机构
 
 We will do our best to keep the [`master` branch](https://github.com/facebook/react/tree/master) in good shape, with tests passing at all times. But in order to move fast, we will make API changes that your application might not be compatible with. We recommend that you use [the latest stable version of React](/react/downloads.html).
 
 If you send a pull request, please do it against the `master` branch. We maintain stable branches for major versions separately but we don't accept pull requests to them directly. Instead, we cherry-pick non-breaking changes from master to the latest stable major version.
 
-### Semantic Versioning
+### 语义版本控制
 
 React follows [semantic versioning](http://semver.org/). We release patch versions for bugfixes, minor versions for new features, and major versions for any breaking changes. When we make breaking changes, we also introduce deprecation warnings in a minor version so that our users learn about the upcoming changes and migrate their code in advance.
 
@@ -84,36 +83,36 @@ Every significant change is documented in the [changelog file](https://github.co
 
 ### Bugs
 
-#### Where to Find Known Issues
+#### 在哪里查找已知问题
 
 We are using [GitHub Issues](https://github.com/facebook/react/issues) for our public bugs. We keep a close eye on this and try to make it clear when we have an internal fix in progress. Before filing a new task, try to make sure your problem doesn't already exist.
 
-#### Reporting New Issues
+#### 报告新问题
 
 The best way to get your bug fixed is to provide a reduced test case. This [JSFiddle template](https://jsfiddle.net/84v837e9/) is a great starting point.
 
-#### Security Bugs
+#### 安全漏洞
 
 Facebook has a [bounty program](https://www.facebook.com/whitehat/) for the safe disclosure of security bugs. With that in mind, please do not file public issues; go through the process outlined on that page.
 
-### How to Get in Touch
+### 如何联系
 
 * IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
 * Discussion forum: [discuss.reactjs.org](https://discuss.reactjs.org/)
 
 There is also [an active community of React users on the Discord chat platform](http://www.reactiflux.com/) in case you need help with React.
 
-### Proposing a Change
+### 提出改变
 
 If you intend to change the public API, or make any non-trivial changes to the implementation, we recommend [filing an issue](https://github.com/facebook/react/issues/new). This lets us reach an agreement on your proposal before you put significant effort into it.
 
 If you're only fixing a bug, it's fine to submit a pull request right away but we still recommend to file an issue detailing what you're fixing. This is helpful in case we don't accept that specific fix but want to keep track of the issue.
 
-### Your First Pull Request
+### 你的第一个 Pull Request
 
 Working on your first Pull Request? You can learn how from this free video series:
 
-**[How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
+**[如何在 GitHub 上贡献一个开源项目](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
 
 To help you get your feet wet and get you familiar with our contribution process, we have a list of **[beginner friendly issues](https://github.com/facebook/react/issues?q=is%3Aopen+is%3Aissue+label%3A%22Difficulty%3A+beginner%22)** that contain bugs which are fairly easy to fix. This is a great place to get started.
 
@@ -121,11 +120,11 @@ If you decide to fix an issue, please be sure to check the comment thread in cas
 
 If somebody claims an issue but doesn't follow up for more than two weeks, it's fine to take over it but you should still leave a comment.
 
-### Sending a Pull Request
+### 发送 Pull Request
 
 The core team is monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation. For API changes we may need to fix our internal uses at Facebook.com, which could cause some delay. We'll do our best to provide updates and feedback throughout the process.
 
-**Before submitting a pull request,** please make sure the following is done:
+**提交一个 pull request 前,** 请确保以下已经完成:
 
 1. Fork [the repository](https://github.com/facebook/react) and create your branch from `master`.
 2. If you've added code that should be tested, add tests!
@@ -137,20 +136,20 @@ The core team is monitoring for pull requests. We will review your pull request 
 8. If you added or removed any tests, run `./scripts/fiber/record-tests` before submitting the pull request, and commit the resulting changes.
 9. If you haven't already, complete the CLA.
 
-### Contributor License Agreement (CLA)
+### 贡献者许可协议（CLA）
 
 In order to accept your pull request, we need you to submit a CLA. You only need to do this once, so if you've done this for another Facebook open source project, you're good to go. If you are submitting a pull request for the first time, just let us know that you have completed the CLA and we can cross-check with your GitHub username.
 
-**[Complete your CLA here.](https://code.facebook.com/cla)**
+**[在这里完成你的CLA](https://code.facebook.com/cla)**
 
-### Contribution Prerequisites
+### 贡献前提条件
 
 * You have `node` installed at v4.0.0+ and `npm` at v2.0.0+.
 * You have `gcc` installed or are comfortable installing a compiler if needed. Some of our `npm` dependencies may require a compilation step. On OS X, the Xcode Command Line Tools will cover this. On Ubuntu, `apt-get install build-essential` will install the required packages. Similar commands should work on other Linux distros. Windows will require some additional steps, see the [`node-gyp` installation instructions](https://github.com/nodejs/node-gyp#installation) for details.
 * You are familiar with `npm` and know whether or not you need to use `sudo` when installing packages globally.
 * You are familiar with `git`.
 
-### Development Workflow
+### 开发工作流程
 
 After cloning React, run `npm install` to fetch its dependencies.
 Then, you can run several commands:
@@ -180,14 +179,14 @@ Every time you run `npm run build` in the React folder, the updated versions wil
 
 We still require that your pull request contains unit tests for any new functionality. This way we can ensure that we don't break your code in the future.
 
-### Style Guide
+### 风格指南
 
 Our linter will catch most styling issues that may exist in your code.
 You can check the status of your code styling by simply running `npm run lint`.
 
 However, there are still some styles that the linter cannot pick up. If you are unsure about something, looking at [Airbnb's Style Guide](https://github.com/airbnb/javascript) will guide you in the right direction.
 
-### Code Conventions
+### 代码约定
 
 * Use semicolons `;`
 * Commas last `,`
@@ -198,21 +197,21 @@ However, there are still some styles that the linter cannot pick up. If you are 
 * Write "attractive" code
 * Do not use the optional parameters of `setTimeout` and `setInterval`
 
-### Introductory Video
+### 介绍视频
 
 You may be interested in watching [this short video](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 mins) which gives an introduction on how to contribute to React.
 
-### Meeting Notes
+### 会议记录
 
 React team meets once a week to discuss the development of React, future plans, and priorities. You can find the meeting notes in a [dedicated repository](https://github.com/reactjs/core-notes/).
 
-### License
+### 许可
 
 By contributing to React, you agree that your contributions will be licensed under its BSD license.
 
-### What Next?
+### 下一步是什么?
 
-Read the [next section](/react/contributing/codebase-overview.html) to learn how the codebase is organized.
+阅读 [下一节](/cn/contributing/codebase-overview.md) 了解代码库的结构。
 
 
 ---
