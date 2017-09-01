@@ -77,8 +77,6 @@ Facebook 通过了“行为准则”，我们期望项目参与者都能遵守�
 
 React 遵循[语义版本](http://semver.org/)。 我们为错误发布修补程序版本，为新功能发布次要版本，为重大更改发布主要版本。 当我们进行重大更改时，我们还会在次要版本中引入废弃警告，以便我们的用户了解即将发生的更改并提前迁移其代码。
 
-我们使用标签标记每个 pull 请求，标签是否在下一个[修补程序]中进行更改（https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-patch ），[minor]（https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-minor）或[major]（https://github.com） / facebook / reactions / pulls？q = is％3Aopen +是％3Apr + label％3Asemver-major）版本。 我们每隔几个星期发布新的补丁版本，每几个月发布次要版本，主要版本一年或两次。
-
 我们使用 tag 标记每个 pull 请求，标记变化是否应该在下一个 [补丁](https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-patch), [小改动](https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-minor), 或 [重大修改](https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-major) 版本。我们每隔几周发布新的补丁版本，每隔几月发布小改动版本，一年中1到2次发布重大修改版本。
 
 每个重大变动都记录在 [changelog 文件](https://github.com/facebook/react/blob/master/CHANGELOG.md).
@@ -87,22 +85,22 @@ React 遵循[语义版本](http://semver.org/)。 我们为错误发布修补程
 
 #### 在哪里查找已知问题
 
-We are using [GitHub Issues](https://github.com/facebook/react/issues) for our public bugs. We keep a close eye on this and try to make it clear when we have an internal fix in progress. Before filing a new task, try to make sure your problem doesn't already exist.
+我们使用 [GitHub Issues](https://github.com/facebook/react/issues) 发布我们的公共 bug。我们会密切关注这些，并尝试在我们已经内部修复好之后清空这些问题。在提交新任务之前，请试着确保你的问题没有发布过。
 
 #### 报告新问题
 
-The best way to get your bug fixed is to provide a reduced test case. This [JSFiddle template](https://jsfiddle.net/84v837e9/) is a great starting point.
+阐述你的 bug 的最佳方式是提供一个简化的测试用例。这个 [JSFiddle 模板](https://jsfiddle.net/84v837e9/) 是一个好起点。
 
 #### 安全漏洞
 
-Facebook has a [bounty program](https://www.facebook.com/whitehat/) for the safe disclosure of security bugs. With that in mind, please do not file public issues; go through the process outlined on that page.
+Facebook 有一个 [赏金计划](https://www.facebook.com/whitehat/) 用于安全 bug 的安全披露。考虑到这一点，请不要提公开的 issues；查看页面了解披露流程。
 
 ### 如何联系
 
 * IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
-* Discussion forum: [discuss.reactjs.org](https://discuss.reactjs.org/)
+* 讨论区: [discuss.reactjs.org](https://discuss.reactjs.org/)
 
-There is also [an active community of React users on the Discord chat platform](http://www.reactiflux.com/) in case you need help with React.
+还有[Discord聊天平台上的React用户的活跃社区](http://www.reactiflux.com/) ，用于您需要React帮助的时候。
 
 ### 提出改变
 
