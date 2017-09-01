@@ -61,25 +61,27 @@ React 是 Facebook 的第一个开源项目之一，它们都处于非常积极�
 
 ### [行为守则](https://code.facebook.com/codeofconduct)
 
-Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://code.facebook.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
+Facebook 通过了“行为准则”，我们期望项目参与者都能遵守。请阅读[全文](https://code.facebook.com/codeofconduct) ，以便您了解将采取什么行动以及哪些行为不会被容忍。
 
 ### 开放发展
 
-All work on React happens directly on [GitHub](https://github.com/facebook/react). Both core team members and external contributors send pull requests which go through the same review process.
+所有关于React的工作都直接在[GitHub](https://github.com/facebook/react)上进行。 核心团队成员和外部贡献者都会通过相同的审核流程发送 pull 请求。
 
 ### 分支机构
 
-We will do our best to keep the [`master` branch](https://github.com/facebook/react/tree/master) in good shape, with tests passing at all times. But in order to move fast, we will make API changes that your application might not be compatible with. We recommend that you use [the latest stable version of React](/react/downloads.html).
+我们将竭尽全力保持[`master`分支](https://github.com/facebook/react/tree/master) 的良好状态，随时测试通过。 但为了快速迭代，我们将对您的应用程序可能不兼容的API进行更改。 我们建议您使用[最新版本的React](https://facebook.github.io/react/downloads.html)。
 
-If you send a pull request, please do it against the `master` branch. We maintain stable branches for major versions separately but we don't accept pull requests to them directly. Instead, we cherry-pick non-breaking changes from master to the latest stable major version.
+如果您发送 pull 请求，请在 `master` 分支上进行。 我们分别维护主要版本的稳定分支，但我们不接受直接向他们 pull 请求。 相反，我们从 master 到最新稳定的主要版本中挑选不间断的变化。
 
 ### 语义版本控制
 
-React follows [semantic versioning](http://semver.org/). We release patch versions for bugfixes, minor versions for new features, and major versions for any breaking changes. When we make breaking changes, we also introduce deprecation warnings in a minor version so that our users learn about the upcoming changes and migrate their code in advance.
+React 遵循[语义版本](http://semver.org/)。 我们为错误发布修补程序版本，为新功能发布次要版本，为重大更改发布主要版本。 当我们进行重大更改时，我们还会在次要版本中引入废弃警告，以便我们的用户了解即将发生的更改并提前迁移其代码。
 
-We tag every pull request with a label marking whether the change should go in the next [patch](https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-patch), [minor](https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-minor), or a [major](https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-major) version. We release new patch versions every few weeks, minor versions every few months, and major versions one or two times a year.
+我们使用标签标记每个 pull 请求，标签是否在下一个[修补程序]中进行更改（https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-patch ），[minor]（https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-minor）或[major]（https://github.com） / facebook / reactions / pulls？q = is％3Aopen +是％3Apr + label％3Asemver-major）版本。 我们每隔几个星期发布新的补丁版本，每几个月发布次要版本，主要版本一年或两次。
 
-Every significant change is documented in the [changelog file](https://github.com/facebook/react/blob/master/CHANGELOG.md).
+我们使用 tag 标记每个 pull 请求，标记变化是否应该在下一个 [补丁](https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-patch), [小改动](https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-minor), 或 [重大修改](https://github.com/facebook/react/pulls?q=is%3Aopen+is%3Apr+label%3Asemver-major) 版本。我们每隔几周发布新的补丁版本，每隔几月发布小改动版本，一年中1到2次发布重大修改版本。
+
+每个重大变动都记录在 [changelog 文件](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
 ### Bugs
 
