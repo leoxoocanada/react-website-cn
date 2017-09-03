@@ -104,9 +104,9 @@ Facebook 有一个 [赏金计划](https://www.facebook.com/whitehat/) 用于安�
 
 ### 提出改变
 
-If you intend to change the public API, or make any non-trivial changes to the implementation, we recommend [filing an issue](https://github.com/facebook/react/issues/new). This lets us reach an agreement on your proposal before you put significant effort into it.
+如果你打算改变公共 API，或对实现做一些重大的改变，我们建议 [提出一个 issue](https://github.com/facebook/react/issues/new) 。这让我们在你付出巨大的努力之前在你的提议上可以达成共识。
 
-If you're only fixing a bug, it's fine to submit a pull request right away but we still recommend to file an issue detailing what you're fixing. This is helpful in case we don't accept that specific fix but want to keep track of the issue.
+如果你只是修复了一个 bug，只要提交一个 pull 请求就可以，但我们还是建议提一个 issue 来详述你修复了什么。如果我们不接受特定的修复，但是想要跟踪问题，这是有帮助的。
 
 ### 你的第一个 Pull Request
 
