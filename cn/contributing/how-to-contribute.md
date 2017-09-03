@@ -110,15 +110,15 @@ Facebook 有一个 [赏金计划](https://www.facebook.com/whitehat/) 用于安�
 
 ### 你的第一个 Pull Request
 
-Working on your first Pull Request? You can learn how from this free video series:
+如何在你的第一个 Pull 请求上开始工作？你可以从这个免费的视频系列里学到这些：
 
 **[如何在 GitHub 上贡献一个开源项目](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
 
-To help you get your feet wet and get you familiar with our contribution process, we have a list of **[beginner friendly issues](https://github.com/facebook/react/issues?q=is%3Aopen+is%3Aissue+label%3A%22Difficulty%3A+beginner%22)** that contain bugs which are fairly easy to fix. This is a great place to get started.
+为了帮助你适应并熟悉我们的贡献流程，我们有一个 **[初学者友好的问题](https://github.com/facebook/react/issues?q=is%3Aopen+is%3Aissue+label%3A%22Difficulty%3A+beginner%22)** 列表，其中包含相当容易修复的 bug。这是一个开始的好地方。
 
-If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don't accidentally duplicate your effort.
+如果您决定解决问题，请确保检查评论，以防有人已经在修复问题。 如果目前没有人在工作，请发表评论，说明您打算在其上工作，以便其他人不会意外重复您的努力。
 
-If somebody claims an issue but doesn't follow up for more than two weeks, it's fine to take over it but you should still leave a comment.
+如果有人提出了一个问题，但没有跟进超过两个星期，接管它是很好的，但你应该留下评论。
 
 ### 发送 Pull Request
 
