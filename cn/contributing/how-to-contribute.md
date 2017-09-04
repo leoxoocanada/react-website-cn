@@ -122,19 +122,19 @@ Facebook 有一个 [赏金计划](https://www.facebook.com/whitehat/) 用于安�
 
 ### 发送 Pull Request
 
-The core team is monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation. For API changes we may need to fix our internal uses at Facebook.com, which could cause some delay. We'll do our best to provide updates and feedback throughout the process.
+核心团队会监控 pull 请求。我们将检阅你的 pull 请求，有可能将它合并，改变请求，或关闭它并说明理由。对于 API 的改变我们可能需要修复我们在 Facebook.com 的内部使用，这可能会有一些延迟。我们将尽力在整个过程中提供更新和反馈。
 
 **提交一个 pull request 前,** 请确保以下已经完成:
 
-1. Fork [the repository](https://github.com/facebook/react) and create your branch from `master`.
-2. If you've added code that should be tested, add tests!
-3. If you've changed APIs, update the documentation.
-4. Ensure the test suite passes (`npm test`).
-5. Make sure your code lints (`npm run lint`).
-6. Format your code with [prettier](https://github.com/prettier/prettier) (`npm run prettier`).
-7. Run the [Flow](https://flowtype.org/) typechecks (`npm run flow`).
-8. If you added or removed any tests, run `./scripts/fiber/record-tests` before submitting the pull request, and commit the resulting changes.
-9. If you haven't already, complete the CLA.
+1. Fork [这个仓库](https://github.com/facebook/react) 并从 `master` 创建你的分支.
+2. 如果你添加了应该要测试的代码，请添加测试用例！
+3. 如果你更新了 API，请更新文档。
+4. 确保测试用例通过 (`npm test`).
+5. 确保你的代码通过 lint 检查 (`npm run lint`).
+6. 通过 [prettier](https://github.com/prettier/prettier) 格式化你的代码 (`npm run prettier`).
+7. 运行 [Flow](https://flowtype.org/) 类型检查 (`npm run flow`).
+8. 如果你添加或移除了一些测试用例，请在提交 pull 请求 之前运行 `./scripts/fiber/record-tests` ，并提交改变的结果。
+9. 如果还没有做什么，请先完成CLA。
 
 ### 贡献者许可协议（CLA）
 
