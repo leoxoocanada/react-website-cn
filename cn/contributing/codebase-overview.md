@@ -84,16 +84,15 @@ var setInnerHTML = require('../client/utils/setInnerHTML');
 ```js
 var setInnerHTML = require('setInnerHTML');
 ```
+Haste 最初是为了像 Facebook 这样的巨型应用研发的。它很容易移动文件到不同的目录，并在导入它们时不用考虑相对路径。得益于全局唯一的名字，在编辑中模糊查找文件会让你找到正确的位置。
 
-Haste was originally developed for giant apps like Facebook. It's easy to move files to different folders and import them without worrying about relative paths. The fuzzy file search in any editor always takes you to the correct place thanks to globally unique names.
+React 本身是从 Facebook 的代码库里提取出来的，由于历史原因使用了 Haste。在将来，我们或许将 [移植 React 到使用 CommonJS 或 ES Modules](https://github.com/facebook/react/issues/6336) 以跟社区一致。然而，这需要在 Facebook 内部的基础设施里改变，因此它不太可能马上实现。
 
-React itself was extracted from Facebook's codebase and uses Haste for historical reasons. In the future, we will probably [migrate React to use CommonJS or ES Modules](https://github.com/facebook/react/issues/6336) to be more aligned with the community. However, this requires changes in Facebook's internal infrastructure so it is unlikely to happen very soon.
+**如果你还记得一些规则 Haste 将为你带来更多功能:**
 
-**Haste will make more sense to you if you remember a few rules:**
-
-* All filenames in the React source code are unique. This is why they're sometimes verbose.
-* When you add a new file, make sure you include a [license header](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js#L1-L10). You can copy it from any existing file. A license header always includes [a line like this](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js#L9). Change it to match the name of the file you created.
-* Don’t use relative paths when importing. Instead of `require('./setInnerHTML')`, write `require('setInnerHTML')`.
+* 在 React 源码里所有文件名都是唯一的。这是为什么有时候它显得很冗长。
+* 当你添加了一个新文件，请确保你包含了一个 [许可标题](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js#L1-L10). 你可以从任何现有文件里复制它。一个许可标题经常包含 [像这样的一行](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js#L9). 修改它以匹配你创建的文件名。
+* 当导入的时候不要使用相对路径。这么写 `require('setInnerHTML')`，而不是  `require('./setInnerHTML')`。
 
 When we compile React for npm, a script copies all the modules into [a single flat directory called `lib`](https://unpkg.com/react@15/lib/) and prepends all `require()` paths with `./`. This way Node, Browserify, Webpack, and other tools can understand React build output without being aware of Haste.
 
