@@ -98,7 +98,7 @@ React 本身是从 Facebook 的代码库里提取出来的，由于历史原因�
 
 **如果你在 GitHub 上阅读 React 源码并需要跳转到一个文件时，请按"t"**
 
-This is a GitHub shortcut for searching the current repo for fuzzy filename matches. Start typing the name of the file you are looking for, and it will show up as the first match.
+这是 GitHub 快捷键，在当前仓库（repo）中模糊文件名搜索匹配。开始键入你要查找的文件的名称，它将作为第一次匹配显示。
 
 ### 外部依赖
 
