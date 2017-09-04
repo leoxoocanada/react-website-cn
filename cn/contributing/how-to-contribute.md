@@ -163,11 +163,11 @@ Facebook 有一个 [赏金计划](https://www.facebook.com/whitehat/) 用于安�
 
 我们建议运行 `npm test` (或它上面的变体)来确保你的工作不会引入任何回归。然而在真实的项目中尝试构建 React 是非常方便的。
 
-First, run `npm run build`. This will produce pre-built bundles in `build` folder, as well as prepare npm packages inside `build/packages`.
+首先，运行 `npm run build`。这将在 `build` 目录生成预构建好的包，和在 `build/packages` 里预先准备好 npm 包一样。
 
-The easiest way to try your changes is to run `npm run build` and then open `fixtures/packaging/babel-standalone/dev.html`. This file already uses `react.js` from the `build` folder so it will pick up your changes.
+最简单调试代的改变的方式是运行 `npm run build` ，并打开 `fixtures/packaging/babel-standalone/dev.html`。这个文件已经使用了 `build` 目录的 `react.js`，因此它将呈现你的改变。
 
-If you want to try your changes in your existing React project, you may copy `build/dist/react.development.js`, `build/dist/react-dom.development.js`, or any other build products into your app and use them instead of the stable version. If your project uses React from npm, you may delete `react` and `react-dom` in its dependencies and use `npm link` to point them to your local `build` folder:
+如果你要在当前的 React 项目调试你的改变，你可以复制 `build/dist/react.development.js`, `build/dist/react-dom.development.js`, 或其它构建好的文件到你的应用，并使用它们来代替稳定的版本。如果你的产品从 npm 中使用 React，你可以在它的依赖里移除 `react` 和 `react-dom` ，并使用 `npm link` 连接到 `build` 目录:
 
 ```sh
 cd your_project
@@ -175,9 +175,9 @@ npm link ~/path_to_your_react_clone/build/packages/react
 npm link ~/path_to_your_react_clone/build/packages/react-dom
 ```
 
-Every time you run `npm run build` in the React folder, the updated versions will appear in your project's `node_modules`. You can then rebuild your project to try your changes.
+每次你在 React 目录里运行 `npm run build` ， 已经更新好的版本将出现在你的项目的 `node_modules` 里。你可以重新构建你的项目来调试你的改变。
 
-We still require that your pull request contains unit tests for any new functionality. This way we can ensure that we don't break your code in the future.
+我们仍然要求您的 pull 请求包含任何新功能的单元测试。 这样我们可以确保在将来不会破坏您的代码。
 
 ### 风格指南
 
