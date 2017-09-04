@@ -184,30 +184,30 @@ npm link ~/path_to_your_react_clone/build/packages/react-dom
 我们的 linter 将捕获大多数可能破坏你代码的风格问题。
 你可以通过简单的运行 `npm run lint` 检查你的代码风格的状态
 
-然而，我们还是有一些风格是 linter 不能捕获的。如果你不能确定一些情况，请查看 [Airbnb's Style Guide](https://github.com/airbnb/javascript) will guide you in the right direction.
+然而，我们还是有一些风格是 linter 不能捕获的。如果你不能确定一些情况，请查看 [Airbnb 的风格指南](https://github.com/airbnb/javascript) ，这将引导你向正确的方向发展。
 
 ### 代码约定
 
-* Use semicolons `;`
-* Commas last `,`
-* 2 spaces for indentation (no tabs)
-* Prefer `'` over `"`
+* 使用分号 `;`
+* 后面加逗号 `,`
+* 2个空格缩进 (不使用tab)
+* 更喜欢 `'` 而不是 `"`
 * `'use strict';`
-* 120 character line length (**except documentation**)
-* Write "attractive" code
-* Do not use the optional parameters of `setTimeout` and `setInterval`
+* 一行 120 个字符的长度 (**文件除外**)
+* 写"有吸引力"的代码
+* 不要使用`setTimeout`和`setInterval`的可选参数
 
 ### 介绍视频
 
-You may be interested in watching [this short video](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 mins) which gives an introduction on how to contribute to React.
+你可能对查看 [这个短视频](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 分钟) 有兴趣，它对如何给 React 做贡献做了一个介绍。
 
 ### 会议记录
 
-React team meets once a week to discuss the development of React, future plans, and priorities. You can find the meeting notes in a [dedicated repository](https://github.com/reactjs/core-notes/).
+React 团队会议一周一次，用来讨论 React 的发展，未来计划，和优先顺序。你能在 [专用的仓库](https://github.com/reactjs/core-notes/) 找到会议记录
 
 ### 许可
 
-By contributing to React, you agree that your contributions will be licensed under its BSD license.
+通过为 React 做贡献，你同意你的贡献将根据 BSD 许可协议获得认可。
 
 ### 下一步是什么?
 
