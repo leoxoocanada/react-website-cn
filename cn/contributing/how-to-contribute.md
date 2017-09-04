@@ -138,7 +138,7 @@ Facebook 有一个 [赏金计划](https://www.facebook.com/whitehat/) 用于安�
 
 ### 贡献者许可协议（CLA）
 
-In order to accept your pull request, we need you to submit a CLA. You only need to do this once, so if you've done this for another Facebook open source project, you're good to go. If you are submitting a pull request for the first time, just let us know that you have completed the CLA and we can cross-check with your GitHub username.
+为了接受你的 pull 请求，我们需要你提交一个 CLA。你只需要提交一次，因此如果你已经在其它的 Facebook 开源项目里提交过了，你将不需要再次提交。如果你是第一次提交 pull 请求，只要让我们知道你已经完成了 CLA，我们会再次确认你的 GitHub 用户名。
 
 **[在这里完成你的CLA](https://code.facebook.com/cla)**
 
