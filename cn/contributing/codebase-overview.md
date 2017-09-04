@@ -94,9 +94,9 @@ React 本身是从 Facebook 的代码库里提取出来的，由于历史原因�
 * 当你添加了一个新文件，请确保你包含了一个 [许可标题](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js#L1-L10). 你可以从任何现有文件里复制它。一个许可标题经常包含 [像这样的一行](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js#L9). 修改它以匹配你创建的文件名。
 * 当导入的时候不要使用相对路径。这么写 `require('setInnerHTML')`，而不是  `require('./setInnerHTML')`。
 
-When we compile React for npm, a script copies all the modules into [a single flat directory called `lib`](https://unpkg.com/react@15/lib/) and prepends all `require()` paths with `./`. This way Node, Browserify, Webpack, and other tools can understand React build output without being aware of Haste.
+当你为 npm 编译 React时，一个脚本拷贝所有模块到 [一个名为 `lib` 的单个目录](https://unpkg.com/react@15/lib/) ，并通过 `./` 预先考虑所有的 `require()` 路径。 这样的话，在没有 Haste 的时候，Browserify, Webpack, 和其它工具能理解 React 的构建输出。
 
-**If you're reading React source on GitHub and want to jump to a file, press "t".**
+**如果你在 GitHub 上阅读 React 源码并需要跳转到一个文件时，请按"t"**
 
 This is a GitHub shortcut for searching the current repo for fuzzy filename matches. Start typing the name of the file you are looking for, and it will show up as the first match.
 
