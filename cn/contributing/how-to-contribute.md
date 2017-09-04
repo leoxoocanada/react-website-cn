@@ -181,10 +181,10 @@ npm link ~/path_to_your_react_clone/build/packages/react-dom
 
 ### 风格指南
 
-Our linter will catch most styling issues that may exist in your code.
-You can check the status of your code styling by simply running `npm run lint`.
+我们的 linter 将捕获大多数可能破坏你代码的风格问题。
+你可以通过简单的运行 `npm run lint` 检查你的代码风格的状态
 
-However, there are still some styles that the linter cannot pick up. If you are unsure about something, looking at [Airbnb's Style Guide](https://github.com/airbnb/javascript) will guide you in the right direction.
+然而，我们还是有一些风格是 linter 不能捕获的。如果你不能确定一些情况，请查看 [Airbnb's Style Guide](https://github.com/airbnb/javascript) will guide you in the right direction.
 
 ### 代码约定
 
