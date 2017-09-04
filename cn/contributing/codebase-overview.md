@@ -56,13 +56,13 @@
 
 # 代码库概述
 
-This section will give you an overview of the React codebase organization, its conventions, and the implementation.
+这一节将为你带来 React 代码库的组织结构，约定，和具体实现。
 
-If you want to [contribute to React](/react/contributing/how-to-contribute.html) we hope that this guide will help you feel more comfortable making changes.
+如果你要 [为 React 做贡献](/cn/contributing/how-to-contribute.md) ，我们希望这个指南将帮助你更加方便的进行更改。
 
-We don't necessarily recommend any of these conventions in React apps. Many of them exist for historical reasons and might change with time.
+我们不一定会在 React 应用中推荐任何这些惯例。 其中许多是由于历史原因而存在的，可能随时间而变化。
 
-### Custom Module System
+### 定制模块系统
 
 At Facebook, internally we use a custom module system called "Haste". It is similar to [CommonJS](https://nodejs.org/docs/latest/api/modules.html) and also uses `require()` but has a few important differences that often confuse outside contributors.
 
@@ -101,7 +101,7 @@ When we compile React for npm, a script copies all the modules into [a single fl
 
 This is a GitHub shortcut for searching the current repo for fuzzy filename matches. Start typing the name of the file you are looking for, and it will show up as the first match.
 
-### External Dependencies
+### 外部依赖
 
 React has almost no external dependencies. Usually, a `require()` points to a file in React's own codebase. However, there are a few relatively rare exceptions.
 
@@ -109,7 +109,7 @@ If you see a `require()` that does not correspond to a file in the React reposit
 
 The [fbjs repository](https://github.com/facebook/fbjs) exists because React shares some small utilities with libraries like [Relay](https://github.com/facebook/relay), and we keep them in sync. We don't depend on equivalent small modules in the Node ecosystem because we want Facebook engineers to be able to make changes to them whenever necessary. None of the utilities inside fbjs are considered to be public API, and they are only intended for use by Facebook projects such as React.
 
-### Top-Level Folders
+### 顶级文件夹
 
 After cloning the [React repository](https://github.com/facebook/react), you will see a few top-level folders in it:
 
@@ -121,13 +121,13 @@ After cloning the [React repository](https://github.com/facebook/react), you wil
 
 There are a few other top-level folders but they are mostly used for the tooling and you likely won't ever encounter them when contributing.
 
-### Colocated Tests
+### 共同测试
 
 We don't have a top-level directory for unit tests. Instead, we put them into a directory called `__tests__` relative to the files that they test.
 
 For example, a test for [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) is located in [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) right next to it.
 
-### Shared Code
+### 分享代码
 
 Even though Haste allows us to import any module from anywhere in the repository, we follow a convention to avoid cyclic dependencies and other unpleasant surprises. By convention, a file may only import files in the same folder or in subfolders below.
 
@@ -143,7 +143,7 @@ By the same logic, if [`src/renderers/dom/stack/client`](https://github.com/face
 
 This convention is not enforced but we check for it during a pull request review.
 
-### Warnings and Invariants
+### 警告和不变量
 
 The React codebase uses the `warning` module to display warnings:
 
@@ -192,7 +192,7 @@ invariant(
 
 It is important to keep development and production behavior similar, so `invariant` throws both in development and in production. The error messages are automatically replaced with error codes in production to avoid negatively affecting the byte size.
 
-### Development and Production
+### 开发环境与生产环境
 
 You can use `__DEV__` pseudo-global variable in the codebase to guard development-only blocks of code.
 
@@ -243,7 +243,7 @@ ReactRef.detachRefs = function(
 When possible, new code should use Flow annotations.  
 You can run `npm run flow` locally to check your code with Flow.
 
-### Classes and Mixins
+### Classes 和 Mixins
 
 React was originally written in ES5. We have since enabled ES6 features with [Babel](http://babeljs.io/), including classes. However, most of React code is still written in ES5.
 
@@ -291,7 +291,7 @@ module.exports = ReactDOMComponent;
 
 Sometimes we [convert old code to ES6 classes](https://github.com/facebook/react/pull/7647/files). However, this is not very important to us because there is an [ongoing effort](#fiber-reconciler) to replace the React reconciler implementation with a less object-oriented approach which wouldn't use classes at all.
 
-### Dynamic Injection
+### 动态注入
 
 React uses dynamic injection in some modules. While it is always explicit, it is still unfortunate because it hinders understanding of the code. The main reason it exists is because React originally only supported DOM as a target. React Native started as a React fork. We had to add dynamic injection to let React Native override some behaviors.
 
@@ -336,7 +336,7 @@ ReactHostComponent.injection.injectTextComponentClass(ReactNativeTextComponent);
 
 There are multiple injection points in the codebase. In the future, we intend to get rid of the dynamic injection mechanism and wire up all the pieces statically during the build.
 
-### Multiple Packages
+### 多个包
 
 React is a [monorepo](http://danluu.com/monorepo/). Its repository contains multiple separate packages so that their changes can be coordinated together, and documentation and issues live in one place.
 
@@ -364,7 +364,7 @@ The code for React core is located in [`src/isomorphic`](https://github.com/face
 >
 >There is also an additional standalone browser build called `react-with-addons.js` which we will consider separately further below.
 
-### Renderers
+### 渲染器（Renderers）
 
 React was originally created for the DOM but it was later adapted to also support native platforms with [React Native](http://facebook.github.io/react-native/). This introduced the concept of "renderers" to React internals.
 
@@ -384,7 +384,7 @@ While it is [technically possible](https://github.com/iamdustan/tiny-react-rende
 >
 >Technically the [`native`](https://github.com/facebook/react/tree/master/src/renderers/native) renderer is a very thin layer that teaches React to interact with React Native implementation. The real platform-specific code managing the native views lives in the [React Native repository](https://github.com/facebook/react-native) together with its components.
 
-### Reconcilers
+### 调解器（Reconcilers）
 
 Even vastly different renderers like React DOM and React Native need to share a lot of logic. In particular, the [reconciliation](/react/docs/reconciliation.html) algorithm should be as similar as possible so that declarative rendering, custom components, state, lifecycle methods, and refs work consistently across platforms.
 
@@ -392,7 +392,7 @@ To solve this, different renderers share some code between them. We call this pa
 
 Reconcilers are not packaged separately because they currently have no public API. Instead, they are exclusively used by renderers such as React DOM and React Native.
 
-### Stack Reconciler
+### 堆栈调解器（Stack Reconciler）
 
 The "stack" reconciler is the one powering all React production code today. It is located in [`src/renderers/shared/stack/reconciler`](https://github.com/facebook/react/tree/master/src/renderers/shared/stack) and is used by both React DOM and React Native.
 
@@ -400,13 +400,13 @@ It is written in an [object-oriented way](https://en.wikipedia.org/wiki/Composit
 
 When a component mounts, updates, or unmounts, the stack reconciler calls a method on that internal instance. The methods are called `mountComponent(element)`, `receiveComponent(nextElement)`, and `unmountComponent(element)`.
 
-#### Host Components
+#### 宿主组件（Host Components）
 
 Platform-specific ("host") components, such as `<div>` or a `<View>`, run platform-specific code. For example, React DOM instructs the stack reconciler to use [`ReactDOMComponent`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/shared/ReactDOMComponent.js) to handle [mounting](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/shared/ReactDOMComponent.js#L517), [updates](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/shared/ReactDOMComponent.js#L865), and [unmounting](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/shared/ReactDOMComponent.js#L1140) of DOM components.
 
 Regardless of the platform, both `<div>` and `<View>` handle managing multiple children in a similar way. For convenience, the stack reconciler provides a helper called [`ReactMultiChild`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactMultiChild.js) that both DOM and Native renderers [use](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/shared/ReactDOMComponent.js#L1203).
 
-#### Composite Components
+#### 复合组件（Composite Components）
 
 User-defined ("composite") components should behave the same way with all renderers. This is why the stack reconciler provides a shared implementation in [`ReactCompositeComponent`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js). It is always the same regardless of the renderer.
 
@@ -414,7 +414,7 @@ Composite components also implement [mounting](https://github.com/facebook/react
 
 During an update, `ReactCompositeComponent` checks whether the `render()` output has a different `type` or `key` than the last time. If neither `type` nor `key` has changed, it delegates the update to the existing child internal instance. Otherwise, it unmounts the old child instance and mounts a new one. This is described in the [reconciliation algorithm](/react/docs/reconciliation.html).
 
-#### Recursion
+#### 递归（Recursion）
 
 During an update, the stack reconciler "drills down" through composite components, runs their `render()` methods, and decides whether to update or replace their single child instance. It executes platform-specific code as it passes through the host components like `<div>` and `<View>`. Host components may have multiple children which are also processed recursively.
 
@@ -442,15 +442,15 @@ You can read more about it in [React Fiber Architecture](https://github.com/acdl
 
 Its source code is located in [`src/renderers/shared/fiber`](https://github.com/facebook/react/tree/master/src/renderers/shared/fiber).
 
-### Event System
+### 事件系统
 
 React implements a synthetic event system which is agnostic of the renderers and works both with React DOM and React Native. Its source code is located in [`src/renderers/shared/shared/event`](https://github.com/facebook/react/tree/master/src/renderers/shared/shared/event).
 
 There is a [video with a deep code dive into it](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 mins).
 
-### What Next?
+### 下一节有什么?
 
-Read the [next section](/react/contributing/implementation-notes.html) to learn about the current implementation of reconciler in more detail.
+阅读 [下一节](/cn/contributing/implementation-notes.md) 学习关于调解器（Reconcilers）当前实现的更多详情。
 
 
 
