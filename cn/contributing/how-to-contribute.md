@@ -144,10 +144,10 @@ Facebook 有一个 [赏金计划](https://www.facebook.com/whitehat/) 用于安�
 
 ### 贡献前提条件
 
-* You have `node` installed at v4.0.0+ and `npm` at v2.0.0+.
-* You have `gcc` installed or are comfortable installing a compiler if needed. Some of our `npm` dependencies may require a compilation step. On OS X, the Xcode Command Line Tools will cover this. On Ubuntu, `apt-get install build-essential` will install the required packages. Similar commands should work on other Linux distros. Windows will require some additional steps, see the [`node-gyp` installation instructions](https://github.com/nodejs/node-gyp#installation) for details.
-* You are familiar with `npm` and know whether or not you need to use `sudo` when installing packages globally.
-* You are familiar with `git`.
+* 你已经安装了 `node` v4.0.0+ 和 `npm` v2.0.0+.
+* 你已经安装了 `gcc` ，或者如果你需要，可以安装编译器。我们的一些 `npm` 依赖可能需要一个编辑环节。在 OS X, Xcode 命令行工具将处理这些。在 Ubuntu, 执行 `apt-get install build-essential` 将安装必要的包。类似的命令应该在其它 Linux 发行版上也能工作。Windows 将需要一些额外的步骤，查看 [`node-gyp` 安装说明](https://github.com/nodejs/node-gyp#installation) 了解详细信息.
+* 你已经熟悉 `npm` 并知道在全局安装软件包时是否需要使用 `sudo` 
+* 你已经熟悉 `git`.
 
 ### 开发工作流程
 
