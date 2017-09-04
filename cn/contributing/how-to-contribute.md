@@ -151,10 +151,10 @@ Facebook 有一个 [赏金计划](https://www.facebook.com/whitehat/) 用于安�
 
 ### 开发工作流程
 
-After cloning React, run `npm install` to fetch its dependencies.
-Then, you can run several commands:
+复制 React 之后，运行 `npm install` 摘取它的依赖。
+然后，你可以运行这些命令：
 
-* `npm run lint` checks the code style.
+* `npm run lint` 检查代码风格
 * `npm test` runs the complete test suite.
 * `npm test -- --watch` runs an interactive test watcher.
 * `npm test <pattern>` runs tests with matching filenames.
