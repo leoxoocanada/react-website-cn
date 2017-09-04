@@ -155,13 +155,13 @@ Facebook 有一个 [赏金计划](https://www.facebook.com/whitehat/) 用于安�
 然后，你可以运行这些命令：
 
 * `npm run lint` 检查代码风格
-* `npm test` runs the complete test suite.
-* `npm test -- --watch` runs an interactive test watcher.
-* `npm test <pattern>` runs tests with matching filenames.
-* `npm run flow` runs the [Flow](https://flowtype.org/) typechecks.
-* `npm run build` creates a `build` folder with all the packages.
+* `npm test` 运行完整的测试用例
+* `npm test -- --watch` 运行一个带交互的测试查看器
+* `npm test <pattern>` 通过匹配的文件名运行测试用例
+* `npm run flow` 运行 [Flow](https://flowtype.org/) 类型检查
+* `npm run build` 创建 `build` 目录将将所有包打包进去
 
-We recommend running `npm test` (or its variations above) to make sure you don't introduce any regressions as you work on your change. However it can be handy to try your build of React in a real project.
+我们建议运行 `npm test` (或它上面的变体)来确保你的工作不会引入任何回归。然而在真实的项目中尝试构建 React 是非常方便的。
 
 First, run `npm run build`. This will produce pre-built bundles in `build` folder, as well as prepare npm packages inside `build/packages`.
 
