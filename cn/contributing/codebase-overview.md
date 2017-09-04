@@ -64,22 +64,22 @@
 
 ### 定制模块系统
 
-At Facebook, internally we use a custom module system called "Haste". It is similar to [CommonJS](https://nodejs.org/docs/latest/api/modules.html) and also uses `require()` but has a few important differences that often confuse outside contributors.
+在 Facebook 内部，我们使用一个名为 "Haste" 的定制模块系统。它类似于 [CommonJS](https://nodejs.org/docs/latest/api/modules.html) ，也使用 `require()`，但有一些重要的区别，这经常让外部贡献者很容易混淆。
 
-In CommonJS, when you import a module, you need to specify its relative path:
+在 CommonJS 里，当你导入一个模块，你需要指定它的相对路径:
 
 ```js
-// Importing from the same folder:
+// 从相同的目录导入:
 var setInnerHTML = require('./setInnerHTML');
 
-// Importing from a different folder:
+// 从不同的目录导入:
 var setInnerHTML = require('../utils/setInnerHTML');
 
-// Importing from a deeply nested folder:
+// 从深层嵌套目录导入:
 var setInnerHTML = require('../client/utils/setInnerHTML');
 ```
 
-However, with Haste **all filenames are globally unique.** In the React codebase, you can import any module from any other module by its name alone:
+然而，在 Haste 里，React 代码库里 **所有文件名都是全局唯一的**，你能一直通过它的名字从其它模块导入任何模块:
 
 ```js
 var setInnerHTML = require('setInnerHTML');
