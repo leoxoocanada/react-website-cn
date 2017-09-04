@@ -52,7 +52,6 @@
 * [实现说明](/cn/contributing/implementation-notes.md)
 * [设计原则](/cn/contributing/design-principles.md)
 
-
 </details>
 
 # 代码库概述
@@ -452,3 +451,10 @@ There is a [video with a deep code dive into it](https://www.youtube.com/watch?v
 ### What Next?
 
 Read the [next section](/react/contributing/implementation-notes.html) to learn about the current implementation of reconciler in more detail.
+
+
+
+---
+
+* 上一篇：[如何贡献](/cn/contributing/how-to-contribute.md)
+* 下一篇：[实现说明](/cn/contributing/implementation-notes.md)
