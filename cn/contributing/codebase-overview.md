@@ -420,9 +420,9 @@ During an update, the stack reconciler "drills down" through composite component
 
 It is important to understand that the stack reconciler always processes the component tree synchronously in a single pass. While individual tree branches may [bail out of reconciliation](/react/docs/advanced-performance.html#avoiding-reconciling-the-dom), the stack reconciler can't pause, and so it is suboptimal when the updates are deep and the available CPU time is limited.
 
-#### Learn More
+#### 了解更多
 
-**The [next section](/react/contributing/implementation-notes.html) describes the current implementation in more details.**
+**[下一节](/cn/contributing/implementation-notes.md) 描述了当前实现的更多详情**
 
 ### Fiber Reconciler
 
@@ -444,9 +444,9 @@ Its source code is located in [`src/renderers/shared/fiber`](https://github.com/
 
 ### 事件系统
 
-React implements a synthetic event system which is agnostic of the renderers and works both with React DOM and React Native. Its source code is located in [`src/renderers/shared/shared/event`](https://github.com/facebook/react/tree/master/src/renderers/shared/shared/event).
+React 实现了一个合成事件系统，它在 React DOM 和 React Native 中都可以运行。它的源码位于 [`src/renderers/shared/shared/event`](https://github.com/facebook/react/tree/master/src/renderers/shared/shared/event).
 
-There is a [video with a deep code dive into it](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 mins).
+这里有一个 [深入代码内部的视频](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 分钟).
 
 ### 下一节有什么?
 
