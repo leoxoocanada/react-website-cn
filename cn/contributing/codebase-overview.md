@@ -292,9 +292,9 @@ module.exports = ReactDOMComponent;
 
 ### 动态注入
 
-React uses dynamic injection in some modules. While it is always explicit, it is still unfortunate because it hinders understanding of the code. The main reason it exists is because React originally only supported DOM as a target. React Native started as a React fork. We had to add dynamic injection to let React Native override some behaviors.
+React 在一些模块中使用动态注入。虽然它总是明确的，但它还是令人遗憾，因为它阻碍了代码的理解。它存在的主要原因是因为 React 最初只支持 DOM 作为目标。 React Native 开始的时候作为 React fork。我们不得不添加动态注入来让 React Native 覆写一些行为。
 
-You may see modules declaring their dynamic dependencies like this:
+你可能会看到模块说明它们的动态依赖像这样:
 
 ```js
 // Dynamically injected
@@ -319,21 +319,21 @@ var ReactHostComponent = {
 module.exports = ReactHostComponent;
 ```
 
-The `injection` field is not handled specially in any way. But by convention, it means that this module wants to have some (presumably platform-specific) dependencies injected into it at runtime.
+`injection` 域不以任何方式特别处理。但是，按照约定，它意味着这个模块要有一些 (大概是平台特定的) 依赖注入到运行时
 
-In React DOM, [`ReactDefaultInjection`](https://github.com/facebook/react/blob/4f345e021a6bd9105f09f3aee6d8762eaa9db3ec/src/renderers/dom/shared/ReactDefaultInjection.js) injects a DOM-specific implementation:
+在 React DOM, [`ReactDefaultInjection`](https://github.com/facebook/react/blob/4f345e021a6bd9105f09f3aee6d8762eaa9db3ec/src/renderers/dom/shared/ReactDefaultInjection.js) 注入一个特殊的 DOM 实现：
 
 ```js
 ReactHostComponent.injection.injectTextComponentClass(ReactDOMTextComponent);
 ```
 
-In React Native, [`ReactNativeDefaultInjection`](https://github.com/facebook/react/blob/4f345e021a6bd9105f09f3aee6d8762eaa9db3ec/src/renderers/native/ReactNativeDefaultInjection.js) injects its own implementation:
+在 React Native, [`ReactNativeDefaultInjection`](https://github.com/facebook/react/blob/4f345e021a6bd9105f09f3aee6d8762eaa9db3ec/src/renderers/native/ReactNativeDefaultInjection.js) 注入它自己的实现:
 
 ```js
 ReactHostComponent.injection.injectTextComponentClass(ReactNativeTextComponent);
 ```
 
-There are multiple injection points in the codebase. In the future, we intend to get rid of the dynamic injection mechanism and wire up all the pieces statically during the build.
+在代码库中有多个注入点。在将来，我们打算丢弃动态注入机制，并在构建过程中静默连接所有部件
 
 ### 多个包
 
