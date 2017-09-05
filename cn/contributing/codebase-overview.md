@@ -337,13 +337,13 @@ ReactHostComponent.injection.injectTextComponentClass(ReactNativeTextComponent);
 
 ### 多个包
 
-React is a [monorepo](http://danluu.com/monorepo/). Its repository contains multiple separate packages so that their changes can be coordinated together, and documentation and issues live in one place.
+React 是一个 [monorepo](http://danluu.com/monorepo/)。它的仓库饮食多个单独的包，因此它们改变可以一起调整，文档和问题在一个地方存放。
 
-The npm metadata such as `package.json` files is located in the [`packages`](https://github.com/facebook/react/tree/master/packages) top-level folder. However, there is almost no real code in it.
+像 `package.json` 文件这样的 NPM 无数据位于 [`packages`](https://github.com/facebook/react/tree/master/packages) 顶层文件夹里。然而在里面几乎没有真正的代码。
 
-For example, [`packages/react/react.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/packages/react/react.js) re-exports [`src/isomorphic/React.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/isomorphic/React.js), the real npm entry point. Other packages mostly repeat this pattern. All the important code lives in [`src`](https://github.com/facebook/react/tree/master/src).
+例如， [`packages/react/react.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/packages/react/react.js) 重新导出 [`src/isomorphic/React.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/isomorphic/React.js), 这是 NPM 真正的入口。其它包差不多重复这个模式。所有重要的代码都放在 [`src`](https://github.com/facebook/react/tree/master/src).
 
-While the code is separated in the source tree, the exact package boundaries are slightly different for npm packages and standalone browser builds.
+当代码从源码中分离出来，npm 包和独立的浏览器构建提取出来的包的边界是稍有不同的。
 
 ### React Core
 
