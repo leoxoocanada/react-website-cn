@@ -270,9 +270,9 @@ Object.assign(
 module.exports = ReactDOMComponent;
 ```
 
-The `Mixin` in this code has no relation to React `mixins` feature. It is just a way of grouping a few methods under an object. Those methods may later get attached to some other class. We use this pattern in a few places although we try to avoid it in the new code.
+这段代码中的 `Mixin` 没有涉及 React `mixins` 功能。它只是一个对象下组织一些方法的方式。那些可能稍后会附加到一些其它的类。我们在一些地方使用这个模式，尽管我们试图在新代码中避免这么做。
 
-The equivalent code in ES6 would look like this:
+在 ES6 中等价的代码看起来像这样:
 
 ```js
 class ReactDOMComponent {
@@ -288,7 +288,7 @@ class ReactDOMComponent {
 module.exports = ReactDOMComponent;
 ```
 
-Sometimes we [convert old code to ES6 classes](https://github.com/facebook/react/pull/7647/files). However, this is not very important to us because there is an [ongoing effort](#fiber-reconciler) to replace the React reconciler implementation with a less object-oriented approach which wouldn't use classes at all.
+有时我们 [转换老代码到 ES6 classes](https://github.com/facebook/react/pull/7647/files)。然而，对我们来说这不是非常重要，因为有一个 [持续的努力](#fiber-reconciler) 以更少的面向对象的方法来替代React调解器实现，这种方法根本不使用类。
 
 ### 动态注入
 
