@@ -136,11 +136,11 @@ clone 好 [React 仓库](https://github.com/facebook/react) 之后，你将在�
 
 这个规则也有一个例外。有时候我们需要在两个组和模块之间分享函数。在这种情况下，我们把要分享的模块提升到最靠近共同祖先的模块目录中名为 `shared` 的目录。
 
-For example, code shared between [`src/renderers/dom/stack/client`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/client) and [`src/renderers/dom/stack/server`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/server) lives in [`src/renderers/dom/shared`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/shared).
+例如，在 [`src/renderers/dom/stack/client`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/client) 和 [`src/renderers/dom/stack/server`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/server) 之间分享的代码放在 [`src/renderers/dom/shared`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/shared).
 
-By the same logic, if [`src/renderers/dom/stack/client`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/client) needs to share a utility with something in [`src/renderers/native`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/native), this utility would be in [`src/renderers/shared`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/shared).
+同样的逻辑，如果 [`src/renderers/dom/stack/client`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/client) 需要和 [`src/renderers/native`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/native) 分享一个小程序，这个小程序将放到 [`src/renderers/shared`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/shared).
 
-This convention is not enforced but we check for it during a pull request review.
+这个约定不是强制的，但是我们会在 pull 请求审查中检查这个。
 
 ### 警告和不变量
 
