@@ -244,9 +244,9 @@ ReactRef.detachRefs = function(
 
 ### Classes 和 Mixins
 
-React was originally written in ES5. We have since enabled ES6 features with [Babel](http://babeljs.io/), including classes. However, most of React code is still written in ES5.
+React 最初是用 ES5 编写的。我们已经通过 [Babel](http://babeljs.io/) 启用 ES6 功能，包含 classes。然而 React 的大多数代码还是通过 ES5 编写
 
-In particular, you might see the following pattern quite often:
+特别是你经常会看到下面的模式:
 
 ```js
 // Constructor
