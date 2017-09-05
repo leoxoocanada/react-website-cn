@@ -128,13 +128,13 @@ clone 好 [React 仓库](https://github.com/facebook/react) 之后，你将在�
 
 ### 分享代码
 
-Even though Haste allows us to import any module from anywhere in the repository, we follow a convention to avoid cyclic dependencies and other unpleasant surprises. By convention, a file may only import files in the same folder or in subfolders below.
+虽然 Haste 允许我们从仓库的任何位置导入任何模块，我们遵循一个约定，以避免循环依赖和其他不愉快的惊喜。 按照惯例，一个文件只可能导入相同目录或下面子目录的文件。
 
-For example, files inside [`src/renderers/dom/stack/client`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/client) may import other files in the same folder or any folder below.
+例如， [`src/renderers/dom/stack/client`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/client)  里面的文件可能导入相同目录或下面其它目录的其它文件
 
-However they can't import modules from [`src/renderers/dom/stack/server`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/server) because it is not a child directory of [`src/renderers/dom/stack/client`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/client).
+然而它们不能从 [`src/renderers/dom/stack/server`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/server) 导入模块，因为它不是 [`src/renderers/dom/stack/client`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/client) 的子目录
 
-There is an exception to this rule. Sometimes we *do* need to share functionality between two groups of modules. In this case, we hoist the shared module up to a folder called `shared` inside the closest common ancestor folder of the modules that need to rely on it.
+这个规则也有一个例外。有时候我们需要在两个组和模块之间分享函数。在这种情况下，我们把要分享的模块提升到最靠近共同祖先的模块目录中名为 `shared` 的目录。
 
 For example, code shared between [`src/renderers/dom/stack/client`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/client) and [`src/renderers/dom/stack/server`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/stack/server) lives in [`src/renderers/dom/shared`](https://github.com/facebook/react/blob/f53854424b33692907234fe7a1f80b888fd80751/src/renderers/dom/shared).
 
