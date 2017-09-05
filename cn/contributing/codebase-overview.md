@@ -226,9 +226,9 @@ receiveComponent: function(nextText, transaction) {
 
 ### Flow
 
-We recently started introducing [Flow](https://flowtype.org/) checks to the codebase. Files marked with the `@flow` annotation in the license header comment are being typechecked.
+我们最近开始引入 [Flow](https://flowtype.org/) 来检查代码库。文件通过 `@flow` 注释来标注在 license 头评论里做类型检查
 
-We accept pull requests [adding Flow annotations to existing code](https://github.com/facebook/react/pull/7600/files). Flow annotations look like this:
+我们接受 pull 请求 [添加 Flow 注释到当前的代码](https://github.com/facebook/react/pull/7600/files)。 Flow 注释看起来像这样:
 
 ```js
 ReactRef.detachRefs = function(
@@ -239,8 +239,8 @@ ReactRef.detachRefs = function(
 }
 ```
 
-When possible, new code should use Flow annotations.  
-You can run `npm run flow` locally to check your code with Flow.
+如果可能的话，新的代码应该使用 Flow 注释
+你可以运行 `npm run flow` 通过 Flow 局部检查你的代码
 
 ### Classes 和 Mixins
 
