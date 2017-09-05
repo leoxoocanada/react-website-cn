@@ -193,21 +193,21 @@ invariant(
 
 ### 开发环境与生产环境
 
-You can use `__DEV__` pseudo-global variable in the codebase to guard development-only blocks of code.
+你可以在代码库中使用伪全局变量 `__DEV__` 只为开发环境添加代码块。
 
-It is inlined during the compile step, and turns into `process.env.NODE_ENV !== 'production'` checks in the CommonJS builds.
+在编辑阶段它是内联的，在 CommonJS 中构建时它转换为通过 `process.env.NODE_ENV !== 'production'` 来检查
 
-For standalone builds, it becomes `true` in the unminified build, and gets completely stripped out with the `if` blocks it guards in the minified build.
+对于独立构建，在没有更改的构建中它将变为 `true` ， 并且在压缩构建中 `if` 块会完全删除。
 
 ```js
 if (__DEV__) {
-  // This code will only run in development.
+  // 这段代码将只运行在开发环境中
 }
 ```
 
 ### JSDoc
 
-Some of the internal and public methods are annotated with [JSDoc annotations](http://usejsdoc.org/):
+一些 internal 和公共方法通过 [JSDoc 标注](http://usejsdoc.org/) 来写注释:
 
 ```js
 /**
@@ -222,7 +222,7 @@ receiveComponent: function(nextText, transaction) {
 },
 ```
 
-We try to keep existing annotations up-to-date but we don't enforce them. We don't use JSDoc in the newly written code, and instead use Flow to document and enforce types.
+我们试图保持现有的注释随时更新，但我们不会强制执行。在最近写代码的时候我们不使用 JSDoc ，而是使用Flow来记录和强制类型。
 
 ### Flow
 
