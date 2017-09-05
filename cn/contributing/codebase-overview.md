@@ -122,9 +122,9 @@ clone 好 [React 仓库](https://github.com/facebook/react) 之后，你将在�
 
 ### 共同测试
 
-我们没有为单元测试准备一个顶层目录，我们把它们都放到了一个 `__tests__` relative to the files that they test.
+我们没有为单元测试准备一个顶层目录，我们把它们放到相对测试的文件的 `__tests__` 目录
 
-For example, a test for [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) is located in [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) right next to it.
+例如， [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) 的测试位于 [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) 
 
 ### 分享代码
 
