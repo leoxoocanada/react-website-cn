@@ -347,21 +347,21 @@ React 是一个 [monorepo](http://danluu.com/monorepo/)。它的仓库饮食多�
 
 ### React Core
 
-The "core" of React includes all the [top-level `React` APIs](/react/docs/top-level-api.html#react), for example:
+React 的 "核心（core）" 包含所有的 [顶层 `React` API](/cn/docs/top-level-api.md#react)，例如:
 
 * `React.createElement()`
 * `React.Component`
 * `React.Children`
 
-**React core only includes the APIs necessary to define components.** It does not include the [reconciliation](/react/docs/reconciliation.html) algorithm or any platform-specific code. It is used both by React DOM and React Native components.
+**React 核心（core）只包含定义组件所需要的 API.** 它不包含 [reconciliation](/cn/docs/reconciliation.md) 算法或其它特定平台的代码，它被 React DOM 和 React Native 组件使用.
 
-The code for React core is located in [`src/isomorphic`](https://github.com/facebook/react/tree/master/src/isomorphic) in the source tree. It is available on npm as the [`react`](https://www.npmjs.com/package/react) package. The corresponding standalone browser build is called `react.js`, and it exports a global called `React`.
+React 核心代码位于源码树的 [`src/isomorphic`](https://github.com/facebook/react/tree/master/src/isomorphic) ，它可以在 npm 上作为 [`react`](https://www.npmjs.com/package/react) 包获取。独立的浏览器构建名为 `react.js`，它导出一个名为 `React` 的全局变量。
 
->**Note:**
+>**注意:**
 >
->Until very recently, `react` npm package and `react.js` standalone build contained all React code (including React DOM) rather than just the core. This was done for backward compatibility and historical reasons. Since React 15.4.0, the core is better separated in the build output.
+>直到最近， `react` npm 包和 `react.js` 独立构建都包含所有的 React 代码 (包括 React DOM) 而不仅仅是核心。这么做是为了向后兼容和历史原因。直到React 15.4.0，核心才更好的分离在构建输出里。
 >
->There is also an additional standalone browser build called `react-with-addons.js` which we will consider separately further below.
+>也有一些额外的名为 `react-with-addons.js` 的浏览器构建，我们将在未来考虑分离。
 
 ### 渲染器（Renderers）
 
