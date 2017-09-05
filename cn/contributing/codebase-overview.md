@@ -110,15 +110,15 @@ React 几乎没有外部依赖。通过，一个 `require()` 指向 React 本身
 
 ### 顶级文件夹
 
-After cloning the [React repository](https://github.com/facebook/react), you will see a few top-level folders in it:
+clone 好 [React 仓库](https://github.com/facebook/react) 之后，你将在里面看到一些顶层文件夹：
 
-* [`src`](https://github.com/facebook/react/tree/master/src) is the source code of React. **If your change is related to the code, `src` is where you'll spend most of your time.**
-* [`docs`](https://github.com/facebook/react/tree/master/docs) is the React documentation website. When you change APIs, make sure to update the relevant Markdown files.
-* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) contains a few small React test applications for contributors.
-* [`packages`](https://github.com/facebook/react/tree/master/packages) contains metadata (such as `package.json`) for all packages in the React repository. Nevertheless, their source code is still located inside [`src`](https://github.com/facebook/react/tree/master/src).
-* `build` is the build output of React. It is not in the repository but it will appear in your React clone after you [build it](/react/contributing/how-to-contribute.html#development-workflow) for the first time.
+* [`src`](https://github.com/facebook/react/tree/master/src) 是 React 的源代码。 **如果你改变了相关的代码， `src` 将花费你相当多时间**
+* [`docs`](https://github.com/facebook/react/tree/master/docs) 是 React 站点文档。当你修改了 API，请确保更新相关的 Markdown 文件.
+* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) 包含了一些贡献者的 React 小测试应用
+* [`packages`](https://github.com/facebook/react/tree/master/packages) 包含了在 React 仓库里所有包的无数据（类似 `package.json`）。然而，它们的源代码还是位于 [`src`](https://github.com/facebook/react/tree/master/src) 里面。
+* `build` 是 React 的构建输出。它不是在仓库里，但第一次 [构建](/cn/contributing/how-to-contribute.md#development-workflow) 之后它将出现在你的 React clone 目录里
 
-There are a few other top-level folders but they are mostly used for the tooling and you likely won't ever encounter them when contributing.
+有一些其它的顶层文件夹，但它们是更多是一些工具使用的，当你做贡献时你可能永远不会需要它们。
 
 ### 共同测试
 
