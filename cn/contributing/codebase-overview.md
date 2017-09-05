@@ -144,7 +144,7 @@ clone 好 [React 仓库](https://github.com/facebook/react) 之后，你将在�
 
 ### 警告和不变量
 
-The React codebase uses the `warning` module to display warnings:
+React 代码库使用 `warning` 模块来显示警告:
 
 ```js
 var warning = require('warning');
@@ -155,11 +155,11 @@ warning(
 );
 ```
 
-**The warning is shown when the `warning` condition is `false`.**
+**当 `warning` 条件为 `false` 时会显示警告。**
 
-One way to think about it is that the condition should reflect the normal situation rather than the exceptional one.
+考虑一种方法，这个条件应该反映正常的情况而不是异常情况。
 
-It is a good idea to avoid spamming the console with duplicate warnings:
+这是一个好主意，以避免重复警告的垃圾信息出现在控制台：
 
 ```js
 var warning = require('warning');
@@ -174,7 +174,7 @@ if (!didWarnAboutMath) {
 }
 ```
 
-Warnings are only enabled in development. In production, they are completely stripped out. If you need to forbid some code path from executing, use `invariant` module instead:
+警告只在开发环境中启用，在生产环境，它们是完全被剔除了。如果你需要阻止一些代码执行，请使用 `invariant` 模块代替:
 
 ```js
 var invariant = require('invariant');
@@ -185,11 +185,11 @@ invariant(
 );
 ```
 
-**The invariant is thrown when the `invariant` condition is `false`.**
+**当 `invariant` 条件为 `false` 时 invariant 会被抛出**
 
-"Invariant" is just a way of saying "this condition always holds true". You can think about it as making an assertion.
+"Invariant" 只是一种表示 "this condition always holds true" 的方式。你可以把它当作一个断言。
 
-It is important to keep development and production behavior similar, so `invariant` throws both in development and in production. The error messages are automatically replaced with error codes in production to avoid negatively affecting the byte size.
+保持开发环境和生产环境行为相似是很重要的，因此 `invariant` 在开发环境和生产环境中都抛出。错误消息将自动替换为生产中的错误代码，以避免负面影响字节大小。
 
 ### 开发环境与生产环境
 
