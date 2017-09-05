@@ -102,11 +102,11 @@ React 本身是从 Facebook 的代码库里提取出来的，由于历史原因�
 
 ### 外部依赖
 
-React has almost no external dependencies. Usually, a `require()` points to a file in React's own codebase. However, there are a few relatively rare exceptions.
+React 几乎没有外部依赖。通过，一个 `require()` 指向 React 本身代码库的一个文件。然而，有一些比较少见的例外。
 
-If you see a `require()` that does not correspond to a file in the React repository, you can look in a special repository called [fbjs](https://github.com/facebook/fbjs). For example, `require('warning')` will resolve to the [`warning` module from fbjs](https://github.com/facebook/fbjs/blob/df9047fec0bbd1e64635ae369c045975777cba7c/packages/fbjs/src/__forks__/warning.js).
+如果你发现一个在 React 仓库里没有对应文件的 `require()`，你可以在一个叫 [fbjs](https://github.com/facebook/fbjs) 的特定仓库查看。例如，`require('warning')` 将指向 [fbjs 中的 `warning` 模块](https://github.com/facebook/fbjs/blob/df9047fec0bbd1e64635ae369c045975777cba7c/packages/fbjs/src/__forks__/warning.js)。
 
-The [fbjs repository](https://github.com/facebook/fbjs) exists because React shares some small utilities with libraries like [Relay](https://github.com/facebook/relay), and we keep them in sync. We don't depend on equivalent small modules in the Node ecosystem because we want Facebook engineers to be able to make changes to them whenever necessary. None of the utilities inside fbjs are considered to be public API, and they are only intended for use by Facebook projects such as React.
+[fbjs 仓库](https://github.com/facebook/fbjs) 的存在是因为 React 会跟像 [Relay](https://github.com/facebook/relay) 这样的库共享一些小程序，我们会保持它们的同步。我们不依赖 NODE 生态体系功能相同的小模块，是因为我们希望 Facebook 的工程师在必要的时候能够对它们进行修改，fbjs 中的任何公用程序都不被认为是公共 API，它们只是用来被类似 React 这样的 Facebook 的项目使用。
 
 ### 顶级文件夹
 
