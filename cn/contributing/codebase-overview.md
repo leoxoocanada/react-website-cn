@@ -365,23 +365,23 @@ React 核心代码位于源码树的 [`src/isomorphic`](https://github.com/faceb
 
 ### 渲染器（Renderers）
 
-React was originally created for the DOM but it was later adapted to also support native platforms with [React Native](http://facebook.github.io/react-native/). This introduced the concept of "renderers" to React internals.
+React 最初是为 DOM 创造的，但后来也适用于通过 [React Native](http://facebook.github.io/react-native/) 支持原生平台。这引入了 "renderers" 的概念到 React 内部。
 
-**Renderers manage how a React tree turns into the underlying platform calls.**
+**Renderers 管理 React 树如何转换到底层平台调用**
 
-Renderers are located in [`src/renderers`](https://github.com/facebook/react/tree/master/src/renderers/):
+Renderers 位于 [`src/renderers`](https://github.com/facebook/react/tree/master/src/renderers/):
 
-* [React DOM Renderer](https://github.com/facebook/react/tree/master/src/renderers/dom) renders React components to the DOM. It implements [top-level `ReactDOM` APIs](/react/docs/top-level-api.html#reactdom) and is available as [`react-dom`](https://www.npmjs.com/package/react-dom) npm package. It can also be used as standalone browser bundle called `react-dom.js` that exports a `ReactDOM` global.
-* [React Native Renderer](https://github.com/facebook/react/tree/master/src/renderers/native) renders React components to native views. It is used internally by React Native via [`react-native-renderer`](https://www.npmjs.com/package/react-native-renderer) npm package. In the future a copy of it may get checked into the React Native [repository](https://github.com/facebook/react-native) so that React Native can update React at its own pace.
-* [React Test Renderer](https://github.com/facebook/react/tree/master/src/renderers/testing) renders React components to JSON trees. It is used by the [Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) feature of [Jest](https://facebook.github.io/jest) and is available as [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) npm package.
+* [React DOM Renderer](https://github.com/facebook/react/tree/master/src/renderers/dom) 渲染 React 组件到 DOM。它作为 [顶层 `ReactDOM` API](/cn/docs/top-level-api.md#reactdom) 并且可通过 [`react-dom`](https://www.npmjs.com/package/react-dom) npm 包获取。也能作为名为  `react-dom.js`  的独立浏览器构建使用，它导出一个 `ReactDOM` 全局变量。
+* [React Native Renderer](https://github.com/facebook/react/tree/master/src/renderers/native) 渲染 React 组件到 native 视图. 它由 React Native 内部通过 [`react-native-renderer`](https://www.npmjs.com/package/react-native-renderer) npm 包来使用。在将来它的一份拷贝可能进入到 React Native [仓库](https://github.com/facebook/react-native) ，因此 React Native 能在它自己的节奏里更新 React 。
+* [React Test Renderer](https://github.com/facebook/react/tree/master/src/renderers/testing) 渲染 React 组件到 JSON 树。它通过 [Jest](https://facebook.github.io/jest) 的 [快照测试](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) 功能作为 [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) npm 包在内部使用。
 
-The only other officially supported renderer is [`react-art`](https://github.com/reactjs/react-art). To avoid accidentally breaking it as we make changes to React, we checked it in as [`src/renderers/art`](https://github.com/facebook/react/tree/master/src/renderers/art) and run its test suite. Nevertheless, its [GitHub repository](https://github.com/reactjs/react-art) still acts as the source of truth.
+其它唯一官方支持的渲染器是 [`react-art`](https://github.com/reactjs/react-art)。为了避免在我们对React进行更改时意外破坏它，我们在 [`src/renderers/art`](https://github.com/facebook/react/tree/master/src/renderers/art) 里做检查并运行它的测试套件。 然而，它的 [GitHub 仓库](https://github.com/reactjs/react-art) 仍然是源码的来源。
 
-While it is [technically possible](https://github.com/iamdustan/tiny-react-renderer) to create custom React renderers, this is currently not officially supported. There is no stable public contract for custom renderers yet which is another reason why we keep them all in a single place.
+一旦创建定制的 React renderers 在[技术上可行](https://github.com/iamdustan/tiny-react-renderer) ，当前的方案将不再被官方支持。对于定制渲染器没有稳定的公共约定，这是我们将它们全部放在一个地方的另一个原因。
 
->**Note:**
+>**注意:**
 >
->Technically the [`native`](https://github.com/facebook/react/tree/master/src/renderers/native) renderer is a very thin layer that teaches React to interact with React Native implementation. The real platform-specific code managing the native views lives in the [React Native repository](https://github.com/facebook/react-native) together with its components.
+>从技术上来说 [`native`](https://github.com/facebook/react/tree/master/src/renderers/native) renderer 是非常薄的一层，指导 React 和 React Native 实现相互影响。真正的特定平台管理 native 视图代码放在 [React Native 仓库](https://github.com/facebook/react-native) ，和它的组件放在一起。
 
 ### 调解器（Reconcilers）
 
