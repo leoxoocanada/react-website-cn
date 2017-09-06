@@ -385,11 +385,11 @@ Renderers 位于 [`src/renderers`](https://github.com/facebook/react/tree/maste
 
 ### 调解器（Reconcilers）
 
-Even vastly different renderers like React DOM and React Native need to share a lot of logic. In particular, the [reconciliation](/react/docs/reconciliation.html) algorithm should be as similar as possible so that declarative rendering, custom components, state, lifecycle methods, and refs work consistently across platforms.
+即使是像 React DOM 和 React Native 这样非常不一般的渲染器，也需要共享很多逻辑。特别是 [reconciliation](/cn/docs/reconciliation.md) 算法应该尽可能类似以便声明式渲染，定制组件，状态，生命周期方法，和 refs 在平台之间保持一致。
 
-To solve this, different renderers share some code between them. We call this part of React a "reconciler". When an update such as `setState()` is scheduled, the reconciler calls `render()` on components in the tree and mounts, updates, or unmounts them.
+为了解决这个问题，不同的渲染器在它们之间共享一些代码。我们把 React 这部分称为 "reconciler"。当类似 `setState()` 这样的更新已经被安排好时，reconciler 在组件树上调用 `render()` ，并且挂载、更新、卸载它们。
 
-Reconcilers are not packaged separately because they currently have no public API. Instead, they are exclusively used by renderers such as React DOM and React Native.
+Reconcilers 没有单独打包，因为它们当前有一些共用的 API，相反，它们仅仅通过类似 React DOM 和 React Native 这样的渲染器使用。
 
 ### 堆栈调解器（Stack Reconciler）
 
@@ -411,13 +411,13 @@ User-defined ("composite") components should behave the same way with all render
 
 Composite components also implement [mounting](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js#L181), [updating](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js#L703), and [unmounting](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js#L524). However, unlike host components, `ReactCompositeComponent` needs to behave differently depending on the user's code. This is why it calls methods, such as `render()` and `componentDidMount()`, on the user-supplied class.
 
-During an update, `ReactCompositeComponent` checks whether the `render()` output has a different `type` or `key` than the last time. If neither `type` nor `key` has changed, it delegates the update to the existing child internal instance. Otherwise, it unmounts the old child instance and mounts a new one. This is described in the [reconciliation algorithm](/react/docs/reconciliation.html).
+During an update, `ReactCompositeComponent` checks whether the `render()` output has a different `type` or `key` than the last time. If neither `type` nor `key` has changed, it delegates the update to the existing child internal instance. Otherwise, it unmounts the old child instance and mounts a new one. This is described in the [reconciliation algorithm](/cn/docs/reconciliation.md).
 
 #### 递归（Recursion）
 
 During an update, the stack reconciler "drills down" through composite components, runs their `render()` methods, and decides whether to update or replace their single child instance. It executes platform-specific code as it passes through the host components like `<div>` and `<View>`. Host components may have multiple children which are also processed recursively.
 
-It is important to understand that the stack reconciler always processes the component tree synchronously in a single pass. While individual tree branches may [bail out of reconciliation](/react/docs/advanced-performance.html#avoiding-reconciling-the-dom), the stack reconciler can't pause, and so it is suboptimal when the updates are deep and the available CPU time is limited.
+It is important to understand that the stack reconciler always processes the component tree synchronously in a single pass. While individual tree branches may [bail out of reconciliation](/cn/docs/advanced-performance.md#avoiding-reconciling-the-dom), the stack reconciler can't pause, and so it is suboptimal when the updates are deep and the available CPU time is limited.
 
 #### 了解更多
 
