@@ -56,23 +56,23 @@
 
 # 实现说明
 
-This section is a collection of implementation notes for the [stack reconciler](/react/contributing/codebase-overview.html#stack-reconciler).
+这一节是 [stack reconciler](/cn/contributing/codebase-overview.html#stack-reconciler) 实现说明的集合。
 
-It is very technical and assumes a strong understanding of React public API as well as how it's divided into core, renderers, and the reconciler. If you're not very familiar with the React codebase, read [the codebase overview](/react/contributing/codebase-overview.html) first.
+它有很强的技术性，并且要求对 React 公共 API 以及如何划分核心、渲染器和 reconciler 有很强的理解。如果你不是非常熟悉 React 代码库，请先阅读 [代码库概念](/cn/contributing/codebase-overview.md) 。
 
-It also assumes an understanding of the [differences between React components, their instances, and elements](/react/blog/2015/12/18/react-components-elements-and-instances.html).
+它也要求理解 [React 组件、实例和元素](/cn/blog/2015/12/18/react-components-elements-and-instances.md)
 
-The stack reconciler is powering all the React production code today. It is located in [`src/renderers/shared/stack/reconciler`](https://github.com/facebook/react/tree/master/src/renderers/shared/stack) and is used by both React DOM and React Native.
+stack reconciler 是今天所有 React 产品代码的动力。它位于 [`src/renderers/shared/stack/reconciler`](https://github.com/facebook/react/tree/master/src/renderers/shared/stack) ，并且被 React DOM 和 React Native 共同使用
 
-### Video: Building React from Scratch
+### 视频: 从 Scratch 构建 React （Video: Buiding React from Scratch）
 
-[Paul O'Shannessy](https://twitter.com/zpao) gave a talk about [building React from scratch](https://www.youtube.com/watch?v=_MAD4Oly9yg) that largely inspired this document.
+[Paul O'Shannessy](https://twitter.com/zpao) 有一个关于 [building React from scratch](https://www.youtube.com/watch?v=_MAD4Oly9yg) 的演讲，大大启发了这篇文档。
 
-Both this document and his talk are simplifications of the real codebase so you might get a better understanding by getting familiar with both of them.
+这篇文章和他的演讲都是真实代码库的简化，因此你可以通过这两者更好的理解。
 
-### Overview
+### 概述
 
-The reconciler itself doesn't have a public API. [Renderers](/react/contributing/codebase-overview.html#stack-renderers) like React DOM and React Native use it to efficiently update the user interface according to the React components written by the user.
+reconciler 本身没有公共 API. 像 React DOM 和 React Native 这样的 [渲染器](/cn/contributing/codebase-overview.md#stack-renderers) 使用它来有效的按照用户编写的 React 组件来更新用户界面
 
 ### Mounting as a Recursive Process
 
