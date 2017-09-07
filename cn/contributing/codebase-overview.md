@@ -395,7 +395,7 @@ Reconcilers 没有单独打包，因为它们当前有一些共用的 API，相�
 
 "stack" reconciler 是今天提供的所有 React 生产代码中的一个。它位于 [`src/renderers/shared/stack/reconciler`](https://github.com/facebook/react/tree/master/src/renderers/shared/stack) ，并且它在 React DOM 和 React Native 中都有使用。
 
-它是通过 [面向对象的方式](https://en.wikipedia.org/wiki/Composite_pattern) 来写的，并为所有 React 组件维护一份独立的 "内部实例" 树。内部实例存在于用户定义 ("composite") 和特定平台 ("host") 的组件。 内部实例对用户来说是不能直接看到的，并且它们的树没有暴露。
+它是通过 [面向对象的方式](https://en.wikipedia.org/wiki/Composite_pattern) 来写的，并为所有 React 组件维护一份独立的 "内部实例" 树。内部实例存在于自定义 ("composite") 和特定平台 ("host") 的组件。 内部实例对用户来说是不能直接看到的，并且它们的树没有暴露。
 
 当一个组件挂载、更新、卸载时，它们的 stack reconciler 在内部实例上调用一个方法。这个方法名为 `mountComponent(element)`, `receiveComponent(nextElement)`, 和 `unmountComponent(element)`.
 
@@ -407,17 +407,17 @@ Reconcilers 没有单独打包，因为它们当前有一些共用的 API，相�
 
 #### 复合组件（Composite Components）
 
-User-defined ("composite") components should behave the same way with all renderers. This is why the stack reconciler provides a shared implementation in [`ReactCompositeComponent`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js). It is always the same regardless of the renderer.
+自定义 ("composite") 组件应该和所有渲染器的表现方式一样。这是为什么 stack reconciler 在 [`ReactCompositeComponent`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js) 里提供一个共享的实现。无论渲染器如何，它始终是一样的。
 
-Composite components also implement [mounting](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js#L181), [updating](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js#L703), and [unmounting](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js#L524). However, unlike host components, `ReactCompositeComponent` needs to behave differently depending on the user's code. This is why it calls methods, such as `render()` and `componentDidMount()`, on the user-supplied class.
+复合组件也执行 [mounting](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js#L181), [updating](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js#L703), 和 [unmounting](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/shared/stack/reconciler/ReactCompositeComponent.js#L524)。然而，不同于宿主组件，`ReactCompositeComponent` 需要依赖用户的代码来表现差异。这是为什么它要在用户提供的类上调用像 `render()` 和 `componentDidMount()` 这样的方法。
 
-During an update, `ReactCompositeComponent` checks whether the `render()` output has a different `type` or `key` than the last time. If neither `type` nor `key` has changed, it delegates the update to the existing child internal instance. Otherwise, it unmounts the old child instance and mounts a new one. This is described in the [reconciliation algorithm](/cn/docs/reconciliation.md).
+更新期间， `ReactCompositeComponent` 检查 `render()` 输出是否跟上次相比有一个不一样的 `type` 或 `key`。 如果 `type` 和 `key` 都没有改动， 它将更新委派给现有的子内部实例。否则，它卸载老的子内部实例并挂载一个新的。这里有关于它 [reconciliation 算法](/cn/docs/reconciliation.md) 的描述。
 
 #### 递归（Recursion）
 
-During an update, the stack reconciler "drills down" through composite components, runs their `render()` methods, and decides whether to update or replace their single child instance. It executes platform-specific code as it passes through the host components like `<div>` and `<View>`. Host components may have multiple children which are also processed recursively.
+更新期间，stack reconciler "往下钻取" 复合组件，运行它们的 `render()` 方法，并决定是否更新或替换它们的单个子节点实例。它通过像 `<div>` 和 `<View>` 这样传递的宿主组件执行特定平台代码。宿主组件可能有多个子节点也会递归处理。
 
-It is important to understand that the stack reconciler always processes the component tree synchronously in a single pass. While individual tree branches may [bail out of reconciliation](/cn/docs/advanced-performance.md#avoiding-reconciling-the-dom), the stack reconciler can't pause, and so it is suboptimal when the updates are deep and the available CPU time is limited.
+这对于理解 stack reconciler 经常在单个进程中同步处理组件树是非常重要的。直到个别的树分支可能 [跳出 reconciliation](/cn/docs/advanced-performance.md#avoiding-reconciling-the-dom)，否则 stack reconciler 不会停顿，因此当更新较深且可用CPU时间有限时，它不是最佳的。
 
 #### 了解更多
 
@@ -425,21 +425,21 @@ It is important to understand that the stack reconciler always processes the com
 
 ### Fiber Reconciler
 
-The "fiber" reconciler is a new effort aiming to resolve the problems inherent in the stack reconciler and fix a few long-standing issues.
+"fiber" reconciler 是一种新的旨在解决 stack reconciler 固有硬伤的新解决办法，并解决了一些长期存在的问题。
 
-It is a complete rewrite of the reconciler and is currently [in active development](https://github.com/facebook/react/pulls?utf8=%E2%9C%93&q=is%3Apr%20is%3Aopen%20fiber).
+它完全重写了 reconciler ，并且目前正在 [积极发展中](https://github.com/facebook/react/pulls?utf8=%E2%9C%93&q=is%3Apr%20is%3Aopen%20fiber).
 
-Its main goals are:
+其主要目标是：
 
-* Ability to split interruptible work in chunks.
-* Ability to prioritize, rebase and reuse work in progress.
-* Ability to yield back and forth between parents and children to support layout in React.
-* Ability to return multiple elements from `render()`.
-* Better support for error boundaries.
+* 能够以块形式拆分中断工作。
+* 能够优先处理，重新分配和重用工作。
+* 能够在父节点和子节点之间来回展示以支持 React 中的布局。
+* 能够从 `render()` 返回多个元素
+* 更好地支持错误边界。
 
-You can read more about it in [React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture). At this moment, it is still very experimental, and far from feature parity with the stack reconciler.
+你可以在 [React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture) 了解更多信息， 此时，它还是实验性的，功能上远不及 stack reconciler.
 
-Its source code is located in [`src/renderers/shared/fiber`](https://github.com/facebook/react/tree/master/src/renderers/shared/fiber).
+它的源码位于 [`src/renderers/shared/fiber`](https://github.com/facebook/react/tree/master/src/renderers/shared/fiber).
 
 ### 事件系统
 
