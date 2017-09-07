@@ -395,9 +395,9 @@ Reconcilers 没有单独打包，因为它们当前有一些共用的 API，相�
 
 "stack" reconciler 是今天提供的所有 React 生产代码中的一个。它位于 [`src/renderers/shared/stack/reconciler`](https://github.com/facebook/react/tree/master/src/renderers/shared/stack) ，并且它在 React DOM 和 React Native 中都有使用。
 
-它是通过 [面向对象的方式](https://en.wikipedia.org/wiki/Composite_pattern) 来写的，and maintains a separate tree of "internal instances" for all React components. The internal instances exist both for user-defined ("composite") and platform-specific ("host") components. The internal instances are inaccessible directly to the user, and their tree is never exposed.
+它是通过 [面向对象的方式](https://en.wikipedia.org/wiki/Composite_pattern) 来写的，并为所有 React 组件维护一份独立的 "内部实例" 树。内部实例存在于用户定义 ("composite") 和平台指定 ("host") 的组件。 内部实例对用户来说是不能直接看到的，并且它们的树没有暴露。
 
-When a component mounts, updates, or unmounts, the stack reconciler calls a method on that internal instance. The methods are called `mountComponent(element)`, `receiveComponent(nextElement)`, and `unmountComponent(element)`.
+当一个组件挂载、更新、卸载时，它们的 stack reconciler 在内部实例上调用一个方法。这个方法名为 `mountComponent(element)`, `receiveComponent(nextElement)`, 和 `unmountComponent(element)`.
 
 #### 宿主组件（Host Components）
 
