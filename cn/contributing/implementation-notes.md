@@ -74,22 +74,22 @@ stack reconciler 是今天所有 React 产品代码的动力。它位于 [`src/r
 
 reconciler 本身没有公共 API. 像 React DOM 和 React Native 这样的 [渲染器](/cn/contributing/codebase-overview.md#stack-renderers) 使用它来有效的按照用户编写的 React 组件来更新用户界面
 
-### Mounting as a Recursive Process
+### 作为递归过程的挂载
 
-Let's consider the first time you mount a component:
+让我们来考虑下你第一次挂载一个组件：
 
 ```js
 ReactDOM.render(<App />, rootEl);
 ```
 
-React DOM will pass `<App />` along to the reconciler. Remember that `<App />` is a React element, that is, a description of *what* to render. You can think about it as a plain object:
+React DOM 将沿着 reconciler 传递 `<App />` 。切记 `<App />` 是一个 React 元素，就是说，它是渲染什么的描述。你可以把它作为一个普通的对象来考虑：
 
 ```js
 console.log(<App />);
 // { type: App, props: {} }
 ```
 
-The reconciler will check if `App` is a class or a function.
+ reconciler 会检查 `App` 是一个类还是一个函数。
 
 If `App` is a function, the reconciler will call `App(props)` to get the rendered element.
 
