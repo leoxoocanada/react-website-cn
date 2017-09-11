@@ -149,13 +149,13 @@ rootEl.appendChild(node);
 
 >**注意**
 >
->This really *is* a pseudo-code. It isn't similar to the real implementation. It will also cause a stack overflow because we haven't discussed when to stop the recursion.
+>这只是一段虚拟代码。它与真实的实现并不一样。它将引起堆栈溢出，因为我们并没有讨论何出退出递归。
 
-Let's recap a few key ideas in the example above:
+让我们来回顾一下上面例子里的重点：
 
-* React elements are plain objects representing the component type (e.g. `App`) and the props.
-* User-defined components (e.g. `App`) can be classes or functions but they all "render to" elements.
-* "Mounting" is a recursive process that creates a DOM or Native tree given the top-level React element (e.g. `<App />`).
+* React 元素是表现组件类型(e.g. `App`)和属性的普通对象。
+* 用户自定义组件 (e.g. `App`) 能定义为类或函数，但它们都"渲染到(render to)"元素。
+* "挂载（Mounting）" 是一个递归的过程，它创建获取高层 React 元素的一个 DOM 或 Native 树(e.g. `<App />`).
 
 ### Mounting Host Elements
 
