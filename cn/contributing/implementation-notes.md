@@ -103,46 +103,43 @@ reconciler 会检查 `App` 是一个类还是一个函数。
 
 ```js
 function isClass(type) {
-  // React.Component subclasses have this flag
-  return (
+  // React.Component 子类有这个标记
+  return (
     Boolean(type.prototype) &&
     Boolean(type.prototype.isReactComponent)
   );
 }
 
-// This function takes a React element (e.g. <App />)
-// and returns a DOM or Native node representing the mounted tree.
+// 这个函数使用一个 React 元素 (e.g. <App />)
+// 并返回一个 DOM 或 Native 节点表示已挂载的树
 function mount(element) {
   var type = element.type;
   var props = element.props;
 
-  // We will determine the rendered element
-  // by either running the type as function
-  // or creating an instance and calling render().
+  // 我们将通过作为函数或创建一个调用 render() 的实例的类型来确定已渲染好的元素
   var renderedElement;
   if (isClass(type)) {
-    // Component class
-    var publicInstance = new type(props);
-    // Set the props
-    publicInstance.props = props;
-    // Call the lifecycle if necessary
-    if (publicInstance.componentWillMount) {
+    // 组件类
+    var publicInstance = new type(props);
+    // 设置属性
+    publicInstance.props = props;
+    // 调用必要的生命周期
+    if (publicInstance.componentWillMount) {
       publicInstance.componentWillMount();
     }
-    // Get the rendered element by calling render()
-    renderedElement = publicInstance.render();
+    // 通过调用 render() 获取已渲染好的元素
+    renderedElement = publicInstance.render();
   } else {
-    // Component function
-    renderedElement = type(props);
+    // 组件函数
+    renderedElement = type(props);
   }
 
-  // This process is recursive because a component may
-  // return an element with a type of another component.
+  // 以递归方式进行，因为组件可能返回一个带有类型或其它组件的元素
   return mount(renderedElement);
 
-  // Note: this implementation is incomplete and recurses infinitely!
-  // It only handles elements like <App /> or <Button />.
-  // It doesn't handle elements like <div /> or <p /> yet.
+  // 注意：这个实现是不完整的，无限循环的！
+  // 它只处理像  <App /> 或 <Button /> 这样的元素
+  // 它不处理像 <div /> 或 <p /> 这样的元素
 }
 
 var rootEl = document.getElementById('root');
@@ -150,7 +147,7 @@ var node = mount(<App />);
 rootEl.appendChild(node);
 ```
 
->**Note:**
+>**注意**
 >
 >This really *is* a pseudo-code. It isn't similar to the real implementation. It will also cause a stack overflow because we haven't discussed when to stop the recursion.
 
