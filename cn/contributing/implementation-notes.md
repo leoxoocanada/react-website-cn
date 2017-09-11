@@ -157,22 +157,22 @@ rootEl.appendChild(node);
 * 用户自定义组件 (e.g. `App`) 能定义为类或函数，但它们都"渲染到(render to)"元素。
 * "挂载（Mounting）" 是一个递归的过程，它创建获取高层 React 元素的一个 DOM 或 Native 树(e.g. `<App />`).
 
-### Mounting Host Elements
+### 挂载宿主元素
 
-This process would be useless if we didn't render something to the screen as a result.
+如果我们没有向屏幕呈现某些东西，这个过程将是无用的。
 
-In addition to user-defined ("composite") components, React elements may also represent platform-specific ("host") components. For example, `Button` might return a `<div />` from its render method.
+除了 用户自定义("composite") 组件， React 元素也可以表现特定平台 ("host") 组件。例如，`Button` 可能从它的渲染方法中返回一个 `<div />`
 
-If element's `type` property is a string, we are dealing with a host element:
+如果元素的 `type` 属性是字符串，我们将它作为一个宿主元素处理：
 
 ```js
 console.log(<div />);
 // { type: 'div', props: {} }
 ```
 
-There is no user-defined code associated with host elements.
+在宿主元素里没有关联的用户自定义代码。
 
-When the reconciler encounters a host element, it lets the renderer take care of mounting it. For example, React DOM would create a DOM node.
+当 reconciler 遇到一个宿主元素，它使得渲染器注意挂载它。例如，React DOM 将创建一个 DOM 节点.
 
 If the host element has children, the reconciler recursively mounts them following the same algorithm as above. It doesn't matter whether children are host (like `<div><hr /></div>`), composite (like `<div><Button /></div>`), or both.
 
