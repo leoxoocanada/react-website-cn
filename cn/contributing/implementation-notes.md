@@ -275,23 +275,23 @@ rootEl.appendChild(node);
 
 它已经可以运行了，但离 reconciler 的真正实现还很远。缺失的关键部分是对更新的支持。
 
-### Introducing Internal Instances
+### 引入内部实例
 
-The key feature of React is that you can re-render everything, and it won't recreate the DOM or reset the state:
+React 关键的功能是你能重新渲染任何东西，并且它没有重新创建 DOM 或重置状态：
 
 ```js
 ReactDOM.render(<App />, rootEl);
-// Should reuse the existing DOM:
+// 应该重新使用当前的 DOM:
 ReactDOM.render(<App />, rootEl);
 ```
 
-However, our implementation above only knows how to mount the initial tree. It can't perform updates on it because it doesn't store all the necessary information, such as all the `publicInstance`s, or which DOM `node`s correspond to which components.
+然而，我们上面的实现只知道如何挂载初始化的树。它不能执行更新，因为它不会保存所有相关的信息到它的组件，像所有 `公共实例（publicInstance）` 或 DOM `节点（node）` 。
 
-The stack reconciler codebase solves this by making the `mount()` function a method and putting it on a class. There are drawbacks to this approach, and we are going in the opposite direction in the [ongoing rewrite of the reconciler](/react/contributing/codebase-overview.html#fiber-reconciler). Nevertheless this is how it works now.
+stack reconciler 代码库通过使得 `mount()` 运行一个方法到类上面来解决这个问题。这个方案有缺点，我们[正在重写reconciler](/cn/contributing/codebase-overview.md#fiber-reconciler)，尝试用完全不一样的方案来解决。不过这是现在它如何运行的原理。
 
-Instead of separate `mountHost` and `mountComposite` functions, we will create two classes: `DOMComponent` and `CompositeComponent`.
+我们将创建两个类：`DOMComponent` 和 `CompositeComponent`，而不是单独的`mountHost`和`mount Composite`函数。
 
-Both classes have a constructor accepting the `element`, as well as a `mount()` method returning the mounted node. We will replace a top-level `mount()` function with a factory that instantiates the correct class:
+两个类都有一个接受 `element` 的构造函数，以及一个返回已挂载节点的 `mount()` 方法。我们将通过一个实例化正确类的工厂函数来替换顶级的 `mount()` 函数：
 
 ```js
 function instantiateComponent(element) {
@@ -359,15 +359,15 @@ class CompositeComponent {
 }
 ```
 
-This is not much different from our previous `mountComposite()` implementation, but now we can save some information, such as `this.currentElement`, `this.renderedComponent`, and `this.publicInstance`, for use during updates.
+这与我们之前的 `mountComposite()` 实现没有什么不一样，但是现在我们能保存一些信息，像 `this.currentElement`, `this.renderedComponent`, 和 `this.publicInstance`, 以用来给两者更新。
 
-Note that an instance of `CompositeComponent` is not the same thing as an instance of the user-supplied `element.type`. `CompositeComponent` is an implementation detail of our reconciler, and is never exposed to the user. The user-defined class is the one we read from `element.type`, and `CompositeComponent` creates an instance of it.
+注意 `CompositeComponent` 的实例跟用户提供的 `element.type` 的实例不是同样的东西。 `CompositeComponent` 是一个我们的 reconciler 的实现细节，它不会暴露给用户。用户自定义类是我们从 `element.type` 读取的， `CompositeComponent` 创建一个它的实例。
 
-To avoid the confusion, we will call instances of `CompositeComponent` and `DOMComponent` "internal instances". They exist so we can associate some long-lived data with them. Only the renderer and the reconciler are aware that they exist.
+为了避免这种困惑，我们将调用 `CompositeComponent` 的实例和 `DOMComponent` "内部实例（internal instances）"。因为它们的存在，因此我们能接触到一些长期存在的数据。只有 renderer  和 reconciler 能意识到它们的存在。
 
-In contrast, we call an instance of the user-defined class a "public instance". The public instance is what you see as `this` in the `render()` and other methods of your custom components.
+与此相反，我们调用用户自定义类的公共实例。这个公共实例就是你看到的像 `render()` 里的 `this`，以及定制组件里的其它方法一样。
 
-The `mountHost()` function, refactored to be a `mount()` method on `DOMComponent` class, also looks familiar:
+`mountHost()` 函数，在 `DOMComponent` 类中重构为一个  `mount()` ，这同样看起来很熟悉:
 
 ```js
 class DOMComponent {
@@ -418,9 +418,9 @@ class DOMComponent {
 }
 ```
 
-The main difference after refactoring from `mountHost()` is that we now keep `this.node` and `this.renderedChildren` associated with the internal DOM component instance. We will also use them for applying non-destructive updates in the future.
+从 `mountHost()` 重构后主要的不同在于，我们现在保持 `this.node` 和 `this.renderedChildren` 跟内部的 DOM 组件实例，我们也在将来使用它们来做无损更新. 
 
-As a result, each internal instance, composite or host, now points to its child internal instances. To help visualize this, if a functional `<App>` component renders a `<Button>` class component, and `Button` class renders a `<div>`, the internal instance tree would look like this:
+结果，每个内部实例，composite 或 host，现在指向它的子内部实例。为了帮助更形象的说明这点，如果一个 `<App>` 函数组件渲染一个  `<Button>` 类组件， `Button` 类渲染一个  `<div>`，这个内部实例树将看起来像这样:
 
 ```js
 [object CompositeComponent] {
