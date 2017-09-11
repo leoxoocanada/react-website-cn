@@ -89,17 +89,17 @@ console.log(<App />);
 // { type: App, props: {} }
 ```
 
- reconciler 会检查 `App` 是一个类还是一个函数。
+reconciler 会检查 `App` 是一个类还是一个函数。
 
-If `App` is a function, the reconciler will call `App(props)` to get the rendered element.
+如果 `App` 是一个函数，reconciler 将调用 `App(props)` 来获取已渲染好的元素。
 
-If `App` is a class, the reconciler will instantiate an `App` with `new App(props)`, call the `componentWillMount()` lifecycle method, and then will call the `render()` method to get the rendered element.
+如果 `App` 是一个类，reconciler 将通过 `new App(props)` 实例化一个 `App`，调用 `componentWillMount()` 生命周期方法，然后调用 `render()` 方法来获取已渲染好的元素。
 
-Either way, the reconciler will learn the element `App` "rendered to".
+无论哪种方式，reconciler 将学习 `App` "渲染到的（rendered to）" 的元素。
 
-This process is recursive. `App` may render to a `<Greeting />`, `Greeting` may render to a `<Button />`, and so on. The reconciler will "drill down" through user-defined components recursively as it learns what each component renders to.
+以递归方式处理，`App` 可能渲染一个 `<Greeting />`, `Greeting` 可能渲染一个 `<Button />`，诸如此类。reconciler 将递归下钻到用户自定义组件，因为它会去了解每个组件渲染的内容。
 
-You can imagine this process as a pseudocode:
+你可以将此过程想像为一段伪代码：
 
 ```js
 function isClass(type) {
