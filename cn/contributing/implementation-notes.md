@@ -172,17 +172,17 @@ console.log(<div />);
 
 在宿主元素里没有关联的用户自定义代码。
 
-当 reconciler 遇到一个宿主元素，它使得渲染器注意挂载它。例如，React DOM 将创建一个 DOM 节点.
+当 reconciler 遇到一个宿主元素，它会让渲染器挂载它。例如，React DOM 将创建一个 DOM 节点.
 
-If the host element has children, the reconciler recursively mounts them following the same algorithm as above. It doesn't matter whether children are host (like `<div><hr /></div>`), composite (like `<div><Button /></div>`), or both.
+如果宿主元素有子元素，reconciler 将按照一样的算法递归的挂载它们。不管子节点是宿主 (like `<div><hr /></div>`), 用户自定义 (like `<div><Button /></div>`)或两者都有
 
-The DOM nodes produced by the child components will be appended to the parent DOM node, and recursively, the complete DOM structure will be assembled.
+由子组件生成的 DOM 节点将添加到父 DOM 节点，以递归的方式组装成完整的 DOM 结构。
 
->**Note:**
+>**注意:**
 >
->The reconciler itself is not tied to the DOM. The exact result of mounting (sometimes called "mount image" in the source code) depends on the renderer, and can be a DOM node (React DOM), a string (React DOM Server), or a number representing a native view (React Native).
+>reconciler 本身不会跟 DOM 有关联， 挂载的精确结果取决于渲染器（在源码中有时候被称为"mount image"），可能是一个 DOM 节点 (React DOM), 一个字符串 (React DOM Server), 表示一个 native 视图的数字(React Native).
 
-If we were to extend the code to handle host elements, it would look like this:
+如果我们要扩展代码来操作宿主元素，它将起来像这样：
 
 ```js
 function isClass(type) {
@@ -273,7 +273,7 @@ var node = mount(<App />);
 rootEl.appendChild(node);
 ```
 
-This is working but still far from how the reconciler is really implemented. The key missing ingredient is support for updates.
+它已经可以运行了，但离 reconciler 的真正实现还很远。缺失的关键部分是对更新的支持。
 
 ### Introducing Internal Instances
 
