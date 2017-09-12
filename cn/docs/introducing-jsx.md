@@ -57,7 +57,7 @@
 
 # JSX 介绍
 
-考虑一下这个变量声明：
+看一下这个变量声明：
 
 ```js
 const element = <h1>Hello, world!</h1>;
@@ -99,7 +99,7 @@ ReactDOM.render(
 
 [在 CodePen 尝试](http://codepen.io/gaearon/pen/PGEjdG?editors=0010)
 
-为了便于阅读，我们将 JSX 分割成多行。我们也建议将它们包含在圆括号里，虽然它不是必须的，当我们这么做时可以避免 [自动分号插入](http://stackoverflow.com/q/2846283) 的陷阱。
+为了便于阅读，我们将 JSX 分割成多行。我们也建议将它们包含在圆括号里，虽然它不是必须的，但当我们这么做时可以避免 [自动分号插入](http://stackoverflow.com/q/2846283) 的陷阱。
 
 ### JSX 也是一个表达式
 
@@ -130,7 +130,7 @@ const element = <div tabIndex="0"></div>;
 const element = <img src={user.avatarUrl}></img>;
 ```
 
-在属性中当嵌入 JavaScript 表达式时不要使用双引号包裹花括号，否则 JSX 将它属性当成一个字符串字面量而不是一个表达式，你应该使用双引号 (字符串值) 或花括号 (表达式)其中一个，但两都不能用于同一属性。
+在属性中当嵌入 JavaScript 表达式时不要使用双引号包裹花括号，否则 JSX 会将它的属性当成一个字符串字面量而不是一个表达式，你应该只使用双引号 (字符串值) 或只使用花括号 (表达式)，两都不能用于同一属性。
 
 ### 在 JSX 中指定子元素
 
@@ -151,11 +151,11 @@ const element = (
 );
 ```
 
->**警告:**
+>**提示:**
 >
 >由于 JSX 相比 HTML 更接近于 JavaScript，React DOM 使用驼峰属性命名约定代替 HTML 属性名称。
 >
->例如，在 JSX 中 `class` 变成 [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) ，并且 `tabindex` 变成 [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
+>例如，在 JSX 中 `class` 变成 [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) ，`tabindex` 变成 [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
 ### JSX 防止注入攻击
 
@@ -163,11 +163,11 @@ const element = (
 
 ```js
 const title = response.potentiallyMaliciousInput;
-// This is safe:
+// 这是安全的:
 const element = <h1>{title}</h1>;
 ```
 
-默认情况下，React DOM 在 渲染他们之前会 [转义](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) 任何嵌入 JSX 的值。从而保证用户无法注入任何应用之外的代码。在被渲染之前任何东西都会被转换成字符串。这将帮助你防止 [XSS (跨站脚本)](https://en.wikipedia.org/wiki/Cross-site_scripting) 攻击。
+默认情况下，React DOM 在渲染他们之前会 [转义](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) 任何嵌入 JSX 的值。从而保证用户无法注入任何应用之外的代码。在被渲染之前任何东西都会被转换成字符串。这将帮助你防止 [XSS (跨站脚本)](https://en.wikipedia.org/wiki/Cross-site_scripting) 攻击。
 
 ### JSX 表示对象
 
@@ -204,7 +204,7 @@ const element = {
 };
 ```
 
-这些对象被称作 "React 元素"。你可以把它们想像成为你想在屏幕上显示内容的一种描述。React 读取这些对象，使用它们构建 DOM，并且保持它们的不断更新。
+这些对象被称作 "React 元素"。你可以把它们想像成你想在屏幕上显示内容的一种描述。React 读取这些对象，使用它们构建 DOM，并且保持它们的不断更新。
 
 我们将在下一章节探索如何将 React 元素渲染到 DOM。
 
