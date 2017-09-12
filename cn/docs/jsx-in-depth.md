@@ -95,7 +95,7 @@ React.createElement(
 
 一个 JSX 标签的的开始部分决定了 React 元素的类型。
 
-首大写的 JSX 标签表示一个 React 组件。这些标签会被编译为一个直接引用的命名变量，所以如果你使用 JSX `<Foo />` 表达式， `Foo` 必须在作用域中。
+首字母大写的 JSX 标签表示一个 React 组件。这些标签会被编译为一个直接引用的命名变量，所以如果你使用 JSX `<Foo />` 表达式， `Foo` 必须在作用域中。
 
 ### React 必须在作用域中
 
@@ -133,7 +133,7 @@ function BlueDatePicker() {
 }
 ```
 
-### 用户自定义组件必须首字母大写
+### 用户自定义组件首字母必须大写
 
 当一个元素类型以小写字母开头，它引用一个像 `<div>` 或 `<span>` 这样的内置组件，会给 `React.createElement` 传递 `'div'` 或 `'span'` 字符串。像 `<Foo />` 这样以大写字母开头的类型，会被编译到 `React.createElement(Foo)` ，对应一个在你的 JavaScript 文件中定义或导入的组件。
 
@@ -151,7 +151,7 @@ function hello(props) {
 }
 
 function HelloWorld() {
-  // 错误！React 认为 <hello /> 是一个 HTML 标签，因为它首字母应不是大写的：
+  // 错误！React 认为 <hello /> 是一个 HTML 标签，因为它的首字母不是大写的：
   return <hello toWhat="World" />;
 }
 ```
@@ -238,11 +238,11 @@ function NumberDescriber(props) {
 }
 ```
 
-你能在想着章节中了解有关 [条件渲染](/cn/docs/conditional-rendering.md) 和 [循环](/cn/docs/lists-and-keys.md) 的更多信息.
+你能在相应的章节中了解有关 [条件渲染](/cn/docs/conditional-rendering.md) 和 [循环](/cn/docs/lists-and-keys.md) 的更多信息.
 
 ### 字符串字面量
 
-你能传递一个字符串字面量作为一个属性。这两个 JSX 表达式是等价的：
+你能传递一个字符串字面量作为一个属性。以下两个 JSX 表达式是等价的：
 
 ```js
 <MyComponent message="hello world" />
@@ -250,7 +250,7 @@ function NumberDescriber(props) {
 <MyComponent message={'hello world'} />
 ```
 
-当你传递一个字符串字面量，它的值是未转义的 HTML(HTML-unescaped) 。因此这两个 JSX 表达式是等价的：
+当你传递一个字符串字面量，它的值是未转义的 HTML(HTML-unescaped) 。因此以下两个 JSX 表达式是等价的：
 
 ```js
 <MyComponent message="&lt;3" />
@@ -258,11 +258,11 @@ function NumberDescriber(props) {
 <MyComponent message={'<3'} />
 ```
 
-这种行为通常是不相关的。它在这里提及只是为了完整性。
+这种行为通常是不相关的，只是为了完整性在这里顺便提到。
 
 ### 属性（Props）默认是 "True"
 
-如果你传递一个没有值的属性，它的默认值是 `true` 。这两个 JSX 表达式是等价的：
+如果你传递一个没有值的属性，它的默认值是 `true` 。以下两个 JSX 表达式是等价的：
 
 ```js
 <MyTextBox autocomplete />
@@ -274,7 +274,7 @@ function NumberDescriber(props) {
 
 ### 属性扩展
 
-如果你已经有一个 object 类型的 `props` ，并且你希望在 JSX 中传入，你可以使用 `...` 作为一个扩展操作符传入整个属性对象。这两个表达式是等价的：
+如果你已经有一个 object 类型的 `props` ，并且你希望在 JSX 中传入，你可以使用 `...` 作为一个扩展操作符传入整个属性对象。以下两个表达式是等价的：
 
 ```js{7}
 function App1() {
@@ -337,7 +337,7 @@ JSX会删除每行开头和结尾的空格，并且也会删除空行。邻接�
 </MyContainer>
 ```
 
-你可以混合不同类型的 children(子元素) 在一起使用，所以你可以混用字符串字面量和 JSX children。这是 JSX 与 HTML 另一点相似的地方，因此下面是 HTML 和 JSX 均是有效的：
+你可以混合不同类型的 children(子元素) 在一起使用，所以你可以混用字符串字面量和 JSX children。这是 JSX 与 HTML 另一点相似的地方，因此下面这个在 HTML 和 JSX 均是有效的：
 
 ```html
 <div>
