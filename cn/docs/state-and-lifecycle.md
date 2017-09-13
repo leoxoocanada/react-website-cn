@@ -56,11 +56,11 @@
 
 # State和生命周期
 
-思考 [前面章节](/cn/docs/rendering-elements.md#更新和渲染元素) 中提到的时钟例子。
+回想下 [前面章节](/cn/docs/rendering-elements.md#更新和渲染元素) 中提到的时钟例子。
 
 到目前为止我们只学习了一种更新 UI 的方法。
 
-我们调用 `ReactDOM.render()` 方法改变渲染输出：
+通过调用 `ReactDOM.render()` 方法改变渲染输出：
 
 ```js{8-11}
 function tick() {
@@ -378,14 +378,14 @@ ReactDOM.render(
 例如，这样将不会重新渲染组件：
 
 ```js
-// Wrong
+// 错误
 this.state.comment = 'Hello';
 ```
 
 相反要使用 `setState()`:
 
 ```js
-// Correct
+// 正确
 this.setState({comment: 'Hello'});
 ```
 
@@ -400,7 +400,7 @@ React 为了优化性能可能会将多个 `setState()` 调用合并为一次更
 例如，下面的代码更新 counter 可能会失败：
 
 ```js
-// Wrong
+// 错误
 this.setState({
   counter: this.state.counter + this.props.increment,
 });
@@ -409,7 +409,7 @@ this.setState({
 要修复它，使用 `setState()` 第2种格式，接收一个函数而不是对象，这个函数将接收上一个状态作为第一个参数，并且将更新后的 props 值作为第2个参数：
 
 ```js
-// Correct
+// 正确
 this.setState((prevState, props) => ({
   counter: prevState.counter + props.increment
 }));
@@ -515,7 +515,7 @@ ReactDOM.render(
 
 [在 CodePen 中试试](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
-每个 `Clock` 创建它自己的定时顺并且独立更新。
+每个 `Clock` 创建它自己的定时器并且独立更新。
 
 在 React 应用中, 一个组件不管是有状态还是无状态，都被认为是组件的实现细节，随时都可能会改变。你可以在有状态的组件里使用无状态组件， 反之亦然。
 
